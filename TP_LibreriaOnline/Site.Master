@@ -1,0 +1,87 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="TP_LibreriaOnline.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body  id="MasterPageBodyTag" runat="server">
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Agrorobots E-Learning <asp:ContentPlaceHolder ID="TitleContent" runat="server"/>
+                </h1>
+            </div>
+            <div class="loginDisplay">
+<!--                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Pantalla de bienvenida <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+-->
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home"/>
+                        <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
+                            <asp:MenuItem Text="Materias" Value="Materias"/>
+                            <asp:MenuItem Text="Rendir Examen" Value="RendirExamen"/>
+                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Mis clases" Value="MisClases">
+                            <asp:MenuItem Text="Materias" Value="Materias"/>
+                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
+                            <asp:MenuItem Text="Corregir Examen" Value="CorregirExamen"/>
+                            <asp:MenuItem Text="Contenido de Carrera" Value="ContenidoCarrera"/>
+                            <asp:MenuItem Text="Contenido de Materia" Value="ContenidoMateria"/>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Panel administrativo" Value="PanelAdministrativo">
+                            <asp:MenuItem Text="Alumnos" Value="Alumnos"/>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Dirección" Value="Direccion">
+                            <asp:MenuItem Text="Materias" Value="Materias"/>
+                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
+                            <asp:MenuItem Text="Evaluar revisión de Examen" Value="EvaluarRevisionExamen"/>
+                            <asp:MenuItem Text="Nueva Carrera" Value="NuevaCarrera"/>
+                            <asp:MenuItem Text="Revision Carrera" Value="RevisionCarrera"/>
+                            <asp:MenuItem Text="Nueva Materia" Value="NuevaMateria"/>
+                            <asp:MenuItem Text="Revision Materia" Value="RevisionMateria"/>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Carreras" Value="Carreras" />
+                        <asp:MenuItem Text="Novedades" Value="Novedades" />
+                        <asp:MenuItem Text="Servicios" Value="Servicios" />
+                        <asp:MenuItem Text="Contactenos" Value="Contactenos"/>
+                        <asp:MenuItem Text="Menu Admin" Value="MenuAdmin">
+                            <asp:MenuItem Text="Bitacora" Value="Bitacora"></asp:MenuItem>
+                            <asp:MenuItem Text="BackUp & Restore" Value="Backup"></asp:MenuItem>
+                            <asp:MenuItem Text="Help" Value="Help"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Salir" Value="Logout">
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
