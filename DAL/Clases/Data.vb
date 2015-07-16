@@ -11,8 +11,9 @@ Public Class Data
             Try
                 con.Open()
             Catch ex As Exception
-                EventLog.WriteEntry("Agrorobots", ex.Message)
-                Throw New ArgumentException("90001")
+                'EventLog.WriteEntry("Agrorobots", ex.Message)
+                'Throw New ArgumentException("90001")
+                Throw ex
             End Try
         End If
 

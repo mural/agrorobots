@@ -32,13 +32,13 @@ Partial Public Class Principal
     Protected WithEvents TBX_NombreUsuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''TBX_Contraseña control.
+    '''TBX_Clave control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TBX_Contraseña As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TBX_Clave As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Submit control.
@@ -57,6 +57,15 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Datos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Datos As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''OlvidoClave control.

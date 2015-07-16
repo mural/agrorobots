@@ -11,16 +11,15 @@ Public Class Principal
 
     Shared User_logueado As String
     Dim mis_Parametros As New List(Of Parameter)
-    Shared conexion As New SqlConnection("Data Source=.\;Initial Catalog=agrorobots;Integrated Security=True")
 
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Submit.Click
         usuario.UserName = TBX_NombreUsuario.Text
-        usuario.Password = TBX_Contraseña.Text
+        usuario.Password = TBX_Clave.Text
 
-        If usuario.UserName.Contains("lumno") Then
+        If usuario.UserName.Contains("alumno") Then
             usuario.Alumno = True
         End If
-        If usuario.UserName.Contains("prof") Then
+        If usuario.UserName.Contains("profe") Then
             usuario.Profesor = True
         End If
         If usuario.UserName.Contains("empleado") Then
@@ -37,6 +36,7 @@ Public Class Principal
             Resultado.Text = "Intentos de Login superados, contacte al " + mailAdmin
         Catch ex As Exception
             Resultado.Text = "Datos invalidos"
+            Datos.Text = ex.Message + " --- " + ex.StackTrace.ToString()
         End Try
 
     End Sub

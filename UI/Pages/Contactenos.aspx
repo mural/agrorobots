@@ -5,7 +5,7 @@
 
         <p style="font-family:Tahoma; font-size:large">
         Si se quiere contactar con nosotros puede hacer a la siguiente casilla de correo
-        <a href="mailto:info@lamesaredonda.com.ar" >info@lamesaredonda.com.ar</a>
+        <a href="mailto:info@agrorobots.com.ar" >info@agrorobots.com.ar</a>
         
         </p>
 
