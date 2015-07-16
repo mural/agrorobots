@@ -73,6 +73,7 @@ Public Class Usuario_Business
 
             If obj.Intentos >= MAX_TRIES Then
                 obj.Activo = False
+                Me.Modificacion(obj)
                 Throw New IntentosLoginException()
             End If
             returnVal = False
