@@ -13,8 +13,8 @@ Public Class Principal
     Dim mis_Parametros As New List(Of Parameter)
 
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Submit.Click
-        usuario.UserName = TBX_NombreUsuario.Text
-        usuario.Password = TBX_Clave.Text
+        usuario.UserName = username.Text
+        usuario.Password = password.Text
 
         If usuario.UserName.Contains("alumno") Then
             usuario.Alumno = True
@@ -31,7 +31,7 @@ Public Class Principal
         Try
             loginBusiness.LogearUsuario(usuario)
             Session.Add("user", usuario)
-            FormsAuthentication.RedirectFromLoginPage(TBX_NombreUsuario.Text, False)
+            FormsAuthentication.RedirectFromLoginPage(username.Text, False)
         Catch inte As IntentosLoginException
             Resultado.Text = "Intentos de Login superados, contacte al " + mailAdmin
         Catch ex As Exception
@@ -43,7 +43,6 @@ Public Class Principal
 
     Protected Sub OlvidoClave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OlvidoClave.Click
         Resultado.Text = "Contacte al " + mailAdmin + " por otra clave"
-
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load

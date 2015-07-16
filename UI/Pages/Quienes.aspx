@@ -4,10 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 <p style="font-size:medium;">
-La Librería La Mesa Redonda, es una Librería, que se dedica a  vender  y promocionar Libros de habla Hispana.
-
-Queremos brindarles la posibilidad de crear un momento único junto a su familia, en donde niños y adultos disfruten por igual de la magia de la lectura.
-De una manera fácil y rápida, podrán acceder a sus libros favoritos sin moverse de su casa. 
+Plataforma E-Learning de Agrorobots.
 </p>
 
 </asp:Content>

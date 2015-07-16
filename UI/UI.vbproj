@@ -141,13 +141,18 @@
     <Content Include="Pages\SeleccionMaterias.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
-    <Content Include="Styles\Login.css" />
+    <Content Include="Styles\fonts\BebasNeue-webfont.svg" />
+    <Content Include="Styles\fonts\Dharma Type Font License.txt" />
+    <Content Include="Styles\fonts\fontomas-webfont.svg" />
+    <Content Include="Styles\fonts\franchise-bold-webfont.svg" />
+    <Content Include="Styles\oldLogin.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\Login.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -456,6 +461,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="web.snk" />
+    <Content Include="Styles\fonts\BebasNeue-webfont.eot" />
+    <Content Include="Styles\fonts\BebasNeue-webfont.ttf" />
+    <Content Include="Styles\fonts\BebasNeue-webfont.woff" />
+    <Content Include="Styles\fonts\fontomas-webfont.eot" />
+    <Content Include="Styles\fonts\fontomas-webfont.ttf" />
+    <Content Include="Styles\fonts\fontomas-webfont.woff" />
+    <Content Include="Styles\fonts\franchise-bold-webfont.eot" />
+    <Content Include="Styles\fonts\franchise-bold-webfont.ttf" />
+    <Content Include="Styles\fonts\franchise-bold-webfont.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

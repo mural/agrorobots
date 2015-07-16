@@ -109,10 +109,12 @@ Public Class Site
             Case "RevisionMateria"
                 Response.Redirect("RevisionMateria.aspx")
 
-            Case "Servicios"
-                Response.Redirect("Bitacora.aspx")
             Case "Contactenos"
                 Response.Redirect("Contactenos.aspx")
+            Case "Bitacora"
+                Response.Redirect("Bitacora.aspx")
+            Case "Backup"
+                Response.Redirect("Backup.aspx")
             Case "Logout"
                 Logout()
         End Select

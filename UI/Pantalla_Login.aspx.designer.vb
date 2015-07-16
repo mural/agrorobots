@@ -14,31 +14,31 @@ Option Explicit On
 Partial Public Class Principal
 
     '''<summary>
-    '''login control.
+    '''loginform control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents login As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''TBX_NombreUsuario control.
+    '''username control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TBX_NombreUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents username As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''TBX_Clave control.
+    '''password control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TBX_Clave As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents password As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Submit control.
@@ -48,6 +48,15 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Submit As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''OlvidoClave control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OlvidoClave As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''Resultado control.
@@ -66,13 +75,4 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Datos As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''OlvidoClave control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents OlvidoClave As Global.System.Web.UI.WebControls.Button
 End Class
