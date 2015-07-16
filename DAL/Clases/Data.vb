@@ -11,7 +11,7 @@ Public Class Data
             Try
                 con.Open()
             Catch ex As Exception
-                EventLog.WriteEntry("Libreria", ex.Message)
+                EventLog.WriteEntry("Agrorobots", ex.Message)
                 Throw New ArgumentException("90001")
             End Try
         End If
@@ -37,7 +37,7 @@ Public Class Data
             Try
                 con.Open()
             Catch ex As Exception
-                EventLog.WriteEntry("Volcan", ex.Message)
+                EventLog.WriteEntry("Agrorobots", ex.Message)
                 Throw New ArgumentException("90001")
             End Try
         End If
@@ -55,7 +55,7 @@ Public Class Data
             Try
                 con.Open()
             Catch ex As Exception
-                EventLog.WriteEntry("Volcan", ex.Message)
+                EventLog.WriteEntry("Agrorobots", ex.Message)
                 Throw New ArgumentException("90001")
             End Try
         End If
@@ -70,7 +70,7 @@ Public Class Data
         Try
             objAdpter.Fill(dataset, table)
         Catch ex As Exception
-            EventLog.WriteEntry("Volcan", ex.Message)
+            EventLog.WriteEntry("Agrorobots", ex.Message)
             Throw New ArgumentException("90002")
         Finally
             command.Connection.Close()

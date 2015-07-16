@@ -17,7 +17,7 @@ Public Class Servicio_BackUp_Data
         Try
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            EventLog.WriteEntry("Libreria", ex.Message)
+            EventLog.WriteEntry("Agrorobots", ex.Message)
             Throw New ArgumentException("90005")
         Finally
             con.Close()
@@ -33,9 +33,9 @@ Public Class Servicio_BackUp_Data
         Dim con As SqlConnection = Connection.GetObjConnextionMaster
         Dim cmd As SqlCommand
         Dim query As String = ""
-        query += "ALTER DATABASE libreria SET OFFLINE WITH ROLLBACK IMMEDIATE;"
-        query += "ALTER DATABASE libreria SET ONLINE;"
-        query += "RESTORE DATABASE [libreria] FROM  DISK = N'" & pathSource & "' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10"
+        query += "ALTER DATABASE agrorobots SET OFFLINE WITH ROLLBACK IMMEDIATE;"
+        query += "ALTER DATABASE agrorobots SET ONLINE;"
+        query += "RESTORE DATABASE [agrorobots] FROM  DISK = N'" & pathSource & "' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10"
 
         cmd = Data.GetCommandTypeText(query, con)
         Try
@@ -59,7 +59,7 @@ Public Class Servicio_BackUp_Data
         Dim con As SqlConnection = Connection.GetObjConnextionMaster
         Dim cmd As SqlCommand
         Dim query As String = ""
-        query += "RESTORE DATABASE libreria FROM  DISK = '" & pathSource & "' WITH MOVE 'GAT2012' TO 'C:\libreria.mdf', MOVE 'GAT2012_log' TO 'C:\libreria_log.ldf'"
+        query += "RESTORE DATABASE agrorobots FROM  DISK = '" & pathSource & "' WITH MOVE 'GAT2012' TO 'C:\agrorobots.mdf', MOVE 'GAT2012_log' TO 'C:\agrorobots_log.ldf'"
 
         cmd = Data.GetCommandTypeText(query, con)
         Try

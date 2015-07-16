@@ -21,7 +21,7 @@ Public Class Producto_Data
         Try
             DT = Data.GetDataSet(cmd, "Productos").Tables(0)
         Catch ex As Exception
-            Throw ex
+            'Throw ex
         End Try
 
         Dim lst As New List(Of Producto)

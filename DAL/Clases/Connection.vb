@@ -29,7 +29,7 @@ Public Class Connection
         Try
             Dim connection As ConnectionStringSettings
             If master = False Then
-                connection = ConfigurationManager.ConnectionStrings("libreria")
+                connection = ConfigurationManager.ConnectionStrings("agrorobots")
             Else
                 connection = ConfigurationManager.ConnectionStrings("master")
             End If
@@ -37,7 +37,7 @@ Public Class Connection
             Dim builder As New SqlConnectionStringBuilder(connection.ConnectionString)
             Return builder.ConnectionString
         Catch ex As Exception
-            EventLog.WriteEntry("Libreria", ex.Message)
+            EventLog.WriteEntry("Agrorobots", ex.Message)
         End Try
 
     End Function

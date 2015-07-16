@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{2D2BFA63-3F32-4A2B-AFB2-AC9E86391E5D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Agorobots</RootNamespace>
+    <AssemblyName>Agorobots</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Agorobots.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Agorobots.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Imagenes\arrow.png" />
+    <Content Include="Imagenes\buscar.gif" />
+    <Content Include="Imagenes\Carrito_de_Compras.gif" />
+    <Content Include="Imagenes\Contactenos.gif" />
+    <Content Include="Imagenes\Fondo_Principal4.jpg" />
+    <Content Include="Imagenes\Fondo_Principal.jpg" />
+    <Content Include="Imagenes\Fondo_Principal2.jpg" />
+    <Content Include="Imagenes\Fondo_Principal3.jpg" />
+    <Content Include="Imagenes\Fondo_Principal5.jpg" />
+    <Content Include="Imagenes\login-sprite.png" />
+    <Content Include="Pages\Alumnos.aspx" />
+    <Content Include="Pages\Backup.aspx" />
+    <Content Include="Pages\Bitacora.aspx" />
+    <Content Include="Pages\CarrerasMaterias.aspx" />
+    <Content Include="Pages\Carrito.aspx" />
+    <Content Include="Pages\Catalogo.aspx" />
+    <Content Include="Pages\Contactenos.aspx" />
+    <Content Include="Pages\CarrerasDetalle.aspx" />
+    <Content Include="Pages\ContenidoCarrera.aspx" />
+    <Content Include="Pages\ContenidoMateria.aspx" />
+    <Content Include="Pages\DetalleExamen.aspx" />
+    <Content Include="Pages\ExamenCorrecion.aspx" />
+    <Content Include="Pages\Examenes.aspx" />
+    <Content Include="Pages\ExamenEvaluacionRevision.aspx" />
+    <Content Include="Pages\ExamenMateria.aspx" />
+    <Content Include="Pages\ExamenResultado.aspx" />
+    <Content Include="Pages\MateriasDetalle.aspx" />
+    <Content Include="Pages\Materias.aspx" />
+    <Content Include="Pages\NuevaCarrera.aspx" />
+    <Content Include="Pages\NuevaMateria.aspx" />
+    <Content Include="Pages\Pago.aspx" />
+    <Content Include="Pages\Quienes.aspx" />
+    <Content Include="Pages\Carreras.aspx" />
+    <Content Include="Pages\RevisionCarrera.aspx" />
+    <Content Include="Pages\RevisionMateria.aspx" />
+    <Content Include="Pages\SeleccionMaterias.aspx" />
+    <Content Include="Pantalla_Login.aspx" />
+    <Content Include="Pages\Pantalla_Principal.aspx" />
+    <Content Include="Styles\Login.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyEncrypter.vb" />
+    <Compile Include="Pages\Alumnos.aspx.designer.vb">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Alumnos.aspx.vb">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Backup.aspx.designer.vb">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Backup.aspx.vb">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bitacora.aspx.designer.vb">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bitacora.aspx.vb">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CarrerasMaterias.aspx.designer.vb">
+      <DependentUpon>CarrerasMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CarrerasMaterias.aspx.vb">
+      <DependentUpon>CarrerasMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Carrito.aspx.designer.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Carrito.aspx.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Catalogo.aspx.designer.vb">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Catalogo.aspx.vb">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contactenos.aspx.designer.vb">
+      <DependentUpon>Contactenos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contactenos.aspx.vb">
+      <DependentUpon>Contactenos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CarrerasDetalle.aspx.designer.vb">
+      <DependentUpon>CarrerasDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CarrerasDetalle.aspx.vb">
+      <DependentUpon>CarrerasDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ContenidoCarrera.aspx.designer.vb">
+      <DependentUpon>ContenidoCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContenidoCarrera.aspx.vb">
+      <DependentUpon>ContenidoCarrera.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ContenidoMateria.aspx.designer.vb">
+      <DependentUpon>ContenidoMateria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContenidoMateria.aspx.vb">
+      <DependentUpon>ContenidoMateria.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\DetalleExamen.aspx.designer.vb">
+      <DependentUpon>DetalleExamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DetalleExamen.aspx.vb">
+      <DependentUpon>DetalleExamen.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExamenCorrecion.aspx.designer.vb">
+      <DependentUpon>ExamenCorrecion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamenCorrecion.aspx.vb">
+      <DependentUpon>ExamenCorrecion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Examenes.aspx.designer.vb">
+      <DependentUpon>Examenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Examenes.aspx.vb">
+      <DependentUpon>Examenes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExamenEvaluacionRevision.aspx.designer.vb">
+      <DependentUpon>ExamenEvaluacionRevision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamenEvaluacionRevision.aspx.vb">
+      <DependentUpon>ExamenEvaluacionRevision.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExamenMateria.aspx.designer.vb">
+      <DependentUpon>ExamenMateria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamenMateria.aspx.vb">
+      <DependentUpon>ExamenMateria.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExamenResultado.aspx.designer.vb">
+      <DependentUpon>ExamenResultado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExamenResultado.aspx.vb">
+      <DependentUpon>ExamenResultado.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MateriasDetalle.aspx.designer.vb">
+      <DependentUpon>MateriasDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MateriasDetalle.aspx.vb">
+      <DependentUpon>MateriasDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Materias.aspx.designer.vb">
+      <DependentUpon>Materias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Materias.aspx.vb">
+      <DependentUpon>Materias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NuevaCarrera.aspx.designer.vb">
+      <DependentUpon>NuevaCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NuevaCarrera.aspx.vb">
+      <DependentUpon>NuevaCarrera.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\NuevaMateria.aspx.designer.vb">
+      <DependentUpon>NuevaMateria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NuevaMateria.aspx.vb">
+      <DependentUpon>NuevaMateria.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Pago.aspx.designer.vb">
+      <DependentUpon>Pago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pago.aspx.vb">
+      <DependentUpon>Pago.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Quienes.aspx.designer.vb">
+      <DependentUpon>Quienes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Quienes.aspx.vb">
+      <DependentUpon>Quienes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Carreras.aspx.designer.vb">
+      <DependentUpon>Carreras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Carreras.aspx.vb">
+      <DependentUpon>Carreras.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RevisionCarrera.aspx.designer.vb">
+      <DependentUpon>RevisionCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RevisionCarrera.aspx.vb">
+      <DependentUpon>RevisionCarrera.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RevisionMateria.aspx.designer.vb">
+      <DependentUpon>RevisionMateria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RevisionMateria.aspx.vb">
+      <DependentUpon>RevisionMateria.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SeleccionMaterias.aspx.designer.vb">
+      <DependentUpon>SeleccionMaterias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SeleccionMaterias.aspx.vb">
+      <DependentUpon>SeleccionMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pantalla_Login.aspx.designer.vb">
+      <DependentUpon>Pantalla_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantalla_Login.aspx.vb">
+      <DependentUpon>Pantalla_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Pantalla_Principal.aspx.designer.vb">
+      <DependentUpon>Pantalla_Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Pantalla_Principal.aspx.vb">
+      <DependentUpon>Pantalla_Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\agrorobots.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <Content Include="Pages\Web.config" />
+    <Content Include="Pages\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Pages\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="web.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="paginas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.vbproj">
+      <Project>{2F403A1F-C41D-47C1-9D20-6BF77FC625BA}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.vbproj">
+      <Project>{BE638FE0-2086-4E4E-815A-81F207F3B764}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>web.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6795</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

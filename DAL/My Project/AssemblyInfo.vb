@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("TD_Volcan_Data")> 
+<Assembly: AssemblyTitle("TD_Agrorobots_Data")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("TD_Volcan_Data")> 
-<Assembly: AssemblyCopyright("Copyright ©  2012")> 
+<Assembly: AssemblyProduct("TD_Agrorobots_Data")> 
+<Assembly: AssemblyCopyright("Copyright ©  2015")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
