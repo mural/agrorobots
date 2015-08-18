@@ -64,10 +64,10 @@
                         <asp:MenuItem Text="Contactenos" Value="Contactenos"/>
                         <asp:MenuItem Text="Menu Admin" Value="MenuAdmin">
                             <asp:MenuItem Text="Bitacora" Value="Bitacora"></asp:MenuItem>
-                            <asp:MenuItem Text="BackUp & Restore" Value="Backup"></asp:MenuItem>
+                            <asp:MenuItem Text="BackUp & Restore" Value="Backup_10002"></asp:MenuItem>
                             <asp:MenuItem Text="Help" Value="Help"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Salir" Value="Logout">
+                        <asp:MenuItem Text="Salir" Value="Logout_503">
                         </asp:MenuItem>
                     </Items>
                 </asp:Menu>

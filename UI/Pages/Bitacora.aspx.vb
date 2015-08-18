@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 Imports Business
 
 Public Class Bitacora
@@ -12,6 +12,7 @@ Public Class Bitacora
         If usuario.Admin = False Then
             Response.Redirect("Pantalla_Principal.aspx")
         End If
+
     End Sub
 
 End Class

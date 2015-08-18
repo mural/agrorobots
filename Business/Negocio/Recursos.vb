@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 Imports DAL
 
 Public Class Recursos

@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("TD_Agrorobots_Data")> 
+<Assembly: AssemblyTitle("DAL")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("TD_Agrorobots_Data")> 
+<Assembly: AssemblyProduct("DAL")> 
 <Assembly: AssemblyCopyright("Copyright ©  2015")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("906be989-2fa5-4194-9844-b1403888915d")> 
+<Assembly: Guid("76af63ef-5302-4811-b1d6-58e00018fd73")> 
 
 ' Version information for an assembly consists of the following four values:
 '

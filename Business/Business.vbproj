@@ -180,13 +180,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.vbproj">
+    <ProjectReference Include="..\MPP\MPP.vbproj">
       <Project>{30C6628D-7259-4E68-88B8-E61AFADBBE77}</Project>
-      <Name>DAL</Name>
+      <Name>MPP</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.vbproj">
+    <ProjectReference Include="..\EE\EE.vbproj">
       <Project>{BE638FE0-2086-4E4E-815A-81F207F3B764}</Project>
-      <Name>DTO</Name>
+      <Name>EE</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,5 +1,5 @@
-﻿Imports DAL
-Imports DTO
+﻿Imports MPP
+Imports EE
 
 Public Class NivelesDebilesStrategy
     Implements NivelesStrategy

@@ -1,9 +1,9 @@
 ﻿Option Explicit On
 Option Strict On
 
-Imports DAL
-Imports DTO
+Imports EE
 Imports System.Transactions
+Imports MPP
 
 Public Class Capacidad_Business
     Public m_Capacidad_Data As Capacidad_Data

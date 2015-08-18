@@ -1,6 +1,6 @@
-﻿Imports DAL
+﻿Imports MPP
 Imports System.Transactions
-Imports DTO
+Imports EE
 
 Public Class Empleado_Business
 
@@ -30,7 +30,7 @@ Public Class Empleado_Business
         Return empleados
     End Function
 
-    Public Function obtenerSegunPerfil(ByRef perfil As DTO.Perfil) As List(Of Empleado)
+    Public Function obtenerSegunPerfil(ByRef perfil As EE.Perfil) As List(Of Empleado)
 
         Dim dataEmpleado As New Empleado_Data
         Dim empleados = dataEmpleado.ObtenerEmpleados

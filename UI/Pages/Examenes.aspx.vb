@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 
 Public Class Examenes
     Inherits System.Web.UI.Page

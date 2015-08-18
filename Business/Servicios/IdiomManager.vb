@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 
 Public Class IdiomManager
     Private Shared _idmManager As IdiomManager
@@ -20,8 +20,8 @@ Public Class IdiomManager
     End Sub
 
     Private Sub New()
-        Me._lstIdiomaControl.Add(New Idioma_Control(0, New Idioma(1, "Español"), "Error al inicializar el sistema, Consulte al Administrador."))
-        Me._lstIdiomaControl.Add(New Idioma_Control(-1, New Idioma(1, "Español"), "El usuario o la contraseña no son correctos."))
+        Me._lstIdiomaControl.Add(New Idioma_Control(1, 0, New Idioma(1, "Español"), "Error al inicializar el sistema, Consulte al Administrador."))
+        Me._lstIdiomaControl.Add(New Idioma_Control(2, -1, New Idioma(1, "Español"), "El usuario o la contraseña no son correctos."))
     End Sub
 
     Public Sub SetIdiom(ByRef idiom As Idioma)
@@ -60,4 +60,11 @@ Public Class IdiomManager
         End If
         Return str
     End Function
+
+    Sub CargarTraduccionesByUsuario(idioma As Idioma)
+        Dim IdiCtrolDinam As New Idioma_Control_Business
+
+        Me._lstIdiomaControl.AddRange(IdiCtrolDinam.GetIdiomsByID(idioma))
+    End Sub
+
 End Class

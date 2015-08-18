@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 Imports Business
 
 Public Class Backup
@@ -8,10 +8,6 @@ Public Class Backup
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        usuario = Session.Item("user")
-        If usuario.Admin = False Then
-            Response.Redirect("Pantalla_Principal.aspx")
-        End If
     End Sub
 
     Protected Sub BackupBtn_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BackupBtn.Click

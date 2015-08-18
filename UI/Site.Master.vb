@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Business
-Imports DTO
+Imports EE
 
 Public Class Site
     Inherits System.Web.UI.MasterPage
@@ -15,6 +15,35 @@ Public Class Site
 
         usuario = Session.Item("user")
         Elegir_Perfil(usuario)
+
+        'validar pagina
+        Dim valido As Boolean = False
+        For Each patente As Patente In usuario.GetOnlyPatentes()
+            If patente.URL.Equals(Request.Url.Segments(2)) Then
+                valido = True
+            End If
+        Next
+        If "Pantalla_Principal.aspx".Equals(Request.Url.Segments(2)) Then
+            valido = True
+        End If
+        If "AbmIdiomas.aspx".Equals(Request.Url.Segments(2)) Then
+            valido = True
+        End If
+        If "AbmTraducciones.aspx".Equals(Request.Url.Segments(2)) Then
+            valido = True
+        End If
+        If Not valido Then
+            Response.Redirect("Pantalla_Principal.aspx")
+        End If
+
+        'idiomas
+        For Each menuItem As MenuItem In NavigationMenu.Items
+            Try
+                menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
+            Catch ex As Exception
+            End Try
+        Next
+
     End Sub
 
     Public Sub Elegir_Perfil(ByRef usuario As Usuario)
@@ -113,7 +142,7 @@ Public Class Site
                 Response.Redirect("Contactenos.aspx")
             Case "Bitacora"
                 Response.Redirect("Bitacora.aspx")
-            Case "Backup"
+            Case "Backup_10002"
                 Response.Redirect("Backup.aspx")
             Case "Logout"
                 Logout()

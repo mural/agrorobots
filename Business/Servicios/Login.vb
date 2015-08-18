@@ -1,6 +1,6 @@
-﻿Imports DTO
+﻿Imports EE
 Imports Business
-Imports DAL
+Imports MPP
 
 Public Class Login
     Public Sub LogearUsuario(ByRef obj As Usuario)
@@ -21,6 +21,7 @@ Public Class Login
 
             Dim compDinam As New Component_Business
             compDinam.ObtenerComponentsOfUser(obj)
+            Bitacora_Business.Logear(Bitacora_Business.LOG_IN_TYPE, Bitacora_Business.LOG_IN_OK, "Test de permisos")
         End If
     End Sub
 End Class

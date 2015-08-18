@@ -1,5 +1,5 @@
-﻿Imports DTO
-Imports DAL
+﻿Imports EE
+Imports MPP
 
 Public Class Evaluaciones
 

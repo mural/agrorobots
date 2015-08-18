@@ -1,8 +1,8 @@
 ﻿Option Explicit On
 Option Strict On
 
-Imports DAL
-Imports DTO
+Imports MPP
+Imports EE
 
 Public Class Component_Business
     Public Sub ObtenerComponents(ByRef obj As Component)

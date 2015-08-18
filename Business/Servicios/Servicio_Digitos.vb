@@ -1,6 +1,6 @@
 ﻿Option Explicit On
 Option Strict On
-Imports DAL
+Imports MPP
 
 'Servicio que usa digitos verificadores verticales y horizontales
 'Para detectar cambios en las tablas de bbdd por fuera del sistema

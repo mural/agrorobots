@@ -113,6 +113,8 @@
     <Content Include="Imagenes\Fondo_Principal3.jpg" />
     <Content Include="Imagenes\Fondo_Principal5.jpg" />
     <Content Include="Imagenes\login-sprite.png" />
+    <Content Include="Pages\AbmIdiomas.aspx" />
+    <Content Include="Pages\AbmTraducciones.aspx" />
     <Content Include="Pages\Alumnos.aspx" />
     <Content Include="Pages\Backup.aspx" />
     <Content Include="Pages\Bitacora.aspx" />
@@ -227,6 +229,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MyEncrypter.vb" />
+    <Compile Include="Pages\AbmIdiomas.aspx.designer.vb">
+      <DependentUpon>AbmIdiomas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmIdiomas.aspx.vb">
+      <DependentUpon>AbmIdiomas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmTraducciones.aspx.designer.vb">
+      <DependentUpon>AbmTraducciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmTraducciones.aspx.vb">
+      <DependentUpon>AbmTraducciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Pages\Alumnos.aspx.designer.vb">
       <DependentUpon>Alumnos.aspx</DependentUpon>
     </Compile>
@@ -483,9 +499,9 @@
       <Project>{2F403A1F-C41D-47C1-9D20-6BF77FC625BA}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.vbproj">
+    <ProjectReference Include="..\EE\EE.vbproj">
       <Project>{BE638FE0-2086-4E4E-815A-81F207F3B764}</Project>
-      <Name>DTO</Name>
+      <Name>EE</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -507,7 +523,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6795</DevelopmentServerPort>
+          <DevelopmentServerPort>15857</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

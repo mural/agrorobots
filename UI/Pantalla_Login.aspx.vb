@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Business
-Imports DTO
+Imports EE
 
 Public Class Principal
     Inherits System.Web.UI.Page
@@ -31,6 +31,7 @@ Public Class Principal
         Try
             loginBusiness.LogearUsuario(usuario)
             Session.Add("user", usuario)
+            IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
             FormsAuthentication.RedirectFromLoginPage(username.Text, False)
         Catch inte As IntentosLoginException
             Resultado.Text = "Intentos de Login superados, contacte al " + mailAdmin

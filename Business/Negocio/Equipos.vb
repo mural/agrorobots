@@ -1,4 +1,4 @@
-﻿Imports DTO
+﻿Imports EE
 
 Public Class Equipos
 
