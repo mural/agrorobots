@@ -26,12 +26,7 @@ Public Class Site
         If "Pantalla_Principal.aspx".Equals(Request.Url.Segments(2)) Then
             valido = True
         End If
-        If "AbmIdiomas.aspx".Equals(Request.Url.Segments(2)) Then
-            valido = True
-        End If
-        If "AbmTraducciones.aspx".Equals(Request.Url.Segments(2)) Then
-            valido = True
-        End If
+
         If Not valido Then
             Response.Redirect("Pantalla_Principal.aspx")
         End If
@@ -39,6 +34,14 @@ Public Class Site
         'idiomas
         For Each menuItem As MenuItem In NavigationMenu.Items
             Try
+                If menuItem.ChildItems.Count > 0 Then
+                    For Each menuChild As MenuItem In menuItem.ChildItems
+                        Try
+                            menuChild.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuChild.Value.Split("_")(1))
+                        Catch ex As Exception
+                        End Try
+                    Next
+                End If
                 menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
             Catch ex As Exception
             End Try
@@ -81,7 +84,7 @@ Public Class Site
                     NavigationMenu.Items.Remove(menuItem)
                 End If
             Else
-                menuItem = NavigationMenu.FindItem("MenuAdmin")
+                menuItem = NavigationMenu.FindItem("MenuAdmin_3007")
                 If menuItem IsNot Nothing Then
                     NavigationMenu.Items.Remove(menuItem)
                 End If
@@ -92,14 +95,15 @@ Public Class Site
     Public Sub Logout()
         FormsAuthentication.SignOut()
         'Bitacora_Business.Logear("Logout", "Logout exitoso", HttpContext.Current.User.Identity.Name)
+        Session.Item("user") = Nothing
         Response.Redirect("/Pantalla_Login.aspx")
     End Sub
 
     Protected Sub NavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles NavigationMenu.MenuItemClick
         Select Case e.Item.Value
-            Case "Home"
+            Case "Home_3001"
                 Response.Redirect("Pantalla_Principal.aspx")
-            Case "Carreras"
+            Case "Carreras_3003"
                 Response.Redirect("Carreras.aspx")
             Case "Materias"
                 Response.Redirect("Materias.aspx")
@@ -140,11 +144,17 @@ Public Class Site
 
             Case "Contactenos"
                 Response.Redirect("Contactenos.aspx")
-            Case "Bitacora"
+
+            Case "Idiomas_10101"
+                Response.Redirect("AbmIdiomas.aspx")
+            Case "Traducciones_10102"
+                Response.Redirect("AbmTraducciones.aspx")
+            Case "Bitacora_10103"
                 Response.Redirect("Bitacora.aspx")
-            Case "Backup_10002"
+            Case "Backup_10104"
                 Response.Redirect("Backup.aspx")
-            Case "Logout"
+
+            Case "Logout_503"
                 Logout()
         End Select
     End Sub

@@ -13,7 +13,7 @@
                         AutoGenerateColumns="false" Font-Names="Arial"
                         Font-Size="11pt" AlternatingRowStyle-BackColor="#C2D69B"
                         HeaderStyle-BackColor="yellow" AllowPaging="true" ShowFooter="true"
-                        OnPageIndexChanging="OnPaging" OnRowEditing="EditCustomer"
+                        OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                         OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
                         PageSize="10">
                         <Columns>
@@ -22,11 +22,8 @@
                                     <asp:Label ID="lblID" runat="server"
                                         Text='<%# Eval("ID")%>'></asp:Label>
                                 </ItemTemplate>
-                                <FooterTemplate>
-                                    <asp:TextBox ID="txtID" Width="40px"
-                                        MaxLength="5" runat="server"></asp:TextBox>
-                                </FooterTemplate>
                             </asp:TemplateField>
+
                             <asp:TemplateField ItemStyle-Width="30px" HeaderText="Idioma ID">
                                 <ItemTemplate>
                                     <asp:Label ID="lblIdiomaID" runat="server"
@@ -37,6 +34,7 @@
                                         MaxLength="5" runat="server"></asp:TextBox>
                                 </FooterTemplate>
                             </asp:TemplateField>
+
                             <asp:TemplateField ItemStyle-Width="100px" HeaderText="Traduccion">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTraduccionName" runat="server"
@@ -47,19 +45,30 @@
                                         Text='<%# Eval("Traduccion")%>'></asp:TextBox>
                                 </EditItemTemplate>
                                 <FooterTemplate>
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtTraduccion" runat="server"></asp:TextBox>
                                 </FooterTemplate>
                             </asp:TemplateField>
+
+                            <asp:TemplateField ItemStyle-Width="100px" HeaderText="Control ID">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblControlName" runat="server"
+                                        Text='<%# Eval("Control_ID")%>'></asp:Label>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    <asp:TextBox ID="txtControl" runat="server"></asp:TextBox>
+                                </FooterTemplate>
+                            </asp:TemplateField>
+
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkRemove" runat="server"
                                         CommandArgument='<%# Eval("ID")%>'
                                         OnClientClick="return confirm('Do you want to delete?')"
-                                        Text="Delete" OnClick="DeleteCustomer"></asp:LinkButton>
+                                        Text="Delete" OnClick="Delete"></asp:LinkButton>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     <asp:Button ID="btnAdd" runat="server" Text="Add"
-                                        OnClick="AddNewCustomer" />
+                                        OnClick="AddNew" />
                                 </FooterTemplate>
                             </asp:TemplateField>
                             <asp:CommandField ShowEditButton="True" />

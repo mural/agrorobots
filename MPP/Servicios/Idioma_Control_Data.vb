@@ -50,7 +50,19 @@ Public Class Idioma_Control_Data
         Return _lst
     End Function
 
-    Sub UpdateIdiomaById(ID As String, Traduccion As String)
+    Public Sub CreateTraduccion(IdiomaID As Integer, Traduccion As String, ControlID As Integer)
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@Idioma_ID", IdiomaID)
+        hdatos.Add("@Traduccion", Traduccion)
+        hdatos.Add("@Control_ID", ControlID)
+
+        oDatos.Escribir("CreateTraduccion", hdatos)
+    End Sub
+
+    Public Sub UpdateIdiomaById(ID As String, Traduccion As String)
         Dim oDatos As New DAL.Datos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
@@ -59,6 +71,16 @@ Public Class Idioma_Control_Data
         hdatos.Add("@Traduccion", Traduccion)
 
         oDatos.Escribir("UpdateTraduccionByID", hdatos)
+    End Sub
+
+    Public Sub DeleteTraduccion(ID As Integer)
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@ID", ID)
+
+        oDatos.Escribir("DeleteTraduccion", hdatos)
     End Sub
 
 End Class ' Idioma_Control_Data

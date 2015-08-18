@@ -33,7 +33,7 @@
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
                     <Items>
-                        <asp:MenuItem Text="Home" Value="Home"/>
+                        <asp:MenuItem Text="Home" Value="Home_3001"/>
                         <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
                             <asp:MenuItem Text="Materias" Value="Materias"/>
                             <asp:MenuItem Text="Rendir Examen" Value="RendirExamen"/>
@@ -58,14 +58,16 @@
                             <asp:MenuItem Text="Nueva Materia" Value="NuevaMateria"/>
                             <asp:MenuItem Text="Revision Materia" Value="RevisionMateria"/>
                         </asp:MenuItem>
-                        <asp:MenuItem Text="Carreras" Value="Carreras" />
-                        <asp:MenuItem Text="Novedades" Value="Novedades" />
-                        <asp:MenuItem Text="Servicios" Value="Servicios" />
-                        <asp:MenuItem Text="Contactenos" Value="Contactenos"/>
-                        <asp:MenuItem Text="Menu Admin" Value="MenuAdmin">
-                            <asp:MenuItem Text="Bitacora" Value="Bitacora"></asp:MenuItem>
-                            <asp:MenuItem Text="BackUp & Restore" Value="Backup_10002"></asp:MenuItem>
-                            <asp:MenuItem Text="Help" Value="Help"></asp:MenuItem>
+                        <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
+                        <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
+                        <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
+                        <asp:MenuItem Text="Contactenos" Value="Contactenos_3006"/>
+                        <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
+                            <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
+                            <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>
+                            <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
+                            <asp:MenuItem Text="BackUp & Restore" Value="Backup_10104"></asp:MenuItem>
+                            <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Salir" Value="Logout_503">
                         </asp:MenuItem>
