@@ -65,6 +65,8 @@
                         <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
                             <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
                             <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>
+                            <asp:MenuItem Text="Abm Permisos" Value="Permisos_10106"></asp:MenuItem>
+                            <asp:MenuItem Text="Abm Usuarios" Value="Usuarios_10107"></asp:MenuItem>
                             <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
                             <asp:MenuItem Text="BackUp & Restore" Value="Backup_10104"></asp:MenuItem>
                             <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>

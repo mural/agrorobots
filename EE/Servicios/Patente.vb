@@ -25,7 +25,7 @@ Public Class Patente
     Public Sub New(ByVal id As Integer, ByVal name As String, ByVal desc As String, ByVal control_Id As Integer, ByVal url As String)
         Me.ID = id
         Me.Name = name
-        Me.Descricion = desc
+        Me.Descripcion = desc
         Me._controId = control_Id
         Me._url = url
     End Sub

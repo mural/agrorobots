@@ -56,7 +56,7 @@ Public Class IdiomManager
             End If
         Next
         If str = "" Then
-            str = "ID invalido"
+            str = "sin traducir!"
         End If
         Return str
     End Function

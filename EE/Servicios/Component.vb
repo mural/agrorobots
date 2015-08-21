@@ -8,7 +8,7 @@ Public MustInherit Class Component
     Private _name As String
     Private _display As String
 
-    Public Property Descricion() As String
+    Public Property Descripcion() As String
         Get
             Return _Desc
         End Get

@@ -114,7 +114,9 @@
     <Content Include="Imagenes\Fondo_Principal5.jpg" />
     <Content Include="Imagenes\login-sprite.png" />
     <Content Include="Pages\AbmIdiomas.aspx" />
+    <Content Include="Pages\AbmPermisos.aspx" />
     <Content Include="Pages\AbmTraducciones.aspx" />
+    <Content Include="Pages\AbmUsuarios.aspx" />
     <Content Include="Pages\Alumnos.aspx" />
     <Content Include="Pages\Backup.aspx" />
     <Content Include="Pages\Bitacora.aspx" />
@@ -236,11 +238,25 @@
       <DependentUpon>AbmIdiomas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\AbmPermisos.aspx.designer.vb">
+      <DependentUpon>AbmPermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmPermisos.aspx.vb">
+      <DependentUpon>AbmPermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\AbmTraducciones.aspx.designer.vb">
       <DependentUpon>AbmTraducciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AbmTraducciones.aspx.vb">
       <DependentUpon>AbmTraducciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmUsuarios.aspx.designer.vb">
+      <DependentUpon>AbmUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmUsuarios.aspx.vb">
+      <DependentUpon>AbmUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Alumnos.aspx.designer.vb">
@@ -382,6 +398,9 @@
     <Compile Include="Pages\NuevaMateria.aspx.vb">
       <DependentUpon>NuevaMateria.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PaginaGenerica.vb">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Pago.aspx.designer.vb">
       <DependentUpon>Pago.aspx</DependentUpon>

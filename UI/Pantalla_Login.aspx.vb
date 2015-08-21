@@ -16,20 +16,9 @@ Public Class Principal
         usuario.UserName = username.Text
         usuario.Password = password.Text
 
-        If usuario.UserName.Contains("alumno") Then
-            usuario.Alumno = True
-        End If
-        If usuario.UserName.Contains("profe") Then
-            usuario.Profesor = True
-        End If
-        If usuario.UserName.Contains("empleado") Then
-            usuario.EmpleadoAdm = True
-        End If
-        If usuario.UserName.Contains("director") Then
-            usuario.Director = True
-        End If
         Try
             loginBusiness.LogearUsuario(usuario)
+
             Session.Add("user", usuario)
             IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
             FormsAuthentication.RedirectFromLoginPage(username.Text, False)
@@ -48,6 +37,9 @@ Public Class Principal
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         'administrador.
-
+        Dim usuario = Session.Item("user")
+        If Not usuario Is Nothing Then
+            FormsAuthentication.RedirectFromLoginPage(username.Text, False)
+        End If
     End Sub
 End Class

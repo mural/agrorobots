@@ -17,7 +17,7 @@ Public Class Familia_Business
 
     Public Sub Consulta(ByRef obj As Familia)
         Dim comp As New Component_Business
-        comp.ObtenerComponents(DirectCast(obj, Component))
+        comp.ObtenerPermisosDeFamilia(DirectCast(obj, Component))
 
     End Sub
 

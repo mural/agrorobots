@@ -5,9 +5,8 @@ Imports EE
 Public Class Site
     Inherits System.Web.UI.MasterPage
 
-
     Dim login As New Business.Login
-    Dim usuario As Usuario
+    Public usuario As Usuario
 
     Dim menuItem As MenuItem
 
@@ -32,6 +31,7 @@ Public Class Site
         End If
 
         'idiomas
+        ''menu
         For Each menuItem As MenuItem In NavigationMenu.Items
             Try
                 If menuItem.ChildItems.Count > 0 Then
@@ -46,6 +46,7 @@ Public Class Site
             Catch ex As Exception
             End Try
         Next
+
 
     End Sub
 
@@ -153,6 +154,10 @@ Public Class Site
                 Response.Redirect("Bitacora.aspx")
             Case "Backup_10104"
                 Response.Redirect("Backup.aspx")
+            Case "Permisos_10106"
+                Response.Redirect("AbmPermisos.aspx")
+            Case "Usuarios_10107"
+                Response.Redirect("AbmUsuarios.aspx")
 
             Case "Logout_503"
                 Logout()

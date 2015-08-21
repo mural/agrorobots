@@ -5,7 +5,7 @@ Imports MPP
 Imports EE
 
 Public Class Component_Business
-    Public Sub ObtenerComponents(ByRef obj As Component)
+    Public Sub ObtenerPermisosDeFamilia(ByRef obj As Component)
         Dim compData As New Component_Data
         compData.ObtenerComponents(obj)
     End Sub
@@ -16,8 +16,14 @@ Public Class Component_Business
         compData = Nothing
     End Sub
 
-    Public Function ObtenerAllComponentes() As System.Collections.Generic.List(Of Component)
+    Public Function ObtenerPatentes() As System.Collections.Generic.List(Of Patente)
         Dim compData As New Component_Data
-        Return compData.ObtenerAllComponentes()
+        Dim patentes As New List(Of Patente)
+        For Each componente As Component In compData.ObtenerAllComponentes()
+            If TypeOf componente Is Patente Then
+                patentes.Add(CType(componente, Patente))
+            End If
+        Next
+        Return patentes
     End Function
 End Class

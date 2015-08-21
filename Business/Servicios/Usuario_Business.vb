@@ -41,9 +41,9 @@ Public Class Usuario_Business
         Return datUser.ObtenerUsuarios()
     End Function
 
-    Private Function Validar(ByVal obj As Usuario) As Boolean
-        Validar = False
-    End Function
+    'Private Function Validar(ByVal obj As Usuario) As Boolean
+    '    Validar = False
+    'End Function
 
     Public Function ValidarLogUser(ByRef obj As Usuario) As Boolean
         Dim returnVal As Boolean = False

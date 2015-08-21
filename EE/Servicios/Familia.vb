@@ -14,16 +14,21 @@ Public Class Familia
         Me._comps.Remove(obj)
     End Sub
 
+    Public Sub NuevosPermisos(ByRef permisos As List(Of Component))
+        Me._comps.Clear()
+        Me._comps.AddRange(permisos)
+    End Sub
+
     Public Overrides Sub ReturnPatente(ByRef tempList As System.Collections.Generic.List(Of Component))
         For Each obj As Component In Me._comps
             obj.ReturnPatente(tempList)
         Next
     End Sub
 
-    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal desccrition As String)
+    Public Sub New(ByVal id As Integer, ByVal name As String, ByVal descripcion As String)
         Me.ID = id
         Me.Name = name
-        Me.Descricion = desccrition
+        Me.Descripcion = descripcion
     End Sub
 
     Public Function GetComponents() As List(Of Component)
