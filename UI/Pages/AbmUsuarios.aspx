@@ -42,7 +42,7 @@
                         <asp:TemplateField ItemStyle-Width="150px" HeaderText="Idioma">
                             <ItemTemplate>
                                 <asp:Label ID="lblDescripcion1" runat="server"
-                                    Text='<%# Eval("Idioma")%>'></asp:Label>
+                                    Text='<%# Eval("Idioma.ID")%>'></asp:Label>
                             </ItemTemplate>
                             <ItemStyle Width="100px" />
                         </asp:TemplateField>

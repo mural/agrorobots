@@ -16,8 +16,8 @@ Public Class AbmUsuario
     End Sub
 
     Protected Overrides Sub TraducirCustomizado()
-        Dim cfedit As CommandField = DirectCast(GridView1.Columns(3), CommandField)
-        cfedit.SelectText = IdiomManager.GetIdiomManager.GetTranslationById(801)
+        'Dim cfedit As CommandField = DirectCast(GridView1.Columns(3), CommandField)
+        'cfedit.SelectText = IdiomManager.GetIdiomManager.GetTranslationById(801)
     End Sub
 
     Private Sub CargarUsuarios()
