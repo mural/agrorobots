@@ -10,12 +10,27 @@ Public Class Usuario_Business
 
     Dim MAX_TRIES As Integer = 3
 
+    Function CambiarPassword(ByVal userID As Integer, ByVal password As String) As Boolean
+        Dim datUser As New Usuario_Data
+        If password = "" Then
+            Throw New EmptyDataException
+        End If
+
+        Dim encrypter As MyEncrypter = MyEncrypter.GetMyEncripter
+        password = encrypter.GetHash(password)
+
+        Return datUser.CambiarPassword(userID, password)
+    End Function
+
     Public Sub Alta(ByRef obj As Usuario)
         Dim datUser As New Usuario_Data
         obj.SetLanguage(New Idioma(1, ""))
         If obj.Password = "" Then
             Throw New EmptyDataException
         End If
+
+        Dim encrypter As MyEncrypter = MyEncrypter.GetMyEncripter
+        obj.Password = encrypter.GetHash(obj.Password)
 
         datUser.Alta(obj)
 

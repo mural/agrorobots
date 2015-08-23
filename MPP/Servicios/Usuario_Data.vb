@@ -5,6 +5,18 @@ Imports EE
 Imports DAL
 
 Public Class Usuario_Data
+
+    Function CambiarPassword(ByVal userID As Integer, ByVal password As String) As Boolean
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@ID", userID)
+        hdatos.Add("@Password", password)
+
+        Return oDatos.Escribir("UpdateUserPassword", hdatos)
+    End Function
+
     Public Sub Alta(ByRef obj As Usuario)
         Dim con As SqlClient.SqlConnection = Connection.GetObjConnextion
         Dim cmd As SqlClient.SqlCommand
@@ -124,7 +136,6 @@ Public Class Usuario_Data
         params.SetStringParameter("@Apellido", obj.Apellido)
         params.SetIntParameter("@Idioma_ID", obj.Idioma.ID)
         params.SetStringParameter("@Nombre", obj.Nombre)
-        params.SetStringParameter("@Password", obj.Password)
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetIntParameter("@Intentos", obj.Intentos)
 
@@ -188,8 +199,6 @@ Public Class Usuario_Data
         Catch ex As Exception
             Throw New ArgumentException("90009")
         End Try
-
-
     End Sub
 
     Public Function ObtenerUsuarios() As List(Of Usuario)

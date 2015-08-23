@@ -71,6 +71,7 @@
                                         OnClick="AddNew" />
                                 </FooterTemplate>
                             </asp:TemplateField>
+
                             <asp:CommandField ShowEditButton="True" />
                         </Columns>
                         <AlternatingRowStyle BackColor="#C2D69B" />

@@ -103,6 +103,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\buscar.gif" />
     <Content Include="Imagenes\Carrito_de_Compras.gif" />

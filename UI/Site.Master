@@ -3,23 +3,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body  id="MasterPageBodyTag" runat="server">
-    <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    Agrorobots E-Learning <asp:ContentPlaceHolder ID="TitleContent" runat="server"/>
-                </h1>
-            </div>
-            <div class="loginDisplay">
-<!--                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+<body id="MasterPageBodyTag" runat="server">
+    <form ID="form1" runat="server">
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>Agrorobots E-Learning
+                        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+                    </h1>
+                </div>
+                <div class="loginDisplay">
+                    <!--                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
                         [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
                     </AnonymousTemplate>
@@ -29,63 +29,61 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
 -->
+                </div>
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
+                        <Items>
+                            <asp:MenuItem Text="Home" Value="Home_3001" />
+                            <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
+                                <asp:MenuItem Text="Materias" Value="Materias" />
+                                <asp:MenuItem Text="Rendir Examen" Value="RendirExamen" />
+                                <asp:MenuItem Text="Examenes" Value="Examenes" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Mis clases" Value="MisClases">
+                                <asp:MenuItem Text="Materias" Value="Materias" />
+                                <asp:MenuItem Text="Examenes" Value="Examenes" />
+                                <asp:MenuItem Text="Corregir Examen" Value="CorregirExamen" />
+                                <asp:MenuItem Text="Contenido de Carrera" Value="ContenidoCarrera" />
+                                <asp:MenuItem Text="Contenido de Materia" Value="ContenidoMateria" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Panel administrativo" Value="PanelAdministrativo">
+                                <asp:MenuItem Text="Alumnos" Value="Alumnos" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Dirección" Value="Direccion">
+                                <asp:MenuItem Text="Materias" Value="Materias" />
+                                <asp:MenuItem Text="Examenes" Value="Examenes" />
+                                <asp:MenuItem Text="Evaluar revisión de Examen" Value="EvaluarRevisionExamen" />
+                                <asp:MenuItem Text="Nueva Carrera" Value="NuevaCarrera" />
+                                <asp:MenuItem Text="Revision Carrera" Value="RevisionCarrera" />
+                                <asp:MenuItem Text="Nueva Materia" Value="NuevaMateria" />
+                                <asp:MenuItem Text="Revision Materia" Value="RevisionMateria" />
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
+                            <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
+                            <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
+                            <asp:MenuItem Text="Contactenos" Value="Contactenos_3006" />
+                            <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
+                                <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Permisos" Value="Permisos_10106"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Usuarios" Value="Usuarios_10107"></asp:MenuItem>
+                                <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
+                                <asp:MenuItem Text="BackUp & Restore" Value="Backup_10104"></asp:MenuItem>
+                                <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Salir" Value="Logout_503"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </div>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
-                    <Items>
-                        <asp:MenuItem Text="Home" Value="Home_3001"/>
-                        <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
-                            <asp:MenuItem Text="Materias" Value="Materias"/>
-                            <asp:MenuItem Text="Rendir Examen" Value="RendirExamen"/>
-                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Mis clases" Value="MisClases">
-                            <asp:MenuItem Text="Materias" Value="Materias"/>
-                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
-                            <asp:MenuItem Text="Corregir Examen" Value="CorregirExamen"/>
-                            <asp:MenuItem Text="Contenido de Carrera" Value="ContenidoCarrera"/>
-                            <asp:MenuItem Text="Contenido de Materia" Value="ContenidoMateria"/>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Panel administrativo" Value="PanelAdministrativo">
-                            <asp:MenuItem Text="Alumnos" Value="Alumnos"/>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Dirección" Value="Direccion">
-                            <asp:MenuItem Text="Materias" Value="Materias"/>
-                            <asp:MenuItem Text="Examenes" Value="Examenes"/>
-                            <asp:MenuItem Text="Evaluar revisión de Examen" Value="EvaluarRevisionExamen"/>
-                            <asp:MenuItem Text="Nueva Carrera" Value="NuevaCarrera"/>
-                            <asp:MenuItem Text="Revision Carrera" Value="RevisionCarrera"/>
-                            <asp:MenuItem Text="Nueva Materia" Value="NuevaMateria"/>
-                            <asp:MenuItem Text="Revision Materia" Value="RevisionMateria"/>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
-                        <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
-                        <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
-                        <asp:MenuItem Text="Contactenos" Value="Contactenos_3006"/>
-                        <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
-                            <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
-                            <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>
-                            <asp:MenuItem Text="Abm Permisos" Value="Permisos_10106"></asp:MenuItem>
-                            <asp:MenuItem Text="Abm Usuarios" Value="Usuarios_10107"></asp:MenuItem>
-                            <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
-                            <asp:MenuItem Text="BackUp & Restore" Value="Backup_10104"></asp:MenuItem>
-                            <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Salir" Value="Logout_503">
-                        </asp:MenuItem>
-                    </Items>
-                </asp:Menu>
+            <div class="main">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <div class="clear">
             </div>
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        <div class="footer">
         </div>
-        <div class="clear">
-        </div>
-    </div>
-    <div class="footer">
-        
-    </div>
     </form>
 </body>
 </html>

@@ -14,6 +14,132 @@ Option Explicit On
 Partial Public Class AbmUsuario
 
     '''<summary>
+    '''lblApellido_21 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblApellido_21 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtApellido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtApellido As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblNombre_22 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNombre_22 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtNombre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblUsername_23 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblUsername_23 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtUsername control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtUsername As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldUser control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldUser As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''lblPassword_27 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPassword_27 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblConfirmPassword_28 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblConfirmPassword_28 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtConfirmPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtConfirmPassword As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldPassword control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldPassword As Global.System.Web.UI.WebControls.CompareValidator
+
+    '''<summary>
+    '''btnCrear_32 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
