@@ -18,7 +18,7 @@ Public Class AbmPermisos
         End If
     End Sub
 
-    Protected Overrides Sub TraducirCustomizado()
+    Protected Overrides Sub TraducirComponentesDinamicos()
         Dim cfedit As CommandField = DirectCast(GridView1.Columns(3), CommandField)
         cfedit.SelectText = IdiomManager.GetIdiomManager.GetTranslationById(801)
     End Sub
