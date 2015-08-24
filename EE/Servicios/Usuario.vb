@@ -72,11 +72,14 @@ Public Class Usuario
         End Set
     End Property
 
-    Public ReadOnly Property Idioma() As Idioma
+    Public Property Idioma() As Idioma
         Get
             Return _Idioma
         End Get
 
+        Set(value As Idioma)
+            _Idioma = value
+        End Set
     End Property
 
     Public Sub SetLanguage(ByVal Value As Idioma)

@@ -9,7 +9,6 @@ Public Class AbmUsuario
     Dim familiaSeleccionada As Integer = 0
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        lblTitulo.Text = IdiomManager.GetIdiomManager.GetTranslationById(10107)
         usuarioSeleccionado = Session("usuarioSeleccionado")
         If Not (Page.IsPostBack) Then
             CargarUsuarios()
@@ -22,7 +21,7 @@ Public Class AbmUsuario
     End Sub
 
     Private Sub CargarUsuarios()
-        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuarios
+        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuarios(True)
         Me.GridView1_.DataBind()
     End Sub
 
@@ -113,6 +112,8 @@ Public Class AbmUsuario
 
             lblMensajes.Text = ""
             ValidacionesGenericas()
+            vldPassword.IsValid = True
+            vldConfirmPassword.IsValid = True
             vldPasswordMatch.IsValid = True
 
             If Page.IsValid Then
@@ -156,7 +157,7 @@ Public Class AbmUsuario
 
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
-        Session("usuarioSeleccionado") = usuario_Business.ObtenerUsuarios.ElementAt(pageFactor + e.NewSelectedIndex)
+        Session("usuarioSeleccionado") = usuario_Business.ObtenerUsuarios(False).ElementAt(pageFactor + e.NewSelectedIndex)
         usuarioSeleccionado = Session("usuarioSeleccionado")
         Me.txtApellido.Text = usuarioSeleccionado.Apellido
         Me.txtNombre.Text = usuarioSeleccionado.Nombre

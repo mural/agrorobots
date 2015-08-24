@@ -19,6 +19,8 @@ Public MustInherit Class PaginaGenerica
 
         stop_time = Now
         elapsed_time = stop_time.Subtract(start_time)
+        Debug.Write("Traducido en: ")
+        Debug.WriteLine(elapsed_time)
     End Sub
 
     Protected MustOverride Sub TraducirComponentesDinamicos()

@@ -40,13 +40,26 @@
     color: red;
 }
 
+.tablaDatos {
+    text-align: center;
+}
+
 .tablaDatosHeader {
     color: white;
     background-color: #3a4f63;
 }
 
+.tablaDatosHeader th {
+    padding: 10px;
+}
+
 .tablaDatosAlternate {
     background-color: #c0c7d0;
+}
+
+.tablaDatosAction {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* DEFAULTS
@@ -75,7 +88,7 @@ a:active {
 
 p {
     margin-bottom: 10px;
-    line-height: 1.6em;
+    line-height: 2em;
 }
 
 
@@ -88,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
     font-variant: small-caps;
     text-transform: none;
     font-weight: 200;
-    margin-bottom: 0px;
+    margin-bottom: 1em;
 }
 
 h1 {

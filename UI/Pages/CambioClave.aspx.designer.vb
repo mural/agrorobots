@@ -11,97 +11,52 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AbmUsuario
+Partial Public Class CambioClave
 
     '''<summary>
-    '''lblTitulo_10107 control.
+    '''lblTitulo_3008 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10107 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_3008 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblApellido_21 control.
+    '''lblPassword_26 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblApellido_21 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblPassword_26 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtApellido control.
+    '''txtPasswordActual control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtApellido As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPasswordActual As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldApellido control.
+    '''vldPasswordActualRequerido control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldApellido As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldPasswordActualRequerido As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''lblNombre_22 control.
+    '''vldPasswordActualCustom control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNombre_22 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtNombre control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''vldNombre control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents vldNombre As Global.System.Web.UI.WebControls.RequiredFieldValidator
-
-    '''<summary>
-    '''lblUsername_23 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblUsername_23 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtUsername control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtUsername As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''vldUser control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents vldUser As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldPasswordActualCustom As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''lblPassword_27 control.
@@ -129,6 +84,15 @@ Partial Public Class AbmUsuario
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents vldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''vldPasswordCustom control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldPasswordCustom As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''lblConfirmPassword_28 control.
@@ -167,15 +131,6 @@ Partial Public Class AbmUsuario
     Protected WithEvents vldPasswordMatch As Global.System.Web.UI.WebControls.CompareValidator
 
     '''<summary>
-    '''btnCrear_32 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''btnActualizar_405 control.
     '''</summary>
     '''<remarks>
@@ -185,15 +140,6 @@ Partial Public Class AbmUsuario
     Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''btnLimpiar_36 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnLimpiar_36 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
     '''lblMensajes control.
     '''</summary>
     '''<remarks>
@@ -201,13 +147,4 @@ Partial Public Class AbmUsuario
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''GridView1_ control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 End Class

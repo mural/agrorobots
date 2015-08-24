@@ -121,6 +121,8 @@
     <Content Include="Pages\Alumnos.aspx" />
     <Content Include="Pages\Backup.aspx" />
     <Content Include="Pages\Bitacora.aspx" />
+    <Content Include="Pages\CambioClave.aspx" />
+    <Content Include="Pages\CambioIdioma.aspx" />
     <Content Include="Pages\CarrerasMaterias.aspx" />
     <Content Include="Pages\Carrito.aspx" />
     <Content Include="Pages\Catalogo.aspx" />
@@ -280,6 +282,20 @@
     <Compile Include="Pages\Bitacora.aspx.vb">
       <DependentUpon>Bitacora.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CambioClave.aspx.designer.vb">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CambioClave.aspx.vb">
+      <DependentUpon>CambioClave.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CambioIdioma.aspx.designer.vb">
+      <DependentUpon>CambioIdioma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CambioIdioma.aspx.vb">
+      <DependentUpon>CambioIdioma.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\CarrerasMaterias.aspx.designer.vb">
       <DependentUpon>CarrerasMaterias.aspx</DependentUpon>
@@ -459,6 +475,7 @@
       <DependentUpon>Pantalla_Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Servicios\PaginasPermitidas.vb" />
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>

@@ -4,7 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
-        <asp:Label ID="lblTitulo" runat="server" Text="titulo"></asp:Label></h2>
+        <asp:Label ID="lblTitulo_10107" runat="server" Text="titulo"></asp:Label>
+    </h2>
     <p>
         <asp:Label ID="lblApellido_21" runat="server" Text="apellido"></asp:Label>
         <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
@@ -34,14 +35,14 @@
         <br />
     </p>
     <div id="dvGrid">
-        <asp:GridView ID="GridView1_" runat="server" Width="550px"
-            AutoGenerateColumns="False" Font-Names="Arial"
-            Font-Size="11pt" HeaderStyle-CssClass="tablaDatosHeader"
+        <asp:GridView ID="GridView1_" runat="server"
+            AutoGenerateColumns="False"
+            HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
             AlternatingRowStyle-CssClass="tablaDatosAlternate" OnPageIndexChanging="OnPaging"
             AllowPaging="True" PageSize="5">
             <AlternatingRowStyle CssClass="tablaDatosAlternate"></AlternatingRowStyle>
             <Columns>
-                <asp:TemplateField ItemStyle-Width="30px" HeaderText="ID">
+                <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>
                         <asp:Label ID="lblID" runat="server"
                             Text='<%# Eval("ID")%>'></asp:Label>
@@ -49,60 +50,53 @@
                     <ItemStyle Width="30px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="40px" HeaderText="Activo">
+                <asp:TemplateField HeaderText="Activo">
                     <ItemTemplate>
                         <asp:Label ID="lblActivo" runat="server"
                             Text='<%# Eval("Activo")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="40px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="Admin">
+                <asp:TemplateField HeaderText="Admin">
                     <ItemTemplate>
                         <asp:Label ID="lblAdmin" runat="server"
                             Text='<%# Eval("Admin")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="Idioma">
+                <asp:TemplateField HeaderText="Idioma">
                     <ItemTemplate>
                         <asp:Label ID="lblIDIdioma" runat="server"
-                            Text='<%# Eval("Idioma.ID")%>'></asp:Label>
+                            Text='<%# Eval("Idioma.Descripcion")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="Apellido_21">
+                <asp:TemplateField HeaderText="Apellido_21">
                     <ItemTemplate>
                         <asp:Label ID="lblApellido" runat="server"
                             Text='<%# Eval("Apellido")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="Nombre_22">
+                <asp:TemplateField HeaderText="Nombre_22">
                     <ItemTemplate>
                         <asp:Label ID="lblNombre" runat="server"
                             Text='<%# Eval("Nombre")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="UserName">
+                <asp:TemplateField HeaderText="UserName">
                     <ItemTemplate>
                         <asp:Label ID="lblUserName" runat="server"
                             Text='<%# Eval("UserName")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField ItemStyle-Width="150px" HeaderText="Intentos">
+                <asp:TemplateField HeaderText="Intentos">
                     <ItemTemplate>
                         <asp:Label ID="lblIntentos" runat="server"
                             Text='<%# Eval("Intentos")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="150px" />
                 </asp:TemplateField>
 
                 <asp:TemplateField>
@@ -110,19 +104,18 @@
                         <asp:LinkButton ID="lnkBorrar_13" runat="server"
                             CommandArgument='<%# Eval("ID")%>'
                             OnClientClick="return confirm('?')"
-                            Text="borrar" OnClick="Delete"></asp:LinkButton>
+                            Text="borrar" OnClick="Delete" CssClass="tablaDatosAction"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkSeleccionar_801" runat="server" CausesValidation="False" 
-                            CommandName="Select" Text="seleccionar"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkSeleccionar_801" runat="server" CausesValidation="False"
+                            CommandName="Select" Text="seleccionar" CssClass="tablaDatosAction"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
 
-            <HeaderStyle CssClass="tablaDatosHeader"></HeaderStyle>
         </asp:GridView>
     </div>
 </asp:Content>

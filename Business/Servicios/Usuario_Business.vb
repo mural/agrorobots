@@ -5,7 +5,6 @@ Imports MPP
 Imports EE
 Imports System.Collections.Generic
 
-
 Public Class Usuario_Business
 
     Dim MAX_TRIES As Integer = 3
@@ -51,9 +50,26 @@ Public Class Usuario_Business
         servicio_DV.CalcularDigitoH("ID=" & CStr(obj.ID), "Usuario")
     End Sub
 
-    Public Function ObtenerUsuarios() As List(Of Usuario)
+    Public Function ObtenerUsuarios(ByVal completarIdioma As Boolean) As List(Of Usuario)
         Dim datUser As New Usuario_Data
-        Return datUser.ObtenerUsuarios()
+        If Not completarIdioma Then
+            Return datUser.ObtenerUsuarios()
+        Else
+            Dim usuarios = datUser.ObtenerUsuarios()
+
+            Dim datIdioma As New Idioma_Data
+            Dim idiomas = datIdioma.ObtenerIdiomas()
+
+            For Each usuario As Usuario In usuarios
+                For Each idioma As Idioma In idiomas
+                    If idioma.ID.Equals(usuario.Idioma.ID) Then
+                        usuario.Idioma = idioma
+                        Exit For
+                    End If
+                Next
+            Next
+            Return usuarios
+        End If
     End Function
 
     'Private Function Validar(ByVal obj As Usuario) As Boolean

@@ -62,6 +62,8 @@
                             <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
                             <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
                             <asp:MenuItem Text="Contactenos" Value="Contactenos_3006" />
+                            <asp:MenuItem Text="Cambio de idioma" Value="Idioma_10006" />
+                            <asp:MenuItem Text="Cambio de clave" Value="Clave_3008" />
                             <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
                                 <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
                                 <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>

@@ -77,7 +77,7 @@ Public Class Pantalla_Principal
         Dim servicio_DV As New Servicio_Digitos
 
         Dim usr As New Usuario_Business
-        Dim users As List(Of Usuario) = usr.ObtenerUsuarios
+        Dim users As List(Of Usuario) = usr.ObtenerUsuarios(False)
         For Each User As Usuario In users
             Try
                 servicio_DV.CalcularDigitoH("ID=" & User.ID, "Usuario")

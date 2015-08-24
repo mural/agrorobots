@@ -22,10 +22,11 @@ Public Class Site
                 valido = True
             End If
         Next
-        If "Pantalla_Principal.aspx".Equals(Request.Url.Segments(2)) Then
-            valido = True
-        End If
-
+        For Each paginaPermitida As String In PaginasPermitidas.GetInstance.GetPaginasPermitidas
+            If paginaPermitida.Equals(Request.Url.Segments(2)) Then
+                valido = True
+            End If
+        Next
         If Not valido Then
             Response.Redirect("Pantalla_Principal.aspx")
         End If
@@ -145,6 +146,10 @@ Public Class Site
 
             Case "Contactenos"
                 Response.Redirect("Contactenos.aspx")
+            Case "Clave_3008"
+                Response.Redirect("CambioClave.aspx")
+            Case "Idioma_10006"
+                Response.Redirect("CambioIdioma.aspx")
 
             Case "Idiomas_10101"
                 Response.Redirect("AbmIdiomas.aspx")
