@@ -59,13 +59,13 @@ Partial Public Class AbmPermisos
     Protected WithEvents UpdatePanel2 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''GridView2 control.
+    '''GridView2_ control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView2 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''btnActualizar_405 control.

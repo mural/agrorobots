@@ -20,8 +20,8 @@ Public Class AbmPermisos
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
-        Dim cfedit As CommandField = DirectCast(GridView1_.Columns(3), CommandField)
-        cfedit.SelectText = IdiomManager.GetIdiomManager.GetTranslationById(801)
+        CargarFamilias()
+        TraducirLoopingControls(Me)
     End Sub
 
     Private Sub CargarFamilias()
@@ -30,22 +30,22 @@ Public Class AbmPermisos
     End Sub
 
     Private Sub CargarPatentes()
-        Me.GridView2.DataSource = component_Business.ObtenerPatentes
-        Me.GridView2.DataBind()
+        Me.GridView2_.DataSource = component_Business.ObtenerPatentes
+        Me.GridView2_.DataBind()
 
         ''CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(familiaSeleccionada))
     End Sub
 
     Private Sub CargarPermisosPorFamilia(ByRef familia As Familia)
         'Limpiar permisos
-        For Each gridViewRow As GridViewRow In Me.GridView2.Rows
+        For Each gridViewRow As GridViewRow In Me.GridView2_.Rows
             DirectCast(gridViewRow.FindControl("cbItem"), CheckBox).Checked = False
         Next
 
         component_Business.ObtenerPermisosDeFamilia(familia)
 
         For Each patente As Patente In familia.GetComponents
-            For Each gridViewRow As GridViewRow In Me.GridView2.Rows
+            For Each gridViewRow As GridViewRow In Me.GridView2_.Rows
                 Dim ID As Integer = DirectCast(gridViewRow.FindControl("lblID"), Label).Text
                 If patente.ID.Equals(ID) Then
                     DirectCast(gridViewRow.FindControl("cbItem"), CheckBox).Checked = True
@@ -104,8 +104,8 @@ Public Class AbmPermisos
     End Sub
 
     Protected Sub OnPaging2(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
-        GridView2.PageIndex = e.NewPageIndex
-        GridView2.DataBind()
+        GridView2_.PageIndex = e.NewPageIndex
+        GridView2_.DataBind()
         CargarPatentes()
         CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
     End Sub
@@ -122,7 +122,7 @@ Public Class AbmPermisos
 
 
     Protected Sub btnActualizar_405_Click(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
-        ''Validar que este seleccionada una familia
+        'Validar que este seleccionada una familia
 
         Dim familiaUpdate = familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada"))
         Dim permisos As New List(Of Component)
@@ -130,7 +130,7 @@ Public Class AbmPermisos
         'Me.GridView2.AllowPaging = False
         'CargarPatentes()
         'CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
-        For Each gridViewRow As GridViewRow In Me.GridView2.Rows
+        For Each gridViewRow As GridViewRow In Me.GridView2_.Rows
             If DirectCast(gridViewRow.FindControl("cbItem"), CheckBox).Checked = True Then
                 Dim ID As Integer = DirectCast(gridViewRow.FindControl("lblID"), Label).Text
                 For Each patente As Patente In component_Business.ObtenerPatentes()

@@ -116,11 +116,14 @@
 
                         <asp:TemplateField ShowHeader="False">
                             <EditItemTemplate>
-                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True" CommandName="Update" Text="actualizar"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
+                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True" 
+                                    CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
+                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False" 
+                                    CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False" CommandName="Edit" Text="editar"></asp:LinkButton>
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False" 
+                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
