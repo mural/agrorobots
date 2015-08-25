@@ -1,8 +1,28 @@
 ﻿Imports EE
 Imports Business
+Imports Business.Idiomas
 
 Public MustInherit Class PaginaGenerica
     Inherits System.Web.UI.Page
+
+    Protected Overrides Sub InitializeCulture()
+        Page.Culture = "es-AR"
+        Page.UICulture = "es"
+    End Sub
+
+    Private _mensajeBorrar As String
+    Public Property MensajeBorrar() As String
+        Get
+            Return _mensajeBorrar
+        End Get
+        Set(ByVal value As String)
+            _mensajeBorrar = value
+        End Set
+    End Property
+
+    Protected Sub Carga(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        MensajeBorrar = IdiomManager.GetIdiomManager().GetTranslationById(80002)
+    End Sub
 
     Protected Sub Inicio(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRenderComplete
         Traducir()

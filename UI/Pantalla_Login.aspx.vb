@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Business
+Imports Business.Idiomas
 Imports EE
 
 Public Class Principal

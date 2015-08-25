@@ -11,7 +11,6 @@
             AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
             AlternatingRowStyle-CssClass="tablaDatosAlternate" CssClass ="tablaDatos"
             AllowPaging="True" PageSize="10">
-            <AlternatingRowStyle CssClass="tablaDatosAlternate"></AlternatingRowStyle>
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>

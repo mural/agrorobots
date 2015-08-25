@@ -1,65 +1,86 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AbmIdiomas.aspx.vb" Inherits="Agorobots.AbmIdiomas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript">
+        var mensajeBorrar = '<%= MensajeBorrar %>';
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>ABM IDIOMAS</h2>
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
-        <div id="dvGrid" style="padding: 10px; width: 550px">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <asp:GridView ID="GridView1" runat="server" Width="550px"
-                        AutoGenerateColumns="false" Font-Names="Arial"
-                        Font-Size="11pt" AlternatingRowStyle-BackColor="#C2D69B"
-                        HeaderStyle-BackColor="yellow" AllowPaging="true" ShowFooter="true"
-                        OnPageIndexChanging="OnPaging" OnRowEditing="EditCustomer"
-                        OnRowUpdating="UpdateCustomer" OnRowCancelingEdit="CancelEdit"
-                        PageSize="10">
-                        <Columns>
-                            <asp:TemplateField ItemStyle-Width="30px" HeaderText="CustomerID">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblCustomerID" runat="server"
-                                        Text='<%# Eval("ID")%>'></asp:Label>
-                                </ItemTemplate>
-                                <FooterTemplate>
-                                    <asp:TextBox ID="txtCustomerID" Width="40px"
-                                        MaxLength="5" runat="server"></asp:TextBox>
-                                </FooterTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField ItemStyle-Width="100px" HeaderText="Name">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblContactName" runat="server"
-                                        Text='<%# Eval("Descripcion")%>'></asp:Label>
-                                </ItemTemplate>
-                                <EditItemTemplate>
-                                    <asp:TextBox ID="txtContactName" runat="server"
-                                        Text='<%# Eval("Descripcion")%>'></asp:TextBox>
-                                </EditItemTemplate>
-                                <FooterTemplate>
-                                    <asp:TextBox ID="txtContactName" runat="server"></asp:TextBox>
-                                </FooterTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkRemove" runat="server"
-                                        CommandArgument='<%# Eval("ID")%>'
-                                        OnClientClick="return confirm('Do you want to delete?')"
-                                        Text="Delete" OnClick="DeleteCustomer"></asp:LinkButton>
-                                </ItemTemplate>
-                                <FooterTemplate>
-                                    <asp:Button ID="btnAdd" runat="server" Text="Add"
-                                        OnClick="AddNewCustomer" />
-                                </FooterTemplate>
-                            </asp:TemplateField>
-                            <asp:CommandField ShowEditButton="True" />
-                        </Columns>
-                        <AlternatingRowStyle BackColor="#C2D69B" />
-                    </asp:GridView>
-                </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="GridView1" />
-                </Triggers>
-            </asp:UpdatePanel>
-        </div>
+    <h2>
+        <asp:Label ID="lblTitulo_10101" runat="server" Text="titulo"></asp:Label>
+    </h2>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="dvGrid">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+
+                <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
+                <br />
+
+                <asp:GridView ID="GridView1_" runat="server"
+                    AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
+                    CssClass="tablaDatos"
+                    AlternatingRowStyle-CssClass="tablaDatosAlternate" AllowPaging="True" ShowFooter="True"
+                    OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
+                    OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit">
+                    <AlternatingRowStyle CssClass="tablaDatosAlternate" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="ID">
+                            <ItemTemplate>
+                                <asp:Label ID="lblIdiomaID" runat="server"
+                                    Text='<%# Eval("ID")%>'></asp:Label>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="txtIdiomaID"
+                                    MaxLength="5" runat="server"></asp:TextBox>
+                            </FooterTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Descripcion_12">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDescripcion" runat="server"
+                                    Text='<%# Eval("Descripcion")%>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                    Text='<%# Eval("Descripcion")%>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                            </FooterTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkRemove_13" runat="server"
+                                    CommandArgument='<%# Eval("ID")%>'
+                                    OnClientClick="return confirm(mensajeBorrar)"
+                                    Text="borrar" OnClick="Delete"></asp:LinkButton>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
+                                    OnClick="AddNew" />
+                            </FooterTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField ShowHeader="False">
+                            <EditItemTemplate>
+                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True" CommandName="Update" Text="actualizar"></asp:LinkButton>
+                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False" CommandName="Edit" Text="editar"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
+                    <HeaderStyle CssClass="tablaDatosHeader" />
+                </asp:GridView>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="GridView1_" />
+            </Triggers>
+        </asp:UpdatePanel>
+    </div>
 </asp:Content>

@@ -28,4 +28,36 @@ Public Class Idioma_Data
 
         Return lstIdiom
     End Function
+
+    Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@ID", idiomaID)
+        hdatos.Add("@Desc", descripcion)
+
+        Return oDatos.Escribir("UpdateIdioma", hdatos)
+    End Function
+
+    Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@IdiomaID", idiomaID)
+        hdatos.Add("@IdiomaDesc", descripcion)
+
+        Return oDatos.Escribir("CreateIdioma", hdatos)
+    End Function
+
+    Function BorrarIdioma(ByVal idiomaID As Integer) As Boolean
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+
+        hdatos.Add("@IdiomaID", idiomaID)
+
+        Return oDatos.Escribir("DeleteIdioma", hdatos)
+    End Function
 End Class

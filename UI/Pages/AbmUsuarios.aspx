@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AbmUsuarios.aspx.vb" Inherits="Agorobots.AbmUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript">
+        var mensajeBorrar = '<%= MensajeBorrar %>';
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
@@ -40,31 +43,29 @@
             HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
             AlternatingRowStyle-CssClass="tablaDatosAlternate" OnPageIndexChanging="OnPaging"
             AllowPaging="True" PageSize="5">
-            <AlternatingRowStyle CssClass="tablaDatosAlternate"></AlternatingRowStyle>
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>
                         <asp:Label ID="lblID" runat="server"
                             Text='<%# Eval("ID")%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle Width="30px" />
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Activo">
+                <asp:TemplateField HeaderText="Activo_19">
                     <ItemTemplate>
                         <asp:Label ID="lblActivo" runat="server"
                             Text='<%# Eval("Activo")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Admin">
+                <asp:TemplateField HeaderText="Admin_20">
                     <ItemTemplate>
                         <asp:Label ID="lblAdmin" runat="server"
                             Text='<%# Eval("Admin")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Idioma">
+                <asp:TemplateField HeaderText="Idioma_30">
                     <ItemTemplate>
                         <asp:Label ID="lblIDIdioma" runat="server"
                             Text='<%# Eval("Idioma.Descripcion")%>'></asp:Label>
@@ -85,14 +86,14 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="UserName">
+                <asp:TemplateField HeaderText="UserName_17">
                     <ItemTemplate>
                         <asp:Label ID="lblUserName" runat="server"
                             Text='<%# Eval("UserName")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Intentos">
+                <asp:TemplateField HeaderText="Intentos_18">
                     <ItemTemplate>
                         <asp:Label ID="lblIntentos" runat="server"
                             Text='<%# Eval("Intentos")%>'></asp:Label>
@@ -103,7 +104,7 @@
                     <ItemTemplate>
                         <asp:LinkButton ID="lnkBorrar_13" runat="server"
                             CommandArgument='<%# Eval("ID")%>'
-                            OnClientClick="return confirm('?')"
+                            OnClientClick="return confirm(mensajeBorrar)"
                             Text="borrar" OnClick="Delete" CssClass="tablaDatosAction"></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>

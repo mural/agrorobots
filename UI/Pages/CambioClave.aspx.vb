@@ -1,4 +1,5 @@
 ﻿Imports Business
+Imports Business.Idiomas
 Imports EE
 
 Public Class CambioClave

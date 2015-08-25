@@ -1,6 +1,7 @@
 ﻿Imports MPP
 Imports System.Transactions
 Imports EE
+Imports Business.Idiomas
 
 Public Class Empleado_Business
 

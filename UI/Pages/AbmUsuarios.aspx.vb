@@ -1,5 +1,6 @@
 ﻿Imports EE
 Imports Business
+Imports Business.Idiomas
 
 Public Class AbmUsuario
     Inherits PaginaGenerica
