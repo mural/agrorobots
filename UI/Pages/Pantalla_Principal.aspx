@@ -4,9 +4,11 @@
     <title>Agrorobots E-Learning</title>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h3>Bienvenido
-            <asp:Label ID="userName" runat="server" Text=""></asp:Label>
-    </h3>
+    <h2>
+        <asp:Label ID="welcome_40" runat="server" Text=""></asp:Label>
+        &nbsp;
+        <asp:Label ID="userName" runat="server" Text=""></asp:Label>
+    </h2>
     <br />
     <asp:Label ID="inconsistencias" runat="server" Text="Label"></asp:Label>
     <br />

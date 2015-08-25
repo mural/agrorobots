@@ -2,7 +2,7 @@
 Imports Business
 
 Public Class Pantalla_Principal
-    Inherits System.Web.UI.Page
+    Inherits PaginaGenerica
 
     Dim usuario As Usuario
 
@@ -38,6 +38,10 @@ Public Class Pantalla_Principal
 
             End If
         End If
+    End Sub
+
+    Protected Overrides Sub TraducirComponentesDinamicos()
+
     End Sub
 
     Public Function ObtenerInconsistencias() As String

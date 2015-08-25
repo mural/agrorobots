@@ -5,7 +5,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>ABM PERMISOS</h2>
+    <h2>
+        <asp:Label ID="lblTitulo_10106" runat="server" Text="titulo"></asp:Label>
+    </h2>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">

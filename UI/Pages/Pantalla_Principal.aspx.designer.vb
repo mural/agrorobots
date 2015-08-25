@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Pantalla_Principal
 
     '''<summary>
+    '''welcome_40 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents welcome_40 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''userName control.
     '''</summary>
     '''<remarks>
