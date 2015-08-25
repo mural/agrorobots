@@ -20,13 +20,13 @@ Public Class AbmPermisos
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
-        Dim cfedit As CommandField = DirectCast(GridView1.Columns(3), CommandField)
+        Dim cfedit As CommandField = DirectCast(GridView1_.Columns(3), CommandField)
         cfedit.SelectText = IdiomManager.GetIdiomManager.GetTranslationById(801)
     End Sub
 
     Private Sub CargarFamilias()
-        Me.GridView1.DataSource = familia_Business.ObtenerFamilias
-        Me.GridView1.DataBind()
+        Me.GridView1_.DataSource = familia_Business.ObtenerFamilias
+        Me.GridView1_.DataBind()
     End Sub
 
     Private Sub CargarPatentes()
@@ -55,36 +55,36 @@ Public Class AbmPermisos
     End Sub
 
     Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs)
-        Dim IdiomaID As String = DirectCast(GridView1.FooterRow _
+        Dim IdiomaID As String = DirectCast(GridView1_.FooterRow _
              .FindControl("txtIdiomaID"), TextBox).Text
-        Dim Traduccion As String = DirectCast(GridView1.FooterRow _
+        Dim Traduccion As String = DirectCast(GridView1_.FooterRow _
                      .FindControl("txtTraduccion"), TextBox).Text
-        Dim ControlID As String = DirectCast(GridView1.FooterRow _
+        Dim ControlID As String = DirectCast(GridView1_.FooterRow _
              .FindControl("txtControl"), TextBox).Text
 
         'familia_Business.CrearTraduccion(IdiomaID, Traduccion, ControlID)
 
-        GridView1.EditIndex = -1
+        GridView1_.EditIndex = -1
         CargarFamilias()
     End Sub
 
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
-        GridView1.EditIndex = e.NewEditIndex
+        GridView1_.EditIndex = e.NewEditIndex
         CargarFamilias()
     End Sub
     Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
-        GridView1.EditIndex = -1
+        GridView1_.EditIndex = -1
         CargarFamilias()
     End Sub
     Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
-        Dim ID As String = DirectCast(GridView1.Rows(e.RowIndex) _
+        Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex) _
                                      .FindControl("lblID"), Label).Text
-        Dim Traduccion As String = DirectCast(GridView1.Rows(e.RowIndex) _
+        Dim Traduccion As String = DirectCast(GridView1_.Rows(e.RowIndex) _
                                      .FindControl("txtTraduccionName"), TextBox).Text
 
         'idioma_Control_Business.UpdateIdiomaById(ID, Traduccion)
 
-        GridView1.EditIndex = -1
+        GridView1_.EditIndex = -1
         CargarFamilias()
     End Sub
 
@@ -93,14 +93,14 @@ Public Class AbmPermisos
 
         'idioma_Control_Business.BorrarTraduccion(lnkRemove.CommandArgument)
 
-        GridView1.EditIndex = -1
+        GridView1_.EditIndex = -1
         CargarFamilias()
     End Sub
 
     Protected Sub OnPaging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
         CargarFamilias()
-        GridView1.PageIndex = e.NewPageIndex
-        GridView1.DataBind()
+        GridView1_.PageIndex = e.NewPageIndex
+        GridView1_.DataBind()
     End Sub
 
     Protected Sub OnPaging2(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
@@ -111,7 +111,7 @@ Public Class AbmPermisos
     End Sub
 
 
-    Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1.SelectedIndexChanging
+    Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Session.Item("familiaSeleccionada") = e.NewSelectedIndex
         CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
 

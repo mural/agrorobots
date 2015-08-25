@@ -32,13 +32,13 @@ Partial Public Class AbmPermisos
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''GridView1 control.
+    '''GridView1_ control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''lblFamiliaActual_403 control.

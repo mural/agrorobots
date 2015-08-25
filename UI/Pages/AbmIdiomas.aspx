@@ -24,7 +24,6 @@
                     AlternatingRowStyle-CssClass="tablaDatosAlternate" AllowPaging="True" ShowFooter="True"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit">
-                    <AlternatingRowStyle CssClass="tablaDatosAlternate" />
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
