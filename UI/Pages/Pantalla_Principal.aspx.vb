@@ -7,11 +7,8 @@ Public Class Pantalla_Principal
     Dim usuario As Usuario
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim name = HttpContext.Current.User.Identity.Name
-        'userName.Text = name
-
         usuario = Session.Item("user")
-        userName.Text = name + " " + usuario.Apellido
+        userName.Text = usuario.Nombre + " " + usuario.Apellido
         inconsistencias.Text = ObtenerInconsistencias()
         If (Not Page.IsPostBack) Then
 

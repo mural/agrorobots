@@ -26,6 +26,7 @@
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="vldPassword" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         <br />
+
         <asp:Label ID="lblConfirmPassword_28" runat="server" Text="confirm pass"></asp:Label>
         <asp:TextBox ID="txtConfirmPassword" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="vldConfirmPassword" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -36,6 +37,7 @@
         &nbsp;<asp:Button ID="btnActualizar_405" runat="server" Text="actualizar" EnableTheming="True" />
         &nbsp;<asp:Button ID="btnLimpiar_36" runat="server" Text="limpiar" />&nbsp;<asp:Label ID="lblMensajes" runat="server" CssClass="formError"></asp:Label>
         <br />
+        <asp:Label ID="notePass_90037" runat="server" Text="*pass ignorado en update"></asp:Label>
     </p>
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"

@@ -22,7 +22,7 @@ Public Class Principal
 
             Session.Add("user", usuario)
             IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
-            FormsAuthentication.RedirectFromLoginPage(username.Text, False)
+            FormsAuthentication.RedirectFromLoginPage(usuario.Apellido, False)
         Catch inte As IntentosLoginException
             Resultado.Text = "Intentos de Login superados, contacte al " + mailAdmin
         Catch ex As Exception

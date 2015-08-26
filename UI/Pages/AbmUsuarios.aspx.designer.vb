@@ -203,6 +203,15 @@ Partial Public Class AbmUsuario
     Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''notePass_90037 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents notePass_90037 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''GridView1_ control.
     '''</summary>
     '''<remarks>
