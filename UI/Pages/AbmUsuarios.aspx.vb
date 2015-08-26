@@ -5,7 +5,7 @@ Imports Business.Idiomas
 Public Class AbmUsuario
     Inherits PaginaGenerica
 
-    Dim usuario_Business As New Usuario_Business
+    Public usuario_Business As New Usuario_Business
     Dim usuarioSeleccionado As Usuario
     Dim familiaSeleccionada As Integer = 0
 

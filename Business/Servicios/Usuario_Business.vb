@@ -7,7 +7,7 @@ Imports System.Collections.Generic
 
 Public Class Usuario_Business
 
-    Dim MAX_TRIES As Integer = 3
+    Public Shared ReadOnly MAX_TRIES As Integer = 3
 
     Function CambiarPassword(ByVal userID As Integer, ByVal password As String) As Boolean
         Dim datUser As New Usuario_Data

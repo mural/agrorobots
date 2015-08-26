@@ -35,10 +35,10 @@ Public Class Usuario
 
     Public Property Apellido() As String
         Get
-            Return _apellido
+            Return _Apellido
         End Get
         Set(ByVal Value As String)
-            _apellido = Value
+            _Apellido = Value
         End Set
     End Property
 
@@ -46,9 +46,11 @@ Public Class Usuario
         Me._Familias.Add(comp)
     End Sub
 
-    Public Function GetFamilias() As List(Of Component)
-        Return Me._Familias
-    End Function
+    Public ReadOnly Property GetFamilias() As List(Of Component)
+        Get
+            Return Me._Familias
+        End Get
+    End Property
 
     Public Function GetOnlyPatentes() As List(Of Component)
         Dim lst As New List(Of Component)

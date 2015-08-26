@@ -53,15 +53,15 @@
 
                 <asp:TemplateField HeaderText="Activo_19">
                     <ItemTemplate>
-                        <asp:Label ID="lblActivo" runat="server"
-                            Text='<%# Eval("Activo")%>'></asp:Label>
+                        <asp:CheckBox ID="cbxActiovo" runat="server" Enabled="False"
+                            Checked='<%# Eval("Activo")%>'></asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Admin_20">
                     <ItemTemplate>
-                        <asp:Label ID="lblAdmin" runat="server"
-                            Text='<%# Eval("Admin")%>'></asp:Label>
+                        <asp:CheckBox ID="cbxAdmin" runat="server" Enabled="False"
+                            Checked='<%# Eval("Admin")%>'></asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -97,6 +97,16 @@
                     <ItemTemplate>
                         <asp:Label ID="lblIntentos" runat="server"
                             Text='<%# Eval("Intentos")%>'></asp:Label>
+                        /
+                        <asp:Label ID="max" runat="server"
+                            Text='<%# usuario_Business.MAX_TRIES%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Familia_9">
+                    <ItemTemplate>
+                        <asp:Label ID="lblFamilia" runat="server"
+                            Text='<%# Eval("GetFamilias(0).Name")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
