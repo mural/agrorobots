@@ -14,13 +14,22 @@ Option Explicit On
 Partial Public Class Backup
 
     '''<summary>
-    '''BackupBtn control.
+    '''BackUp_10002 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents BackupBtn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents BackUp_10002 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''BackupBtn_10104 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BackupBtn_10104 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''BackupText control.
@@ -41,13 +50,22 @@ Partial Public Class Backup
     Protected WithEvents BackupLabel As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RestoreBtn control.
+    '''Restore_33 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RestoreBtn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Restore_33 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''RestoreBtn_33 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RestoreBtn_33 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''RestoreText control.
