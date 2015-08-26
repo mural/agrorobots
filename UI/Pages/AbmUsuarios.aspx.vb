@@ -163,6 +163,9 @@ Public Class AbmUsuario
         Me.txtApellido.Text = usuarioSeleccionado.Apellido
         Me.txtNombre.Text = usuarioSeleccionado.Nombre
         Me.txtUsername.Text = usuarioSeleccionado.UserName
+        Me.cbxActivo.Checked = usuarioSeleccionado.Activo
+        Me.cbxAdmin.Checked = usuarioSeleccionado.Admin
+        Me.lstbFamilia.SelectedValue = usuarioSeleccionado.GetFamilias(0).Name
         Me.txtPassword.Text = "-"
         Me.txtConfirmPassword.Text = "-"
     End Sub

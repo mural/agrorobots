@@ -104,6 +104,60 @@ Partial Public Class AbmUsuario
     Protected WithEvents vldUser As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''lblActivo_19 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblActivo_19 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''cbxActivo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbxActivo As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''lblAdmin_20 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAdmin_20 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''cbxAdmin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbxAdmin As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''lblFamilia_9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFamilia_9 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lstbFamilia control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lstbFamilia As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
     '''lblPassword_27 control.
     '''</summary>
     '''<remarks>

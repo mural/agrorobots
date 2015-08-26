@@ -22,11 +22,24 @@
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="vldUser" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtUsername" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         <br />
+        <asp:Label ID="lblActivo_19" runat="server" Text="activo"></asp:Label>
+        <asp:CheckBox ID="cbxActivo" runat="server" Checked="true"></asp:CheckBox>
+        <br />
+        <asp:Label ID="lblAdmin_20" runat="server" Text="admin"></asp:Label>
+        <asp:CheckBox ID="cbxAdmin" runat="server" Checked="false"></asp:CheckBox>
+        <br />
+        <asp:Label ID="lblFamilia_9" runat="server" Text="familia"></asp:Label>
+        <br />
+        <asp:ListBox ID="lstbFamilia" runat="server">
+            <asp:ListItem Selected="True">Administrador</asp:ListItem>
+            <asp:ListItem>Alumno</asp:ListItem>
+            <asp:ListItem>Profesor</asp:ListItem>
+        </asp:ListBox>
+        <br />
         <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="vldPassword" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         <br />
-
         <asp:Label ID="lblConfirmPassword_28" runat="server" Text="confirm pass"></asp:Label>
         <asp:TextBox ID="txtConfirmPassword" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="vldConfirmPassword" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
