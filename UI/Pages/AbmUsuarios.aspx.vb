@@ -6,6 +6,7 @@ Public Class AbmUsuario
     Inherits PaginaGenerica
 
     Public usuario_Business As New Usuario_Business
+    Dim familia_Business As New Familia_Business
     Dim usuarioSeleccionado As Usuario
     Dim familiaSeleccionada As Integer = 0
 
@@ -13,6 +14,12 @@ Public Class AbmUsuario
         usuarioSeleccionado = Session("usuarioSeleccionado")
         If Not (Page.IsPostBack) Then
             CargarUsuarios()
+
+            lstbFamilia.Items.Clear()
+            For Each familia As Familia In familia_Business.ObtenerFamilias
+                lstbFamilia.Items.Add(familia.Name)
+            Next
+            lstbFamilia.Items(0).Selected = True
         End If
     End Sub
 
@@ -65,8 +72,11 @@ Public Class AbmUsuario
         Dim Apellido = txtApellido.Text
         Dim Nombre = txtNombre.Text
         Dim UserName = txtUsername.Text
+        Dim Activo = cbxActivo.Checked
+        Dim Admin = cbxAdmin.Checked
         Dim Password = txtPassword.Text
         Dim ConfirmPassword = txtConfirmPassword.Text
+        Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
 
         lblMensajes.Text = ""
         ValidacionesGenericas()
@@ -85,7 +95,8 @@ Public Class AbmUsuario
 
         If Page.IsValid Then
             Try
-                Dim nuevoUsuario = New Usuario(True, True, Apellido, 0, Nothing, 0, Nombre, Password, UserName)
+                Dim nuevoUsuario = New Usuario(Activo, Admin, Apellido, 0, Nothing, 0, Nombre, Password, UserName)
+                nuevoUsuario.AddComponent(Familia)
                 usuario_Business.Alta(nuevoUsuario)
 
                 Vaciar()
@@ -108,8 +119,9 @@ Public Class AbmUsuario
             Dim Apellido = txtApellido.Text
             Dim Nombre = txtNombre.Text
             Dim UserName = txtUsername.Text
-            Dim Password = txtPassword.Text
-            Dim ConfirmPassword = txtConfirmPassword.Text
+            Dim Activo = cbxActivo.Checked
+            Dim Admin = cbxAdmin.Checked
+            Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
 
             lblMensajes.Text = ""
             ValidacionesGenericas()
@@ -121,6 +133,10 @@ Public Class AbmUsuario
                 Try
                     usuarioSeleccionado.Apellido = Apellido
                     usuarioSeleccionado.Nombre = Nombre
+                    usuarioSeleccionado.Activo = Activo
+                    usuarioSeleccionado.Admin = Admin
+                    usuarioSeleccionado.RemoveAllComponents()
+                    usuarioSeleccionado.AddComponent(Familia)
                     usuario_Business.Modificacion(usuarioSeleccionado)
 
                     Vaciar()

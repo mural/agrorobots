@@ -44,6 +44,7 @@ Public Class Usuario
 
     Public Sub AddComponent(ByRef comp As Component)
         Me._Familias.Add(comp)
+        Me.PermissionsModified = True
     End Sub
 
     Public ReadOnly Property GetFamilias() As List(Of Component)
