@@ -16,9 +16,7 @@
                 <asp:GridView ID="GridView1_" runat="server"
                     AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
                     CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate"
-                    OnPageIndexChanging="OnPaging">
-                    <AlternatingRowStyle CssClass="tablaDatosAlternate" />
+                    AlternatingRowStyle-CssClass="tablaDatosAlternate">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
@@ -53,6 +51,8 @@
                 <br />
                 <asp:Label ID="lblFamiliaActual_403" runat="server"
                     Text="Familia seleccionada: -"></asp:Label>
+                <asp:Label ID="lblFamiliaSeleccionada" runat="server"
+                    Text="Familia seleccionada: -"></asp:Label>
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
@@ -67,8 +67,7 @@
                 <asp:GridView ID="GridView2_" runat="server"
                     AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
                     CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate"
-                    OnPageIndexChanging="OnPaging2" PageSize="25">
+                    AlternatingRowStyle-CssClass="tablaDatosAlternate">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>

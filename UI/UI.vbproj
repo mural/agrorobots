@@ -146,6 +146,7 @@
     <Content Include="Pages\RevisionCarrera.aspx" />
     <Content Include="Pages\RevisionMateria.aspx" />
     <Content Include="Pages\SeleccionMaterias.aspx" />
+    <Content Include="Pages\SinPermisos.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
     <Content Include="Styles\fonts\BebasNeue-webfont.svg" />
@@ -459,6 +460,13 @@
     </Compile>
     <Compile Include="Pages\SeleccionMaterias.aspx.vb">
       <DependentUpon>SeleccionMaterias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SinPermisos.aspx.designer.vb">
+      <DependentUpon>SinPermisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SinPermisos.aspx.vb">
+      <DependentUpon>SinPermisos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pantalla_Login.aspx.designer.vb">

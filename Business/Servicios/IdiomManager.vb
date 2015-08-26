@@ -58,7 +58,7 @@ Namespace Idiomas
                 End If
             Next
             If str = "" Then
-                str = "sin traducir!"
+                str = "<sin traducir>"
             End If
             Return str
         End Function

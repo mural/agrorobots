@@ -29,7 +29,7 @@ Public Class Site
             End If
         Next
         If Not valido Then
-            Response.Redirect("Pantalla_Principal.aspx")
+            Response.Redirect("SinPermisos.aspx")
         End If
 
         'idiomas
@@ -81,16 +81,31 @@ Public Class Site
                 End If
             End If
 
-            If usuario.Admin = True Then
-                menuItem = NavigationMenu.FindItem("MenuAdvance")
+            menuItem = NavigationMenu.FindItem("MenuAdmin_3007")
+            If usuario.Admin = False Then
+
                 If menuItem IsNot Nothing Then
                     NavigationMenu.Items.Remove(menuItem)
                 End If
             Else
-                menuItem = NavigationMenu.FindItem("MenuAdmin_3007")
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
+                'isAdmin
+                Dim removeMenus = New List(Of MenuItem)
+                For Each subMenu As MenuItem In menuItem.ChildItems
+                    Dim encontrada = False
+                    For Each patente As Patente In usuario.GetOnlyPatentes()
+                        If patente.Name.Equals(subMenu.Value.Split("_")(0)) Then
+                            encontrada = True
+                            Exit For
+                        End If
+                    Next
+                    If Not encontrada Then
+                        removeMenus.Add(subMenu)
+                    End If
+                Next
+
+                For Each menuBorrar In removeMenus
+                    menuItem.ChildItems.Remove(menuBorrar)
+                Next
             End If
         End If
     End Sub
@@ -152,17 +167,17 @@ Public Class Site
             Case "Idioma_10006"
                 Response.Redirect("CambioIdioma.aspx")
 
-            Case "Idiomas_10101"
+            Case "AbmIdiomas_10101"
                 Response.Redirect("AbmIdiomas.aspx")
-            Case "Traducciones_10102"
+            Case "AbmTraducciones_10102"
                 Response.Redirect("AbmTraducciones.aspx")
             Case "Bitacora_10103"
                 Response.Redirect("Bitacora.aspx")
-            Case "Backup_10104"
+            Case "BackUp_10104"
                 Response.Redirect("Backup.aspx")
-            Case "Permisos_10106"
+            Case "AbmPermisos_10106"
                 Response.Redirect("AbmPermisos.aspx")
-            Case "Usuarios_10107"
+            Case "AbmUsuarios_10107"
                 Response.Redirect("AbmUsuarios.aspx")
 
             Case "Logout_503"

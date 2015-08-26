@@ -10,13 +10,26 @@
     </asp:ContentPlaceHolder>
 </head>
 <body id="MasterPageBodyTag" runat="server">
-    <form ID="form1" runat="server">
+    <form id="form1" runat="server">
         <div class="page">
             <div class="header">
                 <div class="title">
                     <h1>Agrorobots E-Learning
                         <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
                     </h1>
+                </div>
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+<%--                        <AnonymousTemplate>
+                            [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
+                        </AnonymousTemplate>--%>
+                        <LoggedInTemplate>
+                            <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>
+                        [<asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton>]
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
                 <div class="clear hideSkiplink">
                     <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
@@ -53,15 +66,14 @@
                             <asp:MenuItem Text="Cambio de idioma" Value="Idioma_10006" />
                             <asp:MenuItem Text="Cambio de clave" Value="Clave_3008" />
                             <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
-                                <asp:MenuItem Text="Abm Idiomas" Value="Idiomas_10101"></asp:MenuItem>
-                                <asp:MenuItem Text="Abm Traducciones" Value="Traducciones_10102"></asp:MenuItem>
-                                <asp:MenuItem Text="Abm Permisos" Value="Permisos_10106"></asp:MenuItem>
-                                <asp:MenuItem Text="Abm Usuarios" Value="Usuarios_10107"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Idiomas" Value="AbmIdiomas_10101"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Traducciones" Value="AbmTraducciones_10102"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Permisos" Value="AbmPermisos_10106"></asp:MenuItem>
+                                <asp:MenuItem Text="Abm Usuarios" Value="AbmUsuarios_10107"></asp:MenuItem>
                                 <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
-                                <asp:MenuItem Text="BackUp & Restore" Value="Backup_10104"></asp:MenuItem>
+                                <asp:MenuItem Text="BackUp & Restore" Value="BackUp_10104"></asp:MenuItem>
                                 <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Salir" Value="Logout_503"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </div>

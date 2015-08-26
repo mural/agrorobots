@@ -72,7 +72,7 @@
                                     Text='<%# Eval("Idioma.ID")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtIdiomaID" Enabled="false"
+                                <asp:TextBox ID="txtIdiomaID" Enabled="false" Visible="False"
                                     MaxLength="5" runat="server"></asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>

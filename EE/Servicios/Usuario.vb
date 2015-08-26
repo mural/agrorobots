@@ -63,6 +63,10 @@ Public Class Usuario
         Me._Familias.Remove(o)
     End Sub
 
+    Public Sub RemoveAllComponents()
+        Me._Familias.Clear()
+    End Sub
+
     Public Property ID() As Integer
         Get
             Return _ID

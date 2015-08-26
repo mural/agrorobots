@@ -59,6 +59,15 @@ Partial Public Class AbmPermisos
     Protected WithEvents lblFamiliaActual_403 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''lblFamiliaSeleccionada control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFamiliaSeleccionada As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''UpdatePanel2 control.
     '''</summary>
     '''<remarks>

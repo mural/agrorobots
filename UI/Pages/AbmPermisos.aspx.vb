@@ -7,6 +7,7 @@ Public Class AbmPermisos
 
     Dim familia_Business As New Familia_Business
     Dim component_Business As New Component_Business
+    Dim usuario_Business As New Usuario_Business
     Dim usuario As Usuario
     Dim familiaSeleccionada As Integer = 0
 
@@ -15,12 +16,17 @@ Public Class AbmPermisos
         familiaSeleccionada = Session.Item("familiaSeleccionada")
         If Not (Page.IsPostBack) Then
             CargarFamilias()
-            CargarPatentes()
         End If
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
         CargarFamilias()
+        If Not (Page.IsPostBack) Then
+            CargarPatentes()
+            CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
+            Me.lblFamiliaSeleccionada.Text = familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")).Name
+        End If
+
         TraducirLoopingControls(Me)
     End Sub
 
@@ -30,10 +36,9 @@ Public Class AbmPermisos
     End Sub
 
     Private Sub CargarPatentes()
-        Me.GridView2_.DataSource = component_Business.ObtenerPatentes
+        Me.GridView2_.DataSource =
+            component_Business.ObtenerPatentesDisponiblesPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")).ID)
         Me.GridView2_.DataBind()
-
-        ''CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(familiaSeleccionada))
     End Sub
 
     Private Sub CargarPermisosPorFamilia(ByRef familia As Familia)
@@ -54,99 +59,40 @@ Public Class AbmPermisos
         Next
     End Sub
 
-    Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs)
-        Dim IdiomaID As String = DirectCast(GridView1_.FooterRow _
-             .FindControl("txtIdiomaID"), TextBox).Text
-        Dim Traduccion As String = DirectCast(GridView1_.FooterRow _
-                     .FindControl("txtTraduccion"), TextBox).Text
-        Dim ControlID As String = DirectCast(GridView1_.FooterRow _
-             .FindControl("txtControl"), TextBox).Text
-
-        'familia_Business.CrearTraduccion(IdiomaID, Traduccion, ControlID)
-
-        GridView1_.EditIndex = -1
-        CargarFamilias()
-    End Sub
-
-    Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
-        GridView1_.EditIndex = e.NewEditIndex
-        CargarFamilias()
-    End Sub
-    Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
-        GridView1_.EditIndex = -1
-        CargarFamilias()
-    End Sub
-    Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
-        Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex) _
-                                     .FindControl("lblID"), Label).Text
-        Dim Traduccion As String = DirectCast(GridView1_.Rows(e.RowIndex) _
-                                     .FindControl("txtTraduccionName"), TextBox).Text
-
-        'idioma_Control_Business.UpdateIdiomaById(ID, Traduccion)
-
-        GridView1_.EditIndex = -1
-        CargarFamilias()
-    End Sub
-
-    Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
-        Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
-
-        'idioma_Control_Business.BorrarTraduccion(lnkRemove.CommandArgument)
-
-        GridView1_.EditIndex = -1
-        CargarFamilias()
-    End Sub
-
-    Protected Sub OnPaging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
-        CargarFamilias()
-        GridView1_.PageIndex = e.NewPageIndex
-        GridView1_.DataBind()
-    End Sub
-
-    Protected Sub OnPaging2(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
-        GridView2_.PageIndex = e.NewPageIndex
-        GridView2_.DataBind()
-        CargarPatentes()
-        CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
-    End Sub
-
-
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Session.Item("familiaSeleccionada") = e.NewSelectedIndex
+
+        CargarPatentes()
         CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
 
-        'Fire this on update panel...
-        Me.lblFamiliaActual_403.Text = "Familia seleccionada: " + familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")).Name
+        Me.lblFamiliaSeleccionada.Text = familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")).Name
 
     End Sub
 
 
     Protected Sub btnActualizar_405_Click(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
-        'Validar que este seleccionada una familia
-
         Dim familiaUpdate = familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada"))
         Dim permisos As New List(Of Component)
 
-        'Me.GridView2.AllowPaging = False
-        'CargarPatentes()
-        'CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
         For Each gridViewRow As GridViewRow In Me.GridView2_.Rows
             If DirectCast(gridViewRow.FindControl("cbItem"), CheckBox).Checked = True Then
                 Dim ID As Integer = DirectCast(gridViewRow.FindControl("lblID"), Label).Text
-                For Each patente As Patente In component_Business.ObtenerPatentes()
+                For Each patente As Patente In component_Business.ObtenerPatentesDisponiblesPorFamilia(familiaUpdate.ID)
                     If patente.ID.Equals(ID) Then
                         permisos.Add(patente)
                     End If
                 Next
             End If
         Next
-        'Me.GridView2.AllowPaging = True
-        'CargarPatentes()
-        'CargarPermisosPorFamilia(familia_Business.ObtenerFamilias(Session.Item("familiaSeleccionada")))
-
         familiaUpdate.NuevosPermisos(permisos)
         familia_Business.Modificacion(familiaUpdate)
 
-        ''Cargar nuevamente los permisos de usuario
+        'Cargar nuevamente los permisos de usuario si tiene el rol (familia) modificado
+        Dim compDinam As New Component_Business
+        compDinam.ObtenerComponentsOfUser(usuario)
+        Session("usuario") = usuario
+
+        'recargar la pagina
+        Response.Redirect(Request.RawUrl)
     End Sub
 End Class
