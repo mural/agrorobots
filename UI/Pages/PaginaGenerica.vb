@@ -20,7 +20,7 @@ Public MustInherit Class PaginaGenerica
         End Set
     End Property
 
-    Protected Sub Carga(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Protected Sub CargaIdiomas(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         MensajeBorrar = IdiomManager.GetIdiomManager().GetTranslationById(80002)
     End Sub
 
@@ -52,7 +52,11 @@ Public MustInherit Class PaginaGenerica
             If Not String.IsNullOrEmpty(frmCtrl.ID) Then
                 If frmCtrl.ID.Contains("_") Then
                     Try
-                        If TypeOf frmCtrl Is Label Then
+                        If TypeOf frmCtrl Is RequiredFieldValidator Then
+                            CType(frmCtrl, RequiredFieldValidator).Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, BaseValidator).ID.Split("_")(1)))
+                        ElseIf TypeOf frmCtrl Is CustomValidator Then
+                            'traduccion manual
+                        ElseIf TypeOf frmCtrl Is Label Then
                             CType(frmCtrl, Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, Label).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is Button Then
                             CType(frmCtrl, Button).Text = IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, Button).ID.Split("_")(1))

@@ -49,9 +49,9 @@
     background-color: #3a4f63;
 }
 
-.tablaDatosHeader th {
-    padding: 10px;
-}
+    .tablaDatosHeader th {
+        padding: 10px;
+    }
 
 .tablaDatosAlternate {
     background-color: #c0c7d0;

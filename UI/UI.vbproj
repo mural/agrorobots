@@ -469,6 +469,7 @@
       <DependentUpon>SinPermisos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Servicios\Validaciones.vb" />
     <Compile Include="Pantalla_Login.aspx.designer.vb">
       <DependentUpon>Pantalla_Login.aspx</DependentUpon>
     </Compile>
@@ -482,6 +483,9 @@
     <Compile Include="Pages\Pantalla_Principal.aspx.vb">
       <DependentUpon>Pantalla_Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\MinLengthValidator.vb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Servicios\PaginasPermitidas.vb" />
     <Compile Include="Site.Master.designer.vb">
@@ -568,7 +572,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4880</DevelopmentServerPort>
+          <DevelopmentServerPort>49216</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

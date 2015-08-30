@@ -32,7 +32,7 @@
                     </asp:LoginView>
                 </div>
                 <div class="clear hideSkiplink">
-                    <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false">
+                    <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false" SkipLinkText="">
                         <Items>
                             <asp:MenuItem Text="Home" Value="Home_3001" />
                             <asp:MenuItem Text="Mi Cursada" Value="MiCursada">

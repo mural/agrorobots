@@ -45,27 +45,12 @@ Public Class AbmUsuario
     End Sub
 
     Private Sub LimpiarValidaciones()
-        vldApellido.IsValid = True
-        vldNombre.IsValid = True
-        vldUser.IsValid = True
-        vldPassword.IsValid = True
-        vldConfirmPassword.IsValid = True
+        vldApellido_21.IsValid = True
+        vldNombre_22.IsValid = True
+        vldUser_23.IsValid = True
+        vldPassword_27.IsValid = True
+        vldConfirmPassword_28.IsValid = True
         vldPasswordMatch.IsValid = True
-    End Sub
-
-    Private Sub ValidacionesGenericas()
-        If Not vldApellido.IsValid Then
-            vldApellido.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016),
-                                         IdiomManager.GetIdiomManager.GetTranslationById(21))
-        End If
-        If Not vldNombre.IsValid Then
-            vldNombre.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016),
-                                         IdiomManager.GetIdiomManager.GetTranslationById(22))
-        End If
-        If Not vldUser.IsValid Then
-            vldUser.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016),
-                                         IdiomManager.GetIdiomManager.GetTranslationById(23))
-        End If
     End Sub
 
     Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs) Handles btnCrear_32.Click
@@ -79,16 +64,7 @@ Public Class AbmUsuario
         Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
 
         lblMensajes.Text = ""
-        ValidacionesGenericas()
 
-        If Not vldPassword.IsValid Then
-            vldPassword.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016),
-                                         IdiomManager.GetIdiomManager.GetTranslationById(27))
-        End If
-        If Not vldConfirmPassword.IsValid Then
-            vldConfirmPassword.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016),
-                                         IdiomManager.GetIdiomManager.GetTranslationById(28))
-        End If
         If Not vldPasswordMatch.IsValid Then
             vldPasswordMatch.Text = IdiomManager.GetIdiomManager.GetTranslationById(90030)
         End If
@@ -111,6 +87,7 @@ Public Class AbmUsuario
 
         GridView1_.EditIndex = -1
         CargarUsuarios()
+        TraducirLoopingControls(Me)
     End Sub
 
     Protected Sub Update(ByVal sender As Object, ByVal e As EventArgs) Handles btnActualizar_405.Click
@@ -124,9 +101,8 @@ Public Class AbmUsuario
             Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
 
             lblMensajes.Text = ""
-            ValidacionesGenericas()
-            vldPassword.IsValid = True
-            vldConfirmPassword.IsValid = True
+            vldPassword_27.IsValid = True
+            vldConfirmPassword_28.IsValid = True
             vldPasswordMatch.IsValid = True
 
             If Page.IsValid Then
@@ -188,5 +164,23 @@ Public Class AbmUsuario
 
     Protected Sub btnLimpiar_36_Click(sender As Object, e As EventArgs) Handles btnLimpiar_36.Click
         Vaciar()
+    End Sub
+
+    Protected Sub cvldApellido_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldApellido_21.ServerValidate
+        Validaciones.MinimaLongitud(args, cvldApellido_21, 2)
+    End Sub
+
+    Protected Sub cvldUser_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldUser_23.ServerValidate
+        If Not Validaciones.MinimaLongitud(args, cvldUser_23, 4) Then
+            Exit Sub
+        End If
+
+    End Sub
+
+    Protected Sub cvldPass_27_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldPass_27.ServerValidate
+        If Not Validaciones.MinimaLongitud(args, cvldPass_27, 4) Then
+            Exit Sub
+        End If
+
     End Sub
 End Class

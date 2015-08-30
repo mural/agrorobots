@@ -112,7 +112,7 @@ Public Class Site
 
     Public Sub Logout()
         FormsAuthentication.SignOut()
-        'Bitacora_Business.Logear("Logout", "Logout exitoso", HttpContext.Current.User.Identity.Name)
+        Bitacora_Business.Logear("Logout", "Logout exitoso", HttpContext.Current.User.Identity.Name)
         Session.Item("user") = Nothing
         Response.Redirect("/Pantalla_Login.aspx")
     End Sub

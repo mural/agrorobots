@@ -41,13 +41,22 @@ Partial Public Class AbmUsuario
     Protected WithEvents txtApellido As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldApellido control.
+    '''vldApellido_21 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldApellido As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldApellido_21 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''cvldApellido_21 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cvldApellido_21 As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''lblNombre_22 control.
@@ -68,13 +77,13 @@ Partial Public Class AbmUsuario
     Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldNombre control.
+    '''vldNombre_22 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldNombre As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldNombre_22 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''lblUsername_23 control.
@@ -95,13 +104,22 @@ Partial Public Class AbmUsuario
     Protected WithEvents txtUsername As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldUser control.
+    '''vldUser_23 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldUser As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldUser_23 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''cvldUser_23 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cvldUser_23 As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''lblActivo_19 control.
@@ -176,13 +194,22 @@ Partial Public Class AbmUsuario
     Protected WithEvents txtPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldPassword control.
+    '''vldPassword_27 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldPassword_27 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''cvldPass_27 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cvldPass_27 As Global.System.Web.UI.WebControls.CustomValidator
 
     '''<summary>
     '''lblConfirmPassword_28 control.
@@ -203,13 +230,13 @@ Partial Public Class AbmUsuario
     Protected WithEvents txtConfirmPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldConfirmPassword control.
+    '''vldConfirmPassword_28 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldConfirmPassword As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldConfirmPassword_28 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''vldPasswordMatch control.
