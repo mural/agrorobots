@@ -50,6 +50,15 @@ Partial Public Class Backup
     Protected WithEvents BackupLabel As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''descargaBackup control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents descargaBackup As Global.System.Web.UI.WebControls.ImageButton
+
+    '''<summary>
     '''Restore_33 control.
     '''</summary>
     '''<remarks>
@@ -75,6 +84,15 @@ Partial Public Class Backup
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RestoreText As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''subirBackup control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents subirBackup As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
     '''RestoreLabel control.

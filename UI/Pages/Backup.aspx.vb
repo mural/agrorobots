@@ -6,18 +6,21 @@ Public Class Backup
 
     Dim usuario As Usuario
     Dim serverPath As String
+    Dim filename As String
+    Dim virtualPath As String
     Dim backupDestination As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         usuario = Session.Item("user")
+        filename = "agrorobots_" & Today.Day.ToString("00") & "-" & Today.Month.ToString("00") & "-" & Today.Year.ToString & ".bak"
+        virtualPath = "~/App_Data/" & filename
         serverPath = Server.MapPath("~/App_Data/")
-        backupDestination = serverPath & "agrorobots_" & Today.Day.ToString("00") & "-" & Today.Month.ToString("00") & "-" & Today.Year.ToString & ".bak"
+        backupDestination = serverPath & filename
 
         BackupText.Text = backupDestination
         BackupText.Enabled = False
 
-        RestoreText.Text = backupDestination
-        RestoreText.Enabled = False
+        ''subirBackup.
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -42,17 +45,29 @@ Public Class Backup
 
     Protected Sub RestoreBtn_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RestoreBtn_33.Click
         Dim path As String = RestoreText.Text
-        If System.IO.File.Exists(path) Then
-            Dim backUper As New Servicio_BackUp
-            Try
-                backUper.RestoreBackUp(path)
+        ''Dim path As String = subirBackup.FileName
 
-                RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90015)
-                Bitacora_Business.Logear("Restore", "Restore realizado", usuario.UserName)
-            Catch ex As Exception
-                RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90006)
-                Bitacora_Business.Logear("Restore", "Error realizando el Restore", usuario.UserName)
-            End Try
-        End If
+        Dim backUper As New Servicio_BackUp
+        Try
+            backUper.RestoreBackUp(path)
+
+            RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90015)
+            Bitacora_Business.Logear("Restore", "Restore realizado", usuario.UserName)
+        Catch ex As Exception
+            RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90006)
+            Bitacora_Business.Logear("Restore", "Error realizando el Restore", usuario.UserName)
+        End Try
+    End Sub
+
+
+    Protected Sub descargaBackup_Click(sender As Object, e As ImageClickEventArgs) Handles descargaBackup.Click
+        Try
+            Response.ContentType = "application/octet-stream"
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + filename)
+            Response.TransmitFile(Server.MapPath(virtualPath))
+            Response.End()
+        Catch
+
+        End Try
     End Sub
 End Class
