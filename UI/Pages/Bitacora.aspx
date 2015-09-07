@@ -14,6 +14,7 @@
                 <asp:GridView ID="GridView1_" runat="server"
                     AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
                     CssClass="tablaDatos" AlternatingRowStyle-CssClass="tablaDatosAlternate"
+                    AllowSorting="True" OnSortCommand="Sort_Grid"
                     AllowPaging="True" OnPageIndexChanging="OnPaging" PageSize="20">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
@@ -23,7 +24,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Usuario_17">
+                        <asp:TemplateField HeaderText="Usuario_17" SortExpression="StringValue">
                             <ItemTemplate>
                                 <asp:Label ID="lblUsuario" runat="server"
                                     Text='<%# Eval("Usuario")%>'></asp:Label>

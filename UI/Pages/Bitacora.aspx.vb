@@ -28,4 +28,19 @@ Public Class Bitacora
         GridView1_.DataBind()
     End Sub
 
+    Sub Sort_Grid(sender As Object, e As DataGridSortCommandEventArgs)
+
+        Dim items = bitacora_Business.GetItemsBitacora
+
+        ' The DataView provides an easy way to sort. Simply set the
+        ' Sort property with the name of the field to sort by.
+        items.Sort()
+
+        ' Re-bind the data source and specify that it should be sorted
+        ' by the field specified in the SortExpression property.
+        GridView1_.DataSource = items
+        GridView1_.DataBind()
+
+    End Sub
+
 End Class
