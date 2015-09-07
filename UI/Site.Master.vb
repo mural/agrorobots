@@ -33,8 +33,8 @@ Public Class Site
         End If
 
         'idiomas
-        ''menu
-        For Each menuItem As MenuItem In NavigationMenu.Items
+        ''menu top
+        For Each menuItem As MenuItem In SideNavigationMenu.Items
             Try
                 If menuItem.ChildItems.Count > 0 Then
                     For Each menuChild As MenuItem In menuItem.ChildItems
@@ -49,64 +49,31 @@ Public Class Site
             End Try
         Next
 
-
+        ''menu lateral
+        For Each menuItem As MenuItem In TopNavigationMenu.Items
+            Try
+                If menuItem.ChildItems.Count > 0 Then
+                    For Each menuChild As MenuItem In menuItem.ChildItems
+                        Try
+                            menuChild.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuChild.Value.Split("_")(1))
+                        Catch ex As Exception
+                        End Try
+                    Next
+                End If
+                menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
+            Catch ex As Exception
+            End Try
+        Next
     End Sub
 
     Public Sub Elegir_Perfil(ByRef usuario As Usuario)
         If usuario Is Nothing Then
             Response.Redirect("/Pantalla_Login.aspx")
         Else
-            If usuario.Alumno = False Then
-                menuItem = NavigationMenu.FindItem("MiCursada")
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
-            End If
-            If usuario.Profesor = False Then
-                menuItem = NavigationMenu.FindItem("MisClases")
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
-            End If
-            If usuario.EmpleadoAdm = False Then
-                menuItem = NavigationMenu.FindItem("PanelAdministrativo")
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
-            End If
-            If usuario.Director = False Then
-                menuItem = NavigationMenu.FindItem("Direccion")
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
-            End If
-
-            menuItem = NavigationMenu.FindItem("MenuAdmin_3007")
-            If usuario.Admin = False Then
-
-                If menuItem IsNot Nothing Then
-                    NavigationMenu.Items.Remove(menuItem)
-                End If
-            Else
-                'isAdmin
-                Dim removeMenus = New List(Of MenuItem)
-                For Each subMenu As MenuItem In menuItem.ChildItems
-                    Dim encontrada = False
-                    For Each patente As Patente In usuario.GetOnlyPatentes()
-                        If patente.Name.Equals(subMenu.Value.Split("_")(0)) Then
-                            encontrada = True
-                            Exit For
-                        End If
-                    Next
-                    If Not encontrada Then
-                        removeMenus.Add(subMenu)
-                    End If
-                Next
-
-                For Each menuBorrar In removeMenus
-                    menuItem.ChildItems.Remove(menuBorrar)
-                Next
-            End If
+            SideNavigationMenu.Items.Clear()
+            For Each patente As Patente In usuario.GetOnlyPatentes
+                SideNavigationMenu.Items.Add(New MenuItem(patente.Descripcion, patente.Name))
+            Next
         End If
     End Sub
 
@@ -117,22 +84,24 @@ Public Class Site
         Response.Redirect("/Pantalla_Login.aspx")
     End Sub
 
-    Protected Sub NavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles NavigationMenu.MenuItemClick
+    Protected Sub TopNavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles TopNavigationMenu.MenuItemClick
         Select Case e.Item.Value
             Case "Home_3001"
                 Response.Redirect("Pantalla_Principal.aspx")
             Case "Carreras_3003"
                 Response.Redirect("Carreras.aspx")
-            Case "Materias"
-                Response.Redirect("Materias.aspx")
-            Case "Examenes"
-                Response.Redirect("Examenes.aspx")
-            Case "Alumnos"
-                Response.Redirect("Alumnos.aspx")
-            Case "CarrerasMaterias"
-                Response.Redirect("CarrerasMaterias.aspx")
+            Case "Contactenos"
+                Response.Redirect("Contactenos.aspx")
+            Case "Clave_3008"
+                Response.Redirect("CambioClave.aspx")
+            Case "Idioma_10006"
+                Response.Redirect("CambioIdioma.aspx")
+        End Select
+    End Sub
 
-                'alumno
+    Protected Sub SideNavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles SideNavigationMenu.MenuItemClick
+        Select Case e.Item.Value
+            'alumno
             Case "RendirExamen"
                 Response.Redirect("ExamenMateria.aspx")
 
@@ -160,13 +129,7 @@ Public Class Site
             Case "RevisionMateria"
                 Response.Redirect("RevisionMateria.aspx")
 
-            Case "Contactenos"
-                Response.Redirect("Contactenos.aspx")
-            Case "Clave_3008"
-                Response.Redirect("CambioClave.aspx")
-            Case "Idioma_10006"
-                Response.Redirect("CambioIdioma.aspx")
-
+                'admin
             Case "AbmIdiomas_10101"
                 Response.Redirect("AbmIdiomas.aspx")
             Case "AbmTraducciones_10102"
@@ -180,8 +143,6 @@ Public Class Site
             Case "AbmUsuarios_10107"
                 Response.Redirect("AbmUsuarios.aspx")
 
-            Case "Logout_503"
-                Logout()
         End Select
     End Sub
 End Class

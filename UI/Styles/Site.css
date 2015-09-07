@@ -138,7 +138,7 @@ first child of the left and right table columns */
 ----------------------------------------------------------*/
 
 .page {
-    width: 860px;
+    width: 960px;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
 }
@@ -164,6 +164,7 @@ first child of the left and right table columns */
 .main {
     padding: 0px 12px;
     min-height: 420px;
+    float: left;
 }
 
 .leftCol {
@@ -223,6 +224,12 @@ div.menu {
                 color: #cfdbe6;
                 text-decoration: none;
             }
+
+.menuLateral {
+    float: left;
+    background: #3A4F63;
+    padding-right: 8px;
+}
 
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/

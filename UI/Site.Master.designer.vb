@@ -59,13 +59,22 @@ Partial Public Class Site
     Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
 
     '''<summary>
-    '''NavigationMenu control.
+    '''TopNavigationMenu control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents NavigationMenu As Global.System.Web.UI.WebControls.Menu
+    Protected WithEvents TopNavigationMenu As Global.System.Web.UI.WebControls.Menu
+
+    '''<summary>
+    '''SideNavigationMenu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SideNavigationMenu As Global.System.Web.UI.WebControls.Menu
 
     '''<summary>
     '''MainContent control.

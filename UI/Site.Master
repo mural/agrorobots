@@ -20,22 +20,22 @@
                 </div>
                 <div class="loginDisplay">
                     <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-<%--                        <AnonymousTemplate>
+                        <%--                        <AnonymousTemplate>
                             [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Iniciar sesión</a> ]
                         </AnonymousTemplate>--%>
                         <LoggedInTemplate>
                             <span class="bold">
                                 <asp:LoginName ID="HeadLoginName" runat="server" />
                             </span>
-                        [<asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton>]
+                            [<asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton>]
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
                 <div class="clear hideSkiplink">
-                    <asp:Menu ID="NavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false" SkipLinkText="">
+                    <asp:Menu ID="TopNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Horizontal" IncludeStyleBlock="false" SkipLinkText="">
                         <Items>
                             <asp:MenuItem Text="Home" Value="Home_3001" />
-                            <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
+<%--                            <asp:MenuItem Text="Mi Cursada" Value="MiCursada">
                                 <asp:MenuItem Text="Materias" Value="Materias" />
                                 <asp:MenuItem Text="Rendir Examen" Value="RendirExamen" />
                                 <asp:MenuItem Text="Examenes" Value="Examenes" />
@@ -58,14 +58,14 @@
                                 <asp:MenuItem Text="Revision Carrera" Value="RevisionCarrera" />
                                 <asp:MenuItem Text="Nueva Materia" Value="NuevaMateria" />
                                 <asp:MenuItem Text="Revision Materia" Value="RevisionMateria" />
-                            </asp:MenuItem>
+                            </asp:MenuItem>--%>
                             <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
                             <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
                             <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
                             <asp:MenuItem Text="Contactenos" Value="Contactenos_3006" />
                             <asp:MenuItem Text="Cambio de idioma" Value="Idioma_10006" />
                             <asp:MenuItem Text="Cambio de clave" Value="Clave_3008" />
-                            <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
+<%--                            <asp:MenuItem Text="Menu Admin" Value="MenuAdmin_3007">
                                 <asp:MenuItem Text="Abm Idiomas" Value="AbmIdiomas_10101"></asp:MenuItem>
                                 <asp:MenuItem Text="Abm Traducciones" Value="AbmTraducciones_10102"></asp:MenuItem>
                                 <asp:MenuItem Text="Abm Permisos" Value="AbmPermisos_10106"></asp:MenuItem>
@@ -73,10 +73,14 @@
                                 <asp:MenuItem Text="Bitacora" Value="Bitacora_10103"></asp:MenuItem>
                                 <asp:MenuItem Text="BackUp & Restore" Value="BackUp_10104"></asp:MenuItem>
                                 <asp:MenuItem Text="Help" Value="Help_10105"></asp:MenuItem>
-                            </asp:MenuItem>
+                            </asp:MenuItem>--%>
                         </Items>
                     </asp:Menu>
                 </div>
+            </div>
+            <div class="menuLateral">
+                <asp:Menu ID="SideNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" IncludeStyleBlock="false" SkipLinkText="" StaticDisplayLevels="2">
+                </asp:Menu>
             </div>
             <div class="main">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
