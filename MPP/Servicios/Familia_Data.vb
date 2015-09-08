@@ -59,52 +59,23 @@ Public Class Familia_Data
         con.Close()
     End Sub
 
-    ''' 
-    ''' <param name="obj"></param>
-    Public Sub Baja(ByVal obj As Familia)
-        Dim con As SqlConnection = Connection.GetObjConnextion
-        Dim trx As SqlTransaction = Nothing
+    Public Function Baja(ByVal ID As Integer) As Boolean
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
 
-        Try
-            con.Open()
-            trx = con.BeginTransaction
-        Catch ex As Exception
-            Throw New ArgumentException("90001")
-        End Try
+        hdatos.Add("@parent", ID)
+        If oDatos.EscribirIniciandoTransaccion("CleanFamily", hdatos) Then
 
-        Dim params2 As New Parameters
-        params2.SetIntParameter("@parent", obj.ID)
-        Dim cmd2 As SqlCommand = Data.GetCommand("CleanFamily", con, params2, trx)
+            hdatos.Clear()
+            hdatos.Add("@id", ID)
+            Return oDatos.EscribirCerrandoTransaccion("DeleteComponente", hdatos)
+        Else
+            Return False
+        End If
 
-        Try
-            cmd2.ExecuteNonQuery()
-        Catch ex As Exception
-            trx.Rollback()
-            con.Close()
-            Throw New ArgumentException("90008")
-        End Try
-
-        Dim params As New Parameters
-        params.SetIntParameter("@id", obj.ID)
-        Dim cmd As SqlCommand = Data.GetCommand("DeleteFamilia", con, params, trx)
-
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            trx.Rollback()
-            con.Close()
-            Throw New ArgumentException("90008")
-        Finally
-            cmd.Dispose()
-        End Try
-
-        Try
-            trx.Commit()
-        Catch ex As Exception
-            Throw New ArgumentException("90009")
-        End Try
-        con.Close()
-    End Sub
+        Return True
+    End Function
 
     Public Overrides Sub ModificarComp(ByVal obj As EE.Component)
         MyBase.ModificarComp(obj)

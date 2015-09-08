@@ -5,15 +5,20 @@ Imports MPP
 Imports EE
 
 Public Class Familia_Business
-    Public Sub Alta(ByRef obj As Familia)
+    Public Function Alta(ByRef obj As Familia) As Boolean
         Dim famData As New Familia_Data
-        famData.Alta(obj)
-    End Sub
+        Try
+            famData.Alta(obj)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
 
-    Public Sub Baja(ByVal obj As Familia)
+    Public Function Baja(ByVal ID As Integer) As Boolean
         Dim famData As New Familia_Data
-        famData.Baja(obj)
-    End Sub
+        Return famData.Baja(ID)
+    End Function
 
     Public Sub Consulta(ByRef obj As Familia)
         Dim comp As New Component_Business
@@ -21,10 +26,15 @@ Public Class Familia_Business
 
     End Sub
 
-    Public Sub Modificacion(ByVal obj As Familia)
+    Public Function Modificacion(ByVal obj As Familia) As Boolean
         Dim famData As New Familia_Data
-        famData.ModificarComp(obj)
-    End Sub
+        Try
+            famData.ModificarComp(obj)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
 
     Public Function ObtenerFamilias() As List(Of Familia)
         Dim FamData As New Familia_Data

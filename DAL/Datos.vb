@@ -3,9 +3,7 @@ Imports System.Configuration
 
 Public Class Datos
 
-    Private Str As String = "Data Source=.\;Initial Catalog=agrorobots;Integrated Security=True;"
-
-    Private Cnn As New SqlConnection(Str)
+    Private Cnn = Conexion.GetObjConexion()
     Private Tranx As SqlTransaction
     Private Cmd As SqlCommand
 
@@ -32,15 +30,18 @@ Public Class Datos
 
     End Function
 
-    Public Function Escribir(ByVal consulta As String, ByVal hdatos As Hashtable) As Boolean
+    Public Function Escribir(ByVal consulta As String, ByVal hdatos As Hashtable,
+                             Optional ByVal iniciarTx As Boolean = True,
+                             Optional ByVal confirmarTx As Boolean = True) As Boolean
 
         If Cnn.State = ConnectionState.Closed Then
-            Cnn.ConnectionString = Str
             Cnn.Open()
         End If
 
         Try
-            Tranx = Cnn.BeginTransaction
+            If iniciarTx Then
+                Tranx = Cnn.BeginTransaction
+            End If
             Cmd = New SqlCommand
             Cmd.Connection = Cnn
             Cmd.CommandText = consulta
@@ -48,7 +49,6 @@ Public Class Datos
             Cmd.Transaction = Tranx
 
             If Not hdatos Is Nothing Then
-
                 For Each dato As String In hdatos.Keys
                     'cargo los parametros que le estoy pasando con la Hash
                     Cmd.Parameters.AddWithValue(dato, hdatos(dato))
@@ -56,16 +56,30 @@ Public Class Datos
             End If
 
             Dim respuesta As Integer = Cmd.ExecuteNonQuery
-            Tranx.Commit()
+            If confirmarTx Then
+                Tranx.Commit()
+                Cnn.Close()
+            End If
             Return True
 
         Catch ex As Exception
             Tranx.Rollback()
-            Return False
-        Finally
             Cnn.Close()
+            Return False
         End Try
 
+    End Function
+
+    Public Function EscribirIniciandoTransaccion(ByVal consulta As String, ByVal hdatos As Hashtable) As Boolean
+        Return Escribir(consulta, hdatos, True, False)
+    End Function
+
+    Public Function EscribirContinuandoTransaccion(ByVal consulta As String, ByVal hdatos As Hashtable) As Boolean
+        Return Escribir(consulta, hdatos, False, False)
+    End Function
+
+    Public Function EscribirCerrandoTransaccion(ByVal consulta As String, ByVal hdatos As Hashtable) As Boolean
+        Return Escribir(consulta, hdatos, False, True)
     End Function
 
 End Class

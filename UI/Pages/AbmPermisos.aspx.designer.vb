@@ -41,6 +41,15 @@ Partial Public Class AbmPermisos
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''GridView1_ control.
     '''</summary>
     '''<remarks>

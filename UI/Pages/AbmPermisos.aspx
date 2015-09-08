@@ -3,6 +3,9 @@
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <script type="text/javascript">
+        var mensajeBorrar = '<%= mensajeBorrar %>';
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
@@ -13,10 +16,15 @@
     <div id="dvGrid">
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+                <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
+                <br />
+
                 <asp:GridView ID="GridView1_" runat="server"
-                    AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
-                    CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate">
+                    AutoGenerateColumns="False" ShowFooter="True"
+                    HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
+                    AlternatingRowStyle-CssClass="tablaDatosAlternate"
+                    OnRowEditing="Edit"
+                    OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
@@ -30,6 +38,14 @@
                                 <asp:Label ID="lblName" runat="server"
                                     Text='<%# Eval("Name")%>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtName" runat="server"
+                                    Text='<%# Eval("Name")%>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="txtName"
+                                    MaxLength="15" runat="server"></asp:TextBox>
+                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Descripcion_12">
@@ -37,6 +53,14 @@
                                 <asp:Label ID="lblDescripcion" runat="server"
                                     Text='<%# Eval("Descripcion")%>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                    Text='<%# Eval("Descripcion")%>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="txtDescripcion"
+                                    MaxLength="35" runat="server"></asp:TextBox>
+                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField ShowHeader="False">
@@ -44,7 +68,34 @@
                                 <asp:LinkButton ID="selec_801" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Select" Text="Select"></asp:LinkButton>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
+                                    OnClick="AddNew" />
+                            </FooterTemplate>
                         </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkRemove_13" runat="server"
+                                    CommandArgument='<%# Eval("ID")%>'
+                                    OnClientClick="return confirm(mensajeBorrar)"
+                                    Text="borrar" OnClick="Delete"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField ShowHeader="False">
+                            <EditItemTemplate>
+                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
+                                    CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
+                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
+                                    CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
+                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                     </Columns>
                     <HeaderStyle CssClass="tablaDatosHeader" />
                 </asp:GridView>

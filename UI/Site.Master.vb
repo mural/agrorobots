@@ -21,11 +21,13 @@ Public Class Site
         For Each patente As Patente In usuario.GetOnlyPatentes()
             If patente.URL.Equals(Request.Url.Segments(2)) Then
                 valido = True
+                Exit For
             End If
         Next
         For Each paginaPermitida As String In PaginasPermitidas.GetInstance.GetPaginasPermitidas
             If paginaPermitida.Equals(Request.Url.Segments(2)) Then
                 valido = True
+                Exit For
             End If
         Next
         If Not valido Then
