@@ -14,17 +14,28 @@ Public Class Bitacora
     End Sub
 
     Private Sub CargarBitacora()
-        Me.GridView1_.DataSource = bitacora_Business.GetItemsBitacora(Session("filtro"))
+        Dim entradas = bitacora_Business.GetItemsBitacora(Session("filtroUsuario"), Session("filtroTipos"))
+        Me.GridView1_.DataSource = entradas
         Me.GridView1_.DataBind()
 
-        Dim comboUsuarios = DirectCast(Me.GridView1_.HeaderRow.FindControl("comboUsuarios"), DropDownList)
-        'cargar combo
-        For Each entrada In bitacora_Business.GetItemsBitacora()
-            If Not comboUsuarios.Items.Contains(New ListItem(entrada.Usuario)) Then
-                comboUsuarios.Items.Add(entrada.Usuario)
-            End If
-        Next
-        comboUsuarios.SelectedValue = Session("filtro")
+        If entradas.Count > 0 Then
+            Dim comboUsuarios = DirectCast(Me.GridView1_.HeaderRow.FindControl("comboUsuarios"), DropDownList)
+            Dim comboTipos = DirectCast(Me.GridView1_.HeaderRow.FindControl("comboTipos"), DropDownList)
+            'cargar combo usuarios
+            For Each entrada In bitacora_Business.GetItemsBitacora()
+                If Not comboUsuarios.Items.Contains(New ListItem(entrada.Usuario)) Then
+                    comboUsuarios.Items.Add(entrada.Usuario)
+                End If
+            Next
+            'cargar combo tipos
+            For Each entrada In bitacora_Business.GetItemsBitacora(Session("filtroUsuario"))
+                If Not comboTipos.Items.Contains(New ListItem(entrada.Tipo)) Then
+                    comboTipos.Items.Add(entrada.Tipo)
+                End If
+            Next
+            comboUsuarios.SelectedValue = Session("filtroUsuario")
+            comboTipos.SelectedValue = Session("filtroTipos")
+        End If
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -56,7 +67,18 @@ Public Class Bitacora
 
     Protected Sub UserFilter(ByVal sender As Object, ByVal e As EventArgs)
         Dim comboUsuarios As DropDownList = DirectCast(sender, DropDownList)
-        Session("filtro") = comboUsuarios.SelectedValue
+        Session("filtroUsuario") = comboUsuarios.SelectedValue
+        Session("filtroTipos") = ""
     End Sub
 
+    Protected Sub TipoFilter(ByVal sender As Object, ByVal e As EventArgs)
+        Dim comboTipos As DropDownList = DirectCast(sender, DropDownList)
+        Session("filtroTipos") = comboTipos.SelectedValue
+    End Sub
+
+    Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
+        Session("filtroUsuario") = ""
+        Session("filtroTipos") = ""
+        CargarBitacora()
+    End Sub
 End Class

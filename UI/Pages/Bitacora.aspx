@@ -39,7 +39,15 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Tipo_162">
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="tipo_162" runat="server" Text="titulo"></asp:Label>
+                                <asp:DropDownList ID="comboTipos" runat="server"
+                                    OnSelectedIndexChanged="TipoFilter" AutoPostBack="true"
+                                    AppendDataBoundItems="true">
+                                    <asp:ListItem Text="-----" Value=""></asp:ListItem>
+                                </asp:DropDownList>
+                            </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lblTipo" runat="server"
                                     Text='<%# Eval("Tipo")%>'></asp:Label>
@@ -69,6 +77,8 @@
             </Triggers>
         </asp:UpdatePanel>
     </div>
+    <br />
+    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <br />
 </asp:Content>

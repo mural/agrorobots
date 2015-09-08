@@ -48,4 +48,13 @@ Partial Public Class Bitacora
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''limpiar_36 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
 End Class
