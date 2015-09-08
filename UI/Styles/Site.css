@@ -53,6 +53,10 @@
         padding: 10px;
     }
 
+    .tablaDatosHeader th a:link, a:visited {
+    color: white;
+}
+
 .tablaDatosAlternate {
     background-color: #c0c7d0;
 }

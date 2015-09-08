@@ -22,20 +22,6 @@ Public Class Login
 
             Dim compDinam As New Component_Business
             compDinam.ObtenerComponentsOfUser(obj)
-
-            For Each familia As Familia In obj.GetFamilias()
-                If familia.Name.Equals("Administrador") Then
-                    obj.Admin = True
-                ElseIf familia.Name.Equals("Alumno") Then
-                    obj.Alumno = True
-                ElseIf familia.Name.Equals("Profesor") Then
-                    obj.Profesor = True
-                ElseIf familia.Name.Equals("Empleado") Then
-                    obj.EmpleadoAdm = True
-                ElseIf familia.Name.Equals("Director") Then
-                    obj.Director = True
-                End If
-            Next
         End If
     End Sub
 End Class

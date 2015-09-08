@@ -1,4 +1,6 @@
 ﻿Public Class Bitacora
+    Implements IComparable(Of Bitacora)
+
     Private _id As Long
     Private _usu As String
     Private _type As String
@@ -57,4 +59,9 @@
         Me.Usuario = vUsu
         Me.Fecha = vFecha
     End Sub
+
+    Public Function CompareTo(other As Bitacora) As Integer Implements IComparable(Of Bitacora).CompareTo
+        ''Return Fecha.CompareTo(other.Fecha)
+        Return other.Fecha.CompareTo(Fecha)
+    End Function
 End Class

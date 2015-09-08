@@ -158,46 +158,4 @@ Public Class Usuario
         Me.UserName = username
     End Sub
 
-    Private mAlumno As Boolean
-    Public Property Alumno() As Boolean
-        Get
-            Return mAlumno
-        End Get
-        Set(ByVal value As Boolean)
-            mAlumno = value
-        End Set
-    End Property
-
-
-    Private mProfesor As Boolean
-    Public Property Profesor() As Boolean
-        Get
-            Return mProfesor
-        End Get
-        Set(ByVal value As Boolean)
-            mProfesor = value
-        End Set
-    End Property
-
-    Private mEmpleadoAdm As Boolean
-    Public Property EmpleadoAdm() As Boolean
-        Get
-            Return mEmpleadoAdm
-        End Get
-        Set(ByVal value As Boolean)
-            mEmpleadoAdm = value
-        End Set
-    End Property
-
-    Private mDirector As Boolean
-    Public Property Director() As Boolean
-        Get
-            Return mDirector
-        End Get
-        Set(ByVal value As Boolean)
-            mDirector = value
-        End Set
-    End Property
-
-
 End Class ' Usuario

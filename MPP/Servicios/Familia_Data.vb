@@ -133,26 +133,20 @@ Public Class Familia_Data
     End Sub
 
     Public Function ObtenerFamilias() As System.Collections.Generic.List(Of EE.Familia)
-        Dim con As SqlConnection = Connection.GetObjConnextion
-        Dim cmd As SqlCommand = Data.GetCommand("GetAllFamilies", con)
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
 
-        Dim dt As DataTable
-
-        Try
-            dt = Data.GetDataSet(cmd, "componente").Tables(0)
-        Catch ex As Exception
-            Throw ex
-        End Try
+        DS = oDatos.Leer("GetAllFamilies", hdatos)
 
         Dim lstfam As New List(Of Familia)
+        If DS.Tables(0).Rows.Count > 0 Then
 
-        For Each dr As DataRow In dt.Rows
-            Dim fam As New Familia( _
-                                      CInt(dr("ID")), _
-                                      CStr(dr("Nombre")), _
-                                      CStr(dr("Descripcion")))
-            lstfam.Add(fam)
-        Next
+            For Each Item As DataRow In DS.Tables(0).Rows
+                Dim fam As New Familia(CInt(Item("ID")), CStr(Item("Nombre")), CStr(Item("Descripcion")))
+                lstfam.Add(fam)
+            Next
+        End If
 
         Return lstfam
     End Function

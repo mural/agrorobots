@@ -72,10 +72,6 @@ Public Class Usuario_Business
         End If
     End Function
 
-    'Private Function Validar(ByVal obj As Usuario) As Boolean
-    '    Validar = False
-    'End Function
-
     Public Function ValidarLogUser(ByRef obj As Usuario) As Boolean
         Dim returnVal As Boolean = False
         Dim passWord As String = obj.Password
@@ -94,6 +90,15 @@ Public Class Usuario_Business
         Dim encrypter As MyEncrypter = MyEncrypter.GetMyEncripter
 
         If obj.Password = encrypter.GetHash(passWord) Then
+            Dim datIdioma As New Idioma_Data
+            Dim idiomas = datIdioma.ObtenerIdiomas()
+            For Each idioma As Idioma In idiomas
+                If idioma.ID.Equals(obj.Idioma.ID) Then
+                    obj.Idioma = idioma
+                    Exit For
+                End If
+            Next
+
             returnVal = True
             obj.Intentos = 0
             'Bitacora_Business.Logear(Bitacora_Business.LOG_IN_TYPE, Bitacora_Business.LOG_IN_OK, obj.UserName)

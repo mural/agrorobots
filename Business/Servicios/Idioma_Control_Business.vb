@@ -15,6 +15,18 @@ Public Class Idioma_Control_Business
         Return IdioCtrlData.GetIdiomsByID(idioma)
     End Function
 
+    Public Function GetIdiomsByIDWithOriginals(idioma As Idioma) As List(Of Idioma_Control)
+        Dim IdioCtrlData As New Idioma_Control_Data
+        Dim traducciones = GetIdiomsByID(idioma)
+        Dim originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
+        Dim i = 0
+        For Each traduccion As Idioma_Control In traducciones
+            traduccion.Original = originales.Item(i).Traduccion
+            i += 1
+        Next
+        Return traducciones
+    End Function
+
     Public Sub CrearTraduccion(IdiomaID As Integer, Traduccion As String, ControlID As Integer)
         Dim IdioCtrlData As New Idioma_Control_Data
         IdioCtrlData.CreateTraduccion(IdiomaID, Traduccion, ControlID)

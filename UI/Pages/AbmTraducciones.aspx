@@ -40,7 +40,6 @@
         </asp:GridView>
     </div>
     <br />
-    <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">
@@ -69,7 +68,7 @@
                         <asp:TemplateField HeaderText="IdiomaID_804">
                             <ItemTemplate>
                                 <asp:Label ID="lblIdiomaID" runat="server"
-                                    Text='<%# Eval("Idioma.ID")%>'></asp:Label>
+                                    Text='<%# Eval("Idioma.Descripcion")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtIdiomaID" Enabled="false" Visible="False"
@@ -101,6 +100,13 @@
                             </FooterTemplate>
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="Original">
+                            <ItemTemplate>
+                                <asp:Label ID="lblOriginalName" runat="server"
+                                    Text='<%# Eval("Original")%>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="lnkRemove_13" runat="server"
@@ -116,13 +122,13 @@
 
                         <asp:TemplateField ShowHeader="False">
                             <EditItemTemplate>
-                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True" 
+                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
                                     CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False" 
+                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False" 
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -136,5 +142,6 @@
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
             </Triggers>
         </asp:UpdatePanel>
+        <br />
     </div>
 </asp:Content>

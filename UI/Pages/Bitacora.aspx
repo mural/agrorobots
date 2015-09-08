@@ -14,7 +14,7 @@
                 <asp:GridView ID="GridView1_" runat="server"
                     AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
                     CssClass="tablaDatos" AlternatingRowStyle-CssClass="tablaDatosAlternate"
-                    AllowSorting="True" OnSortCommand="Sort_Grid"
+                    AllowSorting="True" OnSorting="Sort"
                     AllowPaging="True" OnPageIndexChanging="OnPaging" PageSize="20">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
@@ -24,7 +24,15 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Usuario_17" SortExpression="StringValue">
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="usuario_17" runat="server" Text="titulo"></asp:Label>
+                                <asp:DropDownList ID="comboUsuarios" runat="server"
+                                    OnSelectedIndexChanged="UserFilter" AutoPostBack="true"
+                                    AppendDataBoundItems="true">
+                                    <asp:ListItem Text="-----" Value=""></asp:ListItem>
+                                </asp:DropDownList>
+                            </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lblUsuario" runat="server"
                                     Text='<%# Eval("Usuario")%>'></asp:Label>
@@ -45,7 +53,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Fecha_133">
+                        <asp:TemplateField HeaderText="Fecha_133" SortExpression="lblFecha">
                             <ItemTemplate>
                                 <asp:Label ID="lblFecha" runat="server"
                                     Text='<%# Eval("Fecha")%>'></asp:Label>

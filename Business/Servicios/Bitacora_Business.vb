@@ -40,12 +40,21 @@ Public Class Bitacora_Business
         Return _bit
     End Function
 
-    Public Function GetItemsBitacora() As List(Of Bitacora)
+    Public Function GetItemsBitacora(Optional ByVal usuario As String = "") As List(Of Bitacora)
         Dim bitacora = bitacoraData.GetItemsBitacora()
         'For Each bita In bitacora
         '    bita.Tipo = IdiomManager.GetIdiomManager().GetTranslationById(CInt(bita.Tipo))
         '    bita.Detalle = IdiomManager.GetIdiomManager().GetTranslationById(CInt(bita.Detalle))
         'Next
+        If Not String.IsNullOrEmpty(usuario) Then
+            Dim filtrado = New List(Of Bitacora)
+            For Each entrada In bitacora
+                If entrada.Usuario.Equals(usuario) Then
+                    filtrado.Add(entrada)
+                End If
+            Next
+            Return filtrado
+        End If
         Return bitacora
     End Function
 End Class

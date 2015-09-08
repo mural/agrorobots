@@ -65,7 +65,7 @@ Namespace Idiomas
 
         Sub CargarTraduccionesByUsuario(idioma As Idioma)
             Dim IdiCtrolDinam As New Idioma_Control_Business
-
+            Me._lstIdiomaControl.Clear()
             Me._lstIdiomaControl.AddRange(IdiCtrolDinam.GetIdiomsByID(idioma))
         End Sub
 

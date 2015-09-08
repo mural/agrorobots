@@ -7,6 +7,7 @@ Public Class Idioma_Control
     Private _ControId As Integer
     Private _Idioma As Idioma
     Private _Traduccion As String
+    Private _Original As String
 
     Public Property ID() As Integer
         Get
@@ -41,6 +42,15 @@ Public Class Idioma_Control
         End Get
         Set(ByVal Value As String)
             _Traduccion = Value
+        End Set
+    End Property
+
+    Public Property Original() As String
+        Get
+            Return _Original
+        End Get
+        Set(ByVal Value As String)
+            _Original = Value
         End Set
     End Property
 

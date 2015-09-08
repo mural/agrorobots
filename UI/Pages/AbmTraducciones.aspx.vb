@@ -23,7 +23,7 @@ Public Class AbmTraducciones
             idioma = usuario.Idioma()
             Session.Item("idioma") = idioma
         End If
-        Me.GridView1_.DataSource = idioma_Control_Business.GetIdiomsByID(idioma)
+        Me.GridView1_.DataSource = idioma_Control_Business.GetIdiomsByIDWithOriginals(idioma)
         Me.GridView1_.DataBind()
     End Sub
 
@@ -67,6 +67,10 @@ Public Class AbmTraducciones
 
         GridView1_.EditIndex = -1
         CargarTraducciones()
+
+        IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
+        'recargar la pagina
+        Response.Redirect(Request.RawUrl)
     End Sub
 
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
@@ -96,6 +100,10 @@ Public Class AbmTraducciones
 
         GridView1_.EditIndex = -1
         CargarTraducciones()
+
+        IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
+        'recargar la pagina
+        Response.Redirect(Request.RawUrl)
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
