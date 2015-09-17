@@ -32,7 +32,7 @@
         <br />
         <asp:Label ID="lblFamilia_9" runat="server" Text="familia"></asp:Label>
         <br />
-        <asp:ListBox ID="lstbFamilia" runat="server" Rows="5"></asp:ListBox>
+        <asp:ListBox ID="lstbFamilia" runat="server" Rows="5" SelectionMode="Multiple"></asp:ListBox>
         <br />
         <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>

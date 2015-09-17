@@ -24,4 +24,10 @@ Public Class Login
             compDinam.ObtenerComponentsOfUser(obj)
         End If
     End Sub
+
+    Public Function activarUsuario(usuarioActivar As String) As Boolean
+        Dim user_dinam As New Usuario_Business
+        Return user_dinam.activarUsuario(usuarioActivar)
+    End Function
+
 End Class

@@ -37,10 +37,21 @@ Public Class Principal
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        'administrador.
         Dim usuario = Session.Item("user")
-        If Not usuario Is Nothing Then
+        If Not usuario Is Nothing Then 'envio a la pagina principal
             FormsAuthentication.RedirectFromLoginPage(username.Text, False)
+        Else
+            'vienen parametros en la URL ?
+            Dim usuarioActivar As String
+            usuarioActivar = Request.QueryString("usuarioactivar")
+            If Not String.IsNullOrEmpty(usuarioActivar) Then 'activacion de usuario y auto login
+                If loginBusiness.activarUsuario(usuarioActivar) Then
+                    Resultado.Text = "Usuario activado, ingrese al sistema."
+                Else
+                    Resultado.Text = "Error al activar el usuario."
+                End If
+            End If
         End If
     End Sub
+
 End Class

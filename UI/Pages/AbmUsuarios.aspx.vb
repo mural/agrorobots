@@ -61,7 +61,10 @@ Public Class AbmUsuario
         Dim Admin = cbxAdmin.Checked
         Dim Password = txtPassword.Text
         Dim ConfirmPassword = txtConfirmPassword.Text
-        Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
+        Dim Familias = New List(Of Familia)
+        For i = 0 To lstbFamilia.GetSelectedIndices.Length - 1
+            Familias.Add(familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
+        Next
 
         lblMensajes.Text = ""
 
@@ -72,7 +75,10 @@ Public Class AbmUsuario
         If Page.IsValid Then
             Try
                 Dim nuevoUsuario = New Usuario(Activo, Admin, Apellido, 0, Nothing, 0, Nombre, Password, UserName)
-                nuevoUsuario.AddComponent(Familia)
+                For Each familia In Familias
+                    usuarioSeleccionado.AddComponent(familia)
+                    nuevoUsuario.AddComponent(familia)
+                Next
                 usuario_Business.Alta(nuevoUsuario)
 
                 Vaciar()
@@ -98,10 +104,15 @@ Public Class AbmUsuario
             Dim UserName = txtUsername.Text
             Dim Activo = cbxActivo.Checked
             Dim Admin = cbxAdmin.Checked
-            Dim Familia = familia_Business.ObtenerFamilias(lstbFamilia.SelectedIndex)
+            Dim Familias = New List(Of Familia)
+            For i = 0 To lstbFamilia.GetSelectedIndices.Length - 1
+                Familias.Add(familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
+            Next
+
 
             lblMensajes.Text = ""
             vldPassword_27.IsValid = True
+            cvldPass_27.IsValid = True
             vldConfirmPassword_28.IsValid = True
             vldPasswordMatch.IsValid = True
 
@@ -112,7 +123,9 @@ Public Class AbmUsuario
                     usuarioSeleccionado.Activo = Activo
                     usuarioSeleccionado.Admin = Admin
                     usuarioSeleccionado.RemoveAllComponents()
-                    usuarioSeleccionado.AddComponent(Familia)
+                    For Each familia In Familias
+                        usuarioSeleccionado.AddComponent(familia)
+                    Next
                     usuario_Business.Modificacion(usuarioSeleccionado)
 
                     Vaciar()
@@ -157,7 +170,15 @@ Public Class AbmUsuario
         Me.txtUsername.Text = usuarioSeleccionado.UserName
         Me.cbxActivo.Checked = usuarioSeleccionado.Activo
         Me.cbxAdmin.Checked = usuarioSeleccionado.Admin
-        Me.lstbFamilia.SelectedValue = usuarioSeleccionado.GetFamilias(0).Name
+        Me.lstbFamilia.ClearSelection()
+        For Each flia In usuarioSeleccionado.GetFamilias()
+            For Each item As ListItem In lstbFamilia.Items
+                If item.ToString() = flia.Name Then
+                    item.Selected = True
+                End If
+            Next
+        Next
+
         Me.txtPassword.Text = "-"
         Me.txtConfirmPassword.Text = "-"
     End Sub

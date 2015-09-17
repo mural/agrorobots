@@ -14,7 +14,7 @@ Public Class Site
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         usuario = Session.Item("user")
-        Elegir_Perfil(usuario)
+        ArmarMenuLateral(usuario)
 
         'validar pagina
         Dim valido As Boolean = False
@@ -68,18 +68,22 @@ Public Class Site
         Next
     End Sub
 
-    Public Sub Elegir_Perfil(ByRef usuario As Usuario)
+    Public Sub ArmarMenuLateral(ByRef usuario As Usuario)
         If usuario Is Nothing Then
             Response.Redirect("/Pantalla_Login.aspx")
         Else
             SideNavigationMenu.Items.Clear()
             For Each patente As Patente In usuario.GetOnlyPatentes
-                SideNavigationMenu.Items.Add(New MenuItem(patente.Descripcion, patente.Name))
+                Dim menuItem = New MenuItem(patente.Descripcion, patente.Name)
+                If Nothing Is SideNavigationMenu.FindItem(menuItem.Value) Then
+                    SideNavigationMenu.Items.Add(menuItem)
+                End If
             Next
         End If
     End Sub
 
     Public Sub Logout()
+        Session.Clear()
         FormsAuthentication.SignOut()
         Bitacora_Business.Logear("Logout", "Logout exitoso", HttpContext.Current.User.Identity.Name)
         Session.Item("user") = Nothing

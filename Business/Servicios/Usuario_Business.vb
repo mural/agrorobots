@@ -124,4 +124,19 @@ Public Class Usuario_Business
         Return returnVal
 
     End Function
+
+    Public Function activarUsuario(usuarioActivar As String) As Boolean
+        Try
+            Dim usu_data As New Usuario_Data
+            Dim usuario = New Usuario()
+            usuario.UserName = usuarioActivar
+            usu_data.ConsultarByUsu(usuario)
+            usuario.Activo = True
+            usu_data.Modificacion(usuario)
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
+
 End Class

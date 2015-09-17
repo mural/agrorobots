@@ -104,6 +104,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Front\Registracion.aspx" />
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\buscar.gif" />
     <Content Include="Imagenes\Carrito_de_Compras.gif" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Registracion.aspx.designer.vb">
+      <DependentUpon>Registracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Registracion.aspx.vb">
+      <DependentUpon>Registracion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>

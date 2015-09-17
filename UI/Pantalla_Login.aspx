@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Login Agrorobots E-Learning</title>
-    <link rel="stylesheet" type="text/css" href="Styles/Login.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="Styles/Login.css" media="all" />
     <script type="text/javascript">
         function validar() {
             if (TBX_Clave.toString() == "") {
@@ -16,33 +16,37 @@
     </script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="login" class="animate form">
-            <form id="loginform" runat="server">
-                <h1>Login</h1> 
-                <p> 
-                    <label for="username" class="uname" data-icon="u" > Usuario </label>
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+    <form id="loginform" runat="server">
+        <div id="wrapper">
+            <div id="login" class="animate form">
+
+                <h1>Login</h1>
+                <p>
+                    <label for="username" class="uname" data-icon="u">Usuario </label>
                     <asp:TextBox ID="username" runat="server" placeholder="miusuario" required="required"></asp:TextBox>
                 </p>
-                <p> 
-                    <label for="password" class="youpasswd" data-icon="p"> Clave </label>
+                <p>
+                    <label for="password" class="youpasswd" data-icon="p">Clave </label>
                     <asp:TextBox ID="password" runat="server" TextMode="Password" placeholder="cL4v3_!" required="required"></asp:TextBox>
                 </p>
-                <p class="keeplogin" style="display: none"> 
-				    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-				    <label for="loginkeeping">Keep me logged in</label>
-			    </p>
-                <p class="login button"> 
+                <p class="keeplogin" style="display: none">
+                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                    <label for="loginkeeping">Keep me logged in</label>
+                </p>
+                <p class="login button">
                     <asp:Button ID="Submit" runat="server" Text="Ingresar" />
-			    </p>
+                </p>
                 <p class="change_link">
-			        <asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>
-			    </p>
-            </form>
+                    <asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>
+					<a href="Front/Registracion.aspx" class="to_register">Registrarse</a>
+                </p>
+            </div>
+            <asp:Label ID="Resultado" runat="server"></asp:Label>
         </div>
-        <asp:Label ID="Resultado" runat="server"></asp:Label>
-    </div>
-        
+    </form>
+
     <p align="center" style="display: none">
         <asp:Label ID="Datos" runat="server"></asp:Label>
     </p>
