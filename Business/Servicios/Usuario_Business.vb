@@ -139,4 +139,16 @@ Public Class Usuario_Business
         Return True
     End Function
 
+    Public Function obtenerUsuario(usuario As String) As Usuario
+        Dim usuarioObtener = New Usuario()
+        Try
+            Dim usu_data As New Usuario_Data
+            usuarioObtener.UserName = usuario
+            usu_data.ConsultarByUsu(usuarioObtener)
+        Catch ex As Exception
+            Return Nothing
+        End Try
+        Return usuarioObtener
+    End Function
+
 End Class

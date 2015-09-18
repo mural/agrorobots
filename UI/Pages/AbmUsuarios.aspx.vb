@@ -57,6 +57,7 @@ Public Class AbmUsuario
         Dim Apellido = txtApellido.Text
         Dim Nombre = txtNombre.Text
         Dim UserName = txtUsername.Text
+        Dim Email = "mural@scvsoft.com" 'actualizar la pagina para usar EMAIL
         Dim Activo = cbxActivo.Checked
         Dim Admin = cbxAdmin.Checked
         Dim Password = txtPassword.Text
@@ -74,7 +75,7 @@ Public Class AbmUsuario
 
         If Page.IsValid Then
             Try
-                Dim nuevoUsuario = New Usuario(Activo, Admin, Apellido, 0, Nothing, 0, Nombre, Password, UserName)
+                Dim nuevoUsuario = New Usuario(Activo, Admin, Apellido, 0, Nothing, 0, Nombre, Password, UserName, Email)
                 For Each familia In Familias
                     usuarioSeleccionado.AddComponent(familia)
                     nuevoUsuario.AddComponent(familia)

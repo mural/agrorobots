@@ -19,30 +19,44 @@
     <a class="hiddenanchor" id="toregister"></a>
     <a class="hiddenanchor" id="tologin"></a>
     <form id="loginform" runat="server">
-        <div id="wrapper" style="min-height: 760px">
+        <div id="wrapper" style="min-height: 970px">
             <div id="login" class="animate form">
                 <h1>Registro</h1>
                 <p>
-                    <asp:Label ID="lblUsername_23" runat="server" Text="apellido" for="usuarioNuevo" class="uname" data-icon="u"></asp:Label>
+                    <label for="nombreNuevo" class="uname" data-icon="u"></label>
+                    <asp:Label ID="nombreNuevo_22" runat="server" Text="apellido"></asp:Label>
+                    <asp:TextBox ID="nombreNuevo" runat="server" placeholder="apellido" required="required"></asp:TextBox>
+                </p>
+                <p>
+                    <label for="apellidoNuevo" class="uname" data-icon="u"></label>
+                    <asp:Label ID="apellidoNuevo_21" runat="server" Text="nombre"></asp:Label>
+                    <asp:TextBox ID="apellidoNuevo" runat="server" placeholder="nombre" required="required"></asp:TextBox>
+                </p>
+                <p>
+                    <label for="usuarioNuevo" class="uname" data-icon="u"></label>
+                    <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
                     <asp:TextBox ID="usuarioNuevo" runat="server" placeholder="miusuario" required="required"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="lblEmail_109" runat="server" Text="email" for="emailNuevo" class="youmail" data-icon="u"></asp:Label>
+                    <label for="emailNuevo" class="youmail" data-icon="e"></label>
+                    <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>
                     <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com" required="required"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="lblPassword_27" runat="server" Text="pass" for="passwordNuevo" class="youpasswd" data-icon="p"></asp:Label>
+                    <label for="passwordNuevo" class="youpasswd" data-icon="p"></label>
+                    <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
                     <asp:TextBox ID="passwordNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!" required="required"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="lblConfirmPassword_28" runat="server" Text="pass" for="passwordRepetidoNuevo" class="youpasswd" data-icon="p"></asp:Label>
+                    <label for="passwordRepetidoNuevo" class="youpasswd" data-icon="p"></label>
+                    <asp:Label ID="lblConfirmPassword_28" runat="server" Text="pass"></asp:Label>
                     <asp:TextBox ID="passwordRepetidoNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!" required="required"></asp:TextBox>
                 </p>
                 <p class="signin button">
                     <asp:Button ID="btnRegistrar_480" runat="server" Text="registarse" />
                 </p>
                 <p class="change_link">
-                    <asp:LinkButton ID="testEmail" runat="server" CssClass="to_register">Mandar EMAIL</asp:LinkButton>
+                    <asp:LinkButton ID="testEmail" runat="server" CssClass="to_register">Reenviar Email</asp:LinkButton>
                     Ya es usuario ?
 									<a href="../Pantalla_Login.aspx" class="to_register">Ingresar</a>
                 </p>

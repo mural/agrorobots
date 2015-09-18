@@ -19,7 +19,7 @@ Public Class Idioma_Control_Business
         Dim IdioCtrlData As New Idioma_Control_Data
         Dim traducciones = GetIdiomsByID(idioma)
         Dim originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
-        Dim i = 0
+        Dim i = 0     'Si se ingresa una traduccion de otro idioma antes que espanol esto falla, revisar
         For Each traduccion As Idioma_Control In traducciones
             traduccion.Original = originales.Item(i).Traduccion
             i += 1

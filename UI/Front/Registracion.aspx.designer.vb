@@ -32,6 +32,42 @@ Partial Public Class Registracion
     Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''nombreNuevo_22 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombreNuevo_22 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''nombreNuevo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombreNuevo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''apellidoNuevo_21 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents apellidoNuevo_21 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''apellidoNuevo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents apellidoNuevo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''lblUsername_23 control.
     '''</summary>
     '''<remarks>

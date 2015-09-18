@@ -24,11 +24,13 @@
 
                 <h1>Login</h1>
                 <p>
-                    <label for="username" class="uname" data-icon="u">Usuario </label>
+                    <label for="username" class="uname" data-icon="u"> </label>
+                    <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
                     <asp:TextBox ID="username" runat="server" placeholder="miusuario" required="required"></asp:TextBox>
                 </p>
                 <p>
-                    <label for="password" class="youpasswd" data-icon="p">Clave </label>
+                    <label for="password" class="youpasswd" data-icon="p"></label>
+                    <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
                     <asp:TextBox ID="password" runat="server" TextMode="Password" placeholder="cL4v3_!" required="required"></asp:TextBox>
                 </p>
                 <p class="keeplogin" style="display: none">
@@ -39,8 +41,9 @@
                     <asp:Button ID="Submit" runat="server" Text="Ingresar" />
                 </p>
                 <p class="change_link">
-                    <asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>
-					<a href="Front/Registracion.aspx" class="to_register">Registrarse</a>
+                    <%--<asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>--%>
+                    <a href="Front/RecuperarClave.aspx" class="to_register">Olvido su clave ?</a>
+                    <a href="Front/Registracion.aspx" class="to_register">Registrarse</a>
                 </p>
             </div>
             <asp:Label ID="Resultado" runat="server"></asp:Label>

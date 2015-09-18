@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Principal
+Partial Public Class RecuperarClave
 
     '''<summary>
     '''loginform control.
@@ -32,40 +32,49 @@ Partial Public Class Principal
     Protected WithEvents lblUsername_23 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''username control.
+    '''usuarioRecuperar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents username As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents usuarioRecuperar As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblPassword_27 control.
+    '''lblEmail_109 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPassword_27 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblEmail_109 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''password control.
+    '''emailRecuperar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents password As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents emailRecuperar As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Submit control.
+    '''btnRecuperar_490 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Submit As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnRecuperar_490 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''testEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents testEmail As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''Resultado control.

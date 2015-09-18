@@ -141,12 +141,23 @@ Public Class Usuario
         End Set
     End Property
 
+    Private _email As String
+    Public Property Email() As String
+        Get
+            Return _email
+        End Get
+        Set(ByVal value As String)
+            _email = value
+        End Set
+    End Property
+
+
     Public Event IdiomChanged()
 
     Public Sub New()
 
     End Sub
-    Public Sub New(ByVal IsActive As Boolean, ByVal IsAdmin As Boolean, ByVal ape As String, ByVal id As Integer, ByVal idiom As Idioma, ByVal intentos As Integer, ByVal name As String, ByVal pass As String, ByVal username As String)
+    Public Sub New(ByVal IsActive As Boolean, ByVal IsAdmin As Boolean, ByVal ape As String, ByVal id As Integer, ByVal idiom As Idioma, ByVal intentos As Integer, ByVal name As String, ByVal pass As String, ByVal username As String, ByVal email As String)
         Me.Activo = IsActive
         Me.Admin = IsAdmin
         Me.Apellido = ape
@@ -156,6 +167,7 @@ Public Class Usuario
         Me.Nombre = name
         Me.Password = pass
         Me.UserName = username
+        Me.Email = email
     End Sub
 
 End Class ' Usuario

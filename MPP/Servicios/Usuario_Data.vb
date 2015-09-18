@@ -30,6 +30,7 @@ Public Class Usuario_Data
         params.SetStringParameter("@Nombre", obj.Nombre)
         params.SetStringParameter("@Password", obj.Password)
         params.SetStringParameter("@UserName", obj.UserName)
+        params.SetStringParameter("@Email", obj.Email)
 
         Try
             con.Open()
@@ -114,6 +115,7 @@ Public Class Usuario_Data
                 obj.Nombre = CStr(Item("Nombre"))
                 obj.Password = CStr(Item("Password"))
                 obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), ""))
+                obj.Email = CStr(Item("Email"))
             Next
             Return
         Else
@@ -138,6 +140,7 @@ Public Class Usuario_Data
         params.SetStringParameter("@Nombre", obj.Nombre)
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetIntParameter("@Intentos", obj.Intentos)
+        params.SetStringParameter("@Email", obj.Email)
 
         con = Connection.GetObjConnextion()
 
@@ -223,7 +226,8 @@ Public Class Usuario_Data
             , CInt(row("Intentos")) _
             , CStr(row("Nombre")) _
             , CStr(row("Password")) _
-            , CStr(row("UserName")))
+            , CStr(row("UserName")) _
+            , CStr(row("Email")))
 
             compData.ObtenerComponentsOfUser(user)
 

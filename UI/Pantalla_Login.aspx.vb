@@ -4,7 +4,7 @@ Imports Business.Idiomas
 Imports EE
 
 Public Class Principal
-    Inherits System.Web.UI.Page
+    Inherits PaginaGenerica
 
     Dim loginBusiness As New Business.Login
     Dim usuario As New Usuario
@@ -32,10 +32,6 @@ Public Class Principal
 
     End Sub
 
-    Protected Sub OlvidoClave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OlvidoClave.Click
-        Resultado.Text = "Contacte al " + mailAdmin + " por otra clave"
-    End Sub
-
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         Dim usuario = Session.Item("user")
         If Not usuario Is Nothing Then 'envio a la pagina principal
@@ -54,4 +50,7 @@ Public Class Principal
         End If
     End Sub
 
+    Protected Overrides Sub TraducirComponentesDinamicos()
+
+    End Sub
 End Class

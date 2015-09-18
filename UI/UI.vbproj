@@ -104,6 +104,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Front\RecuperarClave.aspx" />
     <Content Include="Front\Registracion.aspx" />
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\buscar.gif" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\RecuperarClave.aspx.designer.vb">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\RecuperarClave.aspx.vb">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Front\Registracion.aspx.designer.vb">
       <DependentUpon>Registracion.aspx</DependentUpon>
@@ -478,6 +486,7 @@
       <DependentUpon>SinPermisos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Servicios\EmailManager.vb" />
     <Compile Include="Servicios\Validaciones.vb" />
     <Compile Include="Pantalla_Login.aspx.designer.vb">
       <DependentUpon>Pantalla_Login.aspx</DependentUpon>
