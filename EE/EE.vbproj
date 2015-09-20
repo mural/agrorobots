@@ -108,6 +108,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Servicios\Mensaje.vb" />
     <Compile Include="Servicios\Patente.vb" />
     <Compile Include="Servicios\Usuario.vb" />
   </ItemGroup>

@@ -2,6 +2,7 @@
 Option Strict On
 
 Public Class Idioma_Control
+    Implements IComparable(Of Idioma_Control)
 
     Private _ID As Integer
     Private _ControId As Integer
@@ -61,4 +62,8 @@ Public Class Idioma_Control
         Me.Idioma = Idiom
         Me.Traduccion = Translation
     End Sub
+
+    Public Function CompareTo(other As Idioma_Control) As Integer Implements IComparable(Of Idioma_Control).CompareTo
+        Return Me.Control_ID.CompareTo(other.Control_ID)
+    End Function
 End Class

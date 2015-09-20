@@ -53,9 +53,9 @@
         padding: 10px;
     }
 
-    .tablaDatosHeader th a:link, a:visited {
-    color: white;
-}
+        .tablaDatosHeader th a:link, a:visited {
+            color: white;
+        }
 
 .tablaDatosAlternate {
     background-color: #c0c7d0;
@@ -64,6 +64,10 @@
 .tablaDatosAction {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.mensaje {
+    color: black;
 }
 
 /* DEFAULTS
@@ -166,8 +170,9 @@ first child of the left and right table columns */
     }
 
 .main {
-    padding: 0px 12px;
+    padding: 12px 12px;
     min-height: 420px;
+    max-width: 725px;
     float: left;
 }
 

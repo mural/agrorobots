@@ -75,6 +75,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapper.vb" />
     <Compile Include="Negocios\Candidato_Data.vb" />
     <Compile Include="Negocios\Capacidad_Data.vb" />
     <Compile Include="Negocios\Producto_Data.vb" />
@@ -83,6 +84,7 @@
     <Compile Include="Negocios\Objetivo_Data.vb" />
     <Compile Include="Servicios\Bitacora_Data.vb" />
     <Compile Include="Negocios\Nivel_Data.vb" />
+    <Compile Include="Servicios\Mensajes_Mapper.vb" />
     <Compile Include="Servicios\Component_Data.vb" />
     <Compile Include="Clases\Data.vb" />
     <Compile Include="Clases\Connection.vb" />

@@ -140,6 +140,7 @@
     <Content Include="Pages\ExamenResultado.aspx" />
     <Content Include="Pages\MateriasDetalle.aspx" />
     <Content Include="Pages\Materias.aspx" />
+    <Content Include="Pages\Mensajes.aspx" />
     <Content Include="Pages\NuevaCarrera.aspx" />
     <Content Include="Pages\NuevaMateria.aspx" />
     <Content Include="Pages\Pago.aspx" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="Pages\Materias.aspx.vb">
       <DependentUpon>Materias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Mensajes.aspx.designer.vb">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Mensajes.aspx.vb">
+      <DependentUpon>Mensajes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\NuevaCarrera.aspx.designer.vb">

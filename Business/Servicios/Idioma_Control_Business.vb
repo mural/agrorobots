@@ -19,17 +19,63 @@ Public Class Idioma_Control_Business
         Dim IdioCtrlData As New Idioma_Control_Data
         Dim traducciones = GetIdiomsByID(idioma)
         Dim originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
-        Dim i = 0     'Si se ingresa una traduccion de otro idioma antes que espanol esto falla, revisar
+        Dim i = 0
+        'agrego a las traducciones los originales que esten de mas
+        Dim traduccionAgregar As Idioma_Control
+        For Each original As Idioma_Control In originales
+            Dim encontrado = False
+            For Each traduccion As Idioma_Control In traducciones
+                If original.Control_ID = traduccion.Control_ID Then
+                    encontrado = True
+                    Exit For
+                End If
+            Next
+            If Not encontrado Then
+                CrearTraduccion(traducciones(0).Idioma.ID, "", original.Control_ID)
+            End If
+        Next
+
+        If traducciones.Count <> originales.Count Then
+            For Each traduccion As Idioma_Control In traducciones
+                Dim encontrado = False
+                For Each original As Idioma_Control In originales
+                    If original.Control_ID = traduccion.Control_ID Then
+                        encontrado = True
+                        Exit For
+                    End If
+                Next
+                If Not encontrado Then
+                    CrearTraduccion(originales(0).Idioma.ID, "", traduccion.Control_ID)
+                End If
+            Next
+        End If
+
+        traducciones = GetIdiomsByID(idioma)
+        originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
+
         For Each traduccion As Idioma_Control In traducciones
             traduccion.Original = originales.Item(i).Traduccion
             i += 1
         Next
+
         Return traducciones
     End Function
 
     Public Sub CrearTraduccion(IdiomaID As Integer, Traduccion As String, ControlID As Integer)
         Dim IdioCtrlData As New Idioma_Control_Data
-        IdioCtrlData.CreateTraduccion(IdiomaID, Traduccion, ControlID)
+        Dim traducciones = GetIdiomsByID(New Idioma(IdiomaID, ""))
+        Dim encontrado = False
+        For Each traduccionNueva As Idioma_Control In traducciones
+            If traduccionNueva.Control_ID = ControlID Then
+                encontrado = True
+                Exit For
+            End If
+        Next
+        If Not encontrado Then
+            IdioCtrlData.CreateTraduccion(IdiomaID, Traduccion, ControlID)
+        Else
+            Throw New Exception("TraduccionExistente")
+        End If
 
     End Sub
 

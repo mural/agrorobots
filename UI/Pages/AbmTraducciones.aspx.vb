@@ -48,22 +48,26 @@ Public Class AbmTraducciones
         Dim ControlID As String = DirectCast(GridView1_.FooterRow _
              .FindControl("txtControl"), TextBox).Text
 
-        Dim valido = True
-        If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Traduccion) Or String.IsNullOrEmpty(ControlID) Then
-            valido = False
-            lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
-            lblMensajes.CssClass = "formError"
-        End If
-        If valido Then
-            If Not IsNumeric(IdiomaID) Or Not IsNumeric(ControlID) Then
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Traduccion) Or String.IsNullOrEmpty(ControlID) Then
                 valido = False
-                lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90017), "")
+                lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
             End If
-        End If
-        If valido Then
-            idioma_Control_Business.CrearTraduccion(IdiomaID, Traduccion, ControlID)
-            lblMensajes.Text = ""
-        End If
+            If valido Then
+                If Not IsNumeric(IdiomaID) Or Not IsNumeric(ControlID) Then
+                    valido = False
+                    lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90017), "")
+                End If
+            End If
+            If valido Then
+                idioma_Control_Business.CrearTraduccion(IdiomaID, Traduccion, ControlID)
+                lblMensajes.Text = idiomas.GetTranslationById(90046) 'Se proceso la solicitud con éxito.
+            End If
+        Catch ex As Exception
+            lblMensajes.Text = idiomas.GetTranslationById(90045) 'No se pudo procesar la solicitud.
+        End Try
 
         GridView1_.EditIndex = -1
         CargarTraducciones()

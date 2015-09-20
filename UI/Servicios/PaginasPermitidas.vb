@@ -9,6 +9,7 @@
             _listadoPaginas.Add("Pantalla_Principal.aspx")
             _listadoPaginas.Add("CambioClave.aspx")
             _listadoPaginas.Add("CambioIdioma.aspx")
+            _listadoPaginas.Add("Mensajes.aspx")
             _listadoPaginas.Add("SinPermisos.aspx")
         End If
 

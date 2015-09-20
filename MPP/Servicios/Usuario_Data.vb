@@ -121,8 +121,36 @@ Public Class Usuario_Data
         Else
             Return
         End If
-
     End Sub
+
+    Public Function ConsultarPorId(idUsuario As Integer) As Usuario
+        Dim oDatos As New DAL.Datos
+        Dim hdatos As New Hashtable
+        Dim DS As New DataSet
+        Dim obj As New Usuario
+
+        hdatos.Add("@IDUsuario", idUsuario)
+
+        DS = oDatos.Leer("UsuarioObtenerPorId", hdatos)
+
+        If DS.Tables(0).Rows.Count > 0 Then
+
+            For Each Item As DataRow In DS.Tables(0).Rows
+                obj.Activo = CBool(Item("Activo"))
+                obj.Admin = CBool(Item("Admin"))
+                obj.Apellido = CStr(Item("Apellido"))
+                obj.ID = CInt(Item("ID"))
+                obj.Intentos = CInt(Item("Intentos"))
+                obj.Nombre = CStr(Item("Nombre"))
+                obj.Password = CStr(Item("Password"))
+                obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), ""))
+                obj.Email = CStr(Item("Email"))
+            Next
+            Return obj
+        Else
+            Return obj
+        End If
+    End Function
 
     Public Sub Modificacion(ByRef obj As Usuario)
         Dim con As SqlClient.SqlConnection
@@ -237,4 +265,5 @@ Public Class Usuario_Data
         Return lst
 
     End Function
+
 End Class

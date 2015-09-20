@@ -41,4 +41,14 @@ Public Class Familia_Business
         Return FamData.ObtenerFamilias
     End Function
 
+    Public Function ObtenerFamiliaAdmin() As Familia
+        Dim FamData As New Familia_Data
+        For Each flia In FamData.ObtenerFamilias
+            If flia.Name.Equals("Administrador") Then
+                Return flia
+            End If
+        Next
+        Return Nothing
+    End Function
+
 End Class

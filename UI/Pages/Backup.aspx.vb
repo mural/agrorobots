@@ -4,14 +4,12 @@ Imports Business
 Public Class Backup
     Inherits PaginaGenerica
 
-    Dim usuario As Usuario
     Dim serverPath As String
     Dim filename As String
     Dim virtualPath As String
     Dim backupDestination As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        usuario = Session.Item("user")
         filename = "agrorobots_" & Today.Day.ToString("00") & "-" & Today.Month.ToString("00") & "-" & Today.Year.ToString & ".bak"
         virtualPath = "~/App_Data/" & filename
         serverPath = Server.MapPath("~/App_Data/")
@@ -34,10 +32,10 @@ Public Class Backup
             Try
                 backUper.CrearBackUp(backupDestination)
 
-                BackupLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90014)
+                BackupLabel.Text = idiomas.GetTranslationById(90014)
                 Bitacora_Business.Logear("Backup", "Backup realizado", usuario.UserName)
             Catch ex As Exception
-                BackupLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90005)
+                BackupLabel.Text = idiomas.GetTranslationById(90005)
                 Bitacora_Business.Logear("Backup", "Error creando el Backup", usuario.UserName)
             End Try
         End If
@@ -51,10 +49,10 @@ Public Class Backup
         Try
             backUper.RestoreBackUp(path)
 
-            RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90015)
+            RestoreLabel.Text = idiomas.GetTranslationById(90015)
             Bitacora_Business.Logear("Restore", "Restore realizado", usuario.UserName)
         Catch ex As Exception
-            RestoreLabel.Text = Idiomas.IdiomManager.GetIdiomManager.GetTranslationById(90006)
+            RestoreLabel.Text = idiomas.GetTranslationById(90006)
             Bitacora_Business.Logear("Restore", "Error realizando el Restore", usuario.UserName)
         End Try
     End Sub

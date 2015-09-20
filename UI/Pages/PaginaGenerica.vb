@@ -5,6 +5,14 @@ Imports Business.Idiomas
 Public MustInherit Class PaginaGenerica
     Inherits System.Web.UI.Page
 
+    Protected usuario As Usuario
+    Protected idiomas As IdiomManager
+
+    Protected Sub CargarUsuario(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        usuario = Session.Item("user")
+        idiomas = IdiomManager.GetIdiomManager
+    End Sub
+
     Protected Overrides Sub InitializeCulture()
         Page.Culture = "es-AR"
         Page.UICulture = "es"

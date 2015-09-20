@@ -131,6 +131,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Servicios\Mensaje_Business.vb" />
     <Compile Include="Servicios\MyEncrypter.vb" />
     <Compile Include="Servicios\Servicio_BackUp.vb" />
     <Compile Include="Servicios\Servicio_Digitos.vb" />

@@ -100,6 +100,8 @@ Public Class Site
                 Response.Redirect("Contactenos.aspx")
             Case "Clave_3008"
                 Response.Redirect("CambioClave.aspx")
+            Case "Mensajes_3009"
+                Response.Redirect("Mensajes.aspx")
             Case "Idioma_10006"
                 Response.Redirect("CambioIdioma.aspx")
         End Select
