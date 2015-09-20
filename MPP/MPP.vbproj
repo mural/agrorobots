@@ -76,14 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapper.vb" />
-    <Compile Include="Negocios\Candidato_Data.vb" />
-    <Compile Include="Negocios\Capacidad_Data.vb" />
-    <Compile Include="Negocios\Producto_Data.vb" />
-    <Compile Include="Negocios\Empleado_Data.vb" />
-    <Compile Include="Negocios\Evaluacion_Data.vb" />
-    <Compile Include="Negocios\Objetivo_Data.vb" />
     <Compile Include="Servicios\Bitacora_Data.vb" />
-    <Compile Include="Negocios\Nivel_Data.vb" />
     <Compile Include="Servicios\Mensajes_Mapper.vb" />
     <Compile Include="Servicios\Component_Data.vb" />
     <Compile Include="Clases\Data.vb" />
@@ -141,6 +134,9 @@
       <Project>{BE638FE0-2086-4E4E-815A-81F207F3B764}</Project>
       <Name>EE</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Negocios\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

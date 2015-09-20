@@ -42,7 +42,7 @@
 -- Assign a blank string - '' for all tables or the table name for
 -- a single table.
 DECLARE @GenerateProcsFor varchar(100)
-SET @GenerateProcsFor = 'Mensajes'
+SET @GenerateProcsFor = 'ElementoAcademico'
 --SET @GenerateProcsFor = ''
 
 -- which database do we want to create the procs for?
@@ -68,7 +68,7 @@ SET @TablePrefix = 'tbl_'
 -- do SELECT * or SELECT [ColumnName,]...
 -- Assign a value of either 1 or 0
 DECLARE @UseSelectWildCard bit
-SET @UseSelectWildCard = 0
+SET @UseSelectWildCard = 1
 
 -- ##########################################################
 /* END SETTING OF CONFIG VARIABLE 
@@ -217,7 +217,7 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			-- ----------------------------------------------------
 			
 			-- _lst
-			SET @LIST = 'CREATE PROC [dbo].[udp_' + @ObjectName + '_lst]' + Char(13)
+			SET @LIST = 'CREATE PROC [dbo].[' + @ObjectName + 'Listar]' + Char(13)
 			SET @LIST = @LIST + 'AS' + Char(13)
 			SET @LIST = @LIST + 'SET NOCOUNT ON' + Char(13)
 			IF @UseSelectWildcard = 1 BEGIN
@@ -228,7 +228,7 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			END
 	
 			-- _sel
-			SET @SELECT = 'CREATE PROC [dbo].[udp_' + @ObjectName + '_sel]' + Char(13)
+			SET @SELECT = 'CREATE PROC [dbo].[' + @ObjectName + 'Obtener]' + Char(13)
 			SET @SELECT = @SELECT + Char(9) + '@' + @ColumnNameCleaned + ' ' + @DataType
 			IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar') BEGIN
 				SET @SELECT = @SELECT + '(' + CAST(@CharLength As varchar(10)) + ')'
@@ -243,7 +243,7 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			END
 	
 			-- _ups
-			SET @UPSERT = 'CREATE PROC [dbo].[udp_' + @ObjectName + '_ups]' + Char(13)
+			SET @UPSERT = 'CREATE PROC [dbo].[' + @ObjectName + 'Actualizar]' + Char(13)
 					SET @UPSERT = @UPSERT + Char(13) + Char(9) + '@' + @ColumnNameCleaned + ' ' + @DataType
 			IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar') BEGIN
 				SET @UPSERT = @UPSERT + '(' + CAST(@CharLength As Varchar(10)) + ')'
@@ -264,7 +264,7 @@ WHILE @@FETCH_STATUS = 0 BEGIN
 			END
 	
 			-- _del
-			SET @DELETE = 'CREATE PROC [dbo].[udp_' + @ObjectName + '_del]' + Char(13)
+			SET @DELETE = 'CREATE PROC [dbo].[' + @ObjectName + 'Borrar]' + Char(13)
 			SET @DELETE = @DELETE + Char(9) + '@' + @ColumnNameCleaned + ' ' + @DataType
 			IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar') BEGIN
 				SET @DELETE = @DELETE + '(' + CAST(@CharLength As Varchar(10)) + ')'

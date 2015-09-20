@@ -1,5 +1,5 @@
 ﻿
-Class EvaluacionYaCompletadaException
+Class EjemploException
     Inherits Exception
 
 End Class

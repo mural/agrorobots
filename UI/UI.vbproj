@@ -126,9 +126,6 @@
     <Content Include="Pages\CambioClave.aspx" />
     <Content Include="Pages\CambioIdioma.aspx" />
     <Content Include="Pages\CarrerasMaterias.aspx" />
-    <Content Include="Pages\Carrito.aspx" />
-    <Content Include="Pages\Catalogo.aspx" />
-    <Content Include="Pages\Contactenos.aspx" />
     <Content Include="Pages\CarrerasDetalle.aspx" />
     <Content Include="Pages\ContenidoCarrera.aspx" />
     <Content Include="Pages\ContenidoMateria.aspx" />
@@ -144,7 +141,6 @@
     <Content Include="Pages\NuevaCarrera.aspx" />
     <Content Include="Pages\NuevaMateria.aspx" />
     <Content Include="Pages\Pago.aspx" />
-    <Content Include="Pages\Quienes.aspx" />
     <Content Include="Pages\Carreras.aspx" />
     <Content Include="Pages\RevisionCarrera.aspx" />
     <Content Include="Pages\RevisionMateria.aspx" />
@@ -323,27 +319,6 @@
       <DependentUpon>CarrerasMaterias.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Pages\Carrito.aspx.designer.vb">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Carrito.aspx.vb">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Catalogo.aspx.designer.vb">
-      <DependentUpon>Catalogo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Catalogo.aspx.vb">
-      <DependentUpon>Catalogo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Contactenos.aspx.designer.vb">
-      <DependentUpon>Contactenos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Contactenos.aspx.vb">
-      <DependentUpon>Contactenos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="Pages\CarrerasDetalle.aspx.designer.vb">
       <DependentUpon>CarrerasDetalle.aspx</DependentUpon>
     </Compile>
@@ -450,13 +425,6 @@
     </Compile>
     <Compile Include="Pages\Pago.aspx.vb">
       <DependentUpon>Pago.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Quienes.aspx.designer.vb">
-      <DependentUpon>Quienes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Quienes.aspx.vb">
-      <DependentUpon>Quienes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Carreras.aspx.designer.vb">
