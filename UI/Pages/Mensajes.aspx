@@ -9,11 +9,12 @@
     <div id="envio">
         <asp:Label ID="lblEnviar_700" runat="server" Text="enviar mensaje"></asp:Label>
         <br />
-        <asp:DropDownList ID="comboUsuarios" runat="server">
+        <asp:DropDownList ID="comboUsuarios" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         <asp:TextBox ID="txtMensaje_701" runat="server"></asp:TextBox>
-        &nbsp;
+        *&nbsp;
     <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
+        <asp:RequiredFieldValidator ID="vldMensaje_0" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
         <br />
         <br />
     </div>

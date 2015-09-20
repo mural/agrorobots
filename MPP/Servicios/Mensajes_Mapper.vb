@@ -27,15 +27,19 @@ Public Class Mensajes_Mapper
         hdatos.Add("@Leido", obj.Leido)
         hdatos.Add("@Fecha", obj.Fecha)
 
-        Return oDatos.Escribir("ActualizarMensaje", hdatos)
+        Return oDatos.Escribir("MensajeActualizar", hdatos)
     End Function
 
     Public Function ConsultarPorUsuario(ByVal idUsuario) As List(Of Mensaje)
         Preparar()
+        Dim usuarioMapper As New Usuario_Data
+        Dim usuario As Usuario
+        Dim familiaMapper As New Familia_Data
+        Dim familia As Familia
 
         hdatos.Add("@Usuario", idUsuario)
 
-        DS = oDatos.Leer("ObtenerMensajePorUsuario", hdatos)
+        DS = oDatos.Leer("MensajeObtenerPorUsuario", hdatos)
 
         Dim listado As New List(Of Mensaje)
         If DS.Tables(0).Rows.Count > 0 Then
@@ -55,6 +59,18 @@ Public Class Mensajes_Mapper
                 objNuevo.Leido = CBool(Item("Leido"))
                 objNuevo.Fecha = CDate(Item("Fecha"))
 
+                If objNuevo.UsuarioEmisor <> 0 Then
+                    Usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioEmisor)
+                    objNuevo.NombreEmisor = Usuario.Nombre
+                Else
+                    For Each flia In familiaMapper.ObtenerFamilias
+                        If flia.ID = objNuevo.RolEmisor Then
+                            familia = flia
+                            objNuevo.NombreEmisor = familia.Name
+                            Exit For
+                        End If
+                    Next
+                End If
                 listado.Add(objNuevo)
             Next
         End If
@@ -71,7 +87,7 @@ Public Class Mensajes_Mapper
 
         hdatos.Add("@Rol", idRol)
 
-        DS = oDatos.Leer("ObtenerMensajePorRol", hdatos)
+        DS = oDatos.Leer("MensajeObtenerPorRol", hdatos)
 
         Dim listado As New List(Of Mensaje)
         If DS.Tables(0).Rows.Count > 0 Then
@@ -95,10 +111,11 @@ Public Class Mensajes_Mapper
                     usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioEmisor)
                     objNuevo.NombreEmisor = usuario.Nombre
                 Else
+                    usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioReceptor)
                     For Each flia In familiaMapper.ObtenerFamilias
                         If flia.ID = objNuevo.RolEmisor Then
                             familia = flia
-                            objNuevo.NombreEmisor = familia.Name
+                            objNuevo.NombreEmisor = familia.Name + " &#x27a4; " + usuario.Nombre
                             Exit For
                         End If
                     Next
@@ -115,6 +132,6 @@ Public Class Mensajes_Mapper
 
         hdatos.Add("@ID", idMensaje)
 
-        Return oDatos.Escribir("BorrarMensaje", hdatos)
+        Return oDatos.Escribir("MensajeBorrar", hdatos)
     End Function
 End Class

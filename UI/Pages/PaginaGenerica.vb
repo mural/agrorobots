@@ -18,8 +18,8 @@ Public MustInherit Class PaginaGenerica
         Page.UICulture = "es"
     End Sub
 
-    Private _mensajeBorrar As String
-    Public Property MensajeBorrar() As String
+    Private Shared _mensajeBorrar As String
+    Public Shared Property MensajeBorrar() As String
         Get
             Return _mensajeBorrar
         End Get

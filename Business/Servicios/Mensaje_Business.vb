@@ -20,9 +20,10 @@ Public Class Mensaje_Business
         Return mensajesMapper.InsertarMensaje(mensaje)
     End Function
 
-    Public Function EnviarMensajeAAdmin(ByVal idUsuario As Integer, ByVal contenido As String)
+    Public Function EnviarMensajeAAdmin(ByVal idUsuario As Integer, ByVal emailEmisor As String, ByVal contenido As String)
         Dim mensaje As New Mensaje
         mensaje.UsuarioEmisor = idUsuario
+        mensaje.EmailEmisor = emailEmisor
         mensaje.Contenido = contenido
         mensaje.RolReceptor = familiaBusiness.ObtenerFamiliaAdmin.ID
         mensaje.Leido = False
