@@ -42,13 +42,27 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
+            <asp:TemplateField HeaderText="contenido_705" >
+                <ItemTemplate>
+                    <asp:Label ID="lblDuracion" runat="server"
+                        Text='<%# Eval("Contenido")%>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="horas_42" >
+                <ItemTemplate>
+                    <asp:Label ID="lblDuracion" runat="server"
+                        Text='<%# Eval("Duracion")%>'></asp:Label>
+                     hs
+                </ItemTemplate>
+            </asp:TemplateField>
+
             <asp:TemplateField HeaderText="precio_41" SortExpression="precio">
                 <ItemTemplate>
                     $ <asp:Label ID="lblPrecio" runat="server"
                         Text='<%# Eval("Precio")%>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-
         </Columns>
         <HeaderStyle CssClass="tablaDatosHeader" />
     </asp:GridView>

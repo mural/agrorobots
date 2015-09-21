@@ -33,6 +33,8 @@ Public Class Principal
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
+
         Dim usuario = Session.Item("user")
         If Not usuario Is Nothing Then 'envio a la pagina principal
             FormsAuthentication.RedirectFromLoginPage(username.Text, False)

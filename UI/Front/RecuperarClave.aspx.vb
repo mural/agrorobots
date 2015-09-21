@@ -1,10 +1,12 @@
-﻿Public Class RecuperarClave
+﻿Imports EE
+
+Public Class RecuperarClave
     Inherits PaginaGenerica
 
     Dim loginBusiness As New Business.Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()

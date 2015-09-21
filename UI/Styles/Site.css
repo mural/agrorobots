@@ -44,6 +44,10 @@
     text-align: center;
 }
 
+    .tablaDatos td {
+        padding: 5px;
+    }
+
 .tablaDatosHeader {
     color: white;
     background-color: #3a4f63;
@@ -68,7 +72,6 @@
 
 .mensaje {
     color: black;
-    padding: 5px;
 }
 
 /* DEFAULTS

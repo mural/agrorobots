@@ -9,7 +9,7 @@ Public Class Registracion
     Dim familia_Business As New Familia_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
+        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()

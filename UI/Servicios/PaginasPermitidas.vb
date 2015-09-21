@@ -11,6 +11,7 @@
             _listadoPaginas.Add("CambioIdioma.aspx")
             _listadoPaginas.Add("Mensajes.aspx")
             _listadoPaginas.Add("SinPermisos.aspx")
+            _listadoPaginas.Add("Carreras.aspx")
             _listadoPaginas.Add("Comparacion.aspx")
         End If
 
