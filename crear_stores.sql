@@ -42,7 +42,7 @@
 -- Assign a blank string - '' for all tables or the table name for
 -- a single table.
 DECLARE @GenerateProcsFor varchar(100)
-SET @GenerateProcsFor = 'ElementoAcademico'
+SET @GenerateProcsFor = 'Mensajes'
 --SET @GenerateProcsFor = ''
 
 -- which database do we want to create the procs for?

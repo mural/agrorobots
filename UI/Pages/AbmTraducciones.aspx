@@ -40,6 +40,9 @@
         </asp:GridView>
     </div>
     <br />
+    <br />
+    </asp:Label><asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox><asp:Button ID="buscar_31" runat="server" Text="buscar" />
+    <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">

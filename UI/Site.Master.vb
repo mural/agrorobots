@@ -12,8 +12,11 @@ Public Class Site
     Dim menuItem As MenuItem
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
         usuario = Session.Item("user")
+        If usuario Is Nothing Then
+            Response.Redirect("/Pantalla_Login.aspx")
+        End If
+
         ArmarMenuLateral(usuario)
 
         'validar pagina
@@ -69,17 +72,13 @@ Public Class Site
     End Sub
 
     Public Sub ArmarMenuLateral(ByRef usuario As Usuario)
-        If usuario Is Nothing Then
-            Response.Redirect("/Pantalla_Login.aspx")
-        Else
-            SideNavigationMenu.Items.Clear()
-            For Each patente As Patente In usuario.GetOnlyPatentes
-                Dim menuItem = New MenuItem(patente.Descripcion, patente.Name)
-                If Nothing Is SideNavigationMenu.FindItem(menuItem.Value) Then
-                    SideNavigationMenu.Items.Add(menuItem)
-                End If
-            Next
-        End If
+        SideNavigationMenu.Items.Clear()
+        For Each patente As Patente In usuario.GetOnlyPatentes
+            Dim menuItem = New MenuItem(patente.Descripcion, patente.Name)
+            If Nothing Is SideNavigationMenu.FindItem(menuItem.Value) Then
+                SideNavigationMenu.Items.Add(menuItem)
+            End If
+        Next
     End Sub
 
     Public Sub Logout()

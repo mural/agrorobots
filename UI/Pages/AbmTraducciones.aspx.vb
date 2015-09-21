@@ -135,4 +135,7 @@ Public Class AbmTraducciones
         Response.Redirect(Request.RawUrl)
     End Sub
 
+    Protected Sub buscar_31_Click(sender As Object, e As EventArgs) Handles buscar_31.Click
+
+    End Sub
 End Class
