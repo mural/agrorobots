@@ -127,6 +127,7 @@
     <Content Include="Pages\CambioIdioma.aspx" />
     <Content Include="Pages\CarrerasMaterias.aspx" />
     <Content Include="Pages\CarrerasDetalle.aspx" />
+    <Content Include="Pages\Comparacion.aspx" />
     <Content Include="Pages\ContenidoCarrera.aspx" />
     <Content Include="Pages\ContenidoMateria.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
@@ -324,6 +325,13 @@
     </Compile>
     <Compile Include="Pages\CarrerasDetalle.aspx.vb">
       <DependentUpon>CarrerasDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Comparacion.aspx.designer.vb">
+      <DependentUpon>Comparacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Comparacion.aspx.vb">
+      <DependentUpon>Comparacion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\ContenidoCarrera.aspx.designer.vb">

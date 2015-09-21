@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CarrerasDetalle.aspx.vb" Inherits="Agorobots.Carreras" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="CarrerasDetalle.aspx.vb" Inherits="Agorobots.CarrerasDetalle" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <title>Carreras</title>
@@ -7,7 +7,7 @@
      - Carreras
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Detalle Carrera 1</h2>
+    <h2><asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label></h2>
     <br />
     <div class="main">
         <div class="detalle"><b>Descripción:</b> Esta carrera consiste en algo muy interesante.</div>
@@ -15,7 +15,7 @@
         <div class="detalle"><b>Duración:</b> 3 años</div>
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Inscribirse" CssClass="margenIzq400"/>
+        <asp:Button ID="inscribirse" runat="server" Text="Inscribirse" CssClass="margenIzq400"/>
         <br />
         <br />
         <div class="detalle"><b>Mensajes:</b> presione "Inscribirse" para comenzar el proceso.</div>

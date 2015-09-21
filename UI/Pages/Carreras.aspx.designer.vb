@@ -12,4 +12,22 @@ Option Explicit On
 
 
 Partial Public Class Carreras
+
+    '''<summary>
+    '''GridView1_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''comparar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comparar As Global.System.Web.UI.WebControls.HyperLink
 End Class

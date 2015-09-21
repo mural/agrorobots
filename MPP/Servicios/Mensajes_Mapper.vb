@@ -1,17 +1,17 @@
 ﻿Imports EE
 
 Public Class Mensajes_Mapper
-    Inherits Mapper
+    Inherits Mapper(Of Mensaje)
 
-    Function InsertarMensaje(ByRef obj As Mensaje) As Boolean
+    Public Overrides Function Insertar(ByRef obj As Mensaje) As Boolean
         Preparar()
 
         obj.ID = 0
 
-        Return ActualizarMensaje(obj)
+        Return Actualizar(obj)
     End Function
 
-    Function ActualizarMensaje(ByRef obj As Mensaje) As Boolean
+    Public Overrides Function Actualizar(ByRef obj As Mensaje) As Boolean
         Preparar()
 
         hdatos.Add("@ID", obj.ID)
@@ -30,6 +30,55 @@ Public Class Mensajes_Mapper
         Return oDatos.Escribir("MensajeActualizar", hdatos)
     End Function
 
+    Private Sub DSaEE(ByRef objNuevo As Mensaje, ByRef Item As DataRow)
+        objNuevo.ID = CInt(Item("ID"))
+        objNuevo.Contenido = CStr(Item("Contenido"))
+        objNuevo.UsuarioEmisor = CInt(Item("UsuarioEmisor"))
+        objNuevo.EmailEmisor = CStr(Item("EmailEmisor"))
+        objNuevo.RolEmisor = CInt(Item("RolEmisor"))
+        objNuevo.UsuarioReceptor = CInt(Item("UsuarioReceptor"))
+        objNuevo.EmailReceptor = CStr(Item("EmailReceptor"))
+        objNuevo.RolReceptor = CInt(Item("RolReceptor"))
+        objNuevo.Broadcast = CBool(Item("Broadcast"))
+        objNuevo.IdConversacion = CInt(Item("ID_Conversacion"))
+        objNuevo.Leido = CBool(Item("Leido"))
+        objNuevo.Fecha = CDate(Item("Fecha"))
+    End Sub
+
+    Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As Mensaje
+        Preparar()
+
+        hdatos.Add("@ID", codigoAcademico)
+
+        DS = oDatos.Leer("MensajeObtener", hdatos)
+        Dim objNuevo As New Mensaje
+
+        If DS.Tables(0).Rows.Count > 0 Then
+            For Each Item As DataRow In DS.Tables(0).Rows
+
+                DSaEE(objNuevo, Item)
+            Next
+        End If
+        Return objNuevo
+    End Function
+
+    Public Overrides Function Listar() As List(Of Mensaje)
+        Preparar()
+
+        DS = oDatos.Leer("MensajeListar", hdatos)
+        Dim listado As New List(Of Mensaje)
+
+        If DS.Tables(0).Rows.Count > 0 Then
+            For Each Item As DataRow In DS.Tables(0).Rows
+                Dim objNuevo As New Mensaje
+
+                DSaEE(objNuevo, Item)
+                listado.Add(objNuevo)
+            Next
+        End If
+        Return listado
+    End Function
+
     Public Function ConsultarPorUsuario(ByVal idUsuario) As List(Of Mensaje)
         Preparar()
         Dim usuarioMapper As New Usuario_Data
@@ -46,22 +95,11 @@ Public Class Mensajes_Mapper
             For Each Item As DataRow In DS.Tables(0).Rows
                 Dim objNuevo As New Mensaje
 
-                objNuevo.ID = CInt(Item("ID"))
-                objNuevo.Contenido = CStr(Item("Contenido"))
-                objNuevo.UsuarioEmisor = CInt(Item("UsuarioEmisor"))
-                objNuevo.EmailEmisor = CStr(Item("EmailEmisor"))
-                objNuevo.RolEmisor = CInt(Item("RolEmisor"))
-                objNuevo.UsuarioReceptor = CInt(Item("UsuarioReceptor"))
-                objNuevo.EmailReceptor = CStr(Item("EmailReceptor"))
-                objNuevo.RolReceptor = CInt(Item("RolReceptor"))
-                objNuevo.Broadcast = CBool(Item("Broadcast"))
-                objNuevo.IdConversacion = CInt(Item("ID_Conversacion"))
-                objNuevo.Leido = CBool(Item("Leido"))
-                objNuevo.Fecha = CDate(Item("Fecha"))
+                DSaEE(objNuevo, Item)
 
                 If objNuevo.UsuarioEmisor <> 0 Then
-                    Usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioEmisor)
-                    objNuevo.NombreEmisor = Usuario.Nombre
+                    usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioEmisor)
+                    objNuevo.NombreEmisor = usuario.Nombre
                 Else
                     For Each flia In familiaMapper.ObtenerFamilias
                         If flia.ID = objNuevo.RolEmisor Then
@@ -94,18 +132,7 @@ Public Class Mensajes_Mapper
             For Each Item As DataRow In DS.Tables(0).Rows
                 Dim objNuevo As New Mensaje
 
-                objNuevo.ID = CInt(Item("ID"))
-                objNuevo.Contenido = CStr(Item("Contenido"))
-                objNuevo.UsuarioEmisor = CInt(Item("UsuarioEmisor"))
-                objNuevo.EmailEmisor = CStr(Item("EmailEmisor"))
-                objNuevo.RolEmisor = CInt(Item("RolEmisor"))
-                objNuevo.UsuarioReceptor = CInt(Item("UsuarioReceptor"))
-                objNuevo.EmailReceptor = CStr(Item("EmailReceptor"))
-                objNuevo.RolReceptor = CInt(Item("RolReceptor"))
-                objNuevo.Broadcast = CBool(Item("Broadcast"))
-                objNuevo.IdConversacion = CInt(Item("ID_Conversacion"))
-                objNuevo.Leido = CBool(Item("Leido"))
-                objNuevo.Fecha = CDate(Item("Fecha"))
+                DSaEE(objNuevo, Item)
 
                 If objNuevo.UsuarioEmisor <> 0 Then
                     usuario = usuarioMapper.ConsultarPorId(objNuevo.UsuarioEmisor)
@@ -127,7 +154,7 @@ Public Class Mensajes_Mapper
         Return listado
     End Function
 
-    Function BorrarMensaje(ByVal idMensaje As Integer) As Boolean
+    Public Overrides Function Borrar(ByVal idMensaje As Integer) As Boolean
         Preparar()
 
         hdatos.Add("@ID", idMensaje)

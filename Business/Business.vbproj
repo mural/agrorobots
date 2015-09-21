@@ -91,6 +91,8 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.vb" />
+    <Compile Include="Negocio\ElementoAcademico_Business.vb" />
     <Compile Include="Servicios\Bitacora_Business.vb" />
     <Compile Include="Servicios\Component_Business.vb" />
     <Compile Include="Servicios\EmptyDataException.vb" />
@@ -174,9 +176,7 @@
       <Name>EE</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Negocio\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

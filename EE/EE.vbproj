@@ -98,6 +98,7 @@
     <Compile Include="Servicios\Mensaje.vb" />
     <Compile Include="Servicios\Patente.vb" />
     <Compile Include="Servicios\Usuario.vb" />
+    <Compile Include="Simbolos.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

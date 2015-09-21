@@ -7,7 +7,7 @@ Public Class Mensaje_Business
     Dim familiaBusiness As New Familia_Business
 
     Public Function EnviarMensaje(ByRef obj As Mensaje)
-        Return mensajesMapper.InsertarMensaje(obj)
+        Return mensajesMapper.Insertar(obj)
     End Function
 
     Public Function EnviarMensajeDeAdmin(ByVal idUsuario As Integer, ByVal contenido As String)
@@ -17,7 +17,7 @@ Public Class Mensaje_Business
         mensaje.Contenido = contenido
         mensaje.Leido = False
         mensaje.Fecha = Now
-        Return mensajesMapper.InsertarMensaje(mensaje)
+        Return mensajesMapper.Insertar(mensaje)
     End Function
 
     Public Function EnviarMensajeAAdmin(ByVal idUsuario As Integer, ByVal emailEmisor As String, ByVal contenido As String)
@@ -28,11 +28,11 @@ Public Class Mensaje_Business
         mensaje.RolReceptor = familiaBusiness.ObtenerFamiliaAdmin.ID
         mensaje.Leido = False
         mensaje.Fecha = Now
-        Return mensajesMapper.InsertarMensaje(mensaje)
+        Return mensajesMapper.Insertar(mensaje)
     End Function
 
     Function ActualizarMensaje(ByRef obj As Mensaje) As Boolean
-        Return mensajesMapper.ActualizarMensaje(obj)
+        Return mensajesMapper.Actualizar(obj)
     End Function
 
     Function ObtenerMensajesPorUsuario(ByVal idUsuario As Integer) As List(Of Mensaje)
@@ -48,6 +48,6 @@ Public Class Mensaje_Business
     End Function
 
     Function BorrarMensaje(ByVal idMensaje As Integer) As Boolean
-        Return mensajesMapper.BorrarMensaje(idMensaje)
+        Return mensajesMapper.Borrar(idMensaje)
     End Function
 End Class

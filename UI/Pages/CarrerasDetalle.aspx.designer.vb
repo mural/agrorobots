@@ -11,14 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Carreras
+Partial Public Class CarrerasDetalle
 
     '''<summary>
-    '''Button1 control.
+    '''lblTitulo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''inscribirse control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inscribirse As Global.System.Web.UI.WebControls.Button
 End Class
