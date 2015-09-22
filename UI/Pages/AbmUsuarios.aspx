@@ -11,17 +11,29 @@
     </h2>
     <p>
         <asp:Label ID="lblApellido_21" runat="server" Text="apellido"></asp:Label>
-        <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtApellido" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldApellido_21" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtApellido" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
         &nbsp;
         <asp:CustomValidator ID="cvldApellido_21" runat="server" ControlToValidate="txtApellido" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
         <br />
         <asp:Label ID="lblNombre_22" runat="server" Text="nombre"></asp:Label>
-        <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtNombre" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldNombre_22" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtNombre" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblUsername_23" runat="server" Text="user"></asp:Label>
-        <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtUsername" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldUser_23" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtUsername" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CustomValidator ID="cvldUser_23" runat="server" ControlToValidate="txtUsername" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
         <br />
@@ -35,12 +47,20 @@
         <asp:ListBox ID="lstbFamilia" runat="server" Rows="5" SelectionMode="Multiple"></asp:ListBox>
         <br />
         <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
-        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPassword" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldPassword_27" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CustomValidator ID="cvldPass_27" runat="server" ControlToValidate="txtPassword" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
         <br />
         <asp:Label ID="lblConfirmPassword_28" runat="server" Text="confirm pass"></asp:Label>
-        <asp:TextBox ID="txtConfirmPassword" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtConfirmPassword" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldConfirmPassword_28" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CompareValidator ID="vldPasswordMatch" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="CompareValidator" CssClass="formError" EnableClientScript="False"></asp:CompareValidator>
         <br />

@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Carreras.aspx.vb" Inherits="Agorobots.Carreras" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <title>Carreras</title>
     <style type="text/css">
         .auto-style1 {
             width: 22px;
@@ -10,13 +9,15 @@
     </style>
 </asp:Content>
 <asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">
-    - Carreras
+    -
+    <asp:Label ID="titlelistadocarreras_50" runat="server" Text="Label"></asp:Label>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Listado de carreras
-    </h2>
+    <h2>
+        <asp:Label ID="listadocarreras_50" runat="server" Text="Label"></asp:Label></h2>
     <div class="main">
         <asp:GridView ID="GridView1_" runat="server"
+            ShowHeader="False"
             AlternatingRowStyle-CssClass="tablaDatosAlternate"
             AutoGenerateColumns="False"
             CssClass="tablaDatos">
@@ -41,7 +42,9 @@
         <br />
         <br />
         <br />
-        <asp:HyperLink ID="comparar" runat="server" NavigateUrl ="Comparacion.aspx" >Comparacion de carreras</asp:HyperLink>
+        <asp:HyperLink ID="comparar" runat="server" NavigateUrl="Comparacion.aspx">
+            <asp:Label ID="comparacion_51" runat="server" Text="Label"></asp:Label>
+        </asp:HyperLink>
         <br />
     </div>
 

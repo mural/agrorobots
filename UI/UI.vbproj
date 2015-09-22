@@ -153,6 +153,7 @@
     <Content Include="Styles\fonts\Dharma Type Font License.txt" />
     <Content Include="Styles\fonts\fontomas-webfont.svg" />
     <Content Include="Styles\fonts\franchise-bold-webfont.svg" />
+    <Content Include="Styles\funciones.js" />
     <Content Include="Styles\oldLogin.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -549,6 +550,10 @@
     <ProjectReference Include="..\Business\Business.vbproj">
       <Project>{2F403A1F-C41D-47C1-9D20-6BF77FC625BA}</Project>
       <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controles\Controles.vbproj">
+      <Project>{c3cc074e-8ac0-48c5-ae80-3ed3933faa1e}</Project>
+      <Name>Controles</Name>
     </ProjectReference>
     <ProjectReference Include="..\EE\EE.vbproj">
       <Project>{BE638FE0-2086-4E4E-815A-81F207F3B764}</Project>

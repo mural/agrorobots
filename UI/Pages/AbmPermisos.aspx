@@ -40,11 +40,19 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtName" runat="server"
-                                    Text='<%# Eval("Name")%>'></asp:TextBox>
+                                    Text='<%# Eval("Name")%>'
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtName"
-                                    MaxLength="15" runat="server"></asp:TextBox>
+                                    MaxLength="15" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -55,11 +63,19 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtDescripcion" runat="server"
-                                    Text='<%# Eval("Descripcion")%>'></asp:TextBox>
+                                    Text='<%# Eval("Descripcion")%>'
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtDescripcion"
-                                    MaxLength="35" runat="server"></asp:TextBox>
+                                    MaxLength="35" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 

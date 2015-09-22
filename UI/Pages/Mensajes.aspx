@@ -11,7 +11,11 @@
         <br />
         <asp:DropDownList ID="comboUsuarios" runat="server" AutoPostBack="True">
         </asp:DropDownList>
-        <asp:TextBox ID="txtMensaje_701" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtMensaje_701" runat="server"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
         *&nbsp;
     <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
         <asp:RequiredFieldValidator ID="vldMensaje_0" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
@@ -19,7 +23,7 @@
         <br />
     </div>
     <asp:Label ID="lblMensajes" runat="server" CssClass="formError"></asp:Label>
-        <br />
+    <br />
     <br />
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"

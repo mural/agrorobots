@@ -1,13 +1,13 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Comparacion.aspx.vb" Inherits="Agorobots.Comparacion" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <title>Comparacion</title>
+    <title>comparacion_51</title>
 </asp:Content>
 <asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">
-    - Comparacion
+    - <asp:Label ID="titlecomparacion_51" runat="server" Text="Label"></asp:Label>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Comparacion</h2>
+    <h2><asp:Label ID="comparacion_51" runat="server" Text="Label"></asp:Label></h2>
     <asp:DropDownList ID="comboElemento1" runat="server"
         OnSelectedIndexChanged="Elemento1" AutoPostBack="true"
         AppendDataBoundItems="true">

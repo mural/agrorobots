@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <script type="text/javascript">
-        var mensajeBorrar = '<%= MensajeBorrar %>';
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>
@@ -41,7 +38,13 @@
     </div>
     <br />
     <br />
-    </asp:Label><asp:TextBox ID="txtBusqueda" runat="server"></asp:TextBox><asp:Button ID="buscar_31" runat="server" Text="buscar" />
+    <asp:TextBox ID="txtBusqueda" runat="server"
+        onkeypress="return alfanumerico1(event)"
+        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+    </asp:TextBox>
+    <asp:Button ID="buscar_31" runat="server" Text="buscar" />
+    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -53,6 +56,7 @@
                 <br />
 
                 <asp:GridView ID="GridView1_" runat="server"
+                    ShowHeaderWhenEmpty="true"
                     AutoGenerateColumns="false" HeaderStyle-CssClass="tablaDatosHeader"
                     CssClass="tablaDatos"
                     AlternatingRowStyle-CssClass="tablaDatosAlternate"
@@ -60,6 +64,9 @@
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
                     PageSize="15">
+                    <EmptyDataTemplate>
+                        <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+                    </EmptyDataTemplate>
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
@@ -86,10 +93,18 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtTraduccionName" runat="server"
-                                    Text='<%# Eval("Traduccion")%>'></asp:TextBox>
+                                    Text='<%# Eval("Traduccion")%>'
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtTraduccion" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtTraduccion" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -99,7 +114,11 @@
                                     Text='<%# Eval("Control_ID")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtControl" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtControl" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 

@@ -15,6 +15,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MPP", "MPP\MPP.vbproj", "{3
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DAL", "DAL\DAL.vbproj", "{D42B035B-18ED-411B-809D-8F6738CEF7EE}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Controles", "Controles\Controles.vbproj", "{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,16 @@ Global
 		{D42B035B-18ED-411B-809D-8F6738CEF7EE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D42B035B-18ED-411B-809D-8F6738CEF7EE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D42B035B-18ED-411B-809D-8F6738CEF7EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -32,6 +32,33 @@ Partial Public Class Pantalla_Principal
     Protected WithEvents userName As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''txtBuscar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBuscar As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''buscarsitio_104 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents buscarsitio_104 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''GridView1_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
     '''inconsistencias control.
     '''</summary>
     '''<remarks>
@@ -41,11 +68,11 @@ Partial Public Class Pantalla_Principal
     Protected WithEvents inconsistencias As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Button1 control.
+    '''recalcular_710 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents recalcular_710 As Global.System.Web.UI.WebControls.Button
 End Class

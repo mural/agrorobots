@@ -7,7 +7,6 @@ Public Class AbmTraducciones
 
     Dim idioma_Business As New Business.Idioma_Business
     Dim idioma_Control_Business As New Business.Idioma_Control_Business
-    Dim usuario As Usuario
     Dim idioma As Idioma
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -23,7 +22,7 @@ Public Class AbmTraducciones
             idioma = usuario.Idioma()
             Session.Item("idioma") = idioma
         End If
-        Me.GridView1_.DataSource = idioma_Control_Business.GetIdiomsByIDWithOriginals(idioma)
+        Me.GridView1_.DataSource = idioma_Control_Business.GetIdiomsByIDWithOriginals(idioma, Session.Item("filtroTraducciones"))
         Me.GridView1_.DataBind()
     End Sub
 
@@ -52,13 +51,13 @@ Public Class AbmTraducciones
             Dim valido = True
             If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Traduccion) Or String.IsNullOrEmpty(ControlID) Then
                 valido = False
-                lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                 lblMensajes.CssClass = "formError"
             End If
             If valido Then
                 If Not IsNumeric(IdiomaID) Or Not IsNumeric(ControlID) Then
                     valido = False
-                    lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90017), "")
+                    lblMensajes.Text = String.Format(idiomas.GetTranslationById(90017), "")
                 End If
             End If
             If valido Then
@@ -94,12 +93,12 @@ Public Class AbmTraducciones
         Dim valido = True
         If String.IsNullOrEmpty(ID) Or String.IsNullOrEmpty(Traduccion) Then
             valido = False
-            lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
+            lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
         End If
 
         If valido Then
             idioma_Control_Business.UpdateIdiomaById(ID, Traduccion)
-            lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90017), "")
+            lblMensajes.Text = String.Format(idiomas.GetTranslationById(90017), "")
         End If
 
         GridView1_.EditIndex = -1
@@ -136,6 +135,13 @@ Public Class AbmTraducciones
     End Sub
 
     Protected Sub buscar_31_Click(sender As Object, e As EventArgs) Handles buscar_31.Click
+        Session.Item("filtroTraducciones") = txtBusqueda.Text
+    End Sub
 
+    Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
+        Session.Item("filtroTraducciones") = ""
+
+        'recargar la pagina
+        Response.Redirect(Request.RawUrl)
     End Sub
 End Class

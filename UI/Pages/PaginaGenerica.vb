@@ -11,6 +11,12 @@ Public MustInherit Class PaginaGenerica
     Protected Sub CargarUsuario(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         usuario = Session.Item("user")
         idiomas = IdiomManager.GetIdiomManager
+
+        If usuario Is Nothing Then
+            Session.Clear()
+            FormsAuthentication.SignOut()
+            'Bitacora_Business.Logear("Sesion", "sesion expirada", "no identificado")
+        End If
     End Sub
 
     Protected Overrides Sub InitializeCulture()
@@ -61,19 +67,19 @@ Public MustInherit Class PaginaGenerica
                 If frmCtrl.ID.Contains("_") Then
                     Try
                         If TypeOf frmCtrl Is RequiredFieldValidator Then
-                            CType(frmCtrl, RequiredFieldValidator).Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, BaseValidator).ID.Split("_")(1)))
+                            CType(frmCtrl, RequiredFieldValidator).Text = String.Format(idiomas.GetTranslationById(90016), idiomas.GetTranslationById(CType(frmCtrl, BaseValidator).ID.Split("_")(1)))
                         ElseIf TypeOf frmCtrl Is CustomValidator Then
                             'traduccion manual
                         ElseIf TypeOf frmCtrl Is Label Then
-                            CType(frmCtrl, Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, Label).ID.Split("_")(1))
+                            CType(frmCtrl, Label).Text = idiomas.GetTranslationById(CType(frmCtrl, Label).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is Button Then
-                            CType(frmCtrl, Button).Text = IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, Button).ID.Split("_")(1))
+                            CType(frmCtrl, Button).Text = idiomas.GetTranslationById(CType(frmCtrl, Button).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is LinkButton Then
-                            CType(frmCtrl, LinkButton).Text = IdiomManager.GetIdiomManager.GetTranslationById(CType(frmCtrl, LinkButton).ID.Split("_")(1))
+                            CType(frmCtrl, LinkButton).Text = idiomas.GetTranslationById(CType(frmCtrl, LinkButton).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is GridView Then
                             For Each header As DataControlField In DirectCast(frmCtrl, GridView).Columns
                                 Try
-                                    header.HeaderText = IdiomManager.GetIdiomManager.GetTranslationById(header.HeaderText.Split("_")(1))
+                                    header.HeaderText = idiomas.GetTranslationById(header.HeaderText.Split("_")(1))
                                 Catch ex As Exception
                                 End Try
                             Next

@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class Carreras
 
     '''<summary>
+    '''titlelistadocarreras_50 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents titlelistadocarreras_50 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''listadocarreras_50 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents listadocarreras_50 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''GridView1_ control.
     '''</summary>
     '''<remarks>
@@ -30,4 +48,13 @@ Partial Public Class Carreras
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents comparar As Global.System.Web.UI.WebControls.HyperLink
+
+    '''<summary>
+    '''comparacion_51 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comparacion_51 As Global.System.Web.UI.WebControls.Label
 End Class

@@ -32,7 +32,11 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtIdiomaID"
-                                    MaxLength="5" runat="server"></asp:TextBox>
+                                    MaxLength="5" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -43,10 +47,18 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtDescripcion" runat="server"
-                                    Text='<%# Eval("Descripcion")%>'></asp:TextBox>
+                                    Text='<%# Eval("Descripcion")%>'
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -65,13 +77,13 @@
 
                         <asp:TemplateField ShowHeader="False">
                             <EditItemTemplate>
-                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True" 
+                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
                                     CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False" 
+                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False" 
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>

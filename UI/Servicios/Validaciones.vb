@@ -12,4 +12,5 @@ Public Class Validaciones
         Return args.IsValid
     End Function
 
+    'Validar siempre punto y coma(;) comilla simple(') guion doble(--) comentarios("/*)(*/")
 End Class
