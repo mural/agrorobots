@@ -15,6 +15,7 @@
 <body>
     <form id="loginform" runat="server">
         <div class="centradoDiv" >
+            <a href="../Front/Home.aspx">Home</a>&nbsp;&nbsp;
             <asp:Label ID="idiomas_29" runat="server" Text ="idiomas" ></asp:Label> &nbsp;
             <asp:DropDownList ID="comboIdiomas" runat="server" AutoPostBack="True"></asp:DropDownList> &nbsp;&nbsp;
             <asp:Label ID="Resultado" runat="server" CssClass="resultadoCuenta"></asp:Label>

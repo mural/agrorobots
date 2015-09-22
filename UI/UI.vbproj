@@ -101,6 +101,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Cuenta\RecuperarClave.aspx" />
     <Content Include="Cuenta\Registracion.aspx" />
+    <Content Include="Front\Home.aspx" />
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\buscar.gif" />
     <Content Include="Imagenes\Carrito_de_Compras.gif" />
@@ -144,11 +145,20 @@
     <Content Include="Pages\SinPermisos.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.slidepanel.setup.js" />
+    <Content Include="Scripts\jquery.tabs.setup.js" />
+    <Content Include="Scripts\jquery.ui.min.js" />
+    <Content Include="Styles\featured_slide.css" />
     <Content Include="Styles\fonts\BebasNeue-webfont.svg" />
     <Content Include="Styles\fonts\Dharma Type Font License.txt" />
     <Content Include="Styles\fonts\fontomas-webfont.svg" />
     <Content Include="Styles\fonts\franchise-bold-webfont.svg" />
     <Content Include="Scripts\funciones.js" />
+    <Content Include="Styles\forms.css" />
+    <Content Include="Styles\layout.css" />
+    <Content Include="Styles\loginslider.css" />
+    <Content Include="Styles\navi.css" />
     <Content Include="Styles\oldLogin.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -156,6 +166,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\Login.css" />
+    <Content Include="Styles\tables.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -185,6 +196,13 @@
     </Compile>
     <Compile Include="Cuenta\Registracion.aspx.vb">
       <DependentUpon>Registracion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Home.aspx.designer.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Home.aspx.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
@@ -499,6 +517,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Styles\images\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
