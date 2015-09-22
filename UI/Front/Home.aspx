@@ -11,6 +11,16 @@
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.slidepanel.setup.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.ui.min.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.tabs.setup.js")%>"></script>
+    <script type="text/javascript">
+        function activarClase(header) {
+            document.getElementById("headerDefecto").className = ""
+            header.className = "active";
+        }
+        function desactivarClase(header) {
+            header.className = "";
+            document.getElementById("headerDefecto").className = "active"
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -104,7 +114,7 @@
         <div class="wrapper col2">
             <div id="topnav">
                 <ul>
-                    <li class="active"><a href="Home.aspx">Home</a>
+                    <li id="headerDefecto" class="active"><a href="Home.aspx">Home</a>
                         <ul>
                             <li><a href="#">Plataforma</a></li>
                             <li><a href="#">Experiencia</a></li>
@@ -112,21 +122,29 @@
                             <li class="last"><a href="#">Demostracion</a></li>
                         </ul>
                     </li>
-                    <li><a href="Home.aspx">Cursos</a>
+                    <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="Home.aspx">Cursos</a>
                         <ul>
                             <li><a href="#">Cultivos I</a></li>
                             <li><a href="#">Cultivos II</a></li>
                             <li class="last"><a href="#">Hidroponia</a></li>
                         </ul>
                     </li>
-                    <li><a href="Home.aspx">Asistencia</a>
+                    <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="Home.aspx">Asistencia</a>
                         <ul>
                             <li><a href="#">Inscripcion</a></li>
                             <li><a href="#">Empresas</a></li>
                             <li class="last"><a href="#">Forma de pago</a></li>
                         </ul>
                     </li>
-                    <li class="last"><a href="#">Servicios</a></li>
+                    <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="#">Servicios</a>
+                        <ul>
+                            <li><a href="#">Asesoria</a></li>
+                            <li class="last"><a href="#">Ventas</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
