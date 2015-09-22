@@ -37,9 +37,9 @@ Public Class Registracion
         '    Familias.Add(Familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
         'Next
 
-        'If Not vldPasswordMatch.IsValid Then
-        '    vldPasswordMatch.Text = IdiomManager.GetIdiomManager.GetTranslationById(90030)
-        'End If
+        If Not vldPasswordMatch.IsValid Then
+            vldPasswordMatch.Text = IdiomManager.GetIdiomManager.GetTranslationById(90030)
+        End If
 
         If Page.IsValid Then
             Try
@@ -76,6 +76,18 @@ Public Class Registracion
             CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
         Else
             CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+        End If
+    End Sub
+
+    Protected Sub cvldUser_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldUser_23.ServerValidate
+        If Not Validaciones.MinimaLongitud(args, cvldUser_23, 4) Then
+            Exit Sub
+        End If
+    End Sub
+
+    Protected Sub cvldPass_27_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldPass_27.ServerValidate
+        If Not Validaciones.MinimaLongitud(args, cvldPass_27, 4) Then
+            Exit Sub
         End If
     End Sub
 End Class

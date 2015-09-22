@@ -196,13 +196,11 @@ Public Class AbmUsuario
         If Not Validaciones.MinimaLongitud(args, cvldUser_23, 4) Then
             Exit Sub
         End If
-
     End Sub
 
     Protected Sub cvldPass_27_ServerValidate(source As Object, args As ServerValidateEventArgs) Handles cvldPass_27.ServerValidate
         If Not Validaciones.MinimaLongitud(args, cvldPass_27, 4) Then
             Exit Sub
         End If
-
     End Sub
 End Class

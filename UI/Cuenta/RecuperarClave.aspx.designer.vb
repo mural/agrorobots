@@ -41,6 +41,15 @@ Partial Public Class RecuperarClave
     Protected WithEvents usuarioRecuperar As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''vldUser_23 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldUser_23 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
     '''lblEmail_109 control.
     '''</summary>
     '''<remarks>
@@ -57,6 +66,15 @@ Partial Public Class RecuperarClave
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents emailRecuperar As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldEmail_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''btnRecuperar_490 control.
