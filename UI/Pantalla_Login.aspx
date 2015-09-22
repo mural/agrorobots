@@ -33,10 +33,10 @@
                 </p>
                 <p class="change_link">
                     <%--<asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>--%>
-                    <a href="Front/RecuperarClave.aspx" class="to_register">
+                    <a href="Cuenta/RecuperarClave.aspx" class="to_register">
                         <asp:Label ID="olvidoclave_72" runat="server" Text="olvido su clave?"></asp:Label>
                     </a>
-                    <a href="Front/Registracion.aspx" class="to_register">
+                    <a href="Cuenta/Registracion.aspx" class="to_register">
                         <asp:Label ID="registrar_480" runat="server" Text="registearse"></asp:Label>
                     </a>
                 </p>

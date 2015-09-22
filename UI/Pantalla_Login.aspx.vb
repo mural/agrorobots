@@ -49,7 +49,7 @@ Public Class Principal
             Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email.
         Catch inte As IntentosLoginException
             'Intentos de Login superados       'recupere su clave
-            Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Front/RecuperarClave.aspx'>" +
+            Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
                 idiomas.GetTranslationById(71) + "</a>"
         Catch ex As Exception
             Resultado.Text = idiomas.GetTranslationById(90048) 'Datos invalidos

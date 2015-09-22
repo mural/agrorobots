@@ -5,7 +5,6 @@ Imports EE
 Public Class CambioClave
     Inherits PaginaGenerica
 
-    Dim usuario As Usuario
     Dim usuario_Business As New Usuario_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
