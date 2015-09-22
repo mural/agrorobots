@@ -46,4 +46,8 @@ Public MustInherit Class Component
 
     Public MustOverride Sub ReturnPatente(ByRef tempList As List(Of Component))
 
+    Public Overrides Function ToString() As String
+        Return Name()
+    End Function
+
 End Class ' Component

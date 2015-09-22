@@ -92,13 +92,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Admin_20">
-                    <ItemTemplate>
-                        <asp:CheckBox ID="cbxAdmin" runat="server" Enabled="False"
-                            Checked='<%# Eval("Admin")%>'></asp:CheckBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
                 <asp:TemplateField HeaderText="Idioma_30">
                     <ItemTemplate>
                         <asp:Label ID="lblIDIdioma" runat="server"
@@ -137,10 +130,10 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Familia_9">
+                <asp:TemplateField HeaderText="Email_109">
                     <ItemTemplate>
                         <asp:Label ID="lblFamilia" runat="server"
-                            Text='<%# Eval("GetFamilias(0).Name")%>'></asp:Label>
+                            Text='<%# Eval("Email")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
