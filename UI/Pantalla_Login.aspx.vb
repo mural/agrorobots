@@ -12,7 +12,7 @@ Public Class Principal
     Dim usuarioEntrante As New Usuario
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
+        CargarIdiomaSeleccionado()
 
         Dim usuario = Session.Item("user")
         If Not usuario Is Nothing Then 'envio a la pagina principal
@@ -35,7 +35,7 @@ Public Class Principal
 
     End Sub
 
-    Protected Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Submit.Click
+    Protected Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Submit_500.Click
         usuarioEntrante.UserName = username.Text
         usuarioEntrante.Password = password.Text
 

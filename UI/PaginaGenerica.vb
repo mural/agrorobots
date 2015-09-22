@@ -109,4 +109,18 @@ Public MustInherit Class PaginaGenerica
         Next
     End Sub
 
+    Public Sub RecargarPagina()
+        'recargar la pagina
+        Response.Redirect(Request.RawUrl)
+    End Sub
+
+    'usado en cuenta o donde no hay usuario
+    Protected Sub CargarIdiomaSeleccionado()
+        If Application.Item("idiomaIDseleccionado") Is Nothing Then
+            idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-"))
+        Else
+            idiomas.CargarTraduccionesByUsuario(New Idioma(Application.Item("idiomaIDseleccionado"), "-"))
+        End If
+    End Sub
+
 End Class

@@ -24,7 +24,7 @@
                     <label for="loginkeeping">Keep me logged in</label>
                 </p>
                 <p class="login button">
-                    <asp:Button ID="Submit" runat="server" Text="Ingresar" />
+                    <asp:Button ID="Submit_500" runat="server" Text="ingresar" />
                 </p>
                 <p class="change_link">
                     <%--<asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>--%>

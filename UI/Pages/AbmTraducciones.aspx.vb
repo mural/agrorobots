@@ -141,7 +141,6 @@ Public Class AbmTraducciones
     Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
         Session.Item("filtroTraducciones") = ""
 
-        'recargar la pagina
-        Response.Redirect(Request.RawUrl)
+        RecargarPagina()
     End Sub
 End Class

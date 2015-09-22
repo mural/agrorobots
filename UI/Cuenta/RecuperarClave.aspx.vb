@@ -6,7 +6,7 @@ Public Class RecuperarClave
     Dim loginBusiness As New Business.Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "Español"))
+        CargarIdiomaSeleccionado()
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()

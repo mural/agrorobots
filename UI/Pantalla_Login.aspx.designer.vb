@@ -50,13 +50,13 @@ Partial Public Class Principal
     Protected WithEvents password As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Submit control.
+    '''Submit_500 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Submit As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents Submit_500 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''olvidoclave_72 control.

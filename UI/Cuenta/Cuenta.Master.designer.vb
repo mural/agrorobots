@@ -32,6 +32,24 @@ Partial Public Class Cuenta
     Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''idiomas_29 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents idiomas_29 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comboIdiomas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboIdiomas As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''Resultado control.
     '''</summary>
     '''<remarks>
