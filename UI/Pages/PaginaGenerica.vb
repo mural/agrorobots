@@ -1,12 +1,24 @@
 ﻿Imports EE
 Imports Business
 Imports Business.Idiomas
+Imports System.Threading
+Imports System.Globalization
 
 Public MustInherit Class PaginaGenerica
     Inherits System.Web.UI.Page
 
     Protected usuario As Usuario
     Protected idiomas As IdiomManager
+    Protected servidorApp As String
+
+    Public ReadOnly CULTURA_ARG As String = "es-AR"
+    Public ReadOnly CULTURA_US As String = "en-US"
+
+    Protected culturaActual As String = CULTURA_ARG
+
+    Protected Sub CargaInicial(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        servidorApp = ConfigurationManager.AppSettings.Get("serverNamePort").ToString
+    End Sub
 
     Protected Sub CargarUsuario(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         usuario = Session.Item("user")
@@ -20,8 +32,10 @@ Public MustInherit Class PaginaGenerica
     End Sub
 
     Protected Overrides Sub InitializeCulture()
-        Page.Culture = "es-AR"
-        Page.UICulture = "es"
+        Thread.CurrentThread.CurrentCulture = _
+            CultureInfo.CreateSpecificCulture(culturaActual)
+        Thread.CurrentThread.CurrentUICulture = New  _
+            CultureInfo(culturaActual)
     End Sub
 
     Private Shared _mensajeBorrar As String

@@ -32,6 +32,42 @@ Partial Public Class Registracion
     Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''ListBox1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ListBox1 As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''Button1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''registro_60 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents registro_60 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''nombreNuevo_22 control.
     '''</summary>
     '''<remarks>
@@ -149,13 +185,22 @@ Partial Public Class Registracion
     Protected WithEvents btnRegistrar_480 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''testEmail control.
+    '''yaesusuario_61 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents testEmail As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents yaesusuario_61 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''login_500 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Resultado control.

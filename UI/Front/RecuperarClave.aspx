@@ -11,8 +11,7 @@
     <form id="loginform" runat="server">
         <div id="wrapper">
             <div id="login" class="animate form">
-                <h1>Recuperar Clave</h1>
-
+                <h1><asp:Label ID="recuperarclave_491" runat="server" Text="recuperar clave"></asp:Label></h1>
                 <p>
                     <label for="usuarioRecuperar" class="uname" data-icon="u"></label>
                     <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
@@ -27,9 +26,10 @@
                     <asp:Button ID="btnRecuperar_490" runat="server" Text="recuperar" />
                 </p>
                 <p class="change_link">
-                    <asp:LinkButton ID="testEmail" runat="server" CssClass="to_register">Reenviar Email</asp:LinkButton>
-                    Ya es usuario ?
-									<a href="../Pantalla_Login.aspx" class="to_register">Ingresar</a>
+                    <asp:Label ID="yaesusuario_61" runat="server" Text="ya es usuario?"></asp:Label>
+                    <a href="../Pantalla_Login.aspx" class="to_register">
+                        <asp:Label ID="login_500" runat="server" Text="login"></asp:Label>
+                    </a>
                 </p>
 
             </div>

@@ -6,14 +6,6 @@
 <head runat="server">
     <title>Login Agrorobots E-Learning</title>
     <link rel="stylesheet" type="text/css" href="Styles/Login.css" media="all" />
-    <script type="text/javascript">
-        function validar() {
-            if (TBX_Clave.toString() == "") {
-                alert("No puede ser vacia la clave");
-            }
-            return false;
-        }
-    </script>
 </head>
 <body>
     <a class="hiddenanchor" id="toregister"></a>
@@ -21,7 +13,6 @@
     <form id="loginform" runat="server">
         <div id="wrapper">
             <div id="login" class="animate form">
-
                 <h1>Login</h1>
                 <p>
                     <label for="username" class="uname" data-icon="u"> </label>
@@ -42,8 +33,12 @@
                 </p>
                 <p class="change_link">
                     <%--<asp:LinkButton ID="OlvidoClave" runat="server" CssClass="to_register">Olvido su clave ?</asp:LinkButton>--%>
-                    <a href="Front/RecuperarClave.aspx" class="to_register">Olvido su clave ?</a>
-                    <a href="Front/Registracion.aspx" class="to_register">Registrarse</a>
+                    <a href="Front/RecuperarClave.aspx" class="to_register">
+                        <asp:Label ID="olvidoclave_72" runat="server" Text="olvido su clave?"></asp:Label>
+                    </a>
+                    <a href="Front/Registracion.aspx" class="to_register">
+                        <asp:Label ID="registrar_480" runat="server" Text="registearse"></asp:Label>
+                    </a>
                 </p>
             </div>
             <asp:Label ID="Resultado" runat="server"></asp:Label>

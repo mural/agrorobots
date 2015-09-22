@@ -34,19 +34,22 @@ Public Class Login
         Dim user_dinam As New Usuario_Business
         Dim encrypter As MyEncrypter = MyEncrypter.GetMyEncripter
 
-        Dim usuarioRecuperado = user_dinam.obtenerUsuario(usuario)
-        If usuarioRecuperado IsNot Nothing Then
-            If usuarioRecuperado.Email.Equals(email) Then
-                Try
+        Try
+            Dim usuarioRecuperado = user_dinam.obtenerUsuario(usuario)
+            If usuarioRecuperado IsNot Nothing Then
+                If usuarioRecuperado.Email.Equals(email) Then
+
                     'Genero una nueva clave
                     Dim nuevaClave = "1234"
                     user_dinam.CambiarPassword(usuarioRecuperado.ID, nuevaClave)
+                    activarUsuario(usuario)
                     Return nuevaClave
-                Catch ex As Exception
-                    Return ""
-                End Try
+               
             End If
-        End If
+            End If
+        Catch ex As Exception
+            Return ""
+        End Try
         Return ""
     End Function
 

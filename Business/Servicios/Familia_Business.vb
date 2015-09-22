@@ -51,4 +51,14 @@ Public Class Familia_Business
         Return Nothing
     End Function
 
+    Public Function ObtenerFamiliaAlumno() As Familia
+        Dim FamData As New Familia_Data
+        For Each flia In FamData.ObtenerFamilias
+            If flia.Name.Equals("Alumno") Then
+                Return flia
+            End If
+        Next
+        Return Nothing
+    End Function
+
 End Class

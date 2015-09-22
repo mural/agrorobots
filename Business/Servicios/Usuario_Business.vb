@@ -83,8 +83,11 @@ Public Class Usuario_Business
             Return False
         End If
 
-        If Not obj.Activo Then
+        If obj.Intentos >= MAX_TRIES Then
             Throw New IntentosLoginException()
+        End If
+        If Not obj.Activo Then
+            Throw New NoActivoException()
         End If
 
         Dim encrypter As MyEncrypter = MyEncrypter.GetMyEncripter
@@ -132,6 +135,7 @@ Public Class Usuario_Business
             usuario.UserName = usuarioActivar
             usu_data.ConsultarByUsu(usuario)
             usuario.Activo = True
+            usuario.Intentos = 0
             usu_data.Modificacion(usuario)
         Catch ex As Exception
             Return False

@@ -23,6 +23,15 @@ Partial Public Class RecuperarClave
     Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''recuperarclave_491 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents recuperarclave_491 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblUsername_23 control.
     '''</summary>
     '''<remarks>
@@ -68,13 +77,22 @@ Partial Public Class RecuperarClave
     Protected WithEvents btnRecuperar_490 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''testEmail control.
+    '''yaesusuario_61 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents testEmail As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents yaesusuario_61 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''login_500 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Resultado control.

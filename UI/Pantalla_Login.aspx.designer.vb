@@ -68,6 +68,24 @@ Partial Public Class Principal
     Protected WithEvents Submit As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''olvidoclave_72 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents olvidoclave_72 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''registrar_480 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents registrar_480 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''Resultado control.
     '''</summary>
     '''<remarks>

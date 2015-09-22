@@ -98,7 +98,6 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -153,10 +152,9 @@
     <Content Include="Styles\fonts\Dharma Type Font License.txt" />
     <Content Include="Styles\fonts\fontomas-webfont.svg" />
     <Content Include="Styles\fonts\franchise-bold-webfont.svg" />
-    <Content Include="Styles\funciones.js" />
+    <Content Include="Scripts\funciones.js" />
     <Content Include="Styles\oldLogin.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -172,13 +170,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.designer.vb">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="About.aspx.vb">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="Account\ChangePassword.aspx.designer.vb">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
@@ -206,13 +197,6 @@
     <Compile Include="Account\Register.aspx.vb">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.vb">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.vb">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Front\RecuperarClave.aspx.designer.vb">
       <DependentUpon>RecuperarClave.aspx</DependentUpon>
@@ -541,7 +525,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="paginas\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
