@@ -17,12 +17,12 @@ Public Class RecuperarClave
         Dim nuevaClave = loginBusiness.recuperarClave(usuarioRecuperar.Text, emailRecuperar.Text)
         If Not String.IsNullOrEmpty(nuevaClave) Then
             If emailClave(nuevaClave) Then
-                Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+                CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
             Else
-                Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+                CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(65) 'Error de envio de email.
             End If
         Else
-            Resultado.Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
         End If
     End Sub
 

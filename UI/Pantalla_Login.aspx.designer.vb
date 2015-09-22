@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Principal
 
     '''<summary>
-    '''loginform control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
     '''lblUsername_23 control.
     '''</summary>
     '''<remarks>
@@ -84,22 +75,4 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents registrar_480 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Resultado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Datos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Datos As Global.System.Web.UI.WebControls.Label
 End Class

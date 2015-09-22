@@ -166,6 +166,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cuenta\Cuenta.Master.designer.vb">
+      <DependentUpon>Cuenta.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\Cuenta.Master.vb">
+      <DependentUpon>Cuenta.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Cuenta\RecuperarClave.aspx.designer.vb">
       <DependentUpon>RecuperarClave.aspx</DependentUpon>
     </Compile>
@@ -460,6 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <Content Include="Cuenta\Cuenta.Master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

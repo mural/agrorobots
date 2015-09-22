@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class RecuperarClave
 
     '''<summary>
-    '''loginform control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents loginform As Global.System.Web.UI.HtmlControls.HtmlForm
-
-    '''<summary>
     '''recuperarclave_491 control.
     '''</summary>
     '''<remarks>
@@ -93,15 +84,6 @@ Partial Public Class RecuperarClave
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Resultado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Datos control.

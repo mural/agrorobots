@@ -1,6 +1,17 @@
 ﻿/* CUSTOM
 ----------------------------------------------------------*/
 
+#Resultado
+{
+    color: #f66;
+    text-align: center;
+    margin-top: 10px;
+}
+.centradoDiv {
+    display: table;
+    margin: 5px auto;
+}
+
 .linkTitle {
     margin: 10px;
 }

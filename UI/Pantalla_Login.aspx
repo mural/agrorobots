@@ -1,16 +1,11 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Pantalla_Login.aspx.vb" Inherits="Agorobots.Principal" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile ="~/Cuenta/Cuenta.Master" CodeBehind="Pantalla_Login.aspx.vb" Inherits="Agorobots.Principal" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Login Agrorobots E-Learning</title>
-    <link rel="stylesheet" type="text/css" href="Styles/Login.css" media="all" />
-</head>
-<body>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <a class="hiddenanchor" id="toregister"></a>
     <a class="hiddenanchor" id="tologin"></a>
-    <form id="loginform" runat="server">
+    
         <div id="wrapper">
             <div id="login" class="animate form">
                 <h1>Login</h1>
@@ -41,12 +36,5 @@
                     </a>
                 </p>
             </div>
-            <asp:Label ID="Resultado" runat="server"></asp:Label>
         </div>
-    </form>
-
-    <p align="center" style="display: none">
-        <asp:Label ID="Datos" runat="server"></asp:Label>
-    </p>
-</body>
-</html>
+</asp:Content>

@@ -1,0 +1,24 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Cuenta.master.vb" Inherits="Agorobots.Cuenta" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Agrorobots</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="loginform" runat="server">
+        <div class="centradoDiv" >
+            <asp:Label ID="Resultado" runat="server" CssClass="resultadoCuenta"></asp:Label>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

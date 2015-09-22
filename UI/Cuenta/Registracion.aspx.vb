@@ -52,10 +52,10 @@ Public Class Registracion
                 Vaciar()
             Catch ax As ArgumentException
                 If ax.Message.Equals("90028") Then
-                    Resultado.Text = IdiomManager.GetIdiomManager.GetTranslationById(90028)
+                    CType(Master.FindControl("Resultado"), Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(90028)
                 End If
             Catch ex As Exception
-                Resultado.Text = IdiomManager.GetIdiomManager.GetTranslationById(90012)
+                CType(Master.FindControl("Resultado"), Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(90012)
             End Try
         End If
     End Sub
@@ -74,9 +74,9 @@ Public Class Registracion
         'Para activar su usuario ingrese a
         Dim cuerpo = idiomas.GetTranslationById(63) + " http://" + servidorApp + "/Pantalla_Login.aspx?usuarioactivar=" + usuarioNuevo.Text
         If EmailManager.EnviarEmail(Server, emailNuevo.Text, asunto, cuerpo) Then
-            Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
         Else
-            Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(65) 'Error de envio de email.
         End If
     End Sub
 End Class

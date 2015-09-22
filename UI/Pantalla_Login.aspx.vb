@@ -23,9 +23,9 @@ Public Class Principal
             usuarioActivar = Request.QueryString("usuarioactivar")
             If Not String.IsNullOrEmpty(usuarioActivar) Then 'activacion de usuario y auto login
                 If loginBusiness.activarUsuario(usuarioActivar) Then
-                    Resultado.Text = idiomas.GetTranslationById(68) 'Usuario activado, ingrese al sistema.
+                    CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(68) 'Usuario activado, ingrese al sistema.
                 Else
-                    Resultado.Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
+                    CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
                 End If
             End If
         End If
@@ -46,14 +46,14 @@ Public Class Principal
             IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuarioEntrante.Idioma)
             FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
         Catch no As NoActivoException
-            Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email.
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email.
         Catch inte As IntentosLoginException
             'Intentos de Login superados       'recupere su clave
-            Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
                 idiomas.GetTranslationById(71) + "</a>"
         Catch ex As Exception
-            Resultado.Text = idiomas.GetTranslationById(90048) 'Datos invalidos
-            Datos.Text = ex.Message + " --- " + ex.StackTrace.ToString()
+            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(90048) 'Datos invalidos
+            'Datos.Text = ex.Message + " --- " + ex.StackTrace.ToString()
         End Try
 
     End Sub
