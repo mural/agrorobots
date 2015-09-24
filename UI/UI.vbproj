@@ -98,6 +98,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Cuenta\Interna.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Cuenta\RecuperarClave.aspx" />
     <Content Include="Cuenta\Registracion.aspx" />
@@ -177,12 +178,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base.Master.designer.vb">
+      <DependentUpon>Base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Base.Master.vb">
+      <DependentUpon>Base.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Cuenta\Cuenta.Master.designer.vb">
       <DependentUpon>Cuenta.Master</DependentUpon>
     </Compile>
     <Compile Include="Cuenta\Cuenta.Master.vb">
       <DependentUpon>Cuenta.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\CuentaMenu.master.designer.vb">
+      <DependentUpon>CuentaMenu.master</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\CuentaMenu.master.vb">
+      <DependentUpon>CuentaMenu.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuenta\Interna.aspx.designer.vb">
+      <DependentUpon>Interna.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuenta\Interna.aspx.vb">
+      <DependentUpon>Interna.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Cuenta\RecuperarClave.aspx.designer.vb">
       <DependentUpon>RecuperarClave.aspx</DependentUpon>
@@ -208,6 +230,13 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MenuBase.master.designer.vb">
+      <DependentUpon>MenuBase.master</DependentUpon>
+    </Compile>
+    <Compile Include="MenuBase.master.vb">
+      <DependentUpon>MenuBase.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -226,6 +255,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="NavegacionBase.master.designer.vb">
+      <DependentUpon>NavegacionBase.master</DependentUpon>
+    </Compile>
+    <Compile Include="NavegacionBase.master.vb">
+      <DependentUpon>NavegacionBase.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmIdiomas.aspx.designer.vb">
       <DependentUpon>AbmIdiomas.aspx</DependentUpon>
@@ -246,7 +282,7 @@
     </Compile>
     <Compile Include="Pages\AbmTraducciones.aspx.vb">
       <DependentUpon>AbmTraducciones.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmUsuarios.aspx.designer.vb">
       <DependentUpon>AbmUsuarios.aspx</DependentUpon>
@@ -402,6 +438,9 @@
       <DependentUpon>NuevaMateria.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="PaginaAutorizada.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PaginaGenerica.vb">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -484,8 +523,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Base.Master" />
     <None Include="ClassDiagram1.cd" />
     <Content Include="Cuenta\Cuenta.Master" />
+    <Content Include="Cuenta\CuentaMenu.master" />
+    <Content Include="MenuBase.master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -497,13 +539,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Site.Master" />
-    <Content Include="Pages\Web.config" />
-    <Content Include="Pages\Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Pages\Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="web.snk" />
     <Content Include="Styles\fonts\BebasNeue-webfont.eot" />
     <Content Include="Styles\fonts\BebasNeue-webfont.ttf" />
@@ -514,6 +549,7 @@
     <Content Include="Styles\fonts\franchise-bold-webfont.eot" />
     <Content Include="Styles\fonts\franchise-bold-webfont.ttf" />
     <Content Include="Styles\fonts\franchise-bold-webfont.woff" />
+    <Content Include="NavegacionBase.master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

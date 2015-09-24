@@ -1,0 +1,209 @@
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Base.master.vb" Inherits="Agorobots.Base" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="headBase" runat="server">
+    <title>Agrorobots
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="~/Styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.slidepanel.setup.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.ui.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.tabs.setup.js")%>"></script>
+    <script type="text/javascript">
+        function activarClase(header) {
+            document.getElementById("headerDefecto").className = ""
+            header.className = "active";
+        }
+        function desactivarClase(header) {
+            header.className = "";
+            document.getElementById("headerDefecto").className = "active"
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="HeadBaseContenido" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="bodyBase">
+    <form id="formBase" runat="server">
+        <div class="wrapper col0">
+            <div id="topbar">
+                <div id="slidepanel">
+                    <div class="topbox">
+                        <h2>Nullamlacus dui ipsum</h2>
+                        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
+                        <p class="readmore"><a href="../Pantalla_Login.aspx">Login</a></p>
+                    </div>
+                    <div class="topbox">
+                        <h2>Teachers Login Here</h2>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Teachers Login Form</legend>
+                                <label for="teachername">
+                                    Username:
+              <input type="text" name="teachername" id="teachername" value="" />
+                                </label>
+                                <label for="teacherpass">
+                                    Password:
+              <input type="password" name="teacherpass" id="teacherpass" value="" />
+                                </label>
+                                <label for="teacherremember">
+                                    <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
+                                    Remember me</label>
+                                <p>
+                                    <input type="submit" name="teacherlogin" id="teacherlogin" value="Login" />
+                                    &nbsp;
+              <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
+                                </p>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="topbox last">
+                        <h2>Pupils Login Here</h2>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Pupils Login Form</legend>
+                                <label for="pupilname">
+                                    Username:
+              <input type="text" name="pupilname" id="pupilname" value="" />
+                                </label>
+                                <label for="pupilpass">
+                                    Password:
+              <input type="password" name="pupilpass" id="pupilpass" value="" />
+                                </label>
+                                <label for="pupilremember">
+                                    <input class="checkbox" type="checkbox" name="pupilremember" id="pupilremember" checked="checked" />
+                                    Remember me</label>
+                                <p>
+                                    <input type="submit" name="pupillogin" id="pupillogin" value="Login" />
+                                    &nbsp;
+              <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
+                                </p>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <br class="clear" />
+                </div>
+                <div id="loginpanel">
+                    <ul>
+                        <li class="left">Log In Here &raquo;</li>
+                        <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+                    </ul>
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col1">
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="Home.aspx">Agrorobots</a></h1>
+                    <p>Plataforma de E-Learning</p>
+                </div>
+                <div class="fl_right">
+                    <ul>
+                        <li class="last"><a href="#">Busqueda</a></li>
+                        <li><a href="#">Soporte</a></li>
+                        <li><a href="#">Sobre nosotros</a></li>
+                    </ul>
+                    <p>Tel: 011 4444 5555 | Email: info@agrorobots.net</p>
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col2">
+            <div id="topnav">
+                <ul>
+                    <li id="headerDefecto" class="active"><a href="Home.aspx">Home</a>
+                        <ul>
+                            <li><a href="#">Plataforma</a></li>
+                            <li><a href="#">Experiencia</a></li>
+                            <li><a href="#">Opiniones</a></li>
+                            <li class="last"><a href="#">Demostracion</a></li>
+                        </ul>
+                    </li>
+                    <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="Home.aspx">Cursos</a>
+                        <ul>
+                            <li><a href="#">Cultivos I</a></li>
+                            <li><a href="#">Cultivos II</a></li>
+                            <li class="last"><a href="#">Hidroponia</a></li>
+                        </ul>
+                    </li>
+                    <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="Home.aspx">Asistencia</a>
+                        <ul>
+                            <li><a href="#">Inscripcion</a></li>
+                            <li><a href="#">Empresas</a></li>
+                            <li class="last"><a href="#">Forma de pago</a></li>
+                        </ul>
+                    </li>
+                    <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
+                        <a href="#">Servicios</a>
+                        <ul>
+                            <li><a href="#">Asesoria</a></li>
+                            <li class="last"><a href="#">Ventas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <asp:ContentPlaceHolder ID="BodyBaseContenido" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col5">
+            <div id="footer">
+                <div id="newsletter">
+                    <h2>Este en contacto !</h2>
+                    <p>Ingrese su Email para formar parte de nuestra lista de correos</p>
+                    <form action="#" method="post">
+                        <fieldset>
+                            <legend>Newsletter</legend>
+                            <input type="text" value="Ingrese su Email&hellip;" onfocus="this.value=(this.value=='Ingrese su Email&hellip;')? '' : this.value ;" />
+                            <input type="submit" name="news_go" id="news_go" value="IR" />
+                        </fieldset>
+                    </form>
+                    <p>Para desuscripción <a href="#">presione aca &raquo;</a></p>
+                </div>
+                <div class="footbox">
+                    <h2>Inscripcion</h2>
+                    <ul>
+                        <li><a href="#">Inscribase</a></li>
+                        <li><a href="#">Becas</a></li>
+                        <li class="last"><a href="#">Contacte un representante</a></li>
+                    </ul>
+                </div>
+                <div class="footbox">
+                    <h2>Medio ambiente</h2>
+                    <ul>
+                        <li><a href="#">Vea como ayudar</a></li>
+                        <li><a href="#">Estadisticas</a></li>
+                        <li><a href="#">Programa verde</a></li>
+                        <li class="last"><a href="#">Sitios afiliados</a></li>
+                    </ul>
+                </div>
+                <div class="footbox">
+                    <h2>Formas de Pago</h2>
+                    <ul>
+                        <li><a href="#">Promociones</a></li>
+                        <li><a href="#">Financiacion</a></li>
+                        <li class="last"><a href="#">Consulte por cantidad</a></li>
+                    </ul>
+                </div>
+                <br class="clear" />
+            </div>
+        </div>
+        <!-- ####################################################################################################### -->
+        <div class="wrapper col6">
+            <div id="copyright">
+                <p class="fl_left">Copyright &copy; 2015 - Todos los derechos reservados - <a href="#">agrorobots.net</a></p>
+                <p class="fl_right"><a target="_blank" href="../Pantalla_Login.aspx" title="Agrorobots E-Learning">Agrorobots E-Learning</a></p>
+                <br class="clear" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

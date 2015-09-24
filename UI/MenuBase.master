@@ -1,0 +1,54 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/NavegacionBase.master" AutoEventWireup="false" CodeBehind="MenuBase.master.vb" Inherits="Agorobots.MenuBase" %>
+
+<asp:Content ID="HeadNavegacionContenidoID" ContentPlaceHolderID="HeadNavegacionContenido" runat="server">
+    <asp:ContentPlaceHolder ID="HeadBaseContenido" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="NavegacionContenidoID" ContentPlaceHolderID="NavegacionContenido" runat="server">
+    <asp:ContentPlaceHolder ID="DetalleNavegacionContenido" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="BodyNavegacionContenidoID" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
+    <div class="wrapper col4">
+        <div id="container">
+            <div id="content">
+                <asp:ContentPlaceHolder ID="BodyMenuContenido" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="column">
+                <div class="subnav">
+                    <h2>Secondary Navigation</h2>
+                    <asp:Menu ID="SideNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" IncludeStyleBlock="false" SkipLinkText="" StaticDisplayLevels="2">
+                    </asp:Menu>
+                    <br />
+                    <br />
+                    <ul>
+                        <li><a href="#">Navigation - Level 1</a></li>
+                        <li><a href="#">Navigation - Level 1</a>
+                            <ul>
+                                <li><a href="#">Navigation - Level 2</a></li>
+                                <li><a href="#">Navigation - Level 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Navigation - Level 1</a>
+                            <ul>
+                                <li><a href="#">Navigation - Level 2</a></li>
+                                <li><a href="#">Navigation - Level 2</a>
+                                    <ul>
+                                        <li><a href="#">Navigation - Level 3</a></li>
+                                        <li><a href="#">Navigation - Level 3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Navigation - Level 1</a></li>
+                    </ul>
+                </div>
+                <%--################################################################--%>
+                <asp:ContentPlaceHolder ID="BajoMenuContenido" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</asp:Content>

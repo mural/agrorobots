@@ -1,8 +1,6 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
         <asp:Label ID="lblTitulo_10102" runat="server" Text="titulo"></asp:Label>
     </h2>

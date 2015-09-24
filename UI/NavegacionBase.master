@@ -1,0 +1,27 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/Base.Master" AutoEventWireup="false" CodeBehind="NavegacionBase.master.vb" Inherits="Agorobots.NavegacionBase" %>
+
+<asp:Content ID="HeadBaseContenidoID" ContentPlaceHolderID="HeadBaseContenido" runat="server">
+    <asp:ContentPlaceHolder ID="HeadNavegacionContenido" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="BodyBaseContenidoID" ContentPlaceHolderID="BodyBaseContenido" runat="server">
+    <div class="wrapper col3">
+        <div id="breadcrumb">
+            <ul>
+                <li class="first">You Are Here</li>
+                <li>»</li>
+                <li><a href="/Front/Home.aspx">Home</a></li>
+                <%--<li>»</li>
+                <li><a href="#">Grand Parent</a></li>
+                <li>»</li>
+                <li><a href="#">Parent</a></li>
+                <li>»</li>
+                <li class="current"><a href="#">Child</a></li>--%>
+                <asp:ContentPlaceHolder ID="NavegacionContenido" runat="server">
+                </asp:ContentPlaceHolder>
+            </ul>
+        </div>
+    </div>
+    <asp:ContentPlaceHolder ID="BodyNavegacionContenido" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

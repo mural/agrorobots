@@ -3,7 +3,7 @@ Imports Business
 Imports Business.Idiomas
 
 Public Class AbmTraducciones
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim idioma_Business As New Business.Idioma_Business
     Dim idioma_Control_Business As New Business.Idioma_Control_Business
