@@ -1,7 +1,7 @@
 ﻿Imports Business
 
 Public Class Mensajes
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim mensajes_Business As New Mensaje_Business
     Dim familia_Business As New Familia_Business

@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Bitacora.aspx.vb" Inherits="Agorobots.Bitacora" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Bitacora.aspx.vb" Inherits="Agorobots.Bitacora" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
         <asp:Label ID="lblTitulo_10103" runat="server" Text="titulo"></asp:Label>
     </h2>

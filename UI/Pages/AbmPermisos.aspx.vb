@@ -3,12 +3,11 @@ Imports Business
 Imports Business.Idiomas
 
 Public Class AbmPermisos
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim familia_Business As New Familia_Business
     Dim component_Business As New Component_Business
     Dim usuario_Business As New Usuario_Business
-    Dim usuario As Usuario
     Dim familiaSeleccionada As Integer = 0
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

@@ -50,6 +50,15 @@ Partial Public Class MenuBase
     Protected WithEvents SideNavigationMenu As Global.System.Web.UI.WebControls.Menu
 
     '''<summary>
+    '''TopNavigationMenu control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents TopNavigationMenu As Global.System.Web.UI.WebControls.Menu
+
+    '''<summary>
     '''BajoMenuContenido control.
     '''</summary>
     '''<remarks>

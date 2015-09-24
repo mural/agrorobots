@@ -41,6 +41,15 @@ Partial Public Class Base
     Protected WithEvents formBase As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''HeadLoginView control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
+
+    '''<summary>
     '''BodyBaseContenido control.
     '''</summary>
     '''<remarks>

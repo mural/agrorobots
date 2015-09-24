@@ -102,16 +102,4 @@ Partial Public Class AbmPermisos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''Master property.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated property.
-    '''</remarks>
-    Public Shadows ReadOnly Property Master() As Agorobots.Site
-        Get
-            Return CType(MyBase.Master, Agorobots.Site)
-        End Get
-    End Property
 End Class

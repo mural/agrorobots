@@ -14,11 +14,20 @@ Option Explicit On
 Partial Public Class SinPermisos
 
     '''<summary>
-    '''lblTitulo_90050 control.
+    '''lblTitulo_10001 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_90050 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10001 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''msgError_90050 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents msgError_90050 As Global.System.Web.UI.WebControls.Label
 End Class

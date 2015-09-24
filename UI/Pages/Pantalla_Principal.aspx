@@ -1,11 +1,8 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Pantalla_Principal.aspx.vb" MasterPageFile="~/Site.Master" Inherits="Agorobots.Pantalla_Principal" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Pantalla_Principal.aspx.vb"  Inherits="Agorobots.Pantalla_Principal" %>
 
 <%@ Register Assembly="Controles" Namespace="Controles" TagPrefix="uc" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <title>Agrorobots E-Learning</title>
-</asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="BodyMenuContenido">
     <h2>
         <asp:Label ID="welcome_40" runat="server" Text=""></asp:Label>
         &nbsp;

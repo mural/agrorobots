@@ -1,18 +1,6 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Carreras.aspx.vb" Inherits="Agorobots.Carreras" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Carreras.aspx.vb" Inherits="Agorobots.Carreras" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <style type="text/css">
-        .auto-style1 {
-            width: 22px;
-            height: 16px;
-        }
-    </style>
-</asp:Content>
-<asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">
-    -
-    <asp:Label ID="titlelistadocarreras_50" runat="server" Text="Label"></asp:Label>
-</asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<asp:Content ID="CarrerasContenido" runat="server" ContentPlaceHolderID="BodyMenuContenido">
     <h2>
         <asp:Label ID="listadocarreras_50" runat="server" Text="Label"></asp:Label></h2>
     <div class="main">

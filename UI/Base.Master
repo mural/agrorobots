@@ -1,5 +1,7 @@
 <%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Base.master.vb" Inherits="Agorobots.Base" %>
 
+<%@ Import Namespace="Agorobots" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +14,11 @@
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.slidepanel.setup.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.ui.min.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.tabs.setup.js")%>"></script>
+    
+    <script type="text/javascript" src ="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
+    <script type="text/javascript">
+        var mensajeBorrar = '<%= paginaGenerica.mensajeBorrar%>';
+    </script>
     <script type="text/javascript">
         function activarClase(header) {
             document.getElementById("headerDefecto").className = ""
@@ -37,7 +44,7 @@
                     </div>
                     <div class="topbox">
                         <h2>Teachers Login Here</h2>
-                        <form action="#" method="post">
+                        <div><%--<form action="#" method="post">--%>
                             <fieldset>
                                 <legend>Teachers Login Form</legend>
                                 <label for="teachername">
@@ -57,11 +64,11 @@
               <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
                                 </p>
                             </fieldset>
-                        </form>
+                        </div><%--</form>--%>
                     </div>
                     <div class="topbox last">
                         <h2>Pupils Login Here</h2>
-                        <form action="#" method="post">
+                        <div><%--<form action="#" method="post">--%>
                             <fieldset>
                                 <legend>Pupils Login Form</legend>
                                 <label for="pupilname">
@@ -81,14 +88,22 @@
               <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
                                 </p>
                             </fieldset>
-                        </form>
+                        </div><%--</form>--%>
                     </div>
                     <br class="clear" />
                 </div>
                 <div id="loginpanel">
                     <ul>
-                        <li class="left">Log In Here &raquo;</li>
-                        <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                            <AnonymousTemplate>
+                                <li class="left">Log In Here &raquo;</li>
+                                <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <li class="left"><asp:LoginName ID="HeadLoginName" runat="server" /> &raquo;</li>
+                                <li class="right" id="toggle"><asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton></li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </ul>
                 </div>
                 <br class="clear" />
@@ -159,13 +174,13 @@
                 <div id="newsletter">
                     <h2>Este en contacto !</h2>
                     <p>Ingrese su Email para formar parte de nuestra lista de correos</p>
-                    <form action="#" method="post">
+                    <div><%--<form action="#" method="post">--%>
                         <fieldset>
                             <legend>Newsletter</legend>
                             <input type="text" value="Ingrese su Email&hellip;" onfocus="this.value=(this.value=='Ingrese su Email&hellip;')? '' : this.value ;" />
                             <input type="submit" name="news_go" id="news_go" value="IR" />
                         </fieldset>
-                    </form>
+                    </div><%--</form>--%>
                     <p>Para desuscripción <a href="#">presione aca &raquo;</a></p>
                 </div>
                 <div class="footbox">
