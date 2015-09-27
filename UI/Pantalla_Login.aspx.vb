@@ -12,22 +12,24 @@ Public Class Principal
     Dim usuarioEntrante As New Usuario
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-
-        Dim usuario = Session.Item("user")
-        If Not usuario Is Nothing Then 'envio a la pagina principal
-            FormsAuthentication.RedirectFromLoginPage(login_username.Text, False)
-        Else
-            'vienen parametros en la URL ?
-            Dim usuarioActivar As String
-            usuarioActivar = Request.QueryString("usuarioactivar")
-            If Not String.IsNullOrEmpty(usuarioActivar) Then 'activacion de usuario y auto login
-                If loginBusiness.activarUsuario(usuarioActivar) Then
-                    Resultado.Text = idiomas.GetTranslationById(68) 'Usuario activado, ingrese al sistema.
-                Else
-                    Resultado.Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
+        Try
+            Dim usuario = Session.Item("user")
+            If Not usuario Is Nothing Then 'envio a la pagina principal
+                FormsAuthentication.RedirectFromLoginPage(login_username.Text, False)
+            Else
+                'vienen parametros en la URL ?
+                Dim usuarioActivar As String
+                usuarioActivar = Request.QueryString("usuarioactivar")
+                If Not String.IsNullOrEmpty(usuarioActivar) Then 'activacion de usuario y auto login
+                    If loginBusiness.activarUsuario(usuarioActivar) Then
+                        Resultado.Text = idiomas.GetTranslationById(68) 'Usuario activado, ingrese al sistema.
+                    Else
+                        Resultado.Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
+                    End If
                 End If
             End If
-        End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()

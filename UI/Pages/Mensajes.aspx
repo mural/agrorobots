@@ -26,8 +26,9 @@
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"
             AutoGenerateColumns="False"
-            HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
-            AlternatingRowStyle-CssClass="tablaDatosAlternate" OnPageIndexChanging="OnPaging"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
+            OnPageIndexChanging="OnPaging"
             AllowPaging="True" PageSize="5">
             <Columns>
                 <asp:TemplateField HeaderText="Contenido_705">

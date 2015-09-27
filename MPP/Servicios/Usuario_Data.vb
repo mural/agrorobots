@@ -87,7 +87,7 @@ Public Class Usuario_Data
         Dim params As New Parameters
         params.SetIntParameter("@ID", obj.ID)
         Try
-            cmd = Data.GetCommand("DeleteUser", con, params)
+            cmd = Data.GetCommand("UsuarioBorrar", con, params)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
             Throw New ArgumentException("90029")
@@ -169,6 +169,10 @@ Public Class Usuario_Data
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetIntParameter("@Intentos", obj.Intentos)
         params.SetStringParameter("@Email", obj.Email)
+        'If obj.Foto Is Nothing Then
+        '    obj.Foto = New Byte(0) {}
+        'End If
+        params.SetImageParameter("@Foto", obj.Foto)
 
         con = Connection.GetObjConnextion()
 
@@ -238,7 +242,7 @@ Public Class Usuario_Data
         Dim DT As DataTable
 
         con = Connection.GetObjConnextion
-        cmd = Data.GetCommand("GetAllUsers", con)
+        cmd = Data.GetCommand("UsuarioListar", con)
 
         DT = Data.GetDataSet(cmd, "Usuario").Tables(0)
         Dim compData As New Component_Data
@@ -256,6 +260,11 @@ Public Class Usuario_Data
             , CStr(row("Password")) _
             , CStr(row("UserName")) _
             , CStr(row("Email")))
+
+            Dim foto = row("Foto")
+            If Not foto Is DBNull.Value Then
+                user.Foto = CType(row("Foto"), Byte())
+            End If
 
             compData.ObtenerComponentsOfUser(user)
 

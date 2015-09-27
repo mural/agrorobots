@@ -13,7 +13,9 @@ Public Class Usuario
     Private _Nombre As String
     Private _Password As String
     Private _Usuario As String
-
+    Private _permissionModified As Boolean
+    Private _email As String
+    Private _Foto As Byte()
 
     Public Property Activo() As Boolean
         Get
@@ -131,7 +133,7 @@ Public Class Usuario
         End Set
     End Property
 
-    Private _permissionModified As Boolean
+
     Public Property PermissionsModified() As Boolean
         Get
             Return _permissionModified
@@ -141,7 +143,7 @@ Public Class Usuario
         End Set
     End Property
 
-    Private _email As String
+
     Public Property Email() As String
         Get
             Return _email
@@ -151,6 +153,14 @@ Public Class Usuario
         End Set
     End Property
 
+    Public Property Foto() As Byte()
+        Get
+            Return _Foto
+        End Get
+        Set(ByVal value As Byte())
+            _Foto = value
+        End Set
+    End Property
 
     Public Event IdiomChanged()
 

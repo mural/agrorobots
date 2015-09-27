@@ -21,14 +21,19 @@ Public MustInherit Class PaginaGenerica
     End Sub
 
     Protected Sub CargarUsuario(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        usuario = Session.Item("user")
-        idiomas = IdiomManager.GetIdiomManager
+        Try
+            usuario = Session.Item("user")
+            idiomas = IdiomManager.GetIdiomManager
 
-        If usuario Is Nothing Then
-            Session.Clear()
-            FormsAuthentication.SignOut()
-            'Bitacora_Business.Logear("Sesion", "sesion expirada", "no identificado")
-        End If
+
+            If usuario Is Nothing Then
+                Session.Clear()
+                FormsAuthentication.SignOut()
+                'Bitacora_Business.Logear("Sesion", "sesion expirada", "no identificado")
+            End If
+
+        Catch ex As Exception
+        End Try
     End Sub
 
     Protected Overrides Sub InitializeCulture()
@@ -135,5 +140,20 @@ Public MustInherit Class PaginaGenerica
             FormsAuthentication.RedirectFromLoginPage(usuario.Nombre, False)
         End If
     End Sub
+
+    Public Function ObtenerImagen(image As Object) As String
+        If image Is Nothing Then
+            Return ""
+        End If
+        Return "data:image/png;base64," + Convert.ToBase64String(image)
+    End Function
+
+    Public Function ObtenerImagenUsuario(image As Object) As String
+        Dim imagenUsuario = ObtenerImagen(image)
+        If imagenUsuario = "" Then
+            Return "/Imagenes/avatar.gif"
+        End If
+        Return imagenUsuario
+    End Function
 
 End Class

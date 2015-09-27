@@ -6,9 +6,9 @@
     </h2>
     <div id="dvGrid2">
         <asp:GridView ID="GridView2_" runat="server"
-            AutoGenerateColumns="false" HeaderStyle-CssClass="tablaDatosHeader"
-            CssClass="tablaDatos"
-            AlternatingRowStyle-CssClass="tablaDatosAlternate"
+            AutoGenerateColumns="false"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
             PageSize="10">
             <Columns>
                 <asp:TemplateField HeaderText="ID">
@@ -55,9 +55,9 @@
 
                 <asp:GridView ID="GridView1_" runat="server"
                     ShowHeaderWhenEmpty="true"
-                    AutoGenerateColumns="false" HeaderStyle-CssClass="tablaDatosHeader"
-                    CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate"
+                    AutoGenerateColumns="false"
+                    RowStyle-CssClass="light"
+                    AlternatingRowStyle-CssClass="dark"
                     AllowPaging="true" ShowFooter="true"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
@@ -98,7 +98,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtTraduccion" runat="server"
+                                <asp:TextBox ID="txtTraduccion" runat="server" MaxLength="254"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -112,10 +112,10 @@
                                     Text='<%# Eval("Control_ID")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtControl" runat="server"
-                                    onkeypress="return alfanumerico1(event)"
+                                <asp:TextBox ID="txtControl" runat="server" MaxLength="6" CssClass="txtChico"
+                                    onkeypress="return alfanumerico1(event)" 
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)" >
                                 </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
@@ -125,19 +125,20 @@
                                 <asp:Label ID="lblOriginalName" runat="server"
                                     Text='<%# Eval("Original")%>'></asp:Label>
                             </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkRemove_13" runat="server"
-                                    CommandArgument='<%# Eval("ID")%>'
-                                    OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="Delete" OnClick="Delete"></asp:LinkButton>
-                            </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
                                     OnClick="AddNew" />
                             </FooterTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkRemove" runat="server"
+                                    CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
+                                    Text="borrar" OnClick="Delete">
+                                    <img src="/Imagenes/borrar.png" alt="x" />
+                                </asp:LinkButton>
+                            </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField ShowHeader="False">

@@ -17,7 +17,7 @@
                 <p>
                     <label for="login_username" class="uname" data-icon="u"></label>
                     <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
-                    <asp:TextBox ID="login_username" runat="server" placeholder="miusuario" TabIndex="5"></asp:TextBox>
+                    <asp:TextBox ID="login_username" runat="server" placeholder="miusuario" TabIndex="5" Text="alumno"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="vldUser_23" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="login_username" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </p>
                 <p>

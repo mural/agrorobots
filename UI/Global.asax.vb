@@ -29,6 +29,19 @@ Public Class Global_asax
 
     Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
         ' Se desencadena cuando se produce un error
+        Dim serverError As HttpException = Server.GetLastError()
+        If Not serverError Is Nothing Then
+            Dim errorCode = serverError.GetHttpCode()
+            If 404 = errorCode Then
+                Server.ClearError()
+                Server.Transfer(PaginasConocidas.LOGIN + "?error=404")
+            End If
+            'If 500 = errorCode Then
+            '    Server.ClearError()
+            '    Server.Transfer(PaginasConocidas.HOME + "?error=500")
+            'End If
+        End If
+
     End Sub
 
     Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)

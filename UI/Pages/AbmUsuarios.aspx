@@ -59,6 +59,8 @@
         *<asp:RequiredFieldValidator ID="vldConfirmPassword_28" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CompareValidator ID="vldPasswordMatch" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="CompareValidator" CssClass="formError" EnableClientScript="False"></asp:CompareValidator>
         <br />
+        <asp:FileUpload ID="imgUpload" runat="server" />
+        <br />
         <br />
         <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
         &nbsp;<asp:Button ID="btnActualizar_405" runat="server" Text="actualizar" EnableTheming="True" />
@@ -69,8 +71,9 @@
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"
             AutoGenerateColumns="False"
-            HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
-            AlternatingRowStyle-CssClass="tablaDatosAlternate" OnPageIndexChanging="OnPaging"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
+            OnPageIndexChanging="OnPaging"
             AllowPaging="True" PageSize="5">
             <Columns>
                 <asp:TemplateField HeaderText="ID">
@@ -125,6 +128,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Foto">
+                    <ItemTemplate>
+                        <asp:Image ID="imgFoto" runat="server" CssClass="imagenesTabla"
+                            ImageUrl='<%# ObtenerImagenUsuario(Eval("Foto"))%>'></asp:Image>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Email_109">
                     <ItemTemplate>
                         <asp:Label ID="lblFamilia" runat="server"
@@ -134,17 +144,20 @@
 
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkBorrar_13" runat="server"
-                            CommandArgument='<%# Eval("ID")%>'
-                            OnClientClick="return confirm(mensajeBorrar)"
-                            Text="borrar" OnClick="Delete" CssClass="tablaDatosAction"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkBorrar" runat="server"
+                            CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
+                            Text="borrar" OnClick="Delete">
+                            <img src="/Imagenes/borrar.png" alt="x" />
+                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkSeleccionar_801" runat="server" CausesValidation="False"
-                            CommandName="Select" Text="seleccionar" CssClass="tablaDatosAction"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkSeleccionar" runat="server" CausesValidation="False"
+                            CommandName="Select" Text="seleccionar">
+                            <img src="/Imagenes/ir.png" alt="->" />
+                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

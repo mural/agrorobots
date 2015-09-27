@@ -6,7 +6,8 @@
     <div class="main">
         <asp:GridView ID="GridView1_" runat="server"
             ShowHeader="False"
-            AlternatingRowStyle-CssClass="tablaDatosAlternate"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
             AutoGenerateColumns="False"
             CssClass="tablaDatos">
             <Columns>

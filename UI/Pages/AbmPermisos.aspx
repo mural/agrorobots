@@ -14,8 +14,8 @@
 
                 <asp:GridView ID="GridView1_" runat="server"
                     AutoGenerateColumns="False" ShowFooter="True"
-                    HeaderStyle-CssClass="tablaDatosHeader" CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate"
+                    RowStyle-CssClass="light"
+                    AlternatingRowStyle-CssClass="dark"
                     OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit">
                     <Columns>
@@ -32,7 +32,7 @@
                                     Text='<%# Eval("Name")%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtName" runat="server"
+                                <asp:TextBox ID="txtName" runat="server" MaxLength="15"
                                     Text='<%# Eval("Name")%>'
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -40,8 +40,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtName"
-                                    MaxLength="15" runat="server"
+                                <asp:TextBox ID="txtName" runat="server" MaxLength="15"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -55,7 +54,7 @@
                                     Text='<%# Eval("Descripcion")%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="35"
                                     Text='<%# Eval("Descripcion")%>'
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -63,8 +62,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtDescripcion"
-                                    MaxLength="35" runat="server"
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="15" 
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -85,10 +83,11 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkRemove_13" runat="server"
-                                    CommandArgument='<%# Eval("ID")%>'
+                                <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("ID")%>'
                                     OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete"></asp:LinkButton>
+                                    Text="borrar" OnClick="Delete">
+                                    <img src="/Imagenes/borrar.png" alt="x" />
+                                </asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -125,9 +124,9 @@
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
                 <asp:GridView ID="GridView2_" runat="server"
-                    AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
-                    CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate">
+                    AutoGenerateColumns="False"
+                    RowStyle-CssClass="light"
+                    AlternatingRowStyle-CssClass="dark">
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>

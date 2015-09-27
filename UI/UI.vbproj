@@ -103,6 +103,8 @@
     <Content Include="Cuenta\RecuperarClave.aspx" />
     <Content Include="Cuenta\Registracion.aspx" />
     <Content Include="Front\Home.aspx" />
+    <Content Include="Front\Institucional.aspx" />
+    <Content Include="Front\Politicas.aspx" />
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\buscar.gif" />
     <Content Include="Imagenes\Carrito_de_Compras.gif" />
@@ -226,6 +228,20 @@
     </Compile>
     <Compile Include="Front\Home.aspx.vb">
       <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Institucional.aspx.designer.vb">
+      <DependentUpon>Institucional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Institucional.aspx.vb">
+      <DependentUpon>Institucional.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Politicas.aspx.designer.vb">
+      <DependentUpon>Politicas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Politicas.aspx.vb">
+      <DependentUpon>Politicas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
@@ -506,7 +522,7 @@
     <Compile Include="App_Code\MinLengthValidator.vb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Servicios\PaginasPermitidas.vb" />
+    <Compile Include="Servicios\PaginasConocidas.vb" />
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>

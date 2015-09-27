@@ -38,9 +38,8 @@
     <br />
     <asp:GridView ID="GridView1_" runat="server"
         AutoGenerateColumns="False"
-        HeaderStyle-CssClass="tablaDatosHeader"
-        CssClass="tablaDatos"
-        AlternatingRowStyle-CssClass="tablaDatosAlternate"
+        RowStyle-CssClass="light"
+        AlternatingRowStyle-CssClass="dark"
         AllowSorting="True"
         OnSorting="Ordenar">
         <Columns>

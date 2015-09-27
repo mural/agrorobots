@@ -84,3 +84,12 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
 .mensaje {
     color: black;
 }
+
+.imagenesTabla {
+    width: 30px;
+    height: 30px;
+}
+
+.txtChico {
+    width: 40px;
+}

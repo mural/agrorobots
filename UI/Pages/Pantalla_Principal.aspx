@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Pantalla_Principal.aspx.vb"  Inherits="Agorobots.Pantalla_Principal" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Pantalla_Principal.aspx.vb" Inherits="Agorobots.Pantalla_Principal" %>
 
 <%@ Register Assembly="Controles" Namespace="Controles" TagPrefix="uc" %>
 
@@ -9,7 +9,7 @@
         <asp:Label ID="userName" runat="server" Text=""></asp:Label>
     </h2>
     <br />
-    <asp:TextBox ID="txtBuscar" runat="server" 
+    <asp:TextBox ID="txtBuscar" runat="server"
         onkeypress="return alfanumerico1(event)"
         onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
         onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -19,9 +19,10 @@
     <br />
     <asp:GridView ID="GridView1_" runat="server"
         ShowHeader="False"
-        AlternatingRowStyle-CssClass="tablaDatosAlternate"
+        RowStyle-CssClass="light"
+        AlternatingRowStyle-CssClass="dark"
         AutoGenerateColumns="False"
-        CssClass="tablaDatos">
+        CssClass="">
         <EmptyDataTemplate>
             <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
         </EmptyDataTemplate>

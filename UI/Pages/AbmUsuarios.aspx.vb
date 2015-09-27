@@ -110,6 +110,16 @@ Public Class AbmUsuario
                 Familias.Add(familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
             Next
 
+            Dim img As FileUpload = CType(imgUpload, FileUpload)
+            Dim imgByte As Byte() = Nothing
+            If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
+                'To create a PostedFile
+                Dim File As HttpPostedFile = imgUpload.PostedFile
+                'Create byte Array with file len
+                imgByte = New Byte(File.ContentLength - 1) {}
+                'force the control to load data in array
+                File.InputStream.Read(imgByte, 0, File.ContentLength)
+            End If
 
             lblMensajes.Text = ""
             vldPassword_27.IsValid = True
@@ -127,6 +137,9 @@ Public Class AbmUsuario
                     For Each familia In Familias
                         usuarioSeleccionado.AddComponent(familia)
                     Next
+                    If Not imgByte Is Nothing Then
+                        usuarioSeleccionado.Foto = imgByte
+                    End If
                     usuario_Business.Modificacion(usuarioSeleccionado)
 
                     Vaciar()

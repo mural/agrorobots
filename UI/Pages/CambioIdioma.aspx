@@ -6,8 +6,9 @@
     </h2>
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"
-            AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
-            AlternatingRowStyle-CssClass="tablaDatosAlternate" CssClass ="tablaDatos"
+            AutoGenerateColumns="False"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
             AllowPaging="True" PageSize="10">
             <Columns>
                 <asp:TemplateField HeaderText="ID">

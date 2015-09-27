@@ -14,7 +14,8 @@
         <div id="container">
             <asp:Label ID="Resultado" runat="server" CssClass="resultadoCuenta"></asp:Label>
             <h1>
-                <asp:Label ID="registro_60" runat="server" Text="registro"></asp:Label></h1>
+                <asp:Label ID="registro_60" runat="server" Text="registro"></asp:Label>
+            </h1>
             <p>
                 <label for="nombreNuevo" class="uname" data-icon="u"></label>
                 <asp:Label ID="nombreNuevo_22" runat="server" Text="apellido"></asp:Label>

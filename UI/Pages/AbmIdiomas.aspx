@@ -14,9 +14,10 @@
                 <br />
 
                 <asp:GridView ID="GridView1_" runat="server"
-                    AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
-                    CssClass="tablaDatos"
-                    AlternatingRowStyle-CssClass="tablaDatosAlternate" AllowPaging="True" ShowFooter="True"
+                    AutoGenerateColumns="False"
+                    RowStyle-CssClass="light"
+                    AlternatingRowStyle-CssClass="dark"
+                    AllowPaging="True" ShowFooter="True"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit">
                     <Columns>
@@ -27,7 +28,7 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtIdiomaID"
-                                    MaxLength="5" runat="server"
+                                    MaxLength="5" runat="server" CssClass="txtChico"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -41,7 +42,7 @@
                                     Text='<%# Eval("Descripcion")%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="254"
                                     Text='<%# Eval("Descripcion")%>'
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -49,7 +50,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server"
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="254"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -59,10 +60,11 @@
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkRemove_13" runat="server"
-                                    CommandArgument='<%# Eval("ID")%>'
+                                <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("ID")%>'
                                     OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete"></asp:LinkButton>
+                                    Text="borrar" OnClick="Delete">
+                                    <img src="/Imagenes/borrar.png" alt="x" />
+                                </asp:LinkButton>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"

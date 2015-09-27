@@ -10,8 +10,9 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <asp:GridView ID="GridView1_" runat="server"
-                    AutoGenerateColumns="False" HeaderStyle-CssClass="tablaDatosHeader"
-                    CssClass="tablaDatos" AlternatingRowStyle-CssClass="tablaDatosAlternate"
+                    AutoGenerateColumns="False"
+                    RowStyle-CssClass="light"
+                    AlternatingRowStyle-CssClass="dark"
                     AllowSorting="True" OnSorting="Sort"
                     AllowPaging="True" OnPageIndexChanging="OnPaging" PageSize="20">
                     <Columns>

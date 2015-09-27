@@ -248,6 +248,15 @@ Partial Public Class AbmUsuario
     Protected WithEvents vldPasswordMatch As Global.System.Web.UI.WebControls.CompareValidator
 
     '''<summary>
+    '''imgUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
     '''btnCrear_32 control.
     '''</summary>
     '''<remarks>
