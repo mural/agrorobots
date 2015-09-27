@@ -3,7 +3,7 @@ Imports Business.Idiomas
 Imports EE
 
 Public Class CambioClave
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim usuario_Business As New Usuario_Business
 

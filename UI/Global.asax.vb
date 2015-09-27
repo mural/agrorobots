@@ -1,10 +1,18 @@
 ﻿Imports System.Web.SessionState
+Imports Business.Idiomas
+Imports EE
 
 Public Class Global_asax
     Inherits System.Web.HttpApplication
 
+    Protected idiomas As IdiomManager
+
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
         ' Se desencadena al iniciar la aplicación
+
+        idiomas = IdiomManager.GetIdiomManager
+        'Cargo el espanol por defecto
+        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-"))
     End Sub
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)

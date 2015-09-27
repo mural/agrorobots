@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class Registracion
 
     '''<summary>
+    '''navRegistro_60 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents navRegistro_60 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''registro_60 control.
     '''</summary>
     '''<remarks>
@@ -237,13 +255,4 @@ Partial Public Class Registracion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Datos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Datos As Global.System.Web.UI.WebControls.Label
 End Class

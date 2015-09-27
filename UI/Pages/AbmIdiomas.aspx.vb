@@ -1,7 +1,7 @@
 ﻿Imports Business.Idiomas
 
 Public Class AbmIdiomas
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim idioma_Business As New Business.Idioma_Business
 

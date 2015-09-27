@@ -50,6 +50,51 @@ Partial Public Class Base
     Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
 
     '''<summary>
+    '''idiomas_29 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents idiomas_29 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comboIdiomas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboIdiomas As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''home_3001 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents home_3001 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''carreras_3003 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents carreras_3003 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comparacion_51 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comparacion_51 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''BodyBaseContenido control.
     '''</summary>
     '''<remarks>

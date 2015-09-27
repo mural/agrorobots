@@ -2,7 +2,7 @@
 Imports Business
 
 Public Class Bitacora
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim bitacora_Business As New Business.Bitacora_Business
     Dim filtro = ""

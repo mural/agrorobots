@@ -150,6 +150,7 @@
     <Content Include="Scripts\jquery.slidepanel.setup.js" />
     <Content Include="Scripts\jquery.tabs.setup.js" />
     <Content Include="Scripts\jquery.ui.min.js" />
+    <Content Include="Styles\custom.css" />
     <Content Include="Styles\featured_slide.css" />
     <Content Include="Styles\fonts\BebasNeue-webfont.svg" />
     <Content Include="Styles\fonts\Dharma Type Font License.txt" />

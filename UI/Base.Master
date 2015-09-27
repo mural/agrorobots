@@ -10,12 +10,13 @@
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link rel="stylesheet" href="~/Styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="~/Styles/custom.css" type="text/css" />
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.slidepanel.setup.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.ui.min.js")%>"></script>
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.tabs.setup.js")%>"></script>
-    
-    <script type="text/javascript" src ="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
+
+    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
     <script type="text/javascript">
         var mensajeBorrar = '<%= paginaGenerica.mensajeBorrar%>';
     </script>
@@ -44,7 +45,8 @@
                     </div>
                     <div class="topbox">
                         <h2>Teachers Login Here</h2>
-                        <div><%--<form action="#" method="post">--%>
+                        <div>
+                            <%--<form action="#" method="post">--%>
                             <fieldset>
                                 <legend>Teachers Login Form</legend>
                                 <label for="teachername">
@@ -64,11 +66,13 @@
               <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
                                 </p>
                             </fieldset>
-                        </div><%--</form>--%>
+                        </div>
+                        <%--</form>--%>
                     </div>
                     <div class="topbox last">
                         <h2>Pupils Login Here</h2>
-                        <div><%--<form action="#" method="post">--%>
+                        <div>
+                            <%--<form action="#" method="post">--%>
                             <fieldset>
                                 <legend>Pupils Login Form</legend>
                                 <label for="pupilname">
@@ -88,7 +92,8 @@
               <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
                                 </p>
                             </fieldset>
-                        </div><%--</form>--%>
+                        </div>
+                        <%--</form>--%>
                     </div>
                     <br class="clear" />
                 </div>
@@ -96,12 +101,16 @@
                     <ul>
                         <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                             <AnonymousTemplate>
-                                <li class="left">Log In Here &raquo;</li>
-                                <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+                                <li class="left">Login &raquo;</li>
+                                <%--<li class="right" id="toggle"><a id="slideit" href="#slidepanel">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>--%>
+                                <li class="right" id="toggle"><a id="slideit" href="/Pantalla_Login.aspx">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
                             </AnonymousTemplate>
                             <LoggedInTemplate>
-                                <li class="left"><asp:LoginName ID="HeadLoginName" runat="server" /> &raquo;</li>
-                                <li class="right" id="toggle"><asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton></li>
+                                <li class="left">
+                                    <asp:LoginName ID="HeadLoginName" runat="server" />
+                                    &raquo;</li>
+                                <li class="right" id="toggle">
+                                    <asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton></li>
                             </LoggedInTemplate>
                         </asp:LoginView>
                     </ul>
@@ -118,11 +127,16 @@
                 </div>
                 <div class="fl_right">
                     <ul>
-                        <li class="last"><a href="#">Busqueda</a></li>
+                        <li class="last"><a href="/Pages/Pantalla_Principal.aspx">Busqueda</a></li>
                         <li><a href="#">Soporte</a></li>
                         <li><a href="#">Sobre nosotros</a></li>
                     </ul>
-                    <p>Tel: 011 4444 5555 | Email: info@agrorobots.net</p>
+                    <p>
+                        <asp:Label ID="idiomas_29" runat="server" Text="idiomas"></asp:Label>
+                        &nbsp;
+                        <asp:DropDownList ID="comboIdiomas" runat="server" AutoPostBack="True" TabIndex="1"></asp:DropDownList>
+                        &nbsp;&nbsp;
+                    </p>
                 </div>
                 <br class="clear" />
             </div>
@@ -131,7 +145,9 @@
         <div class="wrapper col2">
             <div id="topnav">
                 <ul>
-                    <li id="headerDefecto" class="active"><a href="Home.aspx">Home</a>
+                    <li id="headerDefecto" class="active">
+                        <a href="/Front/Home.aspx">
+                            <asp:Label ID="home_3001" runat="server" Text="home" TabIndex="2"></asp:Label></a>
                         <ul>
                             <li><a href="#">Plataforma</a></li>
                             <li><a href="#">Experiencia</a></li>
@@ -140,11 +156,17 @@
                         </ul>
                     </li>
                     <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
-                        <a href="Home.aspx">Cursos</a>
+                        <a href="#">Cursos</a>
                         <ul>
-                            <li><a href="#">Cultivos I</a></li>
-                            <li><a href="#">Cultivos II</a></li>
-                            <li class="last"><a href="#">Hidroponia</a></li>
+                            <li><a href="/Pages/Carreras.aspx">
+                                <asp:Label ID="carreras_3003" runat="server" Text="carreras"></asp:Label>
+                            </a>
+                            </li>
+                            <li class="last">
+                                <a href="/Pages/Comparacion.aspx">
+                                    <asp:Label ID="comparacion_51" runat="server" Text="comparacion"></asp:Label>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
@@ -174,13 +196,15 @@
                 <div id="newsletter">
                     <h2>Este en contacto !</h2>
                     <p>Ingrese su Email para formar parte de nuestra lista de correos</p>
-                    <div><%--<form action="#" method="post">--%>
+                    <div>
+                        <%--<form action="#" method="post">--%>
                         <fieldset>
                             <legend>Newsletter</legend>
                             <input type="text" value="Ingrese su Email&hellip;" onfocus="this.value=(this.value=='Ingrese su Email&hellip;')? '' : this.value ;" />
                             <input type="submit" name="news_go" id="news_go" value="IR" />
                         </fieldset>
-                    </div><%--</form>--%>
+                    </div>
+                    <%--</form>--%>
                     <p>Para desuscripción <a href="#">presione aca &raquo;</a></p>
                 </div>
                 <div class="footbox">

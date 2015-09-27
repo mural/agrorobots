@@ -6,7 +6,9 @@ Public Class RecuperarClave
     Dim loginBusiness As New Business.Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        CargarIdiomaSeleccionado()
+        IrInicioUsuarioSiEstaLoguedo()
+
+        Me.Form.DefaultButton = Me.btnRecuperar_490.UniqueID
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -17,12 +19,12 @@ Public Class RecuperarClave
         Dim nuevaClave = loginBusiness.recuperarClave(usuarioRecuperar.Text, emailRecuperar.Text)
         If Not String.IsNullOrEmpty(nuevaClave) Then
             If emailClave(nuevaClave) Then
-                CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+                Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
             Else
-                CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+                Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
             End If
         Else
-            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
+            Resultado.Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
         End If
     End Sub
 

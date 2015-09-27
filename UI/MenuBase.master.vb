@@ -12,11 +12,11 @@ Public Class MenuBase
         If Not usuario Is Nothing Then
             ArmarMenuLateral(usuario)
 
-            TraducirMenu(usuario)
+            TraducirMenu()
         End If
     End Sub
 
-    Public Sub TraducirMenu(ByRef usuario As Usuario)
+    Public Sub TraducirMenu()
         'idiomas
         ''menu top
         For Each menuItem As MenuItem In SideNavigationMenu.Items

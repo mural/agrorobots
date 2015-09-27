@@ -1,0 +1,86 @@
+﻿/* CUSTOM
+----------------------------------------------------------*/
+
+#Resultado {
+    color: #f66;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.centradoDiv {
+    display: table;
+    margin: 5px auto;
+}
+
+.linkTitle {
+    margin: 10px;
+}
+
+a:link .linkTitle, a:hover .linkTitle {
+    text-decoration: none;
+}
+
+.detalle {
+    margin: 10px;
+}
+
+.margenIzq400 {
+    margin: 0px 0px 0px 400px;
+}
+
+.botonAccion {
+    width: 90px;
+}
+
+.respuesta {
+    width: 640px;
+    height: 45px;
+}
+
+.completar {
+    width: 240px;
+    height: 25px;
+}
+
+.completarGrande {
+    width: 440px;
+    height: 35px;
+}
+
+.formError {
+    color: red;
+}
+
+.tablaDatos {
+    text-align: center;
+}
+
+    .tablaDatos td {
+        padding: 5px;
+    }
+
+.tablaDatosHeader {
+    color: white;
+    background-color: #3a4f63;
+}
+
+th .tablaDatosHeader {
+    padding: 10px;
+}
+
+th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
+    color: white;
+}
+
+.tablaDatosAlternate {
+    background-color: #c0c7d0;
+}
+
+.tablaDatosAction {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.mensaje {
+    color: black;
+}

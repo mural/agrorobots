@@ -1,12 +1,18 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Cuenta/Cuenta.Master" CodeBehind="Registracion.aspx.vb" Inherits="Agorobots.Registracion" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/NavegacionBase.Master" CodeBehind="Registracion.aspx.vb" Inherits="Agorobots.Registracion" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:Content ID="Nav" ContentPlaceHolderID="NavegacionContenido" runat="server">
+    <li>»</li>
+    <li>
+        <a href="#">
+            <asp:Label ID="navRegistro_60" runat="server" Text="registro"></asp:Label>
+        </a>
+    </li>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+<asp:Content ID="Body" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
     <%--<% Response.Write("Your current culture: " + System.Globalization.CultureInfo.CurrentCulture.DisplayName)%>--%>
-    <div id="wrapper" style="min-height: 1320px">
-        <div id="login" class="animate form">
+    <div class="wrapper col4">
+        <div id="container">
+            <asp:Label ID="Resultado" runat="server" CssClass="resultadoCuenta"></asp:Label>
             <h1>
                 <asp:Label ID="registro_60" runat="server" Text="registro"></asp:Label></h1>
             <p>
@@ -60,8 +66,4 @@
             </p>
         </div>
     </div>
-
-    <p align="center" style="display: none">
-        <asp:Label ID="Datos" runat="server"></asp:Label>
-    </p>
 </asp:Content>

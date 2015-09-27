@@ -24,11 +24,11 @@
                     <br />
                     <asp:Menu ID="TopNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Vertical" IncludeStyleBlock="false" SkipLinkText="">
                         <Items>
-                            <asp:MenuItem Text="Home" Value="Home_3001" />
+<%--                            <asp:MenuItem Text="Home" Value="Home_3001" />
                             <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
                             <asp:MenuItem Text="Novedades" Value="Novedades_3004" />
                             <asp:MenuItem Text="Servicios" Value="Servicios_3005" />
-                            <asp:MenuItem Text="Contactenos" Value="Contactenos_3006" />
+                            <asp:MenuItem Text="Contactenos" Value="Contactenos_3006" />--%>
                             <asp:MenuItem Text="Cambio de idioma" Value="Idioma_10006" />
                             <asp:MenuItem Text="Cambio de clave" Value="Clave_3008" />
                             <asp:MenuItem Text="Mensajes" Value="Mensajes_3009" />

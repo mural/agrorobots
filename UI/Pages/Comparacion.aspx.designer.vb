@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Comparacion
 
     '''<summary>
+    '''navcomparacion_51 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents navcomparacion_51 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''comparacion_51 control.
     '''</summary>
     '''<remarks>

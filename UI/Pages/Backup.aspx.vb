@@ -2,7 +2,7 @@
 Imports Business
 
 Public Class Backup
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Dim serverPath As String
     Dim filename As String

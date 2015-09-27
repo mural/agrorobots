@@ -5,7 +5,7 @@ Public MustInherit Class PaginaAutorizada
 
     Protected Sub ValidacionPermisos(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'hay sesion?
-        If usuario Is Nothing Then
+        If Not UsuarioLogueado() Then
             Response.Redirect("/Pantalla_Login.aspx")
         End If
 
@@ -24,7 +24,7 @@ Public MustInherit Class PaginaAutorizada
             End If
         Next
         If Not valido Then
-            Response.Redirect("SinPermisos.aspx")
+            Response.Redirect("/Pages/SinPermisos.aspx")
         End If
     End Sub
 

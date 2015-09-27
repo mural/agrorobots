@@ -123,4 +123,17 @@ Public MustInherit Class PaginaGenerica
         End If
     End Sub
 
+    Public Function UsuarioLogueado() As Boolean
+        If usuario Is Nothing Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Sub IrInicioUsuarioSiEstaLoguedo()
+        If UsuarioLogueado() Then
+            FormsAuthentication.RedirectFromLoginPage(usuario.Nombre, False)
+        End If
+    End Sub
+
 End Class

@@ -14,6 +14,33 @@ Option Explicit On
 Partial Public Class Principal
 
     '''<summary>
+    '''login control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents login As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''panel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''lblUsername_23 control.
     '''</summary>
     '''<remarks>
@@ -23,13 +50,13 @@ Partial Public Class Principal
     Protected WithEvents lblUsername_23 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''username control.
+    '''login_username control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents username As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents login_username As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''vldUser_23 control.
@@ -50,13 +77,13 @@ Partial Public Class Principal
     Protected WithEvents lblPassword_27 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''password control.
+    '''login_password control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents password As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents login_password As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''vldUser_27 control.

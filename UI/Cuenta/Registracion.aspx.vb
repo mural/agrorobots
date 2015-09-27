@@ -11,7 +11,9 @@ Public Class Registracion
     Dim familia_Business As New Familia_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        CargarIdiomaSeleccionado()
+        IrInicioUsuarioSiEstaLoguedo()
+
+        Me.Form.DefaultButton = Me.btnRegistrar_480.UniqueID
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -51,10 +53,10 @@ Public Class Registracion
                 Vaciar()
             Catch ax As ArgumentException
                 If ax.Message.Equals("90028") Then
-                    CType(Master.FindControl("Resultado"), Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(90028)
+                    Resultado.Text = IdiomManager.GetIdiomManager.GetTranslationById(90028)
                 End If
             Catch ex As Exception
-                CType(Master.FindControl("Resultado"), Label).Text = IdiomManager.GetIdiomManager.GetTranslationById(90012)
+                Resultado.Text = IdiomManager.GetIdiomManager.GetTranslationById(90012)
             End Try
         End If
     End Sub
@@ -73,9 +75,9 @@ Public Class Registracion
         'Para activar su usuario ingrese a
         Dim cuerpo = idiomas.GetTranslationById(63) + " http://" + servidorApp + "/Pantalla_Login.aspx?usuarioactivar=" + usuarioNuevo.Text
         If EmailManager.EnviarEmail(Server, emailNuevo.Text, asunto, cuerpo) Then
-            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+            Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
         Else
-            CType(Master.FindControl("Resultado"), Label).Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+            Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
         End If
     End Sub
 
