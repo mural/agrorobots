@@ -41,6 +41,15 @@ Partial Public Class MenuBase
     Protected WithEvents BodyMenuContenido As Global.System.Web.UI.WebControls.ContentPlaceHolder
 
     '''<summary>
+    '''menu_37 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents menu_37 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''SideNavigationMenu control.
     '''</summary>
     '''<remarks>

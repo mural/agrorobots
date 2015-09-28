@@ -3,7 +3,7 @@ Imports Business
 Imports Business.Idiomas
 
 Public Class AbmUsuario
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Public usuario_Business As New Usuario_Business
     Dim familia_Business As New Familia_Business

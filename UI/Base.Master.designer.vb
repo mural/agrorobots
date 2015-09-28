@@ -50,6 +50,15 @@ Partial Public Class Base
     Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
 
     '''<summary>
+    '''sobreNosotros_153 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sobreNosotros_153 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''idiomas_29 control.
     '''</summary>
     '''<remarks>
@@ -93,6 +102,24 @@ Partial Public Class Base
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents comparacion_51 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''terminos_154 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents terminos_154 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''politicas_152 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents politicas_152 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''BodyBaseContenido control.

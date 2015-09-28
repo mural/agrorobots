@@ -11,23 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CuentaMenu
+Partial Public Class Terminos
 
     '''<summary>
-    '''Table1 control.
+    '''navTerminos_154 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Table1 As Global.System.Web.UI.WebControls.Table
+    Protected WithEvents navTerminos_154 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''NestedMainContent control.
+    '''titleTerminos_154 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents NestedMainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents titleTerminos_154 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''terminosDetalle_651 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents terminosDetalle_651 As Global.System.Web.UI.WebControls.Label
 End Class

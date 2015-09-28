@@ -246,8 +246,22 @@ div.wrapper {
     padding: 20px 0;
 }
 
-    #container h1, #container h2, #container h3, #container h4, #container h5, #container h6 {
-        font-size: 2em;
+    #container h1 {
+        font-size: 2.1em;
+        margin: 0 0 15px 0; /*bottom*/
+        color: #333333;
+        background-color: #F8F7DF;
+    }
+
+    #container h2, #container h3, #container h4, #container h5 {
+        font-size: 1.8em;
+        margin: 0 0 15px 0; /*bottom*/
+        color: #333333;
+        background-color: #F8F7DF;
+    }
+
+    #container h6 {
+        font-size: 1.5em;
         margin: 0 0 15px 0; /*bottom*/
         color: #333333;
         background-color: #F8F7DF;

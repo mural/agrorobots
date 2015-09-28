@@ -18,7 +18,7 @@
 
     <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
     <script type="text/javascript">
-        var mensajeBorrar = '<%= paginaGenerica.mensajeBorrar%>';
+        var mensajeBorrar = '<%= PaginaGenerica.mensajeBorrar%>';
     </script>
     <script type="text/javascript">
         function activarClase(header) {
@@ -41,7 +41,7 @@
                     <div class="topbox">
                         <h2>Nullamlacus dui ipsum</h2>
                         <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
-                        <p class="readmore"><a href="../Pantalla_Login.aspx">Login</a></p>
+                        <p class="readmore"><a href='<%= PaginasConocidas.LOGIN %>'>Login</a></p>
                     </div>
                     <div class="topbox">
                         <h2>Teachers Login Here</h2>
@@ -129,7 +129,11 @@
                     <ul>
                         <li class="last"><a href="/Pages/Pantalla_Principal.aspx">Busqueda</a></li>
                         <li><a href="#">Soporte</a></li>
-                        <li><a href="#">Sobre nosotros</a></li>
+                        <li>
+                            <a href='<%= PaginasConocidas.INSTITUCIONAL %>'>
+                                <asp:Label ID="sobreNosotros_153" Text="sobre nosotros" runat="server" />
+                            </a>
+                        </li>
                     </ul>
                     <p>
                         <asp:Label ID="idiomas_29" runat="server" Text="idiomas"></asp:Label>
@@ -180,8 +184,16 @@
                     <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
                         <a href="#">Servicios</a>
                         <ul>
-                            <li><a href="#">Asesoria</a></li>
-                            <li class="last"><a href="#">Ventas</a></li>
+                            <li>
+                                <a href='<%= PaginasConocidas.TERMINOS%>'>
+                                    <asp:Label ID="terminos_154" Text="terminos" runat="server" />
+                                </a>
+                            </li>
+                            <li class="last">
+                                <a href='<%= PaginasConocidas.POLITICAS %>'>
+                                    <asp:Label ID="politicas_152" Text="politicas" runat="server" />
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

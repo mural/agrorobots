@@ -17,7 +17,9 @@
             </div>
             <div id="column">
                 <div class="subnav">
-                    <h2>Secondary Navigation</h2>
+                    <h2>
+                        <asp:Label ID="menu_37" runat="server" Text="menu"></asp:Label>
+                    </h2>
                     <asp:Menu ID="SideNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" IncludeStyleBlock="false" SkipLinkText="" StaticDisplayLevels="2">
                     </asp:Menu>
                     <br />

@@ -105,15 +105,32 @@
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
     <Content Include="Front\Politicas.aspx" />
+    <Content Include="Front\Terminos.aspx" />
+    <Content Include="Imagenes\1.gif" />
+    <Content Include="Imagenes\1.jpg" />
+    <Content Include="Imagenes\2.gif" />
+    <Content Include="Imagenes\2.png" />
+    <Content Include="Imagenes\200x140.gif" />
+    <Content Include="Imagenes\240x90.gif" />
+    <Content Include="Imagenes\290x100.gif" />
+    <Content Include="Imagenes\3.gif" />
+    <Content Include="Imagenes\3.jpg" />
+    <Content Include="Imagenes\4.gif" />
+    <Content Include="Imagenes\4.png" />
+    <Content Include="Imagenes\60x60.gif" />
+    <Content Include="Imagenes\80x80.gif" />
+    <Content Include="Imagenes\agrorobots.png" />
     <Content Include="Imagenes\arrow.png" />
-    <Content Include="Imagenes\buscar.gif" />
-    <Content Include="Imagenes\Carrito_de_Compras.gif" />
-    <Content Include="Imagenes\Contactenos.gif" />
-    <Content Include="Imagenes\Fondo_Principal4.jpg" />
-    <Content Include="Imagenes\Fondo_Principal.jpg" />
-    <Content Include="Imagenes\Fondo_Principal2.jpg" />
-    <Content Include="Imagenes\Fondo_Principal3.jpg" />
-    <Content Include="Imagenes\Fondo_Principal5.jpg" />
+    <Content Include="Imagenes\avatar.gif" />
+    <Content Include="Imagenes\borrar.png" />
+    <Content Include="Imagenes\home_1_200x140.jpg" />
+    <Content Include="Imagenes\home_2_200x140.png" />
+    <Content Include="Imagenes\home_3_200x140.jpg" />
+    <Content Include="Imagenes\home_4_200x140.jpg" />
+    <Content Include="Imagenes\icono-descargar.png" />
+    <Content Include="Imagenes\imgl.gif" />
+    <Content Include="Imagenes\imgr.gif" />
+    <Content Include="Imagenes\ir.png" />
     <Content Include="Imagenes\login-sprite.png" />
     <Content Include="Pages\AbmIdiomas.aspx" />
     <Content Include="Pages\AbmPermisos.aspx" />
@@ -164,6 +181,7 @@
     <Content Include="Styles\loginslider.css" />
     <Content Include="Styles\navi.css" />
     <Content Include="Styles\oldLogin.css" />
+    <Content Include="Styles\robots.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -193,13 +211,6 @@
     </Compile>
     <Compile Include="Cuenta\Cuenta.Master.vb">
       <DependentUpon>Cuenta.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cuenta\CuentaMenu.master.designer.vb">
-      <DependentUpon>CuentaMenu.master</DependentUpon>
-    </Compile>
-    <Compile Include="Cuenta\CuentaMenu.master.vb">
-      <DependentUpon>CuentaMenu.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cuenta\Interna.aspx.designer.vb">
@@ -242,6 +253,13 @@
     </Compile>
     <Compile Include="Front\Politicas.aspx.vb">
       <DependentUpon>Politicas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Terminos.aspx.designer.vb">
+      <DependentUpon>Terminos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Terminos.aspx.vb">
+      <DependentUpon>Terminos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Global.asax.vb">
@@ -543,7 +561,6 @@
     <Content Include="Base.Master" />
     <None Include="ClassDiagram1.cd" />
     <Content Include="Cuenta\Cuenta.Master" />
-    <Content Include="Cuenta\CuentaMenu.master" />
     <Content Include="MenuBase.master" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

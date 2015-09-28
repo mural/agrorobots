@@ -11,6 +11,17 @@ Public Class Idioma_Business
         Return dataIdiom.ObtenerIdiomas()
     End Function
 
+    Public Function ObtenerIdiomaPorId(id As Integer) As Idioma
+        Dim dataIdiom As New Idioma_Data
+        Dim idiomas = dataIdiom.ObtenerIdiomas()
+        For Each idioma In idiomas
+            If id = idioma.ID Then
+                Return idioma
+            End If
+        Next
+        Return Nothing
+    End Function
+
     Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
         Dim dataIdiom As New Idioma_Data
 

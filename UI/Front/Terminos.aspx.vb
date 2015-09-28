@@ -1,6 +1,4 @@
-﻿Imports System.Data.SqlClient
-
-Public Class Institucional
+﻿Public Class Terminos
     Inherits PaginaGenerica
 
 

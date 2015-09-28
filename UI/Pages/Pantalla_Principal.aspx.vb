@@ -2,7 +2,7 @@
 Imports Business
 
 Public Class Pantalla_Principal
-    Inherits PaginaGenerica
+    Inherits PaginaAutorizada
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         usuario = Session.Item("user")

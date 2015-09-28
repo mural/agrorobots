@@ -34,7 +34,7 @@ Public Class Global_asax
             Dim errorCode = serverError.GetHttpCode()
             If 404 = errorCode Then
                 Server.ClearError()
-                Server.Transfer(PaginasConocidas.LOGIN + "?error=404")
+                Response.Redirect(PaginasConocidas.LOGIN + "?error=404")
             End If
             'If 500 = errorCode Then
             '    Server.ClearError()

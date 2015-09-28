@@ -1,8 +1,14 @@
-﻿Public Class EmailManager
+﻿Imports System.Net.Mail
+Imports System.Net.Mime
+Imports System.Net
+Imports System.Web.Services.Description
+
+Public Class EmailManager
 
     Public Shared Function EnviarEmail(server As HttpServerUtility, destinatario As String, asunto As String, cuerpo As String) As Boolean
         Try
-            Dim objMail
+            Const CdoReferenceTypeName = 1
+            Dim objMail, objBP
             objMail = server.CreateObject("CDO.Message")
             Dim servidorSMTP, emailOrigen, claveOrigen
             servidorSMTP = "smtp.gmail.com"
@@ -22,8 +28,17 @@
             objMail.Sender = emailOrigen
             objMail.To = destinatario
             objMail.Subject = asunto
-            objMail.htmlBody = cuerpo
+            objMail.htmlBody += "<html><body><h1>" + asunto + "</h1><br/><img src=""cid:agrorobots.png""><br/><br/><div>"
+            objMail.htmlBody += cuerpo
+            objMail.htmlBody += "</div></body></html>"
+
+            objBP = objMail.AddRelatedBodyPart(server.MapPath("/Imagenes/agrorobots.png"), "agrorobots.png", CdoReferenceTypeName)
+            objBP.Fields.Item("urn:schemas:mailheader:Content-ID") = "<agrorobots.png>"
+            objBP.Fields.Update()
+
+
             objMail.Send()
+
             Return True
         Catch ex As Exception
             Return False

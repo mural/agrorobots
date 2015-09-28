@@ -30,49 +30,4 @@ Partial Public Class Institucional
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents instutucional_153 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblImage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblImage As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''imgUpload control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
-
-    '''<summary>
-    '''btnSubmit control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnSubmit As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''lblResult control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblResult As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Image1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Image1 As Global.System.Web.UI.WebControls.Image
 End Class

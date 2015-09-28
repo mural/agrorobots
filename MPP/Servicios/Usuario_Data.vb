@@ -169,9 +169,6 @@ Public Class Usuario_Data
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetIntParameter("@Intentos", obj.Intentos)
         params.SetStringParameter("@Email", obj.Email)
-        'If obj.Foto Is Nothing Then
-        '    obj.Foto = New Byte(0) {}
-        'End If
         params.SetImageParameter("@Foto", obj.Foto)
 
         con = Connection.GetObjConnextion()

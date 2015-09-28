@@ -62,7 +62,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="15" 
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="15"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -72,13 +72,11 @@
 
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="selec_801" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Select" Text="Select"></asp:LinkButton>
+                                <asp:LinkButton ID="selec" runat="server" CausesValidation="False"
+                                    CommandName="Select" Text="Select">
+                                    <img src="/Imagenes/ir.png" alt="->" />
+                                </asp:LinkButton>
                             </ItemTemplate>
-                            <FooterTemplate>
-                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
-                                    OnClick="AddNew" />
-                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField>
@@ -102,6 +100,10 @@
                                 <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
+                                    OnClick="AddNew" />
+                            </FooterTemplate>
                         </asp:TemplateField>
 
                     </Columns>

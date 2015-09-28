@@ -23,6 +23,15 @@ Partial Public Class NavegacionBase
     Protected WithEvents HeadNavegacionContenido As Global.System.Web.UI.WebControls.ContentPlaceHolder
 
     '''<summary>
+    '''navegacion_38 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents navegacion_38 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''NavegacionContenido control.
     '''</summary>
     '''<remarks>
