@@ -21,7 +21,7 @@ Public Class Base
             usuario = Session.Item("user")
             If Not usuario Is Nothing Then
                 comboIdiomas.SelectedValue = usuario.Idioma.ID
-
+                Application.Item("idiomaIDseleccionado") = usuario.Idioma.ID
             Else 'sino lo tomo de la variable de Aplicacion
                 If Application.Item("idiomaIDseleccionado") Is Nothing Then 'defecto espanol
                     Application.Item("idiomaIDseleccionado") = 1
