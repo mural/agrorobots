@@ -17,6 +17,11 @@ Public Class Principal
             If Not usuario Is Nothing Then 'envio a la pagina principal
                 FormsAuthentication.RedirectFromLoginPage(login_username.Text, False)
             Else
+                If Request.IsAuthenticated Then
+                    FormsAuthentication.SignOut()
+                    RecargarPagina()
+                End If
+
                 'vienen parametros en la URL ?
                 Dim usuarioActivar As String
                 usuarioActivar = Request.QueryString("usuarioactivar")
@@ -27,7 +32,7 @@ Public Class Principal
                         Resultado.Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
                     End If
                 End If
-            End If
+                End If
         Catch ex As Exception
         End Try
     End Sub
