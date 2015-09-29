@@ -128,7 +128,20 @@
                 <div class="fl_right">
                     <ul>
                         <li class="last"><a href="/Pages/Pantalla_Principal.aspx">Busqueda</a></li>
-                        <li><a href="#">Soporte</a></li>
+                        <li>
+                            <asp:LoginView ID="mensajeViewLogueado" runat="server" EnableViewState="false">
+                                <AnonymousTemplate>
+                                    <a href='<%= PaginasConocidas.CONTACTO %>'>
+                                        <asp:Label ID="contacto_3006" Text="contacto" runat="server" />
+                                    </a>
+                                </AnonymousTemplate>
+                                <LoggedInTemplate>
+                                    <a href='<%= PaginasConocidas.MENSAJES %>'>
+                                        <asp:Label ID="mensajes_3009" Text="mensajes" runat="server" />
+                                    </a>
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                        </li>
                         <li>
                             <a href='<%= PaginasConocidas.INSTITUCIONAL %>'>
                                 <asp:Label ID="sobreNosotros_153" Text="sobre nosotros" runat="server" />

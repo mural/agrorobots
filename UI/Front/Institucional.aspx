@@ -67,6 +67,9 @@
 <asp:Content ID="Body" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
     <div class="wrapper col4">
         <div id="container">
+            <div style="display: none">
+                <% Response.Write("Cultura actual: " + System.Globalization.CultureInfo.CurrentCulture.DisplayName)%>
+            </div>
             <h1>
                 <asp:Label ID="instutucional_153" runat="server" Text="institucional"></asp:Label>
             </h1>

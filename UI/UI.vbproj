@@ -102,6 +102,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Cuenta\RecuperarClave.aspx" />
     <Content Include="Cuenta\Registracion.aspx" />
+    <Content Include="Front\Contacto.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
     <Content Include="Front\Politicas.aspx" />
@@ -234,6 +235,13 @@
     </Compile>
     <Compile Include="Cuenta\Registracion.aspx.vb">
       <DependentUpon>Registracion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.designer.vb">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Contacto.aspx.vb">
+      <DependentUpon>Contacto.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Front\Home.aspx.designer.vb">

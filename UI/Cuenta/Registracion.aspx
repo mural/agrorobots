@@ -11,7 +11,6 @@
     </li>
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
-    <% Response.Write("Your current culture: " + System.Globalization.CultureInfo.CurrentCulture.DisplayName)%>
     <div class="wrapper col4">
         <div id="container">
             <h1>
