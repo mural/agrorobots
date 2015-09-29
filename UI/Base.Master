@@ -138,6 +138,7 @@
                                 <LoggedInTemplate>
                                     <a href='<%= PaginasConocidas.MENSAJES %>'>
                                         <asp:Label ID="mensajes_3009" Text="mensajes" runat="server" />
+                                        (<%= Session.Item(Variables.CANTIDAD_MENSAJES) %>)
                                     </a>
                                 </LoggedInTemplate>
                             </asp:LoginView>

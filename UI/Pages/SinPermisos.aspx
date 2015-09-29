@@ -1,6 +1,6 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="SinPermisos.aspx.vb" Inherits="Agorobots.SinPermisos" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/NavegacionBase.master" CodeBehind="SinPermisos.aspx.vb" Inherits="Agorobots.SinPermisos" %>
 
-<asp:Content ID="Navegacion" runat="server" ContentPlaceHolderID="DetalleNavegacionContenido">
+<asp:Content ID="Navegacion" runat="server" ContentPlaceHolderID="NavegacionContenido">
     <li>»</li>
     <li>
         <a href="#">
@@ -8,11 +8,15 @@
         </a>
     </li>
 </asp:Content>
-<asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
-     <h2>
-        <asp:Label ID="lblTitulo_10001" runat="server" Text="titulo"></asp:Label>
-    </h2>
-    <p>
-        <asp:Label ID="msgError_90050" runat="server" Text="titulo"></asp:Label>
-    </p>
+<asp:Content ID="Body" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
+    <div class="wrapper col4">
+        <div id="container">
+            <h2>
+                <asp:Label ID="lblTitulo_10001" runat="server" Text="titulo"></asp:Label>
+            </h2>
+            <p>
+                <asp:Label ID="msgError_90050" runat="server" Text="titulo"></asp:Label>
+            </p>
+        </div>
+    </div>
 </asp:Content>

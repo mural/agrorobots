@@ -15,6 +15,9 @@ Public MustInherit Class PaginaGenerica
 
     Protected Sub CargaInicial(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         servidorApp = ConfigurationManager.AppSettings.Get("serverNamePort").ToString
+
+        'iniciar mensajes
+        Helper.ActualizarMensajes(Session)
     End Sub
 
     Protected Sub CargarUsuario(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

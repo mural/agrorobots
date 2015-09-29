@@ -73,4 +73,5 @@ Public Class Base
         Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Application.Item(Variables.CULTURA_CODIGO_ACTUAL))
         Thread.CurrentThread.CurrentUICulture = New CultureInfo(CStr(Application.Item(Variables.CULTURA_CODIGO_ACTUAL)))
     End Sub
+
 End Class

@@ -532,6 +532,7 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Servicios\EmailManager.vb" />
+    <Compile Include="Servicios\Helper.vb" />
     <Compile Include="Servicios\Validaciones.vb" />
     <Compile Include="Pantalla_Login.aspx.designer.vb">
       <DependentUpon>Pantalla_Login.aspx</DependentUpon>

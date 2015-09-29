@@ -8,6 +8,8 @@ Public Class Mensajes
     Dim usuario_Business As New Usuario_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ActualizarMensajes(3)
+
         If usuario.Admin Then
             lblTitulo.Text = idiomas.GetTranslationById(704)
             comboUsuarios.Visible = True
