@@ -114,7 +114,7 @@ Public Class Usuario_Data
                 obj.Intentos = CInt(Item("Intentos"))
                 obj.Nombre = CStr(Item("Nombre"))
                 obj.Password = CStr(Item("Password"))
-                obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), ""))
+                obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), "", ""))
                 obj.Email = CStr(Item("Email"))
             Next
             Return
@@ -143,7 +143,7 @@ Public Class Usuario_Data
                 obj.Intentos = CInt(Item("Intentos"))
                 obj.Nombre = CStr(Item("Nombre"))
                 obj.Password = CStr(Item("Password"))
-                obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), ""))
+                obj.SetLanguage(New Idioma(CInt(Item("Idioma_Id")), "", ""))
                 obj.Email = CStr(Item("Email"))
             Next
             Return obj
@@ -251,7 +251,7 @@ Public Class Usuario_Data
             , CBool(row("Admin")) _
             , CStr(row("Apellido")) _
             , CInt(row("ID")) _
-            , New Idioma(CInt(row("Idioma_Id")), "") _
+            , New Idioma(CInt(row("Idioma_Id")), "", "") _
             , CInt(row("Intentos")) _
             , CStr(row("Nombre")) _
             , CStr(row("Password")) _

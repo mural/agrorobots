@@ -40,23 +40,24 @@ Public Class Principal
         usuarioEntrante.UserName = login_username.Text
         usuarioEntrante.Password = login_password.Text
 
-        Try
-            loginBusiness.LogearUsuario(usuarioEntrante)
+        If Page.IsValid Then
+            Try
+                loginBusiness.LogearUsuario(usuarioEntrante)
 
-            Session.Add("user", usuarioEntrante)
-            IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuarioEntrante.Idioma)
-            FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
-        Catch no As NoActivoException
-            Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email."
-        Catch inte As IntentosLoginException
-            'Intentos de Login superados       'recupere su clave
-            Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
-                idiomas.GetTranslationById(71) + "</a>"
-        Catch ex As Exception
-            Resultado.Text = idiomas.GetTranslationById(90048) 'Datos invalidos
-            'Datos.Text = ex.Message + " --- " + ex.StackTrace.ToString()
-        End Try
-
+                Session.Add("user", usuarioEntrante)
+                IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuarioEntrante.Idioma)
+                FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
+            Catch no As NoActivoException
+                Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email."
+            Catch inte As IntentosLoginException
+                'Intentos de Login superados       'recupere su clave
+                Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
+                    idiomas.GetTranslationById(71) + "</a>"
+            Catch ex As Exception
+                Resultado.Text = idiomas.GetTranslationById(90048) 'Datos invalidos
+                'Datos.Text = ex.Message + " --- " + ex.StackTrace.ToString()
+            End Try
+        End If
     End Sub
 
 End Class

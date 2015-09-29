@@ -16,15 +16,19 @@ Public Class RecuperarClave
     End Sub
 
     Protected Sub btnRecuperar_490_Click(sender As Object, e As EventArgs) Handles btnRecuperar_490.Click
-        Dim nuevaClave = loginBusiness.recuperarClave(usuarioRecuperar.Text, emailRecuperar.Text)
-        If Not String.IsNullOrEmpty(nuevaClave) Then
-            If emailClave(nuevaClave) Then
-                Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+        regVldEmail.ErrorMessage = idiomas.GetTranslationById(158)
+
+        If Page.IsValid Then
+            Dim nuevaClave = loginBusiness.recuperarClave(usuarioRecuperar.Text, emailRecuperar.Text)
+            If Not String.IsNullOrEmpty(nuevaClave) Then
+                If emailClave(nuevaClave) Then
+                    Resultado.Text = idiomas.GetTranslationById(64) 'Email enviado, verifique su casilla
+                Else
+                    Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+                End If
             Else
-                Resultado.Text = idiomas.GetTranslationById(65) 'Error de envio de email.
+                Resultado.Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
             End If
-        Else
-            Resultado.Text = idiomas.GetTranslationById(90047) 'Error, no coinciden los datos con nuestros registros."
         End If
     End Sub
 

@@ -32,11 +32,11 @@ Partial Public Class Terminos
     Protected WithEvents titleTerminos_154 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''terminosDetalle_651 control.
+    '''terminosDetalle_99001 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents terminosDetalle_651 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents terminosDetalle_99001 As Global.System.Web.UI.WebControls.Label
 End Class

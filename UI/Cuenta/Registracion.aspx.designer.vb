@@ -23,15 +23,6 @@ Partial Public Class Registracion
     Protected WithEvents navRegistro_60 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Resultado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''registro_60 control.
     '''</summary>
     '''<remarks>
@@ -158,6 +149,15 @@ Partial Public Class Registracion
     Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''regVldEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents regVldEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''lblPassword_27 control.
     '''</summary>
     '''<remarks>
@@ -230,6 +230,51 @@ Partial Public Class Registracion
     Protected WithEvents vldPasswordMatch As Global.System.Web.UI.WebControls.CompareValidator
 
     '''<summary>
+    '''cbxTerminos_155 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbxTerminos_155 As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''lblTerminos_154 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTerminos_154 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblYLas_156 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblYLas_156 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblPoliticas_152 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPoliticas_152 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''vldCbxTerminos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldCbxTerminos As Global.System.Web.UI.WebControls.CustomValidator
+
+    '''<summary>
     '''btnRegistrar_480 control.
     '''</summary>
     '''<remarks>
@@ -255,4 +300,13 @@ Partial Public Class Registracion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
 End Class

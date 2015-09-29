@@ -19,7 +19,6 @@
         <asp:Button ID="RestoreBtn_33" runat="server" Text="Restore" />
         <asp:TextBox ID="RestoreText" runat="server" Width="600px" Wrap="False"
             onkeypress="return alfanumerico1(event)"
-            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">C:\agrorobots.bak</asp:TextBox>
         <br />
         <asp:FileUpload ID="subirBackup" runat="server" Visible="False" Width="500px" />

@@ -22,8 +22,8 @@ Namespace Idiomas
         End Sub
 
         Private Sub New()
-            Me._lstIdiomaControl.Add(New Idioma_Control(1, 0, New Idioma(1, "Español"), "Error al inicializar el sistema, Consulte al Administrador."))
-            Me._lstIdiomaControl.Add(New Idioma_Control(2, -1, New Idioma(1, "Español"), "El usuario o la contraseña no son correctos."))
+            Me._lstIdiomaControl.Add(New Idioma_Control(1, 0, New Idioma(1, "Español", "es-AR"), "Error al inicializar el sistema, Consulte al Administrador."))
+            Me._lstIdiomaControl.Add(New Idioma_Control(2, -1, New Idioma(1, "Español", "es-AR"), "El usuario o la contraseña no son correctos."))
         End Sub
 
         Public Sub SetIdiom(ByRef idiom As Idioma)

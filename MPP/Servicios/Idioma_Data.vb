@@ -7,7 +7,7 @@ Imports System.Data.SqlClient
 Public Class Idioma_Data
     Public Function ObtenerIdiomas() As List(Of Idioma)
         Dim con As SqlConnection = Connection.GetObjConnextion
-        Dim cmd As SqlCommand = Data.GetCommand("GetAllIdioms", con)
+        Dim cmd As SqlCommand = Data.GetCommand("IdiomasListar", con)
 
         Dim dt As DataTable
 
@@ -22,33 +22,36 @@ Public Class Idioma_Data
         For Each dr As DataRow In dt.Rows
             Dim Idiom As New Idioma( _
                                       CInt(dr("ID")), _
-                                      CStr(dr("Nombre")))
+                                      CStr(dr("Nombre")), _
+                                      CStr(dr("Codigo")))
             lstIdiom.Add(Idiom)
         Next
 
         Return lstIdiom
     End Function
 
-    Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+    Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
         Dim oDatos As New DAL.Datos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
         hdatos.Add("@ID", idiomaID)
         hdatos.Add("@Desc", descripcion)
+        hdatos.Add("@Codigo", codigo)
 
-        Return oDatos.Escribir("UpdateIdioma", hdatos)
+        Return oDatos.Escribir("IdiomaActualizar", hdatos)
     End Function
 
-    Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+    Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
         Dim oDatos As New DAL.Datos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
         hdatos.Add("@IdiomaID", idiomaID)
         hdatos.Add("@IdiomaDesc", descripcion)
+        hdatos.Add("@Codigo", codigo)
 
-        Return oDatos.Escribir("CreateIdioma", hdatos)
+        Return oDatos.Escribir("IdiomaCrear", hdatos)
     End Function
 
     Function BorrarIdioma(ByVal idiomaID As Integer) As Boolean
@@ -58,6 +61,6 @@ Public Class Idioma_Data
 
         hdatos.Add("@IdiomaID", idiomaID)
 
-        Return oDatos.Escribir("DeleteIdioma", hdatos)
+        Return oDatos.Escribir("IdiomaBorrar", hdatos)
     End Function
 End Class

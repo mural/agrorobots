@@ -23,15 +23,6 @@ Partial Public Class Principal
     Protected WithEvents login As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Resultado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''panel control.
     '''</summary>
     '''<remarks>
@@ -120,4 +111,13 @@ Partial Public Class Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents registrar_480 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
 End Class

@@ -14,7 +14,7 @@
             <h1>
                 <asp:Label ID="politicas_152" runat="server" Text="politicas"></asp:Label>
             </h1>
-            <asp:Label ID="politicasDetalle_650" runat="server" Text="politicas detalle"></asp:Label>
+            <asp:Label ID="politicasDetalle_99002" runat="server" Text="politicas detalle"></asp:Label>
         </div>
     </div>
 </asp:Content>

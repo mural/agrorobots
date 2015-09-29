@@ -23,15 +23,6 @@ Partial Public Class RecuperarClave
     Protected WithEvents navRecuperarclave_491 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Resultado control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''recuperarclave_491 control.
     '''</summary>
     '''<remarks>
@@ -95,6 +86,15 @@ Partial Public Class RecuperarClave
     Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
+    '''regVldEmail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents regVldEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''btnRecuperar_490 control.
     '''</summary>
     '''<remarks>
@@ -120,4 +120,13 @@ Partial Public Class RecuperarClave
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents login_500 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.WebControls.Label
 End Class

@@ -1,10 +1,12 @@
 ﻿/* CUSTOM
 ----------------------------------------------------------*/
 
-#Resultado {
+.resultadoCuenta {
     color: #f66;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-top: 1px dashed;
+    padding-top: 5px;
 }
 
 .centradoDiv {
@@ -92,4 +94,9 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
 
 .txtChico {
     width: 40px;
+}
+
+.imagenSeparada {
+    margin: 5px 15px 5px 5px; /* top - right - bottom - left*/
+    border: 1px solid;
 }

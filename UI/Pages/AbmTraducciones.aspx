@@ -93,14 +93,12 @@
                                 <asp:TextBox ID="txtTraduccionName" runat="server"
                                     Text='<%# Eval("Traduccion")%>'
                                     onkeypress="return alfanumerico1(event)"
-                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtTraduccion" runat="server" MaxLength="254"
                                     onkeypress="return alfanumerico1(event)"
-                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
                             </FooterTemplate>

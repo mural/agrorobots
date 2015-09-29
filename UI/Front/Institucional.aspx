@@ -70,9 +70,10 @@
             <h1>
                 <asp:Label ID="instutucional_153" runat="server" Text="institucional"></asp:Label>
             </h1>
-            <br />
-            Institucional
-            <br />
+            <p>
+                <img src="/Imagenes/logo.png" class="fl_left imagenSeparada" />
+            </p>
+            <asp:Label ID="sobreNosotrs_99003" runat="server" Text="sobre nosotros"></asp:Label>
             <br />
             <canvas id="c" width="960" height="150" />
         </div>

@@ -26,9 +26,11 @@ Public Class AbmIdiomas
              .FindControl("txtIdiomaID"), TextBox).Text
         Dim Descripcion As String = DirectCast(GridView1_.FooterRow _
                      .FindControl("txtDescripcion"), TextBox).Text
+        Dim Codigo As String = DirectCast(GridView1_.FooterRow _
+             .FindControl("txtCodigo"), TextBox).Text
 
         Dim valido = True
-        If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Descripcion) Then
+        If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Descripcion) Or String.IsNullOrEmpty(Codigo) Then
             valido = False
             lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
             lblMensajes.CssClass = "formError"
@@ -40,7 +42,7 @@ Public Class AbmIdiomas
             End If
         End If
         If valido Then
-            If idioma_Business.CrearIdioma(IdiomaID, Descripcion) Then
+            If idioma_Business.CrearIdioma(IdiomaID, Descripcion, Codigo) Then
                 lblMensajes.Text = IdiomManager.GetIdiomManager.GetTranslationById(80001)
             Else
                 lblMensajes.Text = IdiomManager.GetIdiomManager.GetTranslationById(90040)
@@ -64,15 +66,17 @@ Public Class AbmIdiomas
                              .FindControl("lblIdiomaID"), Label).Text
         Dim Descripcion As String = DirectCast(GridView1_.Rows(e.RowIndex) _
                                      .FindControl("txtDescripcion"), TextBox).Text
+        Dim Codigo As String = DirectCast(GridView1_.Rows(e.RowIndex) _
+                                     .FindControl("txtCodigo"), TextBox).Text
 
         Dim valido = True
-        If String.IsNullOrEmpty(ID) Or String.IsNullOrEmpty(Descripcion) Then
+        If String.IsNullOrEmpty(ID) Or String.IsNullOrEmpty(Descripcion) Or String.IsNullOrEmpty(Codigo) Then
             valido = False
             lblMensajes.Text = String.Format(IdiomManager.GetIdiomManager.GetTranslationById(90016), "")
         End If
 
         If valido Then
-            If idioma_Business.ActualizarIdioma(ID, Descripcion) Then
+            If idioma_Business.ActualizarIdioma(ID, Descripcion, Codigo) Then
                 lblMensajes.Text = IdiomManager.GetIdiomManager.GetTranslationById(80001)
             Else
                 lblMensajes.Text = IdiomManager.GetIdiomManager.GetTranslationById(90040)

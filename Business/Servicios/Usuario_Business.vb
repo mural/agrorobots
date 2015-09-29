@@ -23,7 +23,7 @@ Public Class Usuario_Business
 
     Public Sub Alta(ByRef obj As Usuario)
         Dim datUser As New Usuario_Data
-        obj.SetLanguage(New Idioma(1, ""))
+        obj.SetLanguage(New Idioma(1, "", ""))
         If obj.Password = "" Then
             Throw New EmptyDataException
         End If

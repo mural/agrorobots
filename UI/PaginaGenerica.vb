@@ -11,10 +11,7 @@ Public MustInherit Class PaginaGenerica
     Protected idiomas As IdiomManager
     Protected servidorApp As String
 
-    Public ReadOnly CULTURA_ARG As String = "es-AR"
-    Public ReadOnly CULTURA_US As String = "en-US"
-
-    Protected culturaActual As String = CULTURA_ARG
+    Public ReadOnly CULTURA_ARG As String = "es-AR" 'por defecto
 
     Protected Sub CargaInicial(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         servidorApp = ConfigurationManager.AppSettings.Get("serverNamePort").ToString
@@ -37,10 +34,12 @@ Public MustInherit Class PaginaGenerica
     End Sub
 
     Protected Overrides Sub InitializeCulture()
-        Thread.CurrentThread.CurrentCulture = _
-            CultureInfo.CreateSpecificCulture(culturaActual)
-        Thread.CurrentThread.CurrentUICulture = New  _
-            CultureInfo(culturaActual)
+        Dim culturaActual = Application.Item(Variables.CULTURA_CODIGO_ACTUAL)
+        If culturaActual Is Nothing Then
+            culturaActual = CULTURA_ARG
+        End If
+        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(culturaActual)
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(CStr(culturaActual))
     End Sub
 
     Private Shared _mensajeBorrar As String
@@ -95,6 +94,8 @@ Public MustInherit Class PaginaGenerica
                             CType(frmCtrl, Button).Text = idiomas.GetTranslationById(CType(frmCtrl, Button).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is LinkButton Then
                             CType(frmCtrl, LinkButton).Text = idiomas.GetTranslationById(CType(frmCtrl, LinkButton).ID.Split("_")(1))
+                        ElseIf TypeOf frmCtrl Is CheckBox Then
+                            CType(frmCtrl, CheckBox).Text = idiomas.GetTranslationById(CType(frmCtrl, CheckBox).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is GridView Then
                             For Each header As DataControlField In DirectCast(frmCtrl, GridView).Columns
                                 Try
@@ -122,9 +123,9 @@ Public MustInherit Class PaginaGenerica
     'usado en cuenta o donde no hay usuario
     Protected Sub CargarIdiomaSeleccionado()
         If Application.Item("idiomaIDseleccionado") Is Nothing Then
-            idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-"))
+            idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-", ""))
         Else
-            idiomas.CargarTraduccionesByUsuario(New Idioma(Application.Item("idiomaIDseleccionado"), "-"))
+            idiomas.CargarTraduccionesByUsuario(New Idioma(Application.Item("idiomaIDseleccionado"), "-", ""))
         End If
     End Sub
 

@@ -32,11 +32,11 @@ Partial Public Class Politicas
     Protected WithEvents politicas_152 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''politicasDetalle_650 control.
+    '''politicasDetalle_99002 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents politicasDetalle_650 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents politicasDetalle_99002 As Global.System.Web.UI.WebControls.Label
 End Class

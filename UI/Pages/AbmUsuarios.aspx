@@ -59,7 +59,7 @@
         *<asp:RequiredFieldValidator ID="vldConfirmPassword_28" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CompareValidator ID="vldPasswordMatch" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="CompareValidator" CssClass="formError" EnableClientScript="False"></asp:CompareValidator>
         <br />
-        <asp:FileUpload ID="imgUpload" runat="server" />
+        <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
         <br />
         <br />
         <asp:Button ID="btnCrear_32" runat="server" Text="crear" />

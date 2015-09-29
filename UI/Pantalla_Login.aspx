@@ -11,7 +11,6 @@
 <asp:Content ID="Body" ContentPlaceHolderID="BodyNavegacionContenido" runat="server">
     <div class="wrapper col4">
         <div id="container">
-            <asp:Label ID="Resultado" runat="server" CssClass="resultadoCuenta"></asp:Label>
             <h1>Login</h1>
             <asp:Panel ID="panel" runat="server" DefaultButton="Submit_500">
                 <p>
@@ -39,9 +38,13 @@
                 <a href="Cuenta/RecuperarClave.aspx" class="to_register">
                     <asp:Label ID="olvidoclave_72" runat="server" Text="olvido su clave?"></asp:Label>
                 </a>
+                &nbsp; ||| &nbsp;
                 <a href="Cuenta/Registracion.aspx" class="to_register">
                     <asp:Label ID="registrar_480" runat="server" Text="registearse"></asp:Label>
                 </a>
+            </p>
+            <p class="resultadoCuenta">
+                <asp:Label ID="Resultado" runat="server"></asp:Label>
             </p>
         </div>
     </div>

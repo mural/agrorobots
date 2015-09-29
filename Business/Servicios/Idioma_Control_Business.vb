@@ -18,7 +18,7 @@ Public Class Idioma_Control_Business
     Public Function GetIdiomsByIDWithOriginals(idioma As Idioma, Optional filtro As String = "") As List(Of Idioma_Control)
         Dim IdioCtrlData As New Idioma_Control_Data
         Dim traducciones = GetIdiomsByID(idioma)
-        Dim originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
+        Dim originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español", "es-AR"))
         Dim i = 0
         'agrego a las traducciones los originales que esten de mas
         Dim traduccionAgregar As Idioma_Control
@@ -51,7 +51,7 @@ Public Class Idioma_Control_Business
         End If
 
         traducciones = GetIdiomsByID(idioma)
-        originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español"))
+        originales = IdioCtrlData.GetIdiomsByID(New Idioma(1, "Español", "es-AR"))
 
         For Each traduccion As Idioma_Control In traducciones
             traduccion.Original = originales.Item(i).Traduccion
@@ -73,7 +73,7 @@ Public Class Idioma_Control_Business
 
     Public Sub CrearTraduccion(IdiomaID As Integer, Traduccion As String, ControlID As Integer)
         Dim IdioCtrlData As New Idioma_Control_Data
-        Dim traducciones = GetIdiomsByID(New Idioma(IdiomaID, ""))
+        Dim traducciones = GetIdiomsByID(New Idioma(IdiomaID, "", ""))
         Dim encontrado = False
         For Each traduccionNueva As Idioma_Control In traducciones
             If traduccionNueva.Control_ID = ControlID Then

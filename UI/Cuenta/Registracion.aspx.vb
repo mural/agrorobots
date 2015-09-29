@@ -20,11 +20,6 @@ Public Class Registracion
 
     End Sub
 
-    Protected Overrides Sub InitializeCulture()
-        culturaActual = CULTURA_US
-        MyBase.InitializeCulture()
-    End Sub
-
     Protected Sub Registrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar_480.Click
         Dim Apellido = apellidoNuevo.Text
         Dim Nombre = nombreNuevo.Text
@@ -34,11 +29,14 @@ Public Class Registracion
         Dim Admin = False
         Dim Password = passwordNuevo.Text
         Dim ConfirmPassword = passwordRepetidoNuevo.Text
+        Dim TerminosCondiciones = cbxTerminos_155.Checked
         'Dim Familias = New List(Of Familia)
         'For i = 0 To lstbFamilia.GetSelectedIndices.Length - 1
         '    Familias.Add(Familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
         'Next
-
+        regVldEmail.ErrorMessage = idiomas.GetTranslationById(158)
+        vldCbxTerminos.IsValid = TerminosCondiciones
+        vldCbxTerminos.ErrorMessage = idiomas.GetTranslationById(157)
         If Not vldPasswordMatch.IsValid Then
             vldPasswordMatch.Text = IdiomManager.GetIdiomManager.GetTranslationById(90030)
         End If

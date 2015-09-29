@@ -22,16 +22,16 @@ Public Class Idioma_Business
         Return Nothing
     End Function
 
-    Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+    Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
         Dim dataIdiom As New Idioma_Data
 
-        Return dataIdiom.ActualizarIdioma(idiomaID, descripcion)
+        Return dataIdiom.ActualizarIdioma(idiomaID, descripcion, codigo)
     End Function
 
-    Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String) As Boolean
+    Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
         Dim dataIdiom As New Idioma_Data
 
-        Return dataIdiom.CrearIdioma(idiomaID, descripcion)
+        Return dataIdiom.CrearIdioma(idiomaID, descripcion, codigo)
     End Function
 
     Function BorrarIdioma(ByVal idiomaID As Integer) As Boolean

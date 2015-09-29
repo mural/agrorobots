@@ -30,4 +30,13 @@ Partial Public Class Institucional
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents instutucional_153 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''sobreNosotrs_99003 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents sobreNosotrs_99003 As Global.System.Web.UI.WebControls.Label
 End Class

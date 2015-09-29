@@ -17,7 +17,7 @@
             </h1>
             <img src="/Imagenes/terminos.png" alt="terminos">
 
-            <asp:Label ID="terminosDetalle_651" runat="server" Text="terminos detalle"></asp:Label>
+            <asp:Label ID="terminosDetalle_99001" runat="server" Text="terminos detalle"></asp:Label>
         </div>
     </div>
 </asp:Content>

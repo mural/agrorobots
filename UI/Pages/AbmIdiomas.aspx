@@ -58,6 +58,28 @@
                             </FooterTemplate>
                         </asp:TemplateField>
 
+                        <asp:TemplateField HeaderText="Codigo_1">
+                            <ItemTemplate>
+                                <asp:Label ID="lblCodigo" runat="server"
+                                    Text='<%# Eval("Codigo")%>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtCodigo" runat="server" MaxLength="10"
+                                    Text='<%# Eval("Codigo")%>'
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
+                            </EditItemTemplate>
+                            <FooterTemplate>
+                                <asp:TextBox ID="txtCodigo" runat="server" MaxLength="10"
+                                    onkeypress="return alfanumerico1(event)"
+                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+                                </asp:TextBox>
+                            </FooterTemplate>
+                        </asp:TemplateField>
+
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:LinkButton ID="lnkRemove" runat="server" CommandArgument='<%# Eval("ID")%>'

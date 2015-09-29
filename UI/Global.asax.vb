@@ -12,7 +12,7 @@ Public Class Global_asax
 
         idiomas = IdiomManager.GetIdiomManager
         'Cargo el espanol por defecto
-        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-"))
+        idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-", ""))
     End Sub
 
     Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)

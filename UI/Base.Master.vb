@@ -1,6 +1,8 @@
 ﻿Imports Business
 Imports Business.Idiomas
 Imports EE
+Imports System.Globalization
+Imports System.Threading
 
 Public Class Base
     Inherits System.Web.UI.MasterPage
@@ -41,11 +43,12 @@ Public Class Base
 
     Protected Sub comboIdiomas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboIdiomas.SelectedIndexChanged
         Application.Item("idiomaIDseleccionado") = comboIdiomas.SelectedValue
+        Dim idiomaSeleccionado = idiomaBusiness.ObtenerIdiomaPorId(comboIdiomas.SelectedValue)
+        Application.Item(Variables.CULTURA_CODIGO_ACTUAL) = idiomaSeleccionado.Codigo
 
         'Si hay un usuario le guardo el idioma elegido
         usuario = Session.Item("user")
         If Not usuario Is Nothing Then
-            Dim idiomaSeleccionado = idiomaBusiness.ObtenerIdiomaPorId(comboIdiomas.SelectedValue)
             Dim idMange As IdiomManager = IdiomManager.GetIdiomManager
             idMange.SetIdiom(idiomaSeleccionado)
             idMange.CargarTraduccionesByUsuario(idiomaSeleccionado)
@@ -62,9 +65,12 @@ Public Class Base
     'usado en cuenta o donde no hay usuario
     Protected Sub CargarIdiomaSeleccionado()
         If Application.Item("idiomaIDseleccionado") Is Nothing Then
-            idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-"))
+            idiomas.CargarTraduccionesByUsuario(New Idioma(1, "-", ""))
         Else
-            idiomas.CargarTraduccionesByUsuario(New Idioma(Application.Item("idiomaIDseleccionado"), "-"))
+            idiomas.CargarTraduccionesByUsuario(New Idioma(Application.Item("idiomaIDseleccionado"), "-", ""))
         End If
+
+        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Application.Item(Variables.CULTURA_CODIGO_ACTUAL))
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo(CStr(Application.Item(Variables.CULTURA_CODIGO_ACTUAL)))
     End Sub
 End Class

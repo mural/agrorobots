@@ -18,7 +18,7 @@ Public Class MenuBase
 
     Public Sub TraducirMenu()
         'idiomas
-        ''menu top
+        ''menu lateral
         For Each menuItem As MenuItem In SideNavigationMenu.Items
             Try
                 If menuItem.ChildItems.Count > 0 Then
@@ -34,21 +34,21 @@ Public Class MenuBase
             End Try
         Next
 
-        ''menu lateral
-        For Each menuItem As MenuItem In TopNavigationMenu.Items
-            Try
-                If menuItem.ChildItems.Count > 0 Then
-                    For Each menuChild As MenuItem In menuItem.ChildItems
-                        Try
-                            menuChild.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuChild.Value.Split("_")(1))
-                        Catch ex As Exception
-                        End Try
-                    Next
-                End If
-                menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
-            Catch ex As Exception
-            End Try
-        Next
+        ' ''menu 2
+        'For Each menuItem As MenuItem In TopNavigationMenu.Items
+        '    Try
+        '        If menuItem.ChildItems.Count > 0 Then
+        '            For Each menuChild As MenuItem In menuItem.ChildItems
+        '                Try
+        '                    menuChild.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuChild.Value.Split("_")(1))
+        '                Catch ex As Exception
+        '                End Try
+        '            Next
+        '        End If
+        '        menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
+        '    Catch ex As Exception
+        '    End Try
+        'Next
     End Sub
 
     Public Sub ArmarMenuLateral(ByRef usuario As Usuario)
@@ -63,7 +63,15 @@ Public Class MenuBase
 
     Protected Sub SideNavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles SideNavigationMenu.MenuItemClick
         Select Case e.Item.Value
-            'alumno
+            'comun
+            Case "Clave_3008"
+                Response.Redirect("CambioClave.aspx")
+            Case "Mensajes_3009"
+                Response.Redirect("Mensajes.aspx")
+            Case "Idioma_10006"
+                Response.Redirect("CambioIdioma.aspx")
+
+                'alumno
             Case "RendirExamen"
                 Response.Redirect("ExamenMateria.aspx")
 
@@ -105,23 +113,6 @@ Public Class MenuBase
             Case "AbmUsuarios_10107"
                 Response.Redirect("AbmUsuarios.aspx")
 
-        End Select
-    End Sub
-
-    Protected Sub TopNavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles TopNavigationMenu.MenuItemClick
-        Select Case e.Item.Value
-            Case "Home_3001"
-                Response.Redirect("Pantalla_Principal.aspx")
-            Case "Carreras_3003"
-                Response.Redirect("Carreras.aspx")
-            Case "Contactenos"
-                Response.Redirect("Contactenos.aspx")
-            Case "Clave_3008"
-                Response.Redirect("CambioClave.aspx")
-            Case "Mensajes_3009"
-                Response.Redirect("Mensajes.aspx")
-            Case "Idioma_10006"
-                Response.Redirect("CambioIdioma.aspx")
         End Select
     End Sub
 
