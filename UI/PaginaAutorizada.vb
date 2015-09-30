@@ -32,8 +32,4 @@ Public MustInherit Class PaginaAutorizada
         End If
     End Sub
 
-    Public Sub ActualizarMensajes(ByVal cantidad As Integer)
-        Helper.ActualizarMensajes(Session, cantidad)
-    End Sub
-
 End Class

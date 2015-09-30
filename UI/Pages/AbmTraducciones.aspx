@@ -1,5 +1,15 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
+﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
 
+<asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
+    <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+    <script>tinymce.init({
+    plugins: "code",
+    menubar: false,
+    toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
+    selector: 'textarea'
+});</script>
+
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
         <asp:Label ID="lblTitulo_10102" runat="server" Text="titulo"></asp:Label>
@@ -92,6 +102,7 @@
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtTraduccionName" runat="server"
                                     Text='<%# Eval("Traduccion")%>'
+                                    Rows="4" CausesValidation="False"
                                     onkeypress="return alfanumerico1(event)"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
@@ -111,9 +122,9 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtControl" runat="server" MaxLength="6" CssClass="txtChico"
-                                    onkeypress="return alfanumerico1(event)" 
+                                    onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)" >
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
@@ -161,6 +172,8 @@
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
             </Triggers>
         </asp:UpdatePanel>
+        <br />
+        <textarea></textarea>
         <br />
     </div>
 </asp:Content>

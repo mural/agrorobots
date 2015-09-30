@@ -8,8 +8,6 @@ Public Class Mensajes
     Dim usuario_Business As New Usuario_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ActualizarMensajes(3)
-
         If usuario.Admin Then
             lblTitulo.Text = idiomas.GetTranslationById(704)
             comboUsuarios.Visible = True
@@ -19,6 +17,13 @@ Public Class Mensajes
         End If
         If Not Page.IsPostBack Then
             CargarUsuarios()
+
+            If usuario.Admin Then
+                mensajes_Business.MarcarMensajesLeidos(familia_Business.ObtenerFamiliaAdmin.ID, True)
+            Else
+                mensajes_Business.MarcarMensajesLeidos(usuario.ID)
+            End If
+            ActualizarMensajes(0)
         End If
     End Sub
 
@@ -46,14 +51,23 @@ Public Class Mensajes
 
         Me.GridView1_.DataBind()
 
-        If usuario.Admin Then
-            For Each row In Me.GridView1_.Rows
-                Dim emisorLabel = DirectCast(row.FindControl("lblEmisor"), Label)
-                If emisorLabel.Text.Contains("Administrador") Then
+        For Each row In Me.GridView1_.Rows
+            Dim emisorLabel = DirectCast(row.FindControl("lblEmisor"), Label)
+            Dim leidoCheck = DirectCast(row.FindControl("cbxLeidoReceptor"), CheckBox)
+            If emisorLabel.Text.Contains("Administrador") Then
+                If usuario.Admin Then 'es mensaje propio de admin
                     DirectCast(row.FindControl("lnkSeleccionar_801"), LinkButton).Visible = False
+                Else
+                    leidoCheck.Visible = False
                 End If
-            Next
-        Else
+            Else 'no es mensaje de admin
+                If usuario.Admin Then
+                    leidoCheck.Visible = False
+                End If
+            End If
+        Next
+
+        If Not usuario.Admin Then
             Me.GridView1_.Columns(2).Visible = False 'email emisor
             Me.GridView1_.Columns(Me.GridView1_.Columns.Count - 1).Visible = False ' seleccionar
         End If
@@ -84,7 +98,11 @@ Public Class Mensajes
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        mensajes_Business.BorrarMensaje(lnkRemove.CommandArgument)
+        If usuario.Admin Then
+            mensajes_Business.BorrarMensajeLogico(familia_Business.ObtenerFamiliaAdmin.ID, lnkRemove.CommandArgument)
+        Else
+            mensajes_Business.BorrarMensajeLogico(usuario.ID, lnkRemove.CommandArgument)
+        End If
 
         GridView1_.EditIndex = -1
         CargarMensajes()

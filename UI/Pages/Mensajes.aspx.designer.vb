@@ -59,13 +59,13 @@ Partial Public Class Mensajes
     Protected WithEvents btnEnviar_135 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''vldMensaje_0 control.
+    '''vldMensaje_701 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldMensaje_0 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldMensaje_701 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''lblMensajes control.

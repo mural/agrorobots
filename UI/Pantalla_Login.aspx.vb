@@ -7,6 +7,8 @@ Public Class Principal
     Inherits PaginaGenerica
 
     Dim loginBusiness As New Business.Login
+    Dim mensajeBusiness As New Business.Mensaje_Business
+    Dim familiaBusiness As New Business.Familia_Business
     Shared User_logueado As String
     Dim mis_Parametros As New List(Of Parameter)
     Dim usuarioEntrante As New Usuario
@@ -51,6 +53,15 @@ Public Class Principal
 
                 Session.Add("user", usuarioEntrante)
                 IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuarioEntrante.Idioma)
+
+                Dim mensajesNoLeidos As Integer
+                If usuarioEntrante.Admin Then
+                    mensajesNoLeidos = mensajeBusiness.ObtenerMensajesNoLeidos(familiaBusiness.ObtenerFamiliaAdmin.ID, True)
+                Else
+                    mensajesNoLeidos = mensajeBusiness.ObtenerMensajesNoLeidos(usuarioEntrante.ID)
+                End If
+                ActualizarMensajes(mensajesNoLeidos)
+
                 FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
             Catch no As NoActivoException
                 Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email."

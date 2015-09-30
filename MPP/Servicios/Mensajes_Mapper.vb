@@ -24,8 +24,12 @@ Public Class Mensajes_Mapper
         hdatos.Add("@RolReceptor", obj.RolReceptor)
         hdatos.Add("@Broadcast", obj.Broadcast)
         hdatos.Add("@ID_Conversacion", obj.IdConversacion)
-        hdatos.Add("@Leido", obj.Leido)
+        hdatos.Add("@LeidoEmisor", obj.LeidoEmisor)
+        hdatos.Add("@LeidoReceptor", obj.LeidoReceptor)
         hdatos.Add("@Fecha", obj.Fecha)
+        hdatos.Add("@BorradoEmisor", obj.BorradoEmisor)
+        hdatos.Add("@BorradoReceptor", obj.BorradoReceptor)
+        hdatos.Add("@Chat", obj.Chat)
 
         Return oDatos.Escribir("MensajeActualizar", hdatos)
     End Function
@@ -41,14 +45,18 @@ Public Class Mensajes_Mapper
         objNuevo.RolReceptor = CInt(Item("RolReceptor"))
         objNuevo.Broadcast = CBool(Item("Broadcast"))
         objNuevo.IdConversacion = CInt(Item("ID_Conversacion"))
-        objNuevo.Leido = CBool(Item("Leido"))
+        objNuevo.LeidoEmisor = CBool(Item("LeidoEmisor"))
+        objNuevo.LeidoReceptor = CBool(Item("LeidoReceptor"))
         objNuevo.Fecha = CDate(Item("Fecha"))
+        objNuevo.BorradoEmisor = CBool(Item("BorradoEmisor"))
+        objNuevo.BorradoReceptor = CBool(Item("BorradoReceptor"))
+        objNuevo.Chat = CBool(Item("Chat"))
     End Sub
 
-    Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As Mensaje
+    Public Overrides Function Obtener(ByVal idMensaje As Integer) As Mensaje
         Preparar()
 
-        hdatos.Add("@ID", codigoAcademico)
+        hdatos.Add("@ID", idMensaje)
 
         DS = oDatos.Leer("MensajeObtener", hdatos)
         Dim objNuevo As New Mensaje
@@ -109,7 +117,10 @@ Public Class Mensajes_Mapper
                         End If
                     Next
                 End If
-                listado.Add(objNuevo)
+                If (objNuevo.UsuarioEmisor = idUsuario And Not objNuevo.BorradoEmisor) Or
+                        (Not objNuevo.UsuarioEmisor = idUsuario And Not objNuevo.BorradoReceptor) Then
+                    listado.Add(objNuevo)
+                End If
             Next
         End If
 
@@ -147,7 +158,11 @@ Public Class Mensajes_Mapper
                         End If
                     Next
                 End If
-                listado.Add(objNuevo)
+                If (objNuevo.RolEmisor = idRol And Not objNuevo.BorradoEmisor) Or
+                        (Not objNuevo.RolEmisor = idRol And Not objNuevo.BorradoReceptor) Then
+                    listado.Add(objNuevo)
+                End If
+
             Next
         End If
 

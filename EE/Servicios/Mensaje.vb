@@ -113,13 +113,23 @@ Public Class Mensaje
         End Set
     End Property
 
-    Private _leido As Boolean
-    Public Property Leido() As Boolean
+    Private _leidoEmisor As Boolean
+    Public Property LeidoEmisor() As Boolean
         Get
-            Return _leido
+            Return _leidoEmisor
         End Get
         Set(ByVal value As Boolean)
-            _leido = value
+            _leidoEmisor = value
+        End Set
+    End Property
+
+    Private _leidoReceptor As Boolean
+    Public Property LeidoReceptor() As Boolean
+        Get
+            Return _leidoReceptor
+        End Get
+        Set(ByVal value As Boolean)
+            _leidoReceptor = value
         End Set
     End Property
 
@@ -133,17 +143,50 @@ Public Class Mensaje
         End Set
     End Property
 
+    Private _borradoEmisor As Boolean
+    Public Property BorradoEmisor() As Boolean
+        Get
+            Return _borradoEmisor
+        End Get
+        Set(ByVal value As Boolean)
+            _borradoEmisor = value
+        End Set
+    End Property
+
+    Private _borradoReceptor As Boolean
+    Public Property BorradoReceptor() As Boolean
+        Get
+            Return _borradoReceptor
+        End Get
+        Set(ByVal value As Boolean)
+            _borradoReceptor = value
+        End Set
+    End Property
+
+    Private _chat As Boolean
+    Public Property Chat() As Boolean
+        Get
+            Return _chat
+        End Get
+        Set(ByVal value As Boolean)
+            _chat = value
+        End Set
+    End Property
+
     Sub New()
         Me._id = 0
         Me._contenido = ""
         Me._emailEmisor = ""
         Me._emailReceptor = ""
+        Me._leidoEmisor = True
+        Me._leidoReceptor = False
     End Sub
 
     Public Sub New(ByVal ID As Integer, ByVal Contenido As String, ByVal UsuarioEmisor As Integer, ByVal EmailEmisor As String,
                    ByVal RolEmisor As Integer, ByVal UsuarioReceptor As Integer, ByVal EmailReceptor As String,
                    ByVal RolReceptor As Integer, ByVal Broadcast As Boolean, ByVal IdConversacion As Integer,
-                   ByVal Leido As Boolean, ByVal Fecha As Date)
+                   ByVal LeidoEmisor As Boolean, ByVal LeidoReceptor As Boolean, ByVal Fecha As Date,
+                   ByVal BorradoEmisor As Boolean, ByVal BorradoReceptor As Boolean, ByVal Chat As Boolean)
         Me._id = ID
         Me._contenido = Contenido
         Me._usuarioEmisor = UsuarioEmisor
@@ -154,8 +197,12 @@ Public Class Mensaje
         Me._rolReceptor = RolReceptor
         Me._broadcast = Broadcast
         Me._idConversacion = IdConversacion
-        Me._leido = Leido
+        Me._leidoEmisor = LeidoEmisor
+        Me._leidoReceptor = LeidoReceptor
         Me._fecha = Fecha
+        Me._borradoEmisor = BorradoEmisor
+        Me._borradoReceptor = BorradoReceptor
+        Me._chat = Chat
     End Sub
 
 End Class

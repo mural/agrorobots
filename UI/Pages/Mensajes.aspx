@@ -16,7 +16,7 @@
         </asp:TextBox>
         *&nbsp;
     <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
-        <asp:RequiredFieldValidator ID="vldMensaje_0" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="vldMensaje_701" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
         <br />
         <br />
     </div>
@@ -54,8 +54,8 @@
 
                 <asp:TemplateField HeaderText="Leido_708">
                     <ItemTemplate>
-                        <asp:CheckBox ID="cbxActiovo" runat="server" Enabled="False"
-                            Checked='<%# Eval("Leido")%>'></asp:CheckBox>
+                        <asp:CheckBox ID="cbxLeidoReceptor" runat="server" Enabled="False"
+                            Checked='<%# Eval("LeidoReceptor")%>'></asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
