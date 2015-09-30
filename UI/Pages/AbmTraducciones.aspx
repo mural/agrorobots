@@ -1,13 +1,14 @@
 ﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
-    <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-    <script>tinymce.init({
-    plugins: "code",
-    menubar: false,
-    toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
-    selector: 'textarea'
-});</script>
+    <script>
+        tinymce.init({
+            plugins: "code",
+            menubar: false,
+            toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
+            selector: 'textarea'
+        });
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
@@ -173,7 +174,7 @@
             </Triggers>
         </asp:UpdatePanel>
         <br />
-        <textarea></textarea>
+            <textarea id="mytextarea" style="width:100%"></textarea>
         <br />
     </div>
 </asp:Content>

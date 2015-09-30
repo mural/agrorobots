@@ -24,7 +24,7 @@
                     </asp:Menu>
                     <br />
                     <br />
-<%--                    <asp:Menu ID="TopNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Vertical" IncludeStyleBlock="false" SkipLinkText="">
+                    <%--                    <asp:Menu ID="TopNavigationMenu" runat="server" Font-Bold="True" ForeColor="White" CssClass="menu" Orientation="Vertical" IncludeStyleBlock="false" SkipLinkText="">
                         <Items>
                             <asp:MenuItem Text="Home" Value="Home_3001" />
                             <asp:MenuItem Text="Carreras" Value="Carreras_3003" />
@@ -38,7 +38,7 @@
                     </asp:Menu>--%>
                     <br />
                     <br />
-<%--                    <ul>
+                    <%--                    <ul>
                         <li><a href="#">Navigation - Level 1</a></li>
                         <li><a href="#">Navigation - Level 1</a>
                             <ul>
@@ -59,6 +59,5 @@
             </asp:ContentPlaceHolder>
         </div>
         <div class="clear"></div>
-        </div>
     </div>
 </asp:Content>

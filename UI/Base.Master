@@ -9,14 +9,16 @@
     <title>Agrorobots
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <link rel="stylesheet" href="~/Styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="~/Styles/custom.css" type="text/css" />
-    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.min.js")%>"></script>
-    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.slidepanel.setup.js")%>"></script>
-    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.ui.min.js")%>"></script>
-    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/jquery.tabs.setup.js")%>"></script>
+    <link type="text/css" rel="stylesheet" href="/Styles/layout.css" />
+    <link type="text/css" rel="stylesheet" href="/Styles/custom.css" />
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.slidepanel.setup.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.ui.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.tabs.setup.js"></script>
+    
+    <script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
 
-    <script type="text/javascript" src="<%=ResolveClientUrl("~/Scripts/funciones.js")%>"></script>
+    <script type="text/javascript" src="/Scripts/funciones.js"></script>
     <script type="text/javascript">
         var mensajeBorrar = '<%= PaginaGenerica.mensajeBorrar%>';
     </script>

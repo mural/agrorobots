@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Pantalla_Principal.aspx.vb" Inherits="Agorobots.Pantalla_Principal" %>
 
-<%@ Register Assembly="Controles" Namespace="Controles" TagPrefix="uc" %>
-
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="BodyMenuContenido">
     <h2>
         <asp:Label ID="welcome_40" runat="server" Text=""></asp:Label>
