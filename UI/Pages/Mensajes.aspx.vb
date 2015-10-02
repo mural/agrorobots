@@ -40,6 +40,7 @@ Public Class Mensajes
                 comboUsuarios.Items.Add(New ListItem(usuarioCombo.Nombre, usuarioCombo.ID))
             End If
         Next
+        comboUsuarios.Items.Add(New ListItem("EMAIL", 0)) 'para no usuarios
     End Sub
 
     Private Sub CargarMensajes()
@@ -77,7 +78,12 @@ Public Class Mensajes
         If Page.IsValid Then
             Try
                 If usuario.Admin Then
-                    mensajes_Business.EnviarMensajeDeAdmin(comboUsuarios.SelectedValue, txtMensaje_701.Text)
+                    If comboUsuarios.SelectedValue = 0 Then 'email
+                        EmailManager.EnviarEmail(Server, emailNoUsuario.Text, idiomas.GetTranslationById(39), txtMensaje_701.Text)
+
+                    Else
+                        mensajes_Business.EnviarMensajeDeAdmin(comboUsuarios.SelectedValue, txtMensaje_701.Text)
+                    End If
                 Else
                     mensajes_Business.EnviarMensajeAAdmin(usuario.ID, usuario.Email, txtMensaje_701.Text)
                 End If
@@ -110,9 +116,25 @@ Public Class Mensajes
 
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim emisorLabel = DirectCast(Me.GridView1_.Rows.Item(e.NewSelectedIndex).FindControl("lblEmisor"), Label)
-
+        Dim emailLabel = DirectCast(Me.GridView1_.Rows.Item(e.NewSelectedIndex).FindControl("lblEmail"), Label)
         Me.comboUsuarios.ClearSelection()
-        Me.comboUsuarios.Items.FindByText(emisorLabel.Text).Selected = True
+
+        If Not String.IsNullOrEmpty(emisorLabel.Text) Then
+            Me.comboUsuarios.Items.FindByText(emisorLabel.Text).Selected = True
+            emailNoUsuario.Visible = False
+        Else
+            Me.comboUsuarios.Items.FindByValue(0).Selected = True
+            emailNoUsuario.Visible = True
+            emailNoUsuario.Text = "(" + emailLabel.Text + ")"
+        End If
+
     End Sub
 
+    Protected Sub comboUsuarios_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboUsuarios.SelectedIndexChanged
+        If Me.comboUsuarios.SelectedValue = 0 Then
+            'opcion de email necesaria?
+        Else
+            emailNoUsuario.Visible = False
+        End If
+    End Sub
 End Class

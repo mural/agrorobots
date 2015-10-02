@@ -86,6 +86,8 @@ Public MustInherit Class PaginaGenerica
                     Try
                         If TypeOf frmCtrl Is RequiredFieldValidator Then
                             CType(frmCtrl, RequiredFieldValidator).Text = String.Format(idiomas.GetTranslationById(90016), idiomas.GetTranslationById(CType(frmCtrl, BaseValidator).ID.Split("_")(1)))
+                        ElseIf TypeOf frmCtrl Is RegularExpressionValidator Then
+                            CType(frmCtrl, RegularExpressionValidator).Text = idiomas.GetTranslationById(CType(frmCtrl, BaseValidator).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is CustomValidator Then
                             'traduccion manual
                         ElseIf TypeOf frmCtrl Is Label Then

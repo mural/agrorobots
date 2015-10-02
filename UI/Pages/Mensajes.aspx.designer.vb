@@ -41,6 +41,15 @@ Partial Public Class Mensajes
     Protected WithEvents comboUsuarios As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''emailNoUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents emailNoUsuario As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtMensaje_701 control.
     '''</summary>
     '''<remarks>

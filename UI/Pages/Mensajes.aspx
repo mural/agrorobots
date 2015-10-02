@@ -6,16 +6,19 @@
     </h2>
     <div id="envio">
         <asp:Label ID="lblEnviar_700" runat="server" Text="enviar mensaje"></asp:Label>
-        <br />
+        &nbsp;<br />
         <asp:DropDownList ID="comboUsuarios" runat="server" AutoPostBack="True">
         </asp:DropDownList>
-        <asp:TextBox ID="txtMensaje_701" runat="server"
+        &nbsp;
+        <asp:Label ID="emailNoUsuario" runat="server" Text="email" Visible="false" ></asp:Label>
+        <br />
+        <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
         </asp:TextBox>
         *&nbsp;
-    <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
+        <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
         <asp:RequiredFieldValidator ID="vldMensaje_701" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
         <br />
         <br />
@@ -47,7 +50,7 @@
 
                 <asp:TemplateField HeaderText="EmailEmisor_707">
                     <ItemTemplate>
-                        <asp:Label ID="lblIDIdioma" runat="server"
+                        <asp:Label ID="lblEmail" runat="server"
                             Text='<%# Eval("EmailEmisor")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -61,7 +64,7 @@
 
                 <asp:TemplateField HeaderText="Fecha_133">
                     <ItemTemplate>
-                        <asp:Label ID="lblFamilia" runat="server"
+                        <asp:Label ID="lblFecha" runat="server"
                             Text='<%# Eval("Fecha")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>

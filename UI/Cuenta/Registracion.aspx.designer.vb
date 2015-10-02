@@ -149,13 +149,13 @@ Partial Public Class Registracion
     Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''regVldEmail control.
+    '''regVldEmail_158 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents regVldEmail As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents regVldEmail_158 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
     '''lblPassword_27 control.

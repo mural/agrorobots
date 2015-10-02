@@ -56,7 +56,7 @@
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                 </asp:TextBox>
                 <asp:RequiredFieldValidator ID="vldEmail_109" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="emailNuevo" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
-                &nbsp;<asp:RegularExpressionValidator ID="regVldEmail" runat="server" ControlToValidate="emailNuevo" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" CssClass="formError" Display="Dynamic" EnableClientScript="False"></asp:RegularExpressionValidator>
+                &nbsp;<asp:RegularExpressionValidator ID="regVldEmail_158" runat="server" ControlToValidate="emailNuevo" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" CssClass="formError" Display="Dynamic" EnableClientScript="False"></asp:RegularExpressionValidator>
             </p>
             <p>
                 <label for="passwordNuevo" class="youpasswd" data-icon="p"></label>

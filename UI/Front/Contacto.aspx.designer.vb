@@ -30,4 +30,85 @@ Partial Public Class Contacto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents contacto_3006 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblEmail_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblEmail_109 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''email control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents email As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldEmail_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''regVldEmail_158 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents regVldEmail_158 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
+    '''mensajeEnviar_700 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents mensajeEnviar_700 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtMensaje_701 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtMensaje_701 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldMensaje_701 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldMensaje_701 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''btnEnviar_135 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnEnviar_135 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 End Class

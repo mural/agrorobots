@@ -34,7 +34,6 @@ Public Class Registracion
         'For i = 0 To lstbFamilia.GetSelectedIndices.Length - 1
         '    Familias.Add(Familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
         'Next
-        regVldEmail.ErrorMessage = idiomas.GetTranslationById(158)
         vldCbxTerminos.IsValid = TerminosCondiciones
         vldCbxTerminos.ErrorMessage = idiomas.GetTranslationById(157)
         If Not vldPasswordMatch.IsValid Then
