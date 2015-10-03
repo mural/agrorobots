@@ -9,16 +9,32 @@
     <title>Agrorobots
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/Styles/w3.css" />
+
     <link type="text/css" rel="stylesheet" href="/Styles/layout.css" />
     <link type="text/css" rel="stylesheet" href="/Styles/custom.css" />
-    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.slidepanel.setup.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.ui.min.js"></script>
-    <script type="text/javascript" src="/Scripts/jquery.tabs.setup.js"></script>
-    
-    <script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
+
+    <%--    <link type="text/css" rel="stylesheet" href="/Styles/core.css" />
+    <link type="text/css" rel="stylesheet" href="/Styles/datepicker.css" />--%>
+    <%--<link type="text/css" rel="stylesheet" href="/Styles/theme.css" />--%>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
 
     <script type="text/javascript" src="/Scripts/funciones.js"></script>
+
+    <%--    	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>--%>
+    <script type="text/javascript" src="/Scripts/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.js"></script>
+    <%--    <script type="text/javascript" src="/Scripts/jquery.ui.datepicker.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/jquery.ui.min.js"></script>--%>
+    <script type="text/javascript" src="/Scripts/jquery.tabs.setup.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.slidepanel.setup.js"></script>
+
+    <script type="text/javascript" src="/Scripts/tinymce/tinymce.min.js"></script>
+
     <script type="text/javascript">
         var mensajeBorrar = '<%= PaginaGenerica.mensajeBorrar%>';
     </script>
@@ -31,6 +47,10 @@
             header.className = "";
             document.getElementById("headerDefecto").className = "active"
         }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
     </script>
     <asp:ContentPlaceHolder ID="HeadBaseContenido" runat="server">
     </asp:ContentPlaceHolder>

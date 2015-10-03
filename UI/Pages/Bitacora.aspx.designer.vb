@@ -23,6 +23,15 @@ Partial Public Class Bitacora
     Protected WithEvents lblTitulo_10103 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''DateDe control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DateDe As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>

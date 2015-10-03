@@ -1,9 +1,21 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="Bitacora.aspx.vb" Inherits="Agorobots.Bitacora" %>
 
+<asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
         <asp:Label ID="lblTitulo_10103" runat="server" Text="titulo"></asp:Label>
     </h2>
+    <br />
+    <asp:TextBox ID="DateDe" name="Datede" runat="server" ReadOnly="true" CssClass="hasDatepicker"></asp:TextBox>
+    <input type="text" value="9/23/2009" style="width: 100px;" name="Date" id="Date1" class="hasDatepicker"/>
+    <p>Date: <input type="text" id="datepicker"></p>
+    <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">

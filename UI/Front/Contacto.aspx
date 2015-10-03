@@ -34,7 +34,7 @@
             </asp:TextBox>
             <asp:RequiredFieldValidator ID="vldMensaje_701" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
             *&nbsp;
-            <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
+            <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" CssClass="w3-btn w3-khaki" />
             <br />
             <br />
             <asp:Label ID="lblMensajes" runat="server" CssClass="formError" Text=""></asp:Label>

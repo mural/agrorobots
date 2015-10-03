@@ -98,11 +98,45 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Cuenta\Interna.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Cuenta\RecuperarClave.aspx" />
     <Content Include="Cuenta\Registracion.aspx" />
     <Content Include="Front\Contacto.aspx" />
+    <Content Include="Front\Encuestas.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
     <Content Include="Front\Politicas.aspx" />
@@ -168,12 +202,15 @@
     <Content Include="Pages\SinPermisos.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
-    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.slidepanel.setup.js" />
     <Content Include="Scripts\jquery.tabs.setup.js" />
-    <Content Include="Scripts\jquery.tinymce.min.js" />
     <Content Include="Scripts\jquery.ui.min.js" />
-    <Content Include="Scripts\tinymce.min.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
@@ -249,6 +286,9 @@
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Styles\theme.css" />
+    <Content Include="Styles\datepicker.css" />
+    <Content Include="Styles\core.css" />
     <Content Include="Styles\custom.css" />
     <Content Include="Styles\featured_slide.css" />
     <Content Include="Styles\fonts\BebasNeue-webfont.svg" />
@@ -264,11 +304,9 @@
     <Content Include="Styles\robots.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Styles\Login.css" />
     <Content Include="Styles\tables.css" />
+    <Content Include="Styles\w3.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -319,6 +357,13 @@
     </Compile>
     <Compile Include="Front\Contacto.aspx.vb">
       <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Encuestas.aspx.designer.vb">
+      <DependentUpon>Encuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Encuestas.aspx.vb">
+      <DependentUpon>Encuestas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Front\Home.aspx.designer.vb">

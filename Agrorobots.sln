@@ -17,6 +17,11 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DAL", "DAL\DAL.vbproj", "{D
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Controles", "Controles\Controles.vbproj", "{C3CC074E-8AC0-48C5-AE80-3ED3933FAA1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0B6E5E0D-D591-4EBC-A4BB-34A6D3D6B2B8}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

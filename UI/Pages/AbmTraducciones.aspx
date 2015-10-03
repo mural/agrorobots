@@ -9,7 +9,6 @@
             selector: 'textarea'
         });
     </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>

@@ -13,9 +13,9 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-size: 12px;
+    font-size: 13px;
     font-family: verdana, Arial, Helvetica, sans-serif;
-    color: #333333;
+    color: #111111;
     background-color: #FFFFFF;
 }
 
@@ -155,7 +155,7 @@ div.wrapper {
 #header, #topbar, #topnav, #breadcrumb, #container, #footer, #copyright {
     display: block;
     position: relative;
-    width: 960px;
+    width: 990px;
     margin: 0 auto;
 }
 
