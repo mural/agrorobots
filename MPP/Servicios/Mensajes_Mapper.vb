@@ -3,17 +3,7 @@
 Public Class Mensajes_Mapper
     Inherits Mapper(Of Mensaje)
 
-    Public Overrides Function Insertar(ByRef obj As Mensaje) As Boolean
-        Preparar()
-
-        obj.ID = 0
-
-        Return Actualizar(obj)
-    End Function
-
-    Public Overrides Function Actualizar(ByRef obj As Mensaje) As Boolean
-        Preparar()
-
+    Public Overrides Sub OBJaHASH(ByRef obj As Mensaje, ByRef Item As Hashtable)
         hdatos.Add("@ID", obj.ID)
         hdatos.Add("@Contenido", obj.Contenido)
         hdatos.Add("@UsuarioEmisor", obj.UsuarioEmisor)
@@ -30,61 +20,37 @@ Public Class Mensajes_Mapper
         hdatos.Add("@BorradoEmisor", obj.BorradoEmisor)
         hdatos.Add("@BorradoReceptor", obj.BorradoReceptor)
         hdatos.Add("@Chat", obj.Chat)
+    End Sub
 
-        Return oDatos.Escribir("MensajeActualizar", hdatos)
+    Public Overrides Function Actualizar(ByRef obj As Mensaje, Optional ByVal insertar As Boolean = False) As Boolean
+        Return Actualizar(obj, "MensajeActualizar")
     End Function
 
-    Private Sub DSaEE(ByRef objNuevo As Mensaje, ByRef Item As DataRow)
-        objNuevo.ID = CInt(Item("ID"))
-        objNuevo.Contenido = CStr(Item("Contenido"))
-        objNuevo.UsuarioEmisor = CInt(Item("UsuarioEmisor"))
-        objNuevo.EmailEmisor = CStr(Item("EmailEmisor"))
-        objNuevo.RolEmisor = CInt(Item("RolEmisor"))
-        objNuevo.UsuarioReceptor = CInt(Item("UsuarioReceptor"))
-        objNuevo.EmailReceptor = CStr(Item("EmailReceptor"))
-        objNuevo.RolReceptor = CInt(Item("RolReceptor"))
-        objNuevo.Broadcast = CBool(Item("Broadcast"))
-        objNuevo.IdConversacion = CInt(Item("ID_Conversacion"))
-        objNuevo.LeidoEmisor = CBool(Item("LeidoEmisor"))
-        objNuevo.LeidoReceptor = CBool(Item("LeidoReceptor"))
-        objNuevo.Fecha = CDate(Item("Fecha"))
-        objNuevo.BorradoEmisor = CBool(Item("BorradoEmisor"))
-        objNuevo.BorradoReceptor = CBool(Item("BorradoReceptor"))
-        objNuevo.Chat = CBool(Item("Chat"))
+    Public Overrides Sub DSaEE(ByRef obj As Mensaje, ByRef Item As DataRow)
+        obj.ID = CInt(Item("ID"))
+        obj.Contenido = CStr(Item("Contenido"))
+        obj.UsuarioEmisor = CInt(Item("UsuarioEmisor"))
+        obj.EmailEmisor = CStr(Item("EmailEmisor"))
+        obj.RolEmisor = CInt(Item("RolEmisor"))
+        obj.UsuarioReceptor = CInt(Item("UsuarioReceptor"))
+        obj.EmailReceptor = CStr(Item("EmailReceptor"))
+        obj.RolReceptor = CInt(Item("RolReceptor"))
+        obj.Broadcast = CBool(Item("Broadcast"))
+        obj.IdConversacion = CInt(Item("ID_Conversacion"))
+        obj.LeidoEmisor = CBool(Item("LeidoEmisor"))
+        obj.LeidoReceptor = CBool(Item("LeidoReceptor"))
+        obj.Fecha = CDate(Item("Fecha"))
+        obj.BorradoEmisor = CBool(Item("BorradoEmisor"))
+        obj.BorradoReceptor = CBool(Item("BorradoReceptor"))
+        obj.Chat = CBool(Item("Chat"))
     End Sub
 
     Public Overrides Function Obtener(ByVal idMensaje As Integer) As Mensaje
-        Preparar()
-
-        hdatos.Add("@ID", idMensaje)
-
-        DS = oDatos.Leer("MensajeObtener", hdatos)
-        Dim objNuevo As New Mensaje
-
-        If DS.Tables(0).Rows.Count > 0 Then
-            For Each Item As DataRow In DS.Tables(0).Rows
-
-                DSaEE(objNuevo, Item)
-            Next
-        End If
-        Return objNuevo
+        Return Obtener(idMensaje, "MensajeObtener")
     End Function
 
     Public Overrides Function Listar() As List(Of Mensaje)
-        Preparar()
-
-        DS = oDatos.Leer("MensajeListar", hdatos)
-        Dim listado As New List(Of Mensaje)
-
-        If DS.Tables(0).Rows.Count > 0 Then
-            For Each Item As DataRow In DS.Tables(0).Rows
-                Dim objNuevo As New Mensaje
-
-                DSaEE(objNuevo, Item)
-                listado.Add(objNuevo)
-            Next
-        End If
-        Return listado
+        Return Listar("MensajeListar")
     End Function
 
     Public Function ConsultarPorUsuario(ByVal idUsuario) As List(Of Mensaje)
@@ -169,11 +135,8 @@ Public Class Mensajes_Mapper
         Return listado
     End Function
 
-    Public Overrides Function Borrar(ByVal idMensaje As Integer) As Boolean
-        Preparar()
-
-        hdatos.Add("@ID", idMensaje)
-
-        Return oDatos.Escribir("MensajeBorrar", hdatos)
+    Public Overloads Overrides Function Borrar(id As Integer) As Boolean
+        Return Borrar(id, "MensajeBorrar")
     End Function
+
 End Class

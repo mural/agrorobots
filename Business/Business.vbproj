@@ -120,6 +120,7 @@
     <Compile Include="Servicios\Mensaje_Business.vb" />
     <Compile Include="Servicios\MyEncrypter.vb" />
     <Compile Include="Servicios\NoActivoException.vb" />
+    <Compile Include="Servicios\Novedades_Business.vb" />
     <Compile Include="Servicios\Servicio_BackUp.vb" />
     <Compile Include="Servicios\Servicio_Digitos.vb" />
     <Compile Include="Servicios\Usuario_Business.vb" />

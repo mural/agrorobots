@@ -3,18 +3,12 @@
 Public Class ElementoAcademico_Mapper
     Inherits Mapper(Of ElementoAcademico)
 
-    Public Overrides Function Insertar(ByRef obj As ElementoAcademico) As Boolean
-        Preparar()
+    Public Sub New()
+        CampoClave = "CodigoAcademico"
+    End Sub
 
-        obj.CodigoAcademico = 0
-
-        Return Actualizar(obj)
-    End Function
-
-    Public Overrides Function Actualizar(ByRef obj As ElementoAcademico) As Boolean
-        Preparar()
-
-        hdatos.Add("@ID", obj.CodigoAcademico)
+    Public Overrides Sub OBJaHASH(ByRef obj As ElementoAcademico, ByRef Item As Hashtable)
+        hdatos.Add("@CodigoAcademico", obj.CodigoAcademico)
         hdatos.Add("@Comentario", obj.Comentario)
         hdatos.Add("@Contenido", obj.Contenido)
         hdatos.Add("@CriteriosAprobacion", obj.CriteriosAprobacion)
@@ -26,11 +20,13 @@ Public Class ElementoAcademico_Mapper
         hdatos.Add("@Cupo", obj.Cupo)
         hdatos.Add("@Clases", obj.Clases)
         hdatos.Add("@Precio", obj.Precio)
+    End Sub
 
-        Return oDatos.Escribir("ElementoAcademicoActualizar", hdatos)
+    Public Overrides Function Actualizar(ByRef obj As ElementoAcademico, Optional ByVal insertar As Boolean = False) As Boolean
+        Return Actualizar(obj, "ElementoAcademicoActualizar")
     End Function
 
-    Private Sub DSaEE(ByRef objNuevo As ElementoAcademico, ByRef Item As DataRow)
+    Public Overrides Sub DSaEE(ByRef objNuevo As ElementoAcademico, ByRef Item As DataRow)
         objNuevo.CodigoAcademico = CInt(Item("CodigoAcademico"))
         objNuevo.Comentario = CStr(Item("Comentario"))
         objNuevo.Contenido = CStr(Item("Contenido"))
@@ -46,45 +42,14 @@ Public Class ElementoAcademico_Mapper
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As ElementoAcademico
-        Preparar()
-
-        hdatos.Add("@CodigoAcademico", codigoAcademico)
-
-        DS = oDatos.Leer("ElementoAcademicoObtener", hdatos)
-        Dim objNuevo As New ElementoAcademico
-
-        If DS.Tables(0).Rows.Count > 0 Then
-            For Each Item As DataRow In DS.Tables(0).Rows
-
-                DSaEE(objNuevo, Item)
-            Next
-        End If
-        Return objNuevo
+        Return Obtener(codigoAcademico, "ElementoAcademicoObtener")
     End Function
 
     Public Overrides Function Listar() As List(Of ElementoAcademico)
-        Preparar()
-
-        DS = oDatos.Leer("ElementoAcademicoListar", hdatos)
-        Dim listado As New List(Of ElementoAcademico)
-
-        If DS.Tables(0).Rows.Count > 0 Then
-            For Each Item As DataRow In DS.Tables(0).Rows
-                Dim objNuevo As New ElementoAcademico
-
-                DSaEE(objNuevo, Item)
-                listado.Add(objNuevo)
-            Next
-        End If
-        Return listado
+        Return Listar("ElementoAcademicoListar")
     End Function
 
-    Overrides Function Borrar(ByVal codigoAcademico As Integer) As Boolean
-        Preparar()
-
-        hdatos.Add("@CodigoAcademico", codigoAcademico)
-
-        Return oDatos.Escribir("ElementoAcademicoBorrar", hdatos)
+    Public Overloads Overrides Function Borrar(id As Integer) As Boolean
+        Return Borrar(id, "ElementoAcademicoBorrar")
     End Function
-
 End Class

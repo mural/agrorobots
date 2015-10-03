@@ -189,7 +189,11 @@
                         <a href="/Front/Home.aspx">
                             <asp:Label ID="home_3001" runat="server" Text="home" TabIndex="2"></asp:Label></a>
                         <ul>
-                            <li><a href="#">Plataforma</a></li>
+                            <li>
+                                <a href='<%= PaginasConocidas.NOVEDADES%>'>
+                                    <asp:Label ID="novedades_3004" Text="terminos" runat="server" />
+                                </a>
+                            </li>
                             <li><a href="#">Experiencia</a></li>
                             <li><a href="#">Opiniones</a></li>
                             <li class="last"><a href="#">Demostracion</a></li>

@@ -78,6 +78,7 @@
     <Compile Include="Mapper.vb" />
     <Compile Include="Negocios\ElementoAcademico_Mapper.vb" />
     <Compile Include="Servicios\Bitacora_Data.vb" />
+    <Compile Include="Servicios\IMapper.vb" />
     <Compile Include="Servicios\Mensajes_Mapper.vb" />
     <Compile Include="Servicios\Component_Data.vb" />
     <Compile Include="Clases\Data.vb" />
@@ -101,6 +102,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Servicios\Novedades_Mapper.vb" />
     <Compile Include="Servicios\Servicio_BackUp_Data.vb" />
     <Compile Include="Servicios\Servicio_Digitos_Data.vb" />
     <Compile Include="Servicios\Usuario_Data.vb" />

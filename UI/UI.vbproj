@@ -139,6 +139,7 @@
     <Content Include="Front\Encuestas.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
+    <Content Include="Front\Novedades.aspx" />
     <Content Include="Front\Politicas.aspx" />
     <Content Include="Front\Terminos.aspx" />
     <Content Include="Imagenes\1.gif" />
@@ -379,6 +380,13 @@
     <Compile Include="Front\Institucional.aspx.vb">
       <DependentUpon>Institucional.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Novedades.aspx.designer.vb">
+      <DependentUpon>Novedades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Novedades.aspx.vb">
+      <DependentUpon>Novedades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Front\Politicas.aspx.designer.vb">
       <DependentUpon>Politicas.aspx</DependentUpon>
