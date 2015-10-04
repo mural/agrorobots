@@ -17,6 +17,7 @@
     Public Shared ReadOnly BUSQUEDA As String = DIR_FRONT + "Busqueda" + ASPX
     Public Shared ReadOnly CONTACTO As String = DIR_FRONT + "Contacto" + ASPX
     Public Shared ReadOnly NOVEDADES As String = DIR_FRONT + "Novedades" + ASPX
+    Public Shared ReadOnly NEWSLETTER As String = DIR_FRONT + "Newsletter" + ASPX
 
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX

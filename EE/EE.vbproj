@@ -76,6 +76,7 @@
     <Compile Include="Negocio\EjemploException.vb" />
     <Compile Include="Negocio\ElementoAcademico.vb" />
     <Compile Include="Servicios\Bitacora.vb" />
+    <Compile Include="Servicios\CategoriaTema.vb" />
     <Compile Include="Servicios\Component.vb" />
     <Compile Include="Servicios\Familia.vb" />
     <Compile Include="Servicios\Idioma.vb" />
@@ -96,6 +97,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Servicios\Mensaje.vb" />
+    <Compile Include="Servicios\Newsletter.vb" />
+    <Compile Include="Servicios\Newsletter_CategoriaTema.vb" />
     <Compile Include="Servicios\Novedades.vb" />
     <Compile Include="Servicios\Patente.vb" />
     <Compile Include="Servicios\Usuario.vb" />

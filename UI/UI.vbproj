@@ -139,6 +139,7 @@
     <Content Include="Front\Encuestas.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
+    <Content Include="Front\Newsletter.aspx" />
     <Content Include="Front\Novedades.aspx" />
     <Content Include="Front\Politicas.aspx" />
     <Content Include="Front\Terminos.aspx" />
@@ -171,6 +172,7 @@
     <Content Include="Imagenes\logo.png" />
     <Content Include="Imagenes\terminos.png" />
     <Content Include="Pages\AbmIdiomas.aspx" />
+    <Content Include="Pages\AbmNovedades.aspx" />
     <Content Include="Pages\AbmPermisos.aspx" />
     <Content Include="Pages\AbmTraducciones.aspx" />
     <Content Include="Pages\AbmUsuarios.aspx" />
@@ -381,6 +383,13 @@
       <DependentUpon>Institucional.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Front\Newsletter.aspx.designer.vb">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Newsletter.aspx.vb">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Front\Novedades.aspx.designer.vb">
       <DependentUpon>Novedades.aspx</DependentUpon>
     </Compile>
@@ -443,6 +452,13 @@
     </Compile>
     <Compile Include="Pages\AbmIdiomas.aspx.vb">
       <DependentUpon>AbmIdiomas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmNovedades.aspx.designer.vb">
+      <DependentUpon>AbmNovedades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmNovedades.aspx.vb">
+      <DependentUpon>AbmNovedades.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmPermisos.aspx.designer.vb">
@@ -774,7 +790,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49216</DevelopmentServerPort>
+          <DevelopmentServerPort>14544</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

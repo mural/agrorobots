@@ -1,13 +1,22 @@
 ﻿Public MustInherit Class Mapper(Of EE As New)
     Implements IMapper(Of EE)
 
+
+    Public Property Transaccion = AccionTransaccion.Unica
+    Enum AccionTransaccion
+        Unica
+        Iniciar
+        Continuar
+        Cerrar
+    End Enum
+
     Protected Property CampoClave = "ID"
-    Protected oDatos As New DAL.Datos
+    Protected oDatos As DAL.Datos
     Protected hdatos As New Hashtable
     Protected DS As New DataSet
 
     Public Sub Preparar()
-        oDatos = New DAL.Datos
+        oDatos = DAL.Datos.InstanciaDatos()
         hdatos = New Hashtable
         DS = New DataSet
     End Sub
@@ -26,17 +35,21 @@
             hdatos.Add("@" + CampoClave, 0) 'sobrescribo el ID a 0
         End If
 
-        Return oDatos.Escribir(nombreProcedimiento, hdatos)
+        Return EscribirConTransaccion(nombreProcedimiento, hdatos)
     End Function
 
     MustOverride Function Actualizar(ByRef obj As EE, Optional ByVal insertar As Boolean = False) As Boolean Implements IMapper(Of EE).Actualizar
 
     MustOverride Sub DSaEE(ByRef obj As EE, ByRef Item As DataRow)
 
-    Protected Overridable Function Obtener(ByVal idMensaje As Integer, ByVal nombreProcedimiento As String) As EE
+    Protected Overridable Function Obtener(ByVal id As Integer, ByVal nombreProcedimiento As String, Optional ByVal campoObtener As String = "") As EE
         Preparar()
 
-        hdatos.Add("@" + CampoClave, idMensaje)
+        If Not String.IsNullOrEmpty(campoObtener) Then
+            hdatos.Add("@" + campoObtener, id)
+        Else
+            hdatos.Add("@" + CampoClave, id)
+        End If
 
         DS = oDatos.Leer(nombreProcedimiento, hdatos)
         Dim objNuevo As New EE
@@ -71,15 +84,33 @@
 
     MustOverride Function Listar() As List(Of EE) Implements IMapper(Of EE).Listar
 
-    Protected Overridable Function Borrar(ByVal id As Integer, ByVal nombreProcedimiento As String) As Boolean
+    Protected Overridable Function Borrar(ByVal id As Integer, ByVal nombreProcedimiento As String, Optional ByVal campoBorrar As String = "") As Boolean
         Preparar()
 
-        hdatos.Add("@" + CampoClave, id)
+        If Not String.IsNullOrEmpty(campoBorrar) Then
+            hdatos.Add("@" + campoBorrar, id)
+        Else
+            hdatos.Add("@" + CampoClave, id)
+        End If
 
-        Return oDatos.Escribir(nombreProcedimiento, hdatos)
+        Return EscribirConTransaccion(nombreProcedimiento, hdatos)
     End Function
 
     MustOverride Function Borrar(id As Integer) As Boolean Implements IMapper(Of EE).Borrar
 
+
+    Protected Function EscribirConTransaccion(ByRef nombreProcedimiento As String, ByRef hdatos As Hashtable)
+        Dim resultado = False
+        If Transaccion = AccionTransaccion.Unica Then
+            resultado = oDatos.Escribir(nombreProcedimiento, hdatos)
+        ElseIf Transaccion = AccionTransaccion.Iniciar Then
+            resultado = oDatos.EscribirIniciandoTransaccion(nombreProcedimiento, hdatos)
+        ElseIf Transaccion = AccionTransaccion.Continuar Then
+            resultado = oDatos.EscribirContinuandoTransaccion(nombreProcedimiento, hdatos)
+        ElseIf Transaccion = AccionTransaccion.Cerrar Then
+            resultado = oDatos.EscribirCerrandoTransaccion(nombreProcedimiento, hdatos)
+        End If
+        Return resultado
+    End Function
 
 End Class

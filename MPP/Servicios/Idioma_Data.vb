@@ -31,7 +31,7 @@ Public Class Idioma_Data
     End Function
 
     Function ActualizarIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -43,7 +43,7 @@ Public Class Idioma_Data
     End Function
 
     Function CrearIdioma(ByVal idiomaID As Integer, ByVal descripcion As String, ByVal codigo As String) As Boolean
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -55,7 +55,7 @@ Public Class Idioma_Data
     End Function
 
     Function BorrarIdioma(ByVal idiomaID As Integer) As Boolean
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmTraducciones.aspx.vb" Inherits="Agorobots.AbmTraducciones" %>
+﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="AbmNovedades.aspx.vb" Inherits="Agorobots.AbmNovedades" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
     <script>
@@ -14,45 +14,14 @@
     <li>»</li>
     <li>
         <a href="#">
-            <asp:Label ID="navTraducciones_10102" runat="server" Text="traducciones"></asp:Label>
+            <asp:Label ID="navNovedades_3004" runat="server" Text="novedades"></asp:Label>
         </a>
     </li>
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
-        <asp:Label ID="lblTitulo_10102" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="lblTitulo_3004" runat="server" Text="titulo"></asp:Label>
     </h2>
-    <div id="dvGrid2">
-        <asp:GridView ID="GridView2_" runat="server"
-            AutoGenerateColumns="false"
-            RowStyle-CssClass="light"
-            AlternatingRowStyle-CssClass="dark"
-            PageSize="10">
-            <Columns>
-                <asp:TemplateField HeaderText="ID">
-                    <ItemTemplate>
-                        <asp:Label ID="lblIdiomaID" runat="server"
-                            Text='<%# Eval("ID")%>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Descripcion_12">
-                    <ItemTemplate>
-                        <asp:Label ID="lblDescripcion" runat="server"
-                            Text='<%# Eval("Descripcion")%>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField ShowHeader="False">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkSeleccionar_801" runat="server" CausesValidation="False"
-                            CommandName="Select" Text="seleccionar" CssClass="tablaDatosAction"></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>
-    <br />
     <br />
     <asp:TextBox ID="txtBusqueda" runat="server"
         onkeypress="return alfanumerico1(event)"
@@ -94,7 +63,7 @@
                         <asp:TemplateField HeaderText="IdiomaID_804">
                             <ItemTemplate>
                                 <asp:Label ID="lblIdiomaID" runat="server"
-                                    Text='<%# Eval("Idioma.Descripcion")%>'></asp:Label>
+                                    Text='<%# Eval("Texto")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtIdiomaID" Enabled="false" Visible="False"
@@ -105,7 +74,7 @@
                         <asp:TemplateField HeaderText="Traduccion_803">
                             <ItemTemplate>
                                 <asp:Label ID="lblTraduccionName" runat="server"
-                                    Text='<%# Eval("Traduccion")%>'></asp:Label>
+                                    Text='<%# Eval("Fecha")%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtTraduccionName" runat="server"
@@ -126,7 +95,7 @@
                         <asp:TemplateField HeaderText="Control ID">
                             <ItemTemplate>
                                 <asp:Label ID="lblControlName" runat="server"
-                                    Text='<%# Eval("Control_ID")%>'></asp:Label>
+                                    Text='<%# Eval("IDCategoriaTema")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:TextBox ID="txtControl" runat="server" MaxLength="6" CssClass="txtChico"
@@ -140,7 +109,7 @@
                         <asp:TemplateField HeaderText="Original">
                             <ItemTemplate>
                                 <asp:Label ID="lblOriginalName" runat="server"
-                                    Text='<%# Eval("Original")%>'></asp:Label>
+                                    Text='<%# Eval("IDCategoriaTema")%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"

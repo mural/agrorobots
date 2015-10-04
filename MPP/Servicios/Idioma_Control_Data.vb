@@ -31,7 +31,7 @@ Public Class Idioma_Control_Data
     End Function
 
     Function GetIdiomsByID(idioma As Idioma) As List(Of Idioma_Control)
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -51,7 +51,7 @@ Public Class Idioma_Control_Data
     End Function
 
     Public Sub CreateTraduccion(IdiomaID As Integer, Traduccion As String, ControlID As Integer)
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -63,7 +63,7 @@ Public Class Idioma_Control_Data
     End Sub
 
     Public Sub UpdateIdiomaById(ID As String, Traduccion As String)
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -74,7 +74,7 @@ Public Class Idioma_Control_Data
     End Sub
 
     Public Sub DeleteTraduccion(ID As Integer)
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 

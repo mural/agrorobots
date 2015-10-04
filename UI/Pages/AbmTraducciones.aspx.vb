@@ -10,7 +10,6 @@ Public Class AbmTraducciones
     Dim idioma As Idioma
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        usuario = Session.Item("user")
         If Not (Page.IsPostBack) Then
             CargarTraducciones()
         End If

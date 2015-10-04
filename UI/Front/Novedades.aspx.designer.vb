@@ -32,11 +32,20 @@ Partial Public Class Novedades
     Protected WithEvents novedades_3004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Literal1 control.
+    '''comboTipos control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Literal1 As Global.System.Web.UI.WebControls.Literal
+    Protected WithEvents comboTipos As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''contenidoNovedades control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents contenidoNovedades As Global.System.Web.UI.WebControls.Literal
 End Class

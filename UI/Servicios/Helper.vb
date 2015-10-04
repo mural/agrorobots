@@ -21,4 +21,9 @@
         session.Item(Variables.CANTIDAD_MENSAJES) = cantidad
     End Sub
 
+    Public Shared Sub MensajeConClase(ByRef control As Label, ByVal texto As String, ByVal css As String)
+        control.Text = texto
+        control.CssClass = css
+    End Sub
+
 End Class

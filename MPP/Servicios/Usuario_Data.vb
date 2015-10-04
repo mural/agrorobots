@@ -7,7 +7,7 @@ Imports DAL
 Public Class Usuario_Data
 
     Function CambiarPassword(ByVal userID As Integer, ByVal password As String) As Boolean
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -96,7 +96,7 @@ Public Class Usuario_Data
 
     Public Sub ConsultarByUsu(ByRef obj As Usuario)
 
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -124,7 +124,7 @@ Public Class Usuario_Data
     End Sub
 
     Public Function ConsultarPorId(idUsuario As Integer) As Usuario
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
         Dim obj As New Usuario

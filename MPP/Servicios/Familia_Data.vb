@@ -60,7 +60,7 @@ Public Class Familia_Data
     End Sub
 
     Public Function Baja(ByVal ID As Integer) As Boolean
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 
@@ -133,7 +133,7 @@ Public Class Familia_Data
     End Sub
 
     Public Function ObtenerFamilias() As System.Collections.Generic.List(Of EE.Familia)
-        Dim oDatos As New DAL.Datos
+        Dim oDatos = DAL.Datos.InstanciaDatos
         Dim hdatos As New Hashtable
         Dim DS As New DataSet
 

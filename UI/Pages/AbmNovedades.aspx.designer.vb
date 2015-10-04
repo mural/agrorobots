@@ -11,34 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AbmTraducciones
+Partial Public Class AbmNovedades
 
     '''<summary>
-    '''navTraducciones_10102 control.
+    '''navNovedades_3004 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navTraducciones_10102 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navNovedades_3004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10102 control.
+    '''lblTitulo_3004 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10102 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''GridView2_ control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents lblTitulo_3004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtBusqueda control.

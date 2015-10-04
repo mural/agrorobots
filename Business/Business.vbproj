@@ -94,6 +94,7 @@
     <Compile Include="Business.vb" />
     <Compile Include="Negocio\ElementoAcademico_Business.vb" />
     <Compile Include="Servicios\Bitacora_Business.vb" />
+    <Compile Include="Servicios\CategoriaTema_Business.vb" />
     <Compile Include="Servicios\Component_Business.vb" />
     <Compile Include="Servicios\EmptyDataException.vb" />
     <Compile Include="Servicios\Familia_Business.vb" />
@@ -119,6 +120,7 @@
     </Compile>
     <Compile Include="Servicios\Mensaje_Business.vb" />
     <Compile Include="Servicios\MyEncrypter.vb" />
+    <Compile Include="Servicios\Newsletter_Business.vb" />
     <Compile Include="Servicios\NoActivoException.vb" />
     <Compile Include="Servicios\Novedades_Business.vb" />
     <Compile Include="Servicios\Servicio_BackUp.vb" />

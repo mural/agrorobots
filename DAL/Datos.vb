@@ -2,7 +2,17 @@
 Imports System.Configuration
 
 Public Class Datos
+    Private Shared _datos
+    Private Sub New()
+    End Sub
+    Public Shared Function InstanciaDatos() As Datos
+        If IsNothing(_datos) Then
+            _datos = New Datos
+        End If
+        Return _datos
+    End Function
 
+    Public Property RespuestaEscritura
     Private Cnn = Conexion.GetObjConexion()
     Private Tranx As SqlTransaction
     Private Cmd As SqlCommand
@@ -55,7 +65,7 @@ Public Class Datos
                 Next
             End If
 
-            Dim respuesta As Integer = Cmd.ExecuteNonQuery
+            RespuestaEscritura = Cmd.ExecuteScalar
             If confirmarTx Then
                 Tranx.Commit()
                 Cnn.Close()

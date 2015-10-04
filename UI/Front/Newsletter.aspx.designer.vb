@@ -11,79 +11,97 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AbmTraducciones
+Partial Public Class Newsletter
 
     '''<summary>
-    '''navTraducciones_10102 control.
+    '''navNewsletter_42 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navTraducciones_10102 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navNewsletter_42 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10102 control.
+    '''newsletter_42 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10102 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents newsletter_42 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''GridView2_ control.
+    '''lblEmail_109 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents lblEmail_109 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtBusqueda control.
+    '''email control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtBusqueda As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents email As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''buscar_31 control.
+    '''vldEmail_109 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents buscar_31 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''limpiar_36 control.
+    '''regVldEmail_158 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents regVldEmail_158 As Global.System.Web.UI.WebControls.RegularExpressionValidator
 
     '''<summary>
-    '''ScriptManager1 control.
+    '''seleccionTemas_45 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    Protected WithEvents seleccionTemas_45 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''UpdatePanel1 control.
+    '''lstbTemas control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents lstbTemas As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''btnSuscribirse_43 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnSuscribirse_43 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnSuscribirse_44 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnSuscribirse_44 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''lblMensajes control.
@@ -93,13 +111,4 @@ Partial Public Class AbmTraducciones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''GridView1_ control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 End Class

@@ -104,6 +104,15 @@ Partial Public Class Base
     Protected WithEvents novedades_3004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''newsletter_42 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents newsletter_42 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''carreras_3003 control.
     '''</summary>
     '''<remarks>

@@ -131,6 +131,14 @@ Public MustInherit Class PaginaGenerica
         End If
     End Sub
 
+    Protected Function ObtenerIdiomaSeleccionadoID()
+        If Application.Item("idiomaIDseleccionado") Is Nothing Then
+            Return 0
+        Else
+            Return Application.Item("idiomaIDseleccionado")
+        End If
+    End Function
+
     Public Function UsuarioLogueado() As Boolean
         If usuario Is Nothing Then
             Return False
@@ -161,5 +169,25 @@ Public MustInherit Class PaginaGenerica
 
     Public Sub ActualizarMensajes(ByVal cantidad As Integer)
         Helper.ActualizarMensajes(Session, cantidad)
+    End Sub
+
+    Public Sub MensajeOk(ByRef control As Label, Optional ByVal texto As String = "", Optional ByVal css As String = "")
+        If String.IsNullOrEmpty(texto) Then
+            Helper.MensajeConClase(control, idiomas.GetTranslationById(90046), css)
+        Else
+            Helper.MensajeConClase(control, texto, css)
+        End If
+    End Sub
+
+    Public Sub MensajeError(ByRef control As Label, Optional ByVal texto As String = "", Optional ByVal css As String = "formError")
+        If String.IsNullOrEmpty(texto) Then
+            Helper.MensajeConClase(control, idiomas.GetTranslationById(90040), css)
+        Else
+            Helper.MensajeConClase(control, texto, css)
+        End If
+    End Sub
+
+    Public Sub LimpiarMensaje(ByRef control As Label)
+        control.Text = ""
     End Sub
 End Class
