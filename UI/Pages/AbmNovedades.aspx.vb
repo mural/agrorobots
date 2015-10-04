@@ -5,6 +5,7 @@ Public Class AbmNovedades
     Inherits PaginaAutorizada
 
     Dim novedadesBusiness As New Business.Novedades_Business
+    Dim categoriaTemaBusiness As New CategoriaTema_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
@@ -13,12 +14,37 @@ Public Class AbmNovedades
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
-
+        CargarNovedades()
     End Sub
 
     Private Sub CargarNovedades()
         Me.GridView1_.DataSource = novedadesBusiness.Listar
         Me.GridView1_.DataBind()
+
+        CargarTemas()
+    End Sub
+
+    Public Function ObtenerTema(ByVal idTema As Integer) As String
+        Return categoriaTemaBusiness.Obtener(idTema).Nombre
+    End Function
+
+    Protected Sub CargarTemas()
+        Dim comboTiposFooter = CType(Me.GridView1_.FooterRow.FindControl("comboTipos"), DropDownList)
+        comboTiposFooter.Items.Clear()
+        Dim comboTiposEdit As DropDownList = Nothing
+        If GridView1_.EditIndex > -1 Then
+            comboTiposEdit = CType(GridView1_.Rows(GridView1_.EditIndex).FindControl("comboTipos"), DropDownList)
+            comboTiposEdit.Items.Clear()
+        End If
+        For Each categoriaTema In categoriaTemaBusiness.Listar()
+            If Not comboTiposFooter Is Nothing Then
+                comboTiposFooter.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
+            End If
+            If Not comboTiposEdit Is Nothing Then
+                comboTiposEdit.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
+                comboTiposEdit.SelectedIndex = GridView1_.EditIndex
+            End If
+        Next
     End Sub
 
     Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs)
@@ -62,7 +88,6 @@ Public Class AbmNovedades
 
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
         GridView1_.EditIndex = e.NewEditIndex
-        CargarNovedades()
     End Sub
     Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
         GridView1_.EditIndex = -1
@@ -96,7 +121,7 @@ Public Class AbmNovedades
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        'idioma_Control_Business.BorrarTraduccion(lnkRemove.CommandArgument)
+        novedadesBusiness.Borrar(lnkRemove.CommandArgument)
 
         GridView1_.EditIndex = -1
         CargarNovedades()

@@ -26,8 +26,7 @@
     <asp:TextBox ID="txtBusqueda" runat="server"
         onkeypress="return alfanumerico1(event)"
         onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
-    </asp:TextBox>
+        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
     <asp:Button ID="buscar_31" runat="server" Text="buscar" />
     <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
@@ -41,79 +40,66 @@
                 <br />
 
                 <asp:GridView ID="GridView1_" runat="server"
-                    ShowHeaderWhenEmpty="true"
-                    AutoGenerateColumns="false"
+                    ShowHeaderWhenEmpty="True"
+                    AutoGenerateColumns="False"
                     RowStyle-CssClass="light"
                     AlternatingRowStyle-CssClass="dark"
                     AllowPaging="true" ShowFooter="true"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
-                    PageSize="15">
+                    PageSize="5">
                     <EmptyDataTemplate>
                         <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
                     </EmptyDataTemplate>
                     <Columns>
-                        <asp:TemplateField HeaderText="ID">
+                        <asp:TemplateField HeaderText="ID" Visible="False">
                             <ItemTemplate>
                                 <asp:Label ID="lblID" runat="server"
                                     Text='<%# Eval("ID")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="IdiomaID_804">
+                        <asp:TemplateField HeaderText="texto_46">
                             <ItemTemplate>
-                                <asp:Label ID="lblIdiomaID" runat="server"
-                                    Text='<%# Eval("Texto")%>'></asp:Label>
-                            </ItemTemplate>
-                            <FooterTemplate>
-                                <asp:TextBox ID="txtIdiomaID" Enabled="false" Visible="False"
-                                    MaxLength="5" runat="server"></asp:TextBox>
-                            </FooterTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Traduccion_803">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTraduccionName" runat="server"
-                                    Text='<%# Eval("Fecha")%>'></asp:Label>
+                                <asp:Label ID="lblTexto" runat="server"
+                                    Text='<%# Eval("Texto").ToString().Substring(0, Math.Min(200, Eval("Texto").ToString().Length))%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="txtTraduccionName" runat="server"
-                                    Text='<%# Eval("Traduccion")%>'
-                                    Rows="4" CausesValidation="False"
+                                <asp:TextBox ID="txtTexto" runat="server"
+                                    Text='<%# Eval("Texto")%>' CausesValidation="False"
                                     onkeypress="return alfanumerico1(event)"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
-                                </asp:TextBox>
+                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtTraduccion" runat="server" MaxLength="254"
-                                    onkeypress="return alfanumerico1(event)"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
-                                </asp:TextBox>
+                                <asp:TextBox ID="txtTexto" runat="server"></asp:TextBox>
                             </FooterTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Control ID">
+                        <asp:TemplateField HeaderText="Fecha_133">
                             <ItemTemplate>
-                                <asp:Label ID="lblControlName" runat="server"
-                                    Text='<%# Eval("IDCategoriaTema")%>'></asp:Label>
+                                <asp:Label ID="lblFecha" runat="server"
+                                    Text='<%# Eval("Fecha")%>'></asp:Label>
                             </ItemTemplate>
-                            <FooterTemplate>
-                                <asp:TextBox ID="txtControl" runat="server" MaxLength="6" CssClass="txtChico"
-                                    onkeypress="return alfanumerico1(event)"
-                                    onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
-                                </asp:TextBox>
-                            </FooterTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Original">
+                        <asp:TemplateField HeaderText="Foto_47">
                             <ItemTemplate>
-                                <asp:Label ID="lblOriginalName" runat="server"
-                                    Text='<%# Eval("IDCategoriaTema")%>'></asp:Label>
+                                <asp:Image ID="imgFoto" runat="server" CssClass="imagenesTabla"
+                                    ImageUrl='<%# ObtenerImagen(Eval("Foto"))%>'></asp:Image>
                             </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Tema_48">
+                            <ItemTemplate>
+                                <asp:Label ID="lblIdTema" runat="server"
+                                    Text='<%# ObtenerTema(Eval("IDCategoriaTema"))%>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False"></asp:DropDownList>
+                                <%--<% CargarTemas()%>--%>
+                            </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
-                                    OnClick="AddNew" />
+                                <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False"></asp:DropDownList>
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -121,23 +107,24 @@
                             <ItemTemplate>
                                 <asp:LinkButton ID="lnkRemove" runat="server"
                                     CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete">
-                                    <img src="/Imagenes/borrar.png" alt="x" />
-                                </asp:LinkButton>
+                                    Text="borrar" OnClick="Delete"> <img src="/Imagenes/borrar.png" alt="x" /></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
+                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
+                            </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
                                     CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
                                 &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
                             </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
-                            </ItemTemplate>
+                            <FooterTemplate>
+                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar" OnClick="AddNew" />
+                            </FooterTemplate>
                         </asp:TemplateField>
 
                     </Columns>
@@ -149,6 +136,9 @@
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
             </Triggers>
         </asp:UpdatePanel>
+        <asp:FileUpload ID="imgUpload" runat="server" />
+        <br />
+        <br />
         <br />
         <textarea id="mytextarea" style="width: 100%"></textarea>
         <br />

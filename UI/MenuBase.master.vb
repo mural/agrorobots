@@ -110,6 +110,8 @@ Public Class MenuBase
                 Response.Redirect("Backup.aspx")
             Case "AbmPermisos_10106"
                 Response.Redirect("AbmPermisos.aspx")
+            Case "AbmUsuarios_10107"
+                Response.Redirect("AbmUsuarios.aspx")
             Case "AbmNovedades_10108"
                 Response.Redirect("AbmNovedades.aspx")
 
