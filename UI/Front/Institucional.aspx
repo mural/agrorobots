@@ -78,7 +78,7 @@
             </p>
             <asp:Label ID="sobreNosotrs_99003" runat="server" Text="sobre nosotros"></asp:Label>
             <br />
-            <canvas id="c" width="960" height="150" />
+            <canvas id="c" width="1010" height="160" />
         </div>
     </div>
 </asp:Content>
