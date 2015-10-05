@@ -79,6 +79,10 @@
     <Compile Include="Servicios\CategoriaTema.vb" />
     <Compile Include="Servicios\Component.vb" />
     <Compile Include="Servicios\Familia.vb" />
+    <Compile Include="Servicios\FichaEncuesta.vb" />
+    <Compile Include="Servicios\FichaEncuestaBase.vb" />
+    <Compile Include="Servicios\FichaEncuestaPregunta.vb" />
+    <Compile Include="Servicios\FichaEncuestaRespuesta.vb" />
     <Compile Include="Servicios\Idioma.vb" />
     <Compile Include="Servicios\Idioma_Control.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
