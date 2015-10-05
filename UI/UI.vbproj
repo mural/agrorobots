@@ -137,6 +137,7 @@
     <Content Include="Cuenta\Registracion.aspx" />
     <Content Include="Front\Contacto.aspx" />
     <Content Include="Front\Encuestas.aspx" />
+    <Content Include="Front\FAQ.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
     <Content Include="Front\Newsletter.aspx" />
@@ -160,6 +161,7 @@
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\avatar.gif" />
     <Content Include="Imagenes\borrar.png" />
+    <Content Include="Imagenes\faq.jpg" />
     <Content Include="Imagenes\home_1_200x140.jpg" />
     <Content Include="Imagenes\home_2_200x140.png" />
     <Content Include="Imagenes\home_3_200x140.jpg" />
@@ -367,6 +369,13 @@
     </Compile>
     <Compile Include="Front\Encuestas.aspx.vb">
       <DependentUpon>Encuestas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\FAQ.aspx.designer.vb">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\FAQ.aspx.vb">
+      <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Front\Home.aspx.designer.vb">

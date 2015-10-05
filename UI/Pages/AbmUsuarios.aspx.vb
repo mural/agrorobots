@@ -57,7 +57,7 @@ Public Class AbmUsuario
         Dim Apellido = txtApellido.Text
         Dim Nombre = txtNombre.Text
         Dim UserName = txtUsername.Text
-        Dim Email = "mural@scvsoft.com" 'actualizar la pagina para usar EMAIL
+        Dim Email = "mural@scvsoft.com" 'actualizar la pagina para usar EMAIL ''AGREGAR FOTO ! usuarioSeleccionado.Foto = imgByte
         Dim Activo = cbxActivo.Checked
         Dim Admin = cbxAdmin.Checked
         Dim Password = txtPassword.Text
@@ -113,9 +113,7 @@ Public Class AbmUsuario
             Dim img As FileUpload = CType(imgUpload, FileUpload)
             Dim imgByte As Byte() = Nothing
             If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
-                'To create a PostedFile
                 Dim File As HttpPostedFile = imgUpload.PostedFile
-                'Create byte Array with file len
                 imgByte = New Byte(File.ContentLength - 1) {}
                 'force the control to load data in array
                 File.InputStream.Read(imgByte, 0, File.ContentLength)

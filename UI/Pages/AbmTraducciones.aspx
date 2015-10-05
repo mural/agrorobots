@@ -79,7 +79,7 @@
                     AllowPaging="true" ShowFooter="true"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
-                    PageSize="15">
+                    PageSize="20">
                     <EmptyDataTemplate>
                         <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
                     </EmptyDataTemplate>
@@ -105,18 +105,17 @@
                         <asp:TemplateField HeaderText="Traduccion_803">
                             <ItemTemplate>
                                 <asp:Label ID="lblTraduccionName" runat="server"
-                                    Text='<%# Eval("Traduccion")%>'></asp:Label>
+                                    Text='<%# RecortarTexto(Eval("Traduccion"))%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtTraduccionName" runat="server"
                                     Text='<%# Eval("Traduccion")%>'
-                                    Rows="4" CausesValidation="False"
                                     onkeypress="return alfanumerico1(event)"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtTraduccion" runat="server" MaxLength="254"
+                                <asp:TextBox ID="txtTraduccion" runat="server"
                                     onkeypress="return alfanumerico1(event)"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
                                 </asp:TextBox>
@@ -140,7 +139,7 @@
                         <asp:TemplateField HeaderText="Original">
                             <ItemTemplate>
                                 <asp:Label ID="lblOriginalName" runat="server"
-                                    Text='<%# Eval("Original")%>'></asp:Label>
+                                    Text='<%# RecortarTexto(Eval("Original"))%>'></asp:Label>
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"

@@ -18,8 +18,7 @@
                 <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="True"></asp:DropDownList>
             </p>
             <asp:Literal ID="contenidoNovedades" runat="server"></asp:Literal>
-
-
+            
         </div>
     </div>
 </asp:Content>

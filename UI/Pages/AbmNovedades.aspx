@@ -23,6 +23,19 @@
         <asp:Label ID="lblTitulo_3004" runat="server" Text="titulo"></asp:Label>
     </h2>
     <br />
+    <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False"></asp:DropDownList>
+    <br />
+    <textarea id="areaHTML" style="width: 100%" runat="server"></textarea>
+    <br />
+    <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
+    <br />
+    <br />
+    <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
+    <br />
+    <br />
+    <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
+    <br />
+    <br />
     <asp:TextBox ID="txtBusqueda" runat="server"
         onkeypress="return alfanumerico1(event)"
         onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
@@ -33,18 +46,15 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
             <ContentTemplate>
-
-                <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
                 <br />
-
                 <asp:GridView ID="GridView1_" runat="server"
                     ShowHeaderWhenEmpty="True"
                     AutoGenerateColumns="False"
                     RowStyle-CssClass="light"
                     AlternatingRowStyle-CssClass="dark"
-                    AllowPaging="true" ShowFooter="true"
+                    AllowPaging="true" ShowFooter="False"
                     OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
                     PageSize="5">
@@ -62,7 +72,7 @@
                         <asp:TemplateField HeaderText="texto_46">
                             <ItemTemplate>
                                 <asp:Label ID="lblTexto" runat="server"
-                                    Text='<%# Eval("Texto").ToString().Substring(0, Math.Min(200, Eval("Texto").ToString().Length))%>'></asp:Label>
+                                    Text='<%# RecortarTexto(Eval("Texto"))%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox ID="txtTexto" runat="server"
@@ -70,9 +80,6 @@
                                     onkeypress="return alfanumerico1(event)"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
                             </EditItemTemplate>
-                            <FooterTemplate>
-                                <asp:TextBox ID="txtTexto" runat="server"></asp:TextBox>
-                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Fecha_133">
@@ -95,12 +102,9 @@
                                     Text='<%# ObtenerTema(Eval("IDCategoriaTema"))%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False"></asp:DropDownList>
-                                <%--<% CargarTemas()%>--%>
+                                <asp:DropDownList ID="comboTiposEdit" runat="server" AutoPostBack="False"></asp:DropDownList>
+                                <% CargarTemas()%>
                             </EditItemTemplate>
-                            <FooterTemplate>
-                                <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False"></asp:DropDownList>
-                            </FooterTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField>
@@ -122,9 +126,6 @@
                                 &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
                                     CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
                             </EditItemTemplate>
-                            <FooterTemplate>
-                                <asp:Button ID="btnAdd_5" runat="server" Text="agregar" OnClick="AddNew" />
-                            </FooterTemplate>
                         </asp:TemplateField>
 
                     </Columns>
@@ -136,11 +137,6 @@
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
             </Triggers>
         </asp:UpdatePanel>
-        <asp:FileUpload ID="imgUpload" runat="server" />
-        <br />
-        <br />
-        <br />
-        <textarea id="mytextarea" style="width: 100%"></textarea>
         <br />
     </div>
 </asp:Content>

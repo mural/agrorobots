@@ -2,7 +2,7 @@
 
 #featured_slide {
     position: relative;
-    width: 960px;
+    width: 1010px;
     margin: 0 auto;
     padding: 20px 0 0 0;
     border: none;
@@ -10,7 +10,7 @@
 
     #featured_slide #featured_wrap {
         position: relative;
-        width: 940px;
+        width: 990px;
         height: 290px;
         padding: 10px;
         overflow: hidden;
@@ -44,7 +44,7 @@
 
 #featured_content, .featured_box, .featured_box img {
     display: block;
-    width: 940px;
+    width: 990px;
     height: 290px;
 }
 

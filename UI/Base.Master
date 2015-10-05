@@ -57,6 +57,7 @@
 </head>
 <body id="bodyBase">
     <form id="formBase" runat="server">
+        <!-- ####################################################################################################### -->
         <div class="wrapper col0">
             <div id="topbar">
                 <div id="slidepanel">
@@ -145,11 +146,16 @@
             <div id="header">
                 <div id="logo">
                     <h1><a href="Home.aspx">Agrorobots</a></h1>
-                    <p>Plataforma de E-Learning</p>
+                    <p>
+                        <asp:Label ID="subtitulo_74" Text="buscar" runat="server" /></p>
                 </div>
                 <div class="fl_right">
                     <ul>
-                        <li class="last"><a href="/Pages/Pantalla_Principal.aspx">Busqueda</a></li>
+                        <li class="last">
+                            <a href="/Pages/Pantalla_Principal.aspx">
+                                <asp:Label ID="buscar_54" Text="buscar" runat="server" />
+                            </a>
+                        </li>
                         <li>
                             <asp:LoginView ID="mensajeViewLogueado" runat="server" EnableViewState="false">
                                 <AnonymousTemplate>
@@ -199,12 +205,16 @@
                                     <asp:Label ID="newsletter_42" Text="newsletter" runat="server" />
                                 </a>
                             </li>
-                            <li><a href="#">Opiniones</a></li>
-                            <li class="last"><a href="#">Demostracion</a></li>
+                            <li class="last">
+                                <a href='<%= PaginasConocidas.FAQ%>'>
+                                    <asp:Label ID="faq_49" Text="faq" runat="server" />
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
-                        <a href="#">Cursos</a>
+                        <a href="#">
+                            <asp:Label ID="catalogo_55" Text="buscar" runat="server" /></a>
                         <ul>
                             <li><a href="/Pages/Carreras.aspx">
                                 <asp:Label ID="carreras_3003" runat="server" Text="carreras"></asp:Label>
@@ -218,15 +228,20 @@
                         </ul>
                     </li>
                     <li onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
-                        <a href="Home.aspx">Asistencia</a>
+                        <a href="Home.aspx">
+                            <asp:Label ID="asistencia_56" Text="buscar" runat="server" /></a>
                         <ul>
-                            <li><a href="#">Inscripcion</a></li>
-                            <li><a href="#">Empresas</a></li>
-                            <li class="last"><a href="#">Forma de pago</a></li>
+                            <li><a href="#">
+                                <asp:Label ID="inscripcion_57" Text="inscripcion" runat="server" /></a></li>
+                            <li><a href="#">
+                                <asp:Label ID="empresas_58" Text="empresas" runat="server" /></a></li>
+                            <li class="last"><a href="#">
+                                <asp:Label ID="formasdepago_59" Text="formas de pago" runat="server" /></a></li>
                         </ul>
                     </li>
                     <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
-                        <a href="#">Servicios</a>
+                        <a href="#">
+                            <asp:Label ID="servicios_3005" Text="servicios" runat="server" /></a>
                         <ul>
                             <li>
                                 <a href='<%= PaginasConocidas.TERMINOS%>'>
@@ -250,8 +265,8 @@
         <div class="wrapper col5">
             <div id="footer">
                 <div id="newsletter">
-                    <h2>Este en contacto !</h2>
-                    <p>Ingrese su Email para formar parte de nuestra lista de correos</p>
+                    <h2><asp:Label ID="mantengaContanto_76" Text="terminos" runat="server" /></h2>
+                    <p><asp:Label ID="ingreseEmailListaCorreo_77" Text="ingrese su email para ser parte" runat="server" /></p>
                     <div>
                         <%--<form action="#" method="post">--%>
                         <fieldset>
@@ -261,10 +276,10 @@
                         </fieldset>
                     </div>
                     <%--</form>--%>
-                    <p>Para desuscripción <a href="#">presione aca &raquo;</a></p>
+                    <p><a href="#"><asp:Label ID="removerSuscripcion_79" Text="remover suscripcion" runat="server" /> &raquo;</a></p>
                 </div>
                 <div class="footbox">
-                    <h2>Inscripcion</h2>
+                    <h2><asp:Label ID="inscripcionAbajo_57" Text="inscripcion" runat="server" /></h2>
                     <ul>
                         <li><a href="#">Inscribase</a></li>
                         <li><a href="#">Becas</a></li>
@@ -272,16 +287,18 @@
                     </ul>
                 </div>
                 <div class="footbox">
-                    <h2>Medio ambiente</h2>
+                    <h2><asp:Label ID="medioAmbiente_81" Text="medio ambiente" runat="server" /></h2>
                     <ul>
                         <li><a href="#">Vea como ayudar</a></li>
-                        <li><a href="#">Estadisticas</a></li>
+                        <li><a href="#">
+                            <asp:Literal ID="estadisticas_99" Text="estadisticas" runat="server" />
+                            </a></li>
                         <li><a href="#">Programa verde</a></li>
                         <li class="last"><a href="#">Sitios afiliados</a></li>
                     </ul>
                 </div>
                 <div class="footbox">
-                    <h2>Formas de Pago</h2>
+                    <h2><asp:Label ID="formaspago_59" Text="formas de pago" runat="server" /></h2>
                     <ul>
                         <li><a href="#">Promociones</a></li>
                         <li><a href="#">Financiacion</a></li>
@@ -294,7 +311,9 @@
         <!-- ####################################################################################################### -->
         <div class="wrapper col6">
             <div id="copyright">
-                <p class="fl_left">Copyright &copy; 2015 - Todos los derechos reservados - <a href="#">agrorobots.net</a></p>
+                <p class="fl_left">Copyright &copy; 2015 -
+                    <asp:Label ID="derechosReservados_75" runat="server" Text="derechos reservados"></asp:Label>
+                    - <a href="#">agrorobots.net</a></p>
                 <p class="fl_right"><a target="_blank" href="../Pantalla_Login.aspx" title="Agrorobots E-Learning">Agrorobots E-Learning</a></p>
                 <br class="clear" />
             </div>

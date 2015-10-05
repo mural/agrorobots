@@ -72,7 +72,8 @@ Public Class AbmTraducciones
 
         IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
         'recargar la pagina
-        Response.Redirect(Request.RawUrl)
+        'Response.Redirect(Request.RawUrl)
+        CargarTraducciones()
     End Sub
 
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
@@ -105,7 +106,8 @@ Public Class AbmTraducciones
 
         IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
         'recargar la pagina
-        Response.Redirect(Request.RawUrl)
+        'Response.Redirect(Request.RawUrl)
+        CargarTraducciones()
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)

@@ -1,6 +1,10 @@
 ﻿/* CUSTOM
 ----------------------------------------------------------*/
 
+.clear {
+    clear: both;
+}
+
 .resultadoCuenta {
     color: #f66;
     margin-top: 25px;
@@ -92,11 +96,21 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
     height: 30px;
 }
 
-.txtChico {
-    width: 40px;
+.imagenMediana {
+    width: 120px;
+    height: 120px;
 }
 
 .imagenSeparada {
     margin: 5px 15px 5px 5px; /* top - right - bottom - left*/
     border: 1px solid;
+}
+
+.imagenMasSeparada {
+    margin: 15px 45px 15px 15px; /* top - right - bottom - left*/
+    border: 1px solid;
+}
+
+.txtChico {
+    width: 40px;
 }

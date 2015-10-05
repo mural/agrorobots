@@ -92,6 +92,8 @@ Public MustInherit Class PaginaGenerica
                             'traduccion manual
                         ElseIf TypeOf frmCtrl Is Label Then
                             CType(frmCtrl, Label).Text = idiomas.GetTranslationById(CType(frmCtrl, Label).ID.Split("_")(1))
+                        ElseIf TypeOf frmCtrl Is Literal Then
+                            CType(frmCtrl, Literal).Text = idiomas.GetTranslationById(CType(frmCtrl, Literal).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is Button Then
                             CType(frmCtrl, Button).Text = idiomas.GetTranslationById(CType(frmCtrl, Button).ID.Split("_")(1))
                         ElseIf TypeOf frmCtrl Is LinkButton Then
@@ -190,4 +192,13 @@ Public MustInherit Class PaginaGenerica
     Public Sub LimpiarMensaje(ByRef control As Label)
         control.Text = ""
     End Sub
+
+    Public Function RecortarTexto(ByVal text As String) As String
+        Dim MAXIMO = 220
+        Dim textoRecortado = text.ToString().Substring(0, Math.Min(MAXIMO, text.ToString().Length))
+        If textoRecortado.Length >= MAXIMO Then
+            textoRecortado += " ..."
+        End If
+        Return textoRecortado
+    End Function
 End Class

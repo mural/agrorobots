@@ -15,6 +15,7 @@ Public Class AbmNovedades
 
     Protected Overrides Sub TraducirComponentesDinamicos()
         CargarNovedades()
+        TraducirLoopingControls(Me)
     End Sub
 
     Private Sub CargarNovedades()
@@ -29,93 +30,74 @@ Public Class AbmNovedades
     End Function
 
     Protected Sub CargarTemas()
-        Dim comboTiposFooter = CType(Me.GridView1_.FooterRow.FindControl("comboTipos"), DropDownList)
-        comboTiposFooter.Items.Clear()
+        comboTipos.Items.Clear()
         Dim comboTiposEdit As DropDownList = Nothing
+        Dim temaSeleccionadoID As Integer
         If GridView1_.EditIndex > -1 Then
-            comboTiposEdit = CType(GridView1_.Rows(GridView1_.EditIndex).FindControl("comboTipos"), DropDownList)
+            Dim ID As String = DirectCast(GridView1_.Rows(GridView1_.EditIndex).FindControl("lblID"), Label).Text
+            temaSeleccionadoID = novedadesBusiness.Obtener(ID).IDCategoriaTema
+            comboTiposEdit = CType(GridView1_.Rows(GridView1_.EditIndex).FindControl("comboTiposEdit"), DropDownList)
             comboTiposEdit.Items.Clear()
         End If
         For Each categoriaTema In categoriaTemaBusiness.Listar()
-            If Not comboTiposFooter Is Nothing Then
-                comboTiposFooter.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
+            If Not comboTipos Is Nothing Then
+                comboTipos.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
             End If
             If Not comboTiposEdit Is Nothing Then
                 comboTiposEdit.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
-                comboTiposEdit.SelectedIndex = GridView1_.EditIndex
+                comboTiposEdit.SelectedValue = temaSeleccionadoID
             End If
         Next
     End Sub
 
-    Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs)
-        ''Dim IdiomaID As String = DirectCast(GridView1_.FooterRow _
-        ''     .FindControl("txtIdiomaID"), TextBox).Text
-        'Dim IdiomaID = DirectCast(Session.Item("idioma"), Idioma).ID
-
-        'Dim Traduccion As String = DirectCast(GridView1_.FooterRow _
-        '             .FindControl("txtTraduccion"), TextBox).Text
-        'Dim ControlID As String = DirectCast(GridView1_.FooterRow _
-        '     .FindControl("txtControl"), TextBox).Text
-
-        'Try
-        '    Dim valido = True
-        '    If String.IsNullOrEmpty(IdiomaID) Or String.IsNullOrEmpty(Traduccion) Or String.IsNullOrEmpty(ControlID) Then
-        '        valido = False
-        '        lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-        '        lblMensajes.CssClass = "formError"
-        '    End If
-        '    If valido Then
-        '        If Not IsNumeric(IdiomaID) Or Not IsNumeric(ControlID) Then
-        '            valido = False
-        '            lblMensajes.Text = String.Format(idiomas.GetTranslationById(90017), "")
-        '        End If
-        '    End If
-        '    If valido Then
-        '        idioma_Control_Business.CrearTraduccion(IdiomaID, Traduccion, ControlID)
-        '        lblMensajes.Text = idiomas.GetTranslationById(90046) 'Se proceso la solicitud con éxito.
-        '    End If
-        'Catch ex As Exception
-        '    lblMensajes.Text = idiomas.GetTranslationById(90045) 'No se pudo procesar la solicitud.
-        'End Try
-
-        'GridView1_.EditIndex = -1
-        'CargarNovedades()()
-
-        'IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
-        ''recargar la pagina
-        'Response.Redirect(Request.RawUrl)
-    End Sub
-
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
         GridView1_.EditIndex = e.NewEditIndex
+        CargarNovedades()
     End Sub
     Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
         GridView1_.EditIndex = -1
         CargarNovedades()
     End Sub
     Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
-        'Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex) _
-        '                             .FindControl("lblID"), Label).Text
-        'Dim Traduccion As String = DirectCast(GridView1_.Rows(e.RowIndex) _
-        '                             .FindControl("txtTraduccionName"), TextBox).Text
+        Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("lblID"), Label).Text
+        Dim Texto As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("txtTexto"), TextBox).Text
+        Dim Tema As Integer = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("comboTipos"), DropDownList).SelectedValue
 
-        'Dim valido = True
-        'If String.IsNullOrEmpty(ID) Or String.IsNullOrEmpty(Traduccion) Then
-        '    valido = False
-        '    lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-        'End If
+        Dim img As FileUpload = CType(imgUpload, FileUpload)
+        Dim imgByte As Byte() = Nothing
+        If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
+            Dim File As HttpPostedFile = imgUpload.PostedFile
+            imgByte = New Byte(File.ContentLength - 1) {}
+            'force the control to load data in array
+            File.InputStream.Read(imgByte, 0, File.ContentLength)
+        End If
 
-        'If valido Then
-        '    idioma_Control_Business.UpdateIdiomaById(ID, Traduccion)
-        '    lblMensajes.Text = String.Format(idiomas.GetTranslationById(90017), "")
-        'End If
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(Texto) Then
+                valido = False
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
+            End If
+            If valido Then
+                Dim novedad As New EE.Novedades
+                novedad.ID = CType(ID, Integer)
+                novedad.Texto = Texto
+                If Not imgByte Is Nothing Then
+                    novedad.Foto = imgByte
+                End If
+                novedad.Fecha = Date.Now
+                novedad.IDCategoriaTema = Tema
 
-        'GridView1_.EditIndex = -1
-        'CargarNovedades()()
+                novedadesBusiness.Actualizar(novedad)
+                MensajeOk(lblMensajes)
+            End If
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
 
-        'IdiomManager.GetIdiomManager.CargarTraduccionesByUsuario(usuario.Idioma)
-        ''recargar la pagina
-        'Response.Redirect(Request.RawUrl)
+        GridView1_.EditIndex = -1
+        CargarNovedades()
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
@@ -134,4 +116,45 @@ Public Class AbmNovedades
         lblMensajes.Text = ""
     End Sub
 
+    Protected Sub btnCrear_32_Click(sender As Object, e As EventArgs) Handles btnCrear_32.Click
+        Dim Tema As Integer = comboTipos.SelectedValue
+        Dim textoHTML = areaHTML.InnerText
+
+        Dim imgByte As Byte() = Nothing
+        If imgUpload.HasFile AndAlso Not imgUpload.PostedFile Is Nothing Then
+            Dim File As HttpPostedFile = imgUpload.PostedFile
+            imgByte = New Byte(File.ContentLength - 1) {}
+            'force the control to load data in array
+            File.InputStream.Read(imgByte, 0, File.ContentLength)
+        End If
+
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(textoHTML) Then
+                valido = False
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
+            End If
+            If valido Then
+                Dim novedad As New EE.Novedades
+                novedad.ID = 0
+                novedad.Texto = textoHTML
+                If Not imgByte Is Nothing Then
+                    novedad.Foto = imgByte
+                End If
+                novedad.Fecha = Date.Now
+                novedad.IDCategoriaTema = Tema
+
+                novedadesBusiness.Crear(novedad)
+                MensajeOk(lblMensajes)
+
+                areaHTML.InnerText = ""
+            End If
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
+
+        GridView1_.EditIndex = -1
+        CargarNovedades()
+    End Sub
 End Class

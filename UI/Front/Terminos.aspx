@@ -15,7 +15,9 @@
                 <asp:Label ID="titleTerminos_154" runat="server" Text="terminos">
                 </asp:Label>
             </h1>
-            <img src="/Imagenes/terminos.png" alt="terminos">
+            <p>
+                <img src="/Imagenes/terminos.png" class="fl_left imagenSeparada" />
+            </p>
 
             <asp:Label ID="terminosDetalle_99001" runat="server" Text="terminos detalle"></asp:Label>
         </div>

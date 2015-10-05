@@ -25,7 +25,7 @@ Public Class Newsletter_Mapper
     End Function
 
     Public Overloads Overrides Function Actualizar(ByRef obj As Newsletter, Optional insertar As Boolean = False) As Boolean
-        Return Actualizar(obj, "NewsletterActualizar")
+        Return Actualizar(obj, "NewsletterActualizar") 'no se usa
     End Function
 
     Public Overloads Overrides Function Borrar(idNewsletter As Integer) As Boolean

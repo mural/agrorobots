@@ -32,6 +32,60 @@ Partial Public Class AbmNovedades
     Protected WithEvents lblTitulo_3004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''comboTipos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboTipos As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''areaHTML control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents areaHTML As Global.System.Web.UI.HtmlControls.HtmlTextArea
+
+    '''<summary>
+    '''imagen_2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imagen_2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''imgUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''btnCrear_32 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtBusqueda control.
     '''</summary>
     '''<remarks>
@@ -77,15 +131,6 @@ Partial Public Class AbmNovedades
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''lblMensajes control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''GridView1_ control.
     '''</summary>
     '''<remarks>
@@ -93,13 +138,4 @@ Partial Public Class AbmNovedades
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''imgUpload control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
 End Class
