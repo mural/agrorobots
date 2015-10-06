@@ -32,13 +32,13 @@ Partial Public Class Encuestas
     Protected WithEvents titleEncuestas_52 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''encuestas control.
+    '''encuestaInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents encuestas As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents encuestaInicio As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''Resultado control.
@@ -48,6 +48,15 @@ Partial Public Class Encuestas
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Resultado As Global.System.Web.UI.DataVisualization.Charting.Chart
+
+    '''<summary>
+    '''encuestaCierre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents encuestaCierre As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''lblMensajes control.

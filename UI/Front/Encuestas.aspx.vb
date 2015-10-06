@@ -32,20 +32,32 @@ Public Class Encuestas
             End If
         Next
 
-        Dim descripcion = New LiteralControl(encuestaBase.Descripcion)
-        encuestas.Controls.Add(descripcion)
+        encuestaInicio.Controls.Clear()
+        encuestaCierre.Controls.Clear()
+
+        Dim descripcionInicio = New LiteralControl()
+        descripcionInicio.Text = ""
+        descripcionInicio.Text += "<div class='w3-card-4'>"
+        descripcionInicio.Text += "<header class='w3-container w3-blue'>"
+        descripcionInicio.Text += encuestaBase.Descripcion
+        descripcionInicio.Text += "</header>"
+        descripcionInicio.Text += "<div class='w3-container'>"
+        encuestaInicio.Controls.Add(descripcionInicio)
 
         If Not voto Then 'armo encuesta
+            Resultado.Visible = False
             For Each opcion In encuestaBase.Preguntas
                 listaOpciones.Items.Add(New ListItem(opcion.Pregunta))
             Next
-            encuestas.Controls.Add(listaOpciones)
+            encuestaCierre.Controls.Add(listaOpciones)
             Dim submit As New Button()
             submit.Text = idiomas.GetTranslationById(110)
+            submit.CssClass = "w3-btn w3-khaki"
             AddHandler submit.Click, AddressOf Me.Votar
-            encuestas.Controls.Add(submit)
+            encuestaCierre.Controls.Add(submit)
         Else
             'muestro resultados
+            Resultado.Visible = True
             Dim resultados As New List(Of EncuestaResultado)
             For Each opcion In encuestaBase.Preguntas
                 resultados.Add(New EncuestaResultado With {.Opcion = opcion.Pregunta})
@@ -64,6 +76,13 @@ Public Class Encuestas
             Resultado.DataBind()
             'encuestas.Controls.Add(submit)
         End If
+
+        Dim descripcionCierre = New LiteralControl()
+        descripcionCierre.Text = ""
+        descripcionCierre.Text += "</div>"
+        descripcionCierre.Text += "</div>"
+        descripcionCierre.Text += "<br/><hr/><br/>"
+        encuestaCierre.Controls.Add(descripcionCierre)
     End Sub
 
     Private Sub Votar(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -81,6 +100,7 @@ Public Class Encuestas
         Catch ex As Exception
             MensajeError(lblMensajes)
         End Try
+        CargarEncuesta()
     End Sub
 
 End Class
