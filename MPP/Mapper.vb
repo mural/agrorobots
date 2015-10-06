@@ -113,4 +113,11 @@
         Return resultado
     End Function
 
+    Public Shared Function DbStringOrNull(ByRef Item As Object) As String
+        Dim stringDb As String = Nothing
+        If Not Item Is DBNull.Value Then
+            stringDb = CStr(Item)
+        End If
+        Return stringDb
+    End Function
 End Class

@@ -13,6 +13,8 @@ Public Class FichaEncuestaPregunta_Mapper
 
     Public Overrides Sub DSaEE(ByRef obj As FichaEncuestaPregunta, ByRef Item As DataRow)
         obj.ID = CInt(Item("ID"))
+        obj.IDFichaEncuestaBase = CInt(Item("IDFichaEncuestaBase"))
+        obj.Pregunta = CStr(Item("Pregunta"))
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of FichaEncuestaPregunta)
@@ -21,6 +23,8 @@ Public Class FichaEncuestaPregunta_Mapper
 
     Public Overrides Sub OBJaHASH(ByRef obj As FichaEncuestaPregunta, ByRef Item As Hashtable)
         hdatos.Add("@ID", obj.ID)
+        hdatos.Add("@IDFichaEncuestaBase", obj.IDFichaEncuestaBase)
+        hdatos.Add("@Pregunta", obj.Pregunta)
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuestaPregunta

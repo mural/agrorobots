@@ -131,6 +131,15 @@ Partial Public Class Base
     Protected WithEvents newsletter_42 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''encuestas_52 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents encuestas_52 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''faq_49 control.
     '''</summary>
     '''<remarks>

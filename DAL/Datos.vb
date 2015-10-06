@@ -2,6 +2,7 @@
 Imports System.Configuration
 
 Public Class Datos
+
     Private Shared _datos
     Private Sub New()
     End Sub
@@ -75,6 +76,8 @@ Public Class Datos
         Catch ex As Exception
             Tranx.Rollback()
             Cnn.Close()
+            'registar error
+
             Return False
         End Try
 

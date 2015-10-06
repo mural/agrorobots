@@ -13,6 +13,12 @@ Public Class FichaEncuesta_Mapper
 
     Public Overrides Sub DSaEE(ByRef obj As FichaEncuesta, ByRef Item As DataRow)
         obj.ID = CInt(Item("ID"))
+        obj.IDFichaEncuestaBase = CInt(Item("IDFichaEncuestaBase"))
+        obj.Fecha = CDate(Item("Fecha"))
+        obj.Usuario = DbStringOrNull(Item("Usuario"))
+        obj.Email = DbStringOrNull(Item("Email"))
+        obj.Sesion = DbStringOrNull(Item("Sesion"))
+        obj.RespuestaUnica = DbStringOrNull(Item("RespuestaUnica"))
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of FichaEncuesta)
@@ -21,6 +27,12 @@ Public Class FichaEncuesta_Mapper
 
     Public Overrides Sub OBJaHASH(ByRef obj As FichaEncuesta, ByRef Item As Hashtable)
         hdatos.Add("@ID", obj.ID)
+        hdatos.Add("@IDFichaEncuestaBase", obj.IDFichaEncuestaBase)
+        hdatos.Add("@Fecha", obj.Fecha)
+        hdatos.Add("@Usuario", obj.Usuario)
+        hdatos.Add("@Email", obj.Email)
+        hdatos.Add("@Sesion", obj.Sesion)
+        hdatos.Add("@RespuestaUnica", obj.RespuestaUnica)
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuesta
