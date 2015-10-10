@@ -14,13 +14,22 @@ Option Explicit On
 Partial Public Class Carreras
 
     '''<summary>
-    '''listadocarreras_50 control.
+    '''navCatalogo_50 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents listadocarreras_50 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''listado_50 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents listado_50 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridView1_ control.
@@ -30,22 +39,4 @@ Partial Public Class Carreras
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''comparar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents comparar As Global.System.Web.UI.WebControls.HyperLink
-
-    '''<summary>
-    '''comparacion_51 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents comparacion_51 As Global.System.Web.UI.WebControls.Label
 End Class

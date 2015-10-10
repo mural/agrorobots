@@ -26,7 +26,7 @@ Public Class Carreras
     Protected Sub Selection(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkSelect As LinkButton = DirectCast(sender, LinkButton)
 
-        Response.Redirect("CarrerasDetalle.aspx?id=" + lnkSelect.CommandArgument)
+        Response.Redirect(PaginasConocidas.CATALOGO_DETALLE + "?id=" + lnkSelect.CommandArgument)
 
     End Sub
 

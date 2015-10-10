@@ -14,6 +14,24 @@ Option Explicit On
 Partial Public Class CarrerasDetalle
 
     '''<summary>
+    '''navCatalogo_50 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''navActual control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents navActual As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblTitulo control.
     '''</summary>
     '''<remarks>

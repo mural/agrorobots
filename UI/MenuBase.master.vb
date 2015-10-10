@@ -98,6 +98,8 @@ Public Class MenuBase
                 Response.Redirect("NuevaMateria.aspx")
             Case "RevisionMateria"
                 Response.Redirect("RevisionMateria.aspx")
+            Case "AbmElementoAcademico_10109"
+                Response.Redirect("AbmElementoAcademico.aspx")
 
                 'admin
             Case "AbmIdiomas_10101"

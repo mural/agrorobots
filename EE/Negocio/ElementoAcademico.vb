@@ -11,5 +11,6 @@
     Public Property Cupo As Integer '(int, null)
     Public Property Clases As Integer '(int, null)
     Public Property Precio As Decimal '(decimal(18,2), null)
+    Public Property Imagen() As Byte()
 
 End Class

@@ -174,6 +174,7 @@
     <Content Include="Imagenes\login-sprite.png" />
     <Content Include="Imagenes\logo.png" />
     <Content Include="Imagenes\terminos.png" />
+    <Content Include="Pages\AbmElementoAcademico.aspx" />
     <Content Include="Pages\AbmIdiomas.aspx" />
     <Content Include="Pages\AbmNovedades.aspx" />
     <Content Include="Pages\AbmPermisos.aspx" />
@@ -455,6 +456,13 @@
     </Compile>
     <Compile Include="NavegacionBase.master.vb">
       <DependentUpon>NavegacionBase.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmElementoAcademico.aspx.designer.vb">
+      <DependentUpon>AbmElementoAcademico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmElementoAcademico.aspx.vb">
+      <DependentUpon>AbmElementoAcademico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmIdiomas.aspx.designer.vb">

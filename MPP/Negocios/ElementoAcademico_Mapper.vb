@@ -20,6 +20,7 @@ Public Class ElementoAcademico_Mapper
         hdatos.Add("@Cupo", obj.Cupo)
         hdatos.Add("@Clases", obj.Clases)
         hdatos.Add("@Precio", obj.Precio)
+        hdatos.Add("@Imagen", obj.Imagen)
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As ElementoAcademico, Optional ByVal insertar As Boolean = False) As Boolean
@@ -39,6 +40,7 @@ Public Class ElementoAcademico_Mapper
         objNuevo.Cupo = CInt(Item("Cupo"))
         objNuevo.Clases = CInt(Item("Clases"))
         objNuevo.Precio = CDec(Item("Precio"))
+        objNuevo.Imagen = DbImageOrNull(Item("Imagen"))
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As ElementoAcademico

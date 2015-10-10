@@ -1,24 +1,27 @@
-﻿Imports Business
+﻿Imports EE
+Imports Business
 
 Public Class CarrerasDetalle
     Inherits PaginaGenerica
 
     Dim elementoAcademico_Business As New ElementoAcademico_Business
     Dim idElementoAcademico As String
+    Dim elementoAcademico As ElementoAcademico
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idElementoAcademico = Request.QueryString("id")
         If Not String.IsNullOrEmpty(idElementoAcademico) Then
-            CargarElementosAcademicos()
-            lblTitulo.Text = "Carrera " + idElementoAcademico
+            CargarElementoAcademico()
+            lblTitulo.Text = elementoAcademico.Nombre
+            navActual.Text = elementoAcademico.Nombre
         Else
-            Response.Redirect("SinPermisos.aspx")
+            Response.Redirect(PaginasConocidas.HOME)
         End If
     End Sub
 
-    Private Sub CargarElementosAcademicos()
+    Private Sub CargarElementoAcademico()
         Try
-            elementoAcademico_Business.Obtener(CInt(idElementoAcademico))
+            elementoAcademico = elementoAcademico_Business.Obtener(CInt(idElementoAcademico))
         Catch e As Exception
         End Try
     End Sub

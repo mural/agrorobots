@@ -18,10 +18,7 @@ Public Class Novedades_Mapper
     Public Overrides Sub DSaEE(ByRef obj As Novedades, ByRef Item As DataRow)
         obj.ID = CInt(Item("ID"))
         obj.Texto = CStr(Item("Texto"))
-        Dim foto = Item("Foto")
-        If Not foto Is DBNull.Value Then
-            obj.Foto = CType(Item("Foto"), Byte())
-        End If
+        obj.Foto = DbImageOrNull(Item("Foto"))
         obj.Fecha = CDate(Item("Fecha"))
         obj.IDCategoriaTema = CInt(Item("IDCategoriaTema"))
     End Sub

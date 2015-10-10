@@ -193,7 +193,7 @@
             <div id="topnav">
                 <ul>
                     <li id="headerDefecto" class="active">
-                        <a href="/Front/Home.aspx">
+                        <a href='<%= PaginasConocidas.HOME%>'>
                             <asp:Label ID="home_3001" runat="server" Text="home" TabIndex="2"></asp:Label></a>
                         <ul>
                             <li>
@@ -222,12 +222,12 @@
                         <a href="#">
                             <asp:Label ID="catalogo_55" Text="buscar" runat="server" /></a>
                         <ul>
-                            <li><a href="/Pages/Carreras.aspx">
+                            <li><a href='<%= PaginasConocidas.CATALOGO%>'>
                                 <asp:Label ID="carreras_3003" runat="server" Text="carreras"></asp:Label>
                             </a>
                             </li>
                             <li class="last">
-                                <a href="/Pages/Comparacion.aspx">
+                                <a href='<%= PaginasConocidas.COMPARACION%>'>
                                     <asp:Label ID="comparacion_51" runat="server" Text="comparacion"></asp:Label>
                                 </a>
                             </li>

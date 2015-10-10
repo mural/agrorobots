@@ -21,6 +21,11 @@
     Public Shared ReadOnly FAQ As String = DIR_FRONT + "FAQ" + ASPX
     Public Shared ReadOnly ENCUESTAS As String = DIR_FRONT + "Encuestas" + ASPX
 
+    'Catalogo
+    Public Shared ReadOnly CATALOGO As String = DIR_PAGES + "Carreras" + ASPX
+    Public Shared ReadOnly CATALOGO_DETALLE As String = DIR_PAGES + "CarrerasDetalle" + ASPX
+    Public Shared ReadOnly COMPARACION As String = DIR_PAGES + "Comparacion" + ASPX
+
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX
     Public Shared ReadOnly MENSAJES As String = DIR_PAGES + "Mensajes" + ASPX
