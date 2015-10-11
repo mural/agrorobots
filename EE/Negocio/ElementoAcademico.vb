@@ -12,5 +12,9 @@
     Public Property Clases As Integer '(int, null)
     Public Property Precio As Decimal '(decimal(18,2), null)
     Public Property Imagen() As Byte()
+    Public Property Estado As String
 
+    Public Sub New()
+        FechaInicio = Now
+    End Sub
 End Class

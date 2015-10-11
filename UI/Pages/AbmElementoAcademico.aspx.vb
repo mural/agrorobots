@@ -90,44 +90,71 @@ Public Class AbmElementoAcademico
     End Sub
 
     Protected Sub btnCrear_32_Click(sender As Object, e As EventArgs) Handles btnCrear_32.Click
-        'Dim Tema As Integer = comboTipos.SelectedValue
-        'Dim textoHTML = areaHTML.InnerText
+        Dim nombre = Me.txtNombre.Text
+        Dim contenido = areaContenido.InnerText
 
-        'Dim imgByte As Byte() = Nothing
-        'If imgUpload.HasFile AndAlso Not imgUpload.PostedFile Is Nothing Then
-        '    Dim File As HttpPostedFile = imgUpload.PostedFile
-        '    imgByte = New Byte(File.ContentLength - 1) {}
-        '    'force the control to load data in array
-        '    File.InputStream.Read(imgByte, 0, File.ContentLength)
-        'End If
+        Dim imgByte As Byte() = Nothing
+        If imgUpload.HasFile AndAlso Not imgUpload.PostedFile Is Nothing Then
+            Dim File As HttpPostedFile = imgUpload.PostedFile
+            imgByte = New Byte(File.ContentLength - 1) {}
+            'force the control to load data in array
+            File.InputStream.Read(imgByte, 0, File.ContentLength)
+        End If
 
-        'Try
-        '    Dim valido = True
-        '    If String.IsNullOrEmpty(textoHTML) Then
-        '        valido = False
-        '        lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-        '        lblMensajes.CssClass = "formError"
-        '    End If
-        '    If valido Then
-        '        Dim novedad As New EE.Novedades
-        '        novedad.ID = 0
-        '        novedad.Texto = textoHTML
-        '        If Not imgByte Is Nothing Then
-        '            novedad.Foto = imgByte
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(nombre) And String.IsNullOrEmpty(contenido) Then
+                valido = False
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
+            End If
+            If valido Then
+                Dim elementoAcademico As New ElementoAcademico
+                elementoAcademico.CodigoAcademico = 0
+                elementoAcademico.Nombre = nombre
+                elementoAcademico.Contenido = contenido
+                If Not imgByte Is Nothing Then
+                    elementoAcademico.Imagen = imgByte
+                End If
+                elementoAcademico.Estado = "INICIADO" 'enum?
+
+                If elementoAcademicoBusiness.Crear(elementoAcademico) Then
+                    MensajeOk(lblMensajes)
+
+                    areaContenido.InnerText = ""
+                Else
+                    MensajeError(lblMensajes)
+                End If
+            End If
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
+
+        GridView1_.EditIndex = -1
+        CargarElementosAcademicos()
+    End Sub
+
+    Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
+        Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
+        Session("elementoSeleccionado") = elementoAcademicoBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
+        elementoAcademico = Session("usuarioSeleccionado")
+
+        Me.txtNombre.Text = elementoAcademico.Nombre
+        areaContenido.InnerText = elementoAcademico.Contenido
+
+        'Me.txtUsername.Text = usuarioSeleccionado.UserName
+        'Me.cbxActivo.Checked = usuarioSeleccionado.Activo
+        'Me.cbxAdmin.Checked = usuarioSeleccionado.Admin
+        'Me.lstbFamilia.ClearSelection()
+        'For Each flia In usuarioSeleccionado.GetFamilias()
+        '    For Each item As ListItem In lstbFamilia.Items
+        '        If item.ToString() = flia.Name Then
+        '            item.Selected = True
         '        End If
-        '        novedad.Fecha = Date.Now
-        '        novedad.IDCategoriaTema = Tema
+        '    Next
+        'Next
 
-        '        novedadesBusiness.Crear(novedad)
-        '        MensajeOk(lblMensajes)
-
-        '        areaHTML.InnerText = ""
-        '    End If
-        'Catch ex As Exception
-        '    MensajeError(lblMensajes)
-        'End Try
-
-        'GridView1_.EditIndex = -1
-        'CargarElementosAcademicos()
+        'Me.txtPassword.Text = "-"
+        'Me.txtConfirmPassword.Text = "-"
     End Sub
 End Class

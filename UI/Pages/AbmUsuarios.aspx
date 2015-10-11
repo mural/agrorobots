@@ -142,7 +142,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField>
+                <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
                         <asp:LinkButton ID="lnkBorrar" runat="server"
                             CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"

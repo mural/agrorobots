@@ -32,13 +32,40 @@ Partial Public Class AbmElementoAcademico
     Protected WithEvents lblTitulo_10109 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''areaHTML control.
+    '''nombre_11 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents areaHTML As Global.System.Web.UI.HtmlControls.HtmlTextArea
+    Protected WithEvents nombre_11 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtNombre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''contenido_705 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents contenido_705 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''areaContenido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents areaContenido As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
     '''imagen_2 control.

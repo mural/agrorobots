@@ -6,7 +6,7 @@
             plugins: "code",
             menubar: false,
             toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
-            selector: 'textarea'
+            selector: 'textarea.editable'
         });
     </script>
 </asp:Content>
@@ -23,7 +23,18 @@
         <asp:Label ID="lblTitulo_10109" runat="server" Text="titulo"></asp:Label>
     </h2>
     <br />
-    <textarea id="areaHTML" style="width: 100%" runat="server"></textarea>
+    <asp:Label ID="nombre_11" runat="server" Text="nombre"></asp:Label>
+    <br />
+    <asp:TextBox ID="txtNombre" runat="server"
+        onkeypress="return alfanumerico1(event)"
+        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+    </asp:TextBox>
+    <br />
+    <br />
+    <asp:Label ID="contenido_705" runat="server" Text="contenido"></asp:Label>
+    <br />
+    <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
     <br />
     <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
     <br />
@@ -67,9 +78,9 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="texto_46">
+                        <asp:TemplateField HeaderText="nombre_11">
                             <ItemTemplate>
-                                <asp:Label ID="lblTexto" runat="server"
+                                <asp:Label ID="lblNombre" runat="server"
                                     Text='<%# RecortarTexto(Eval("Nombre"))%>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
@@ -80,39 +91,45 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Fecha_133">
+                        <asp:TemplateField HeaderText="precio_41">
                             <ItemTemplate>
-                                <asp:Label ID="lblFecha" runat="server"
+                                $
+                                <asp:Label ID="lblPrecio" runat="server"
                                     Text='<%# Eval("Precio")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Foto_47">
+                        <asp:TemplateField HeaderText="estado">
                             <ItemTemplate>
-                                <asp:Image ID="imgFoto" runat="server" CssClass="imagenesTabla"
-                                    ImageUrl='<%# ObtenerImagen(Eval("Imagen"))%>'></asp:Image>
+                                <asp:Label ID="lblEstado" runat="server"
+                                    Text='<%# Eval("Estado")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderText="Imagen_2">
                             <ItemTemplate>
-                                <asp:LinkButton ID="lnkRemove" runat="server"
-                                    CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete"> <img src="/Imagenes/borrar.png" alt="x" /></asp:LinkButton>
+                                <asp:Image ID="imgImagen" runat="server" CssClass="imagenesTabla"
+                                    ImageUrl='<%# ObtenerImagen(Eval("Imagen"))%>'></asp:Image>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField ShowHeader="False">
                             <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkBorrar" runat="server"
+                                    CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
+                                    Text="borrar" OnClick="Delete">
+                            <img src="/Imagenes/borrar.png" alt="x" />
+                                </asp:LinkButton>
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
-                                    CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
-                            </EditItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkSeleccionar" runat="server" CausesValidation="False"
+                                    CommandName="Select" Text="seleccionar">
+                            <img src="/Imagenes/ir.png" alt="->" />
+                                </asp:LinkButton>
+                            </ItemTemplate>
                         </asp:TemplateField>
 
                     </Columns>

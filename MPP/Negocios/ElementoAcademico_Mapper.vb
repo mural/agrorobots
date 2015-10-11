@@ -21,6 +21,7 @@ Public Class ElementoAcademico_Mapper
         hdatos.Add("@Clases", obj.Clases)
         hdatos.Add("@Precio", obj.Precio)
         hdatos.Add("@Imagen", obj.Imagen)
+        hdatos.Add("@Estado", obj.Estado)
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As ElementoAcademico, Optional ByVal insertar As Boolean = False) As Boolean
@@ -29,18 +30,19 @@ Public Class ElementoAcademico_Mapper
 
     Public Overrides Sub DSaEE(ByRef objNuevo As ElementoAcademico, ByRef Item As DataRow)
         objNuevo.CodigoAcademico = CInt(Item("CodigoAcademico"))
-        objNuevo.Comentario = CStr(Item("Comentario"))
+        objNuevo.Comentario = DbStringOrNull(Item("Comentario"))
         objNuevo.Contenido = CStr(Item("Contenido"))
-        objNuevo.CriteriosAprobacion = CStr(Item("CriteriosAprobacion"))
-        objNuevo.Descripcion = CStr(Item("Descripcion"))
+        objNuevo.CriteriosAprobacion = DbStringOrNull(Item("CriteriosAprobacion"))
+        objNuevo.Descripcion = DbStringOrNull(Item("Descripcion"))
         objNuevo.Duracion = CInt(Item("Duracion"))
         objNuevo.FechaInicio = CDate(Item("FechaInicio"))
         objNuevo.Nombre = CStr(Item("Nombre"))
-        objNuevo.Temas = CStr(Item("Temas"))
+        objNuevo.Temas = DbStringOrNull(Item("Temas"))
         objNuevo.Cupo = CInt(Item("Cupo"))
         objNuevo.Clases = CInt(Item("Clases"))
         objNuevo.Precio = CDec(Item("Precio"))
         objNuevo.Imagen = DbImageOrNull(Item("Imagen"))
+        objNuevo.Estado = CStr(Item("Estado"))
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As ElementoAcademico
