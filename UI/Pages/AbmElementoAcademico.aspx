@@ -40,6 +40,7 @@
     <br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
+    &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" />
     <br />
     <br />
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
@@ -55,92 +56,83 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <div id="dvGrid">
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
-                <br />
-                <asp:GridView ID="GridView1_" runat="server"
-                    ShowHeaderWhenEmpty="True"
-                    AutoGenerateColumns="False"
-                    RowStyle-CssClass="light"
-                    AlternatingRowStyle-CssClass="dark"
-                    AllowPaging="true" ShowFooter="False"
-                    OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
-                    OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
-                    PageSize="5">
-                    <EmptyDataTemplate>
-                        <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
-                    </EmptyDataTemplate>
-                    <Columns>
-                        <asp:TemplateField HeaderText="ID" Visible="False">
-                            <ItemTemplate>
-                                <asp:Label ID="lblID" runat="server"
-                                    Text='<%# Eval("CodigoAcademico")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+        <asp:GridView ID="GridView1_" runat="server"
+            ShowHeaderWhenEmpty="True"
+            AutoGenerateColumns="False"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
+            AllowPaging="true" ShowFooter="False"
+            OnPageIndexChanging="OnPaging"
+            PageSize="5">
+            <EmptyDataTemplate>
+                <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+            </EmptyDataTemplate>
+            <Columns>
+                <asp:TemplateField HeaderText="ID" Visible="False">
+                    <ItemTemplate>
+                        <asp:Label ID="lblID" runat="server"
+                            Text='<%# Eval("CodigoAcademico")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="nombre_11">
-                            <ItemTemplate>
-                                <asp:Label ID="lblNombre" runat="server"
-                                    Text='<%# RecortarTexto(Eval("Nombre"))%>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txtTexto" runat="server"
-                                    Text='<%# Eval("Nombre")%>' CausesValidation="False"
-                                    onkeypress="return alfanumerico1(event)"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="nombre_11">
+                    <ItemTemplate>
+                        <asp:Label ID="lblNombre" runat="server"
+                            Text='<%# RecortarTexto(Eval("Nombre"))%>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtTexto" runat="server"
+                            Text='<%# Eval("Nombre")%>' CausesValidation="False"
+                            onkeypress="return alfanumerico1(event)"
+                            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="precio_41">
-                            <ItemTemplate>
-                                $
+                <asp:TemplateField HeaderText="precio_41">
+                    <ItemTemplate>
+                        $
                                 <asp:Label ID="lblPrecio" runat="server"
                                     Text='<%# Eval("Precio")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="estado">
-                            <ItemTemplate>
-                                <asp:Label ID="lblEstado" runat="server"
-                                    Text='<%# Eval("Estado")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="estado">
+                    <ItemTemplate>
+                        <asp:Label ID="lblEstado" runat="server"
+                            Text='<%# Eval("Estado")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Imagen_2">
-                            <ItemTemplate>
-                                <asp:Image ID="imgImagen" runat="server" CssClass="imagenesTabla"
-                                    ImageUrl='<%# ObtenerImagen(Eval("Imagen"))%>'></asp:Image>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="Imagen_2">
+                    <ItemTemplate>
+                        <asp:Image ID="imgImagen" runat="server" CssClass="imagenesTabla"
+                            ImageUrl='<%# ObtenerImagen(Eval("Imagen"))%>'></asp:Image>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkBorrar" runat="server"
-                                    CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete">
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkBorrar" runat="server"
+                            CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
+                            Text="borrar" OnClick="Delete">
                             <img src="/Imagenes/borrar.png" alt="x" />
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkSeleccionar" runat="server" CausesValidation="False"
-                                    CommandName="Select" Text="seleccionar">
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkSeleccionar" runat="server" CausesValidation="False"
+                            CommandName="Select" Text="seleccionar">
                             <img src="/Imagenes/ir.png" alt="->" />
-                                </asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                    </Columns>
+            </Columns>
 
-                    <PagerSettings Mode="NumericFirstLast" FirstPageText="<--" LastPageText="-->" />
-                </asp:GridView>
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="GridView1_" />
-            </Triggers>
-        </asp:UpdatePanel>
+            <PagerSettings Mode="NumericFirstLast" FirstPageText="<--" LastPageText="-->" />
+        </asp:GridView>
         <br />
     </div>
 </asp:Content>

@@ -8,6 +8,7 @@ Public Class AbmElementoAcademico
     Dim elementoAcademico As New ElementoAcademico
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        elementoAcademico = Session("elementoSeleccionado")
         If Not (Page.IsPostBack) Then
             CargarElementosAcademicos()
         End If
@@ -31,46 +32,50 @@ Public Class AbmElementoAcademico
         GridView1_.EditIndex = -1
         CargarElementosAcademicos()
     End Sub
-    Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
-        'Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("lblID"), Label).Text
-        'Dim Texto As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("txtTexto"), TextBox).Text
-        'Dim Tema As Integer = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("comboTipos"), DropDownList).SelectedValue
+    Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
+        If Not elementoAcademico Is Nothing Then
 
-        'Dim img As FileUpload = CType(imgUpload, FileUpload)
-        'Dim imgByte As Byte() = Nothing
-        'If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
-        '    Dim File As HttpPostedFile = imgUpload.PostedFile
-        '    imgByte = New Byte(File.ContentLength - 1) {}
-        '    'force the control to load data in array
-        '    File.InputStream.Read(imgByte, 0, File.ContentLength)
-        'End If
+            Dim Nombre = txtNombre.Text
+            Dim Contenido = areaContenido.InnerText
+            Dim img As FileUpload = CType(imgUpload, FileUpload)
+            Dim imgByte As Byte() = Nothing
+            If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
+                Dim File As HttpPostedFile = imgUpload.PostedFile
+                imgByte = New Byte(File.ContentLength - 1) {}
+                'force the control to load data in array
+                File.InputStream.Read(imgByte, 0, File.ContentLength)
+            End If
 
-        'Try
-        '    Dim valido = True
-        '    If String.IsNullOrEmpty(Texto) Then
-        '        valido = False
-        '        lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-        '        lblMensajes.CssClass = "formError"
-        '    End If
-        '    If valido Then
-        '        Dim novedad As New EE.Novedades
-        '        novedad.ID = CType(ID, Integer)
-        '        novedad.Texto = Texto
-        '        If Not imgByte Is Nothing Then
-        '            novedad.Foto = imgByte
-        '        End If
-        '        novedad.Fecha = Date.Now
-        '        novedad.IDCategoriaTema = Tema
+            Try
+                Dim valido = True
+                If String.IsNullOrEmpty(Nombre) And String.IsNullOrEmpty(Contenido) Then
+                    valido = False
+                    lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                    lblMensajes.CssClass = "formError"
+                End If
+                If valido Then
+                    elementoAcademico.Nombre = Nombre
+                    elementoAcademico.Contenido = Contenido
+                    If Not imgByte Is Nothing Then
+                        elementoAcademico.Imagen = imgByte
+                    End If
+                    elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
 
-        '        novedadesBusiness.Actualizar(novedad)
-        '        MensajeOk(lblMensajes)
-        '    End If
-        'Catch ex As Exception
-        '    MensajeError(lblMensajes)
-        'End Try
+                    If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
+                        MensajeOk(lblMensajes)
 
-        'GridView1_.EditIndex = -1
-        'CargarElementosAcademicos()
+                        Limpiar()
+                    Else
+                        MensajeError(lblMensajes)
+                    End If
+                End If
+            Catch ex As Exception
+                MensajeError(lblMensajes)
+            End Try
+
+            GridView1_.EditIndex = -1
+            CargarElementosAcademicos()
+        End If
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
@@ -116,12 +121,12 @@ Public Class AbmElementoAcademico
                 If Not imgByte Is Nothing Then
                     elementoAcademico.Imagen = imgByte
                 End If
-                elementoAcademico.Estado = "INICIADO" 'enum?
+                elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
 
                 If elementoAcademicoBusiness.Crear(elementoAcademico) Then
                     MensajeOk(lblMensajes)
 
-                    areaContenido.InnerText = ""
+                    Limpiar()
                 Else
                     MensajeError(lblMensajes)
                 End If
@@ -137,24 +142,17 @@ Public Class AbmElementoAcademico
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
         Session("elementoSeleccionado") = elementoAcademicoBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
-        elementoAcademico = Session("usuarioSeleccionado")
+        elementoAcademico = Session("elementoSeleccionado")
 
         Me.txtNombre.Text = elementoAcademico.Nombre
-        areaContenido.InnerText = elementoAcademico.Contenido
-
-        'Me.txtUsername.Text = usuarioSeleccionado.UserName
-        'Me.cbxActivo.Checked = usuarioSeleccionado.Activo
-        'Me.cbxAdmin.Checked = usuarioSeleccionado.Admin
-        'Me.lstbFamilia.ClearSelection()
-        'For Each flia In usuarioSeleccionado.GetFamilias()
-        '    For Each item As ListItem In lstbFamilia.Items
-        '        If item.ToString() = flia.Name Then
-        '            item.Selected = True
-        '        End If
-        '    Next
-        'Next
-
-        'Me.txtPassword.Text = "-"
-        'Me.txtConfirmPassword.Text = "-"
+        Me.areaContenido.InnerText = elementoAcademico.Contenido
     End Sub
+
+    Private Sub Limpiar()
+        Me.txtNombre.Text = ""
+        areaContenido.InnerText = ""
+        'imagen
+        Session("elementoSeleccionado") = Nothing
+    End Sub
+
 End Class

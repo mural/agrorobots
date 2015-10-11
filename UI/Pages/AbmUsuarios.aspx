@@ -74,7 +74,7 @@
             RowStyle-CssClass="light"
             AlternatingRowStyle-CssClass="dark"
             OnPageIndexChanging="OnPaging"
-            AllowPaging="True" PageSize="5">
+            AllowPaging="True" PageSize="5" ShowHeaderWhenEmpty="True">
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>
