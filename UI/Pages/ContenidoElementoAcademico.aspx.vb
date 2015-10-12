@@ -1,5 +1,6 @@
 ﻿Imports EE
 Imports Business
+Imports EE.ElementoAcademico
 
 Public Class ContenidoElementoAcademico
     Inherits PaginaAutorizada
@@ -20,7 +21,7 @@ Public Class ContenidoElementoAcademico
     End Sub
 
     Private Sub CargarElementosAcademicos()
-        Me.GridView1_.DataSource = elementoAcademicoBusiness.Listar
+        Me.GridView1_.DataSource = elementoAcademicoBusiness.ListarPorEstado(ElementoAcademicoEnum.SinContenido)
         Me.GridView1_.DataBind()
     End Sub
 
@@ -32,34 +33,26 @@ Public Class ContenidoElementoAcademico
         GridView1_.EditIndex = -1
         CargarElementosAcademicos()
     End Sub
-    Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
+    Protected Sub Update(sender As Object, e As EventArgs) Handles btnEnviar_135.Click
         If Not elementoAcademico Is Nothing Then
 
-            Dim Nombre = txtNombre.Text
-            Dim Contenido = areaContenido.InnerText
-            Dim img As FileUpload = CType(imgUpload, FileUpload)
-            Dim imgByte As Byte() = Nothing
-            If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
-                Dim File As HttpPostedFile = imgUpload.PostedFile
-                imgByte = New Byte(File.ContentLength - 1) {}
-                'force the control to load data in array
-                File.InputStream.Read(imgByte, 0, File.ContentLength)
-            End If
+            Dim Temas = areaTemas.InnerText
+            Dim Criterios = areaCriterios.InnerText
+            Dim Duracion = txtDuracion.Text 'numeros
 
             Try
                 Dim valido = True
-                If String.IsNullOrEmpty(Nombre) And String.IsNullOrEmpty(Contenido) Then
+                Dim DuracionInt As Integer
+                If String.IsNullOrEmpty(Temas) And String.IsNullOrEmpty(Criterios) And String.IsNullOrEmpty(Duracion) And Integer.TryParse(Duracion, DuracionInt) Then
                     valido = False
                     lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                     lblMensajes.CssClass = "formError"
                 End If
                 If valido Then
-                    elementoAcademico.Nombre = Nombre
-                    elementoAcademico.Contenido = Contenido
-                    If Not imgByte Is Nothing Then
-                        elementoAcademico.Imagen = imgByte
-                    End If
-                    elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
+                    elementoAcademico.Temas = Temas
+                    elementoAcademico.CriteriosAprobacion = Criterios
+                    elementoAcademico.Duracion = DuracionInt
+                    elementoAcademico.Estado = elementoAcademico.EstadoEnumATexto(ElementoAcademicoEnum.ConContenido)
 
                     If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
                         MensajeOk(lblMensajes)
@@ -94,64 +87,21 @@ Public Class ContenidoElementoAcademico
         lblMensajes.Text = ""
     End Sub
 
-    Protected Sub btnCrear_32_Click(sender As Object, e As EventArgs) Handles btnCrear_32.Click
-        Dim nombre = Me.txtNombre.Text
-        Dim contenido = areaContenido.InnerText
-
-        Dim imgByte As Byte() = Nothing
-        If imgUpload.HasFile AndAlso Not imgUpload.PostedFile Is Nothing Then
-            Dim File As HttpPostedFile = imgUpload.PostedFile
-            imgByte = New Byte(File.ContentLength - 1) {}
-            'force the control to load data in array
-            File.InputStream.Read(imgByte, 0, File.ContentLength)
-        End If
-
-        Try
-            Dim valido = True
-            If String.IsNullOrEmpty(nombre) And String.IsNullOrEmpty(contenido) Then
-                valido = False
-                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-                lblMensajes.CssClass = "formError"
-            End If
-            If valido Then
-                Dim elementoAcademico As New ElementoAcademico
-                elementoAcademico.CodigoAcademico = 0
-                elementoAcademico.Nombre = nombre
-                elementoAcademico.Contenido = contenido
-                If Not imgByte Is Nothing Then
-                    elementoAcademico.Imagen = imgByte
-                End If
-                elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
-
-                If elementoAcademicoBusiness.Crear(elementoAcademico) Then
-                    MensajeOk(lblMensajes)
-
-                    Limpiar()
-                Else
-                    MensajeError(lblMensajes)
-                End If
-            End If
-        Catch ex As Exception
-            MensajeError(lblMensajes)
-        End Try
-
-        GridView1_.EditIndex = -1
-        CargarElementosAcademicos()
-    End Sub
-
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
         Session("elementoSeleccionado") = elementoAcademicoBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
         elementoAcademico = Session("elementoSeleccionado")
 
         Me.txtNombre.Text = elementoAcademico.Nombre
-        Me.areaContenido.InnerText = elementoAcademico.Contenido
+        Me.lblContenido.Text = elementoAcademico.Contenido
     End Sub
 
     Private Sub Limpiar()
         Me.txtNombre.Text = ""
-        areaContenido.InnerText = ""
-        'imagen
+        Me.lblContenido.Text = ""
+        Me.areaTemas.InnerText = ""
+        Me.areaCriterios.InnerText = ""
+        Me.txtDuracion.Text = ""
         Session("elementoSeleccionado") = Nothing
     End Sub
 

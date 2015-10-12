@@ -1,5 +1,6 @@
 ﻿Imports EE
 Imports Business
+Imports EE.ElementoAcademico
 
 Public Class AbmElementoAcademico
     Inherits PaginaAutorizada
@@ -59,7 +60,7 @@ Public Class AbmElementoAcademico
                     If Not imgByte Is Nothing Then
                         elementoAcademico.Imagen = imgByte
                     End If
-                    elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
+                    elementoAcademico.Estado = elementoAcademico.EstadoEnumATexto(ElementoAcademicoEnum.SinContenido)
 
                     If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
                         MensajeOk(lblMensajes)

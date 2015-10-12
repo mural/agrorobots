@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class ContenidoElementoAcademico
 
     '''<summary>
-    '''nav_10109 control.
+    '''nav_10110 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents nav_10109 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nav_10110 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10109 control.
+    '''lblTitulo_10110 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10109 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10110 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''nombre_11 control.
@@ -59,49 +59,76 @@ Partial Public Class ContenidoElementoAcademico
     Protected WithEvents contenido_705 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''areaContenido control.
+    '''lblContenido control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents areaContenido As Global.System.Web.UI.HtmlControls.HtmlTextArea
+    Protected WithEvents lblContenido As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''imagen_2 control.
+    '''temas_119 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents imagen_2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents temas_119 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''imgUpload control.
+    '''areaTemas control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents areaTemas As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
-    '''btnCrear_32 control.
+    '''criterios_120 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents criterios_120 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''btnActualizar_405 control.
+    '''areaCriterios control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents areaCriterios As Global.System.Web.UI.HtmlControls.HtmlTextArea
+
+    '''<summary>
+    '''duracion_113 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents duracion_113 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtDuracion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDuracion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnEnviar_135 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnEnviar_135 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''lblMensajes control.

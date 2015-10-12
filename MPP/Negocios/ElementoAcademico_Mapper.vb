@@ -43,6 +43,7 @@ Public Class ElementoAcademico_Mapper
         objNuevo.Precio = CDec(Item("Precio"))
         objNuevo.Imagen = DbImageOrNull(Item("Imagen"))
         objNuevo.Estado = CStr(Item("Estado"))
+        objNuevo.EstadoActual = objNuevo.TextoAEstadoEnum(objNuevo.Estado)
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As ElementoAcademico
