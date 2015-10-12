@@ -74,6 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncuestaResultado.vb" />
+    <Compile Include="Negocio\Comprobante.vb" />
+    <Compile Include="Negocio\ComprobanteDetalle.vb" />
+    <Compile Include="Negocio\ComprobanteNota.vb" />
+    <Compile Include="Negocio\ComprobanteNotaDetalle.vb" />
     <Compile Include="Negocio\EjemploException.vb" />
     <Compile Include="Negocio\ElementoAcademico.vb" />
     <Compile Include="Servicios\Bitacora.vb" />

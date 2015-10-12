@@ -76,6 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mapper.vb" />
+    <Compile Include="Negocios\ComprobanteDetalle_Mapper.vb" />
+    <Compile Include="Negocios\ComprobanteNotaDetalle_Mapper.vb" />
+    <Compile Include="Negocios\ComprobanteNota_Mapper.vb" />
+    <Compile Include="Negocios\Comprobante_Mapper.vb" />
     <Compile Include="Negocios\ElementoAcademico_Mapper.vb" />
     <Compile Include="Servicios\Bitacora_Data.vb" />
     <Compile Include="Servicios\CategoriaTema_Mapper.vb" />

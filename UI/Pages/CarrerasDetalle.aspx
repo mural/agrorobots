@@ -33,23 +33,23 @@
                     <asp:Label ID="lblDescripcion" runat="server" Text="contenido"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="duracion_113" runat="server" Text="contenido" CssClass="w3-text-blue w3-large"></asp:Label>
+                    <asp:Label ID="duracion_113" runat="server" Text="duracion" CssClass="w3-text-blue w3-large"></asp:Label>
                     <asp:Label ID="lblDuracion" runat="server" Text="duracion"></asp:Label>&nbsp;hs
                     <br />
                     <br />
-                    <asp:Label ID="clases_114" runat="server" Text="contenido" CssClass="w3-text-blue w3-large"></asp:Label>
+                    <asp:Label ID="clases_114" runat="server" Text="clases" CssClass="w3-text-blue w3-large"></asp:Label>
                     <asp:Label ID="lblClases" runat="server" Text="clases"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="precio_41" runat="server" Text="contenido" CssClass="w3-text-blue w3-large"></asp:Label>
+                    <asp:Label ID="precio_41" runat="server" Text="precio" CssClass="w3-text-blue w3-large"></asp:Label>
                     $&nbsp;<asp:Label ID="lblPrecio" runat="server" Text="precio"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="cupo_115" runat="server" Text="contenido" CssClass="w3-text-blue w3-large"></asp:Label>
+                    <asp:Label ID="cupo_115" runat="server" Text="cupo" CssClass="w3-text-blue w3-large"></asp:Label>
                     <asp:Label ID="lblCupo" runat="server" Text="cupo"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="fechainicio_116" runat="server" Text="contenido" CssClass="w3-text-blue w3-large"></asp:Label>
+                    <asp:Label ID="fechainicio_116" runat="server" Text="fecha inicio" CssClass="w3-text-blue w3-large"></asp:Label>
                     <asp:Label ID="lblFechaInicio" runat="server" Text="fecha inicio"></asp:Label>
                     <br />
                     <br />

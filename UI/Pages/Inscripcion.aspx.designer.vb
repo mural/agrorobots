@@ -57,4 +57,85 @@ Partial Public Class Inscripcion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTitulo_57 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblTitulo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''contenido_705 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents contenido_705 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblNombre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNombre As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''precio_41 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents precio_41 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblPrecio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPrecio As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''formadePago_121 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents formadePago_121 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''RadioButtonList1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+
+    '''<summary>
+    '''inscribirse_118 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inscribirse_118 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 End Class
