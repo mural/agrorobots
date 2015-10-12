@@ -162,6 +162,7 @@
     <Content Include="Imagenes\arrow.png" />
     <Content Include="Imagenes\avatar.gif" />
     <Content Include="Imagenes\borrar.png" />
+    <Content Include="Imagenes\curso_generico.jpg" />
     <Content Include="Imagenes\faq.jpg" />
     <Content Include="Imagenes\home_1_200x140.jpg" />
     <Content Include="Imagenes\home_2_200x140.png" />
@@ -189,6 +190,7 @@
     <Content Include="Pages\CarrerasDetalle.aspx" />
     <Content Include="Pages\Comparacion.aspx" />
     <Content Include="Pages\ContenidoCarrera.aspx" />
+    <Content Include="Pages\ContenidoElementoAcademico.aspx" />
     <Content Include="Pages\ContenidoMateria.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
     <Content Include="Pages\ExamenCorrecion.aspx" />
@@ -196,6 +198,7 @@
     <Content Include="Pages\ExamenEvaluacionRevision.aspx" />
     <Content Include="Pages\ExamenMateria.aspx" />
     <Content Include="Pages\ExamenResultado.aspx" />
+    <Content Include="Pages\Inscripcion.aspx" />
     <Content Include="Pages\MateriasDetalle.aspx" />
     <Content Include="Pages\Materias.aspx" />
     <Content Include="Pages\Mensajes.aspx" />
@@ -563,6 +566,13 @@
       <DependentUpon>ContenidoCarrera.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\ContenidoElementoAcademico.aspx.designer.vb">
+      <DependentUpon>ContenidoElementoAcademico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ContenidoElementoAcademico.aspx.vb">
+      <DependentUpon>ContenidoElementoAcademico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\ContenidoMateria.aspx.designer.vb">
       <DependentUpon>ContenidoMateria.aspx</DependentUpon>
     </Compile>
@@ -611,6 +621,13 @@
     <Compile Include="Pages\ExamenResultado.aspx.vb">
       <DependentUpon>ExamenResultado.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Inscripcion.aspx.designer.vb">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscripcion.aspx.vb">
+      <DependentUpon>Inscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\MateriasDetalle.aspx.designer.vb">
       <DependentUpon>MateriasDetalle.aspx</DependentUpon>

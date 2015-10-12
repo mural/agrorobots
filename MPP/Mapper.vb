@@ -52,11 +52,11 @@
         End If
 
         DS = oDatos.Leer(nombreProcedimiento, hdatos)
-        Dim objNuevo As New EE
+        Dim objNuevo = Nothing
 
         If DS.Tables(0).Rows.Count > 0 Then
+            objNuevo = New EE
             For Each Item As DataRow In DS.Tables(0).Rows
-
                 DSaEE(objNuevo, Item)
             Next
         End If

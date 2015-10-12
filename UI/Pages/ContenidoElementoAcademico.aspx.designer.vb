@@ -11,34 +11,43 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CarrerasDetalle
+Partial Public Class ContenidoElementoAcademico
 
     '''<summary>
-    '''navCatalogo_50 control.
+    '''nav_10109 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nav_10109 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''navActual control.
+    '''lblTitulo_10109 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navActual As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10109 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo control.
+    '''nombre_11 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nombre_11 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtNombre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''contenido_705 control.
@@ -50,110 +59,101 @@ Partial Public Class CarrerasDetalle
     Protected WithEvents contenido_705 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblDescripcion control.
+    '''areaContenido control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblDescripcion As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents areaContenido As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
-    '''duracion_113 control.
+    '''imagen_2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents duracion_113 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents imagen_2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblDuracion control.
+    '''imgUpload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblDuracion As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
-    '''clases_114 control.
+    '''btnCrear_32 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents clases_114 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''lblClases control.
+    '''btnActualizar_405 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblClases As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''precio_41 control.
+    '''lblMensajes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents precio_41 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblPrecio control.
+    '''txtBusqueda control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPrecio As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtBusqueda As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''cupo_115 control.
+    '''buscar_31 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cupo_115 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents buscar_31 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''lblCupo control.
+    '''limpiar_36 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblCupo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''fechainicio_116 control.
+    '''ScriptManager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fechainicio_116 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
 
     '''<summary>
-    '''lblFechaInicio control.
+    '''GridView1_ control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblFechaInicio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''inscribirse_118 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents inscribirse_118 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 End Class

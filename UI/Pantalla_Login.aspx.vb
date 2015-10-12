@@ -43,7 +43,9 @@ Public Class Principal
 
     End Sub
 
-    Protected Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Submit_500.Click
+    Protected Sub loginClick(ByVal sender As Object, ByVal e As EventArgs) Handles Submit_500.Click
+        Dim idElementoAcademico = Request.QueryString("inscribir")
+
         usuarioEntrante.UserName = login_username.Text
         usuarioEntrante.Password = login_password.Text
 
@@ -62,12 +64,17 @@ Public Class Principal
                 End If
                 ActualizarMensajes(mensajesNoLeidos)
 
-                FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
+                If Not String.IsNullOrEmpty(idElementoAcademico) Then 'ir a inscribirse
+                    FormsAuthentication.SetAuthCookie(usuarioEntrante.Apellido, False)
+                    Response.Redirect(PaginasConocidas.INSCRIPCION + "?id=" + idElementoAcademico)
+                Else 'flujo comun
+                    FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
+                End If
             Catch no As NoActivoException
                 Resultado.Text = idiomas.GetTranslationById(73) 'Usuario no activado, revise su email."
             Catch inte As IntentosLoginException
                 'Intentos de Login superados       'recupere su clave
-                Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='Cuenta/RecuperarClave.aspx'>" +
+                Resultado.Text = idiomas.GetTranslationById(70) + ", <a href='/Cuenta/RecuperarClave.aspx'>" +
                     idiomas.GetTranslationById(71) + "</a>"
             Catch ex As Exception
                 Resultado.Text = idiomas.GetTranslationById(90048) 'Datos invalidos

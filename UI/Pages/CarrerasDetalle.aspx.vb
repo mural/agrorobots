@@ -10,10 +10,9 @@ Public Class CarrerasDetalle
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idElementoAcademico = Request.QueryString("id")
-        If Not String.IsNullOrEmpty(idElementoAcademico) Then
+        Dim idElementoAcademicoInt As Integer
+        If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademico_Business.Obtener(idElementoAcademicoInt) Is Nothing Then
             CargarElementoAcademico()
-            lblTitulo.Text = elementoAcademico.Nombre
-            navActual.Text = elementoAcademico.Nombre
         Else
             Response.Redirect(PaginasConocidas.HOME)
         End If
@@ -22,11 +21,29 @@ Public Class CarrerasDetalle
     Private Sub CargarElementoAcademico()
         Try
             elementoAcademico = elementoAcademico_Business.Obtener(CInt(idElementoAcademico))
+
+            navActual.Text = elementoAcademico.Nombre
+            lblTitulo.Text = elementoAcademico.Nombre
+            lblDescripcion.Text = elementoAcademico.Descripcion
+            lblDuracion.Text = elementoAcademico.Duracion
+            lblClases.Text = elementoAcademico.Clases
+            lblPrecio.Text = elementoAcademico.Precio
+            lblCupo.Text = elementoAcademico.Cupo
+            lblFechaInicio.Text = elementoAcademico.FechaInicio
         Catch e As Exception
         End Try
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
 
+    End Sub
+
+    Protected Sub inscribirse_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
+        'comprobar sesion
+        If UsuarioLogueado() Then
+            Response.Redirect(PaginasConocidas.INSCRIPCION + "?id=" + idElementoAcademico)
+        Else
+            Response.Redirect(PaginasConocidas.LOGIN + "?inscribir=" + idElementoAcademico)
+        End If
     End Sub
 End Class

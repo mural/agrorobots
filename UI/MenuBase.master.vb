@@ -82,6 +82,8 @@ Public Class MenuBase
                 Response.Redirect("ContenidoCarrera.aspx")
             Case "ContenidoMateria"
                 Response.Redirect("ContenidoMateria.aspx")
+            Case "ContenidoElementoAcademico_10110"
+                Response.Redirect("ContenidoElementoAcademico.aspx")
 
                 'administrativo
             Case "Pago"

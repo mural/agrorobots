@@ -114,3 +114,7 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
 .txtChico {
     width: 40px;
 }
+
+#container h2 {
+    margin: 0;
+}

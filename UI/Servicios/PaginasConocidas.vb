@@ -26,10 +26,16 @@
     Public Shared ReadOnly CATALOGO_DETALLE As String = DIR_PAGES + "CarrerasDetalle" + ASPX
     Public Shared ReadOnly COMPARACION As String = DIR_PAGES + "Comparacion" + ASPX
 
+    'Inscripcion
+    Public Shared Property INSCRIPCION As String = DIR_PAGES + "Inscripcion" + ASPX
+
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX
     Public Shared ReadOnly MENSAJES As String = DIR_PAGES + "Mensajes" + ASPX
 
+    'Gestion
+    Public Shared Property GESTION_CURSOS As String = DIR_PAGES + "AbmElementoAcademico" + ASPX
+    Public Shared Property CONTENIDO_CURSOS As String = DIR_PAGES + "ContenidoElementoAcademico" + ASPX
 
 
 End Class

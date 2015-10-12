@@ -144,20 +144,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Descripcion_12">
-                            <ItemTemplate>
-                                <asp:Label ID="lblDescripcion" runat="server"
-                                    Text='<%# Eval("Descripcion")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="ControlID_805">
-                            <ItemTemplate>
-                                <asp:Label ID="lblControlID" runat="server"
-                                    Text='<%# Eval("ControlID")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
                         <asp:TemplateField HeaderText="URL">
                             <ItemTemplate>
                                 <asp:Label ID="lblURL" runat="server"
