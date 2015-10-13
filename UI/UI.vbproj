@@ -229,10 +229,12 @@
     <Content Include="Pages\Pantalla_Principal.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\card.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.card.js" />
     <Content Include="Scripts\jquery.slidepanel.setup.js" />
     <Content Include="Scripts\jquery.tabs.setup.js" />
     <Content Include="Scripts\jquery.ui.min.js" />

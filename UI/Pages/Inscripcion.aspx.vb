@@ -31,13 +31,8 @@ Public Class Inscripcion
             nav_curso.Text = elementoAcademico.Nombre
             nav_curso_link.HRef = PaginasConocidas.CATALOGO_DETALLE + "?id=" + idElementoAcademico
 
-            'lblTitulo.Text = elementoAcademico.Nombre
-            'lblDescripcion.Text = elementoAcademico.Descripcion
-            'lblDuracion.Text = elementoAcademico.Duracion
-            'lblClases.Text = elementoAcademico.Clases
-            'lblPrecio.Text = elementoAcademico.Precio
-            'lblCupo.Text = elementoAcademico.Cupo
-            'lblFechaInicio.Text = elementoAcademico.FechaInicio
+            lblNombre.Text = elementoAcademico.Nombre
+            lblPrecio.Text = elementoAcademico.Precio
         Catch e As Exception
         End Try
     End Sub
@@ -53,7 +48,6 @@ Public Class Inscripcion
         Dim subtotal As Decimal = 0
 
         Dim comprobanteDetalle1 As New ComprobanteDetalle
-        Dim comprobanteDetalle2 As New ComprobanteDetalle
 
         comprobanteDetalle1.CodigoProducto = idElementoAcademico
         comprobanteDetalle1.Detalle = elementoAcademico.Nombre
@@ -62,21 +56,22 @@ Public Class Inscripcion
         comprobanteDetalle1.Subtotal = elementoAcademico.Precio 'calcular
         subtotal += comprobanteDetalle1.Subtotal
 
-        comprobanteDetalle2.CodigoProducto = idElementoAcademico
-        comprobanteDetalle2.Detalle = elementoAcademico.Nombre
-        comprobanteDetalle2.Cantidad = 2
-        comprobanteDetalle2.PrecioUnitario = elementoAcademico.Precio
-        comprobanteDetalle2.Subtotal = comprobanteDetalle2.Cantidad * elementoAcademico.Precio 'calcular
-        subtotal += comprobanteDetalle2.Subtotal
-
         comprobante.Items.Add(comprobanteDetalle1)
-        comprobante.Items.Add(comprobanteDetalle2)
 
         comprobante.Subtotal = subtotal
         If comprobanteBusiness.Crear(comprobante) Then
             MensajeOk(lblMensajes)
         Else
             MensajeError(lblMensajes)
+        End If
+    End Sub
+
+
+    Protected Sub formaDePagoList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles formaDePagoList.SelectedIndexChanged
+        If formaDePagoList.SelectedValue.Equals("Efectivo") Then
+            panelTarjeta.Visible = False
+        Else 'tarjeta
+            panelTarjeta.Visible = True
         End If
     End Sub
 End Class

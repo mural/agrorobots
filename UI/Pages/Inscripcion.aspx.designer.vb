@@ -50,31 +50,22 @@ Partial Public Class Inscripcion
     Protected WithEvents nav_57 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_57 control.
+    '''lblTitulo_124 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_57 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_124 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo control.
+    '''nombre_11 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''contenido_705 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents contenido_705 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nombre_11 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblNombre control.
@@ -113,13 +104,94 @@ Partial Public Class Inscripcion
     Protected WithEvents formadePago_121 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RadioButtonList1 control.
+    '''formaDePagoList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButtonList1 As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents formaDePagoList As Global.System.Web.UI.WebControls.RadioButtonList
+
+    '''<summary>
+    '''panelTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panelTarjeta As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''numeroTarjeta_126 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents numeroTarjeta_126 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''numeroTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents numeroTarjeta As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''nombreTarjeta_127 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombreTarjeta_127 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''nombreTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombreTarjeta As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''fechaVtoTarjeta_128 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fechaVtoTarjeta_128 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''fechaVtoTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fechaVtoTarjeta As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''codigoTarjeta_129 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents codigoTarjeta_129 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''codigoTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents codigoTarjeta As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''inscribirse_118 control.

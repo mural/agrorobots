@@ -23,6 +23,10 @@ Public Class Datos
         Dim Ds As New DataSet
         Cmd = New SqlCommand
 
+        If Cnn.State = ConnectionState.Closed Then
+            Cnn.Open()
+        End If
+
         Cmd.Connection = Cnn
         Cmd.CommandText = consulta
         Cmd.CommandType = CommandType.StoredProcedure
@@ -37,6 +41,9 @@ Public Class Datos
 
         Dim Adaptador As New SqlDataAdapter(Cmd)
         Adaptador.Fill(Ds)
+
+        Cnn.Close()
+
         Return Ds
 
     End Function
