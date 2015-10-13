@@ -4,20 +4,23 @@ Public Class Comprobante_Mapper
     Inherits Mapper(Of Comprobante)
 
     Dim comprobanteDetalleMapper As New ComprobanteDetalle_Mapper
+    Public Property IdComprobante As Integer
 
     Public Sub New()
     End Sub
 
     Public Overrides Function Insertar(ByRef obj As Comprobante) As Boolean
+        Preparar()
+
         Me.Transaccion = AccionTransaccion.Iniciar
         Dim resultado = Actualizar(obj, True)
-        Dim idComprobante = oDatos.RespuestaEscritura
+        IdComprobante = oDatos.RespuestaEscritura
 
         If resultado Then 'si salio bien la escritura anterior
             comprobanteDetalleMapper.Transaccion = AccionTransaccion.Continuar
             For i = 0 To obj.Items.Count - 1
                 Dim itemDetalle As ComprobanteDetalle = obj.Items(i)
-                itemDetalle.IdComprobante = idComprobante
+                itemDetalle.IdComprobante = IdComprobante
                 If i = obj.Items.Count - 1 Then
                     comprobanteDetalleMapper.Transaccion = AccionTransaccion.Cerrar
                 End If

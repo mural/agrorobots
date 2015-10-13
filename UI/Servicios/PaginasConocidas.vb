@@ -28,6 +28,7 @@
 
     'Inscripcion
     Public Shared Property INSCRIPCION As String = DIR_PAGES + "Inscripcion" + ASPX
+    Public Shared Property INSCRIPTO_CALIFICAR As String = DIR_PAGES + "InscriptoCalificacion" + ASPX
 
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX

@@ -6,6 +6,8 @@ Public Class Newsletter_Mapper
     Dim newsletterCategoriaTemaMapper As New Newsletter_CategoriaTema_Mapper
 
     Public Overrides Function Insertar(ByRef obj As Newsletter) As Boolean
+        Preparar()
+
         Me.Transaccion = AccionTransaccion.Iniciar
         Dim resultado = Actualizar(obj, True)
         Dim idNewsletter = oDatos.RespuestaEscritura

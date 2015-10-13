@@ -131,15 +131,6 @@ Partial Public Class Inscripcion
     Protected WithEvents numeroTarjeta_126 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''numeroTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents numeroTarjeta As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''nombreTarjeta_127 control.
     '''</summary>
     '''<remarks>
@@ -147,15 +138,6 @@ Partial Public Class Inscripcion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents nombreTarjeta_127 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''nombreTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents nombreTarjeta As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''fechaVtoTarjeta_128 control.
@@ -167,15 +149,6 @@ Partial Public Class Inscripcion
     Protected WithEvents fechaVtoTarjeta_128 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''fechaVtoTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents fechaVtoTarjeta As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''codigoTarjeta_129 control.
     '''</summary>
     '''<remarks>
@@ -183,15 +156,6 @@ Partial Public Class Inscripcion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents codigoTarjeta_129 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''codigoTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents codigoTarjeta As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''inscribirse_118 control.

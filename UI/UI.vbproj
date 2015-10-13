@@ -214,6 +214,7 @@
     <Content Include="Pages\ExamenMateria.aspx" />
     <Content Include="Pages\ExamenResultado.aspx" />
     <Content Include="Pages\Inscripcion.aspx" />
+    <Content Include="Pages\InscriptoCalificacion.aspx" />
     <Content Include="Pages\MateriasDetalle.aspx" />
     <Content Include="Pages\Materias.aspx" />
     <Content Include="Pages\Mensajes.aspx" />
@@ -645,6 +646,13 @@
     <Compile Include="Pages\Inscripcion.aspx.vb">
       <DependentUpon>Inscripcion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\InscriptoCalificacion.aspx.designer.vb">
+      <DependentUpon>InscriptoCalificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InscriptoCalificacion.aspx.vb">
+      <DependentUpon>InscriptoCalificacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\MateriasDetalle.aspx.designer.vb">
       <DependentUpon>MateriasDetalle.aspx</DependentUpon>

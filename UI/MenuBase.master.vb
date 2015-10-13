@@ -55,7 +55,7 @@ Public Class MenuBase
         SideNavigationMenu.Items.Clear()
         For Each patente As Patente In usuario.GetOnlyPatentes
             Dim menuItem = New MenuItem(patente.Descripcion, patente.Name)
-            If Nothing Is SideNavigationMenu.FindItem(menuItem.Value) Then
+            If Nothing Is SideNavigationMenu.FindItem(menuItem.Value) And patente.ControlID > 0 Then
                 SideNavigationMenu.Items.Add(menuItem)
             End If
         Next

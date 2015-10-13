@@ -16,6 +16,7 @@ Public Class Usuario
     Private _permissionModified As Boolean
     Private _email As String
     Private _Foto As Byte()
+    Public Property CtaCte As List(Of CtaCteItemUsuario)
 
     Public Property Activo() As Boolean
         Get
@@ -165,7 +166,7 @@ Public Class Usuario
     Public Event IdiomChanged()
 
     Public Sub New()
-
+        Me.CtaCte = New List(Of CtaCteItemUsuario)
     End Sub
     Public Sub New(ByVal IsActive As Boolean, ByVal IsAdmin As Boolean, ByVal ape As String, ByVal id As Integer, ByVal idiom As Idioma, ByVal intentos As Integer, ByVal name As String, ByVal pass As String, ByVal username As String, ByVal email As String)
         Me.Activo = IsActive
@@ -178,6 +179,7 @@ Public Class Usuario
         Me.Password = pass
         Me.UserName = username
         Me.Email = email
+        Me.CtaCte = New List(Of CtaCteItemUsuario)
     End Sub
 
 End Class ' Usuario

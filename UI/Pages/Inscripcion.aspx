@@ -48,32 +48,27 @@
             &nbsp;
             <br />
             <asp:RadioButtonList ID="formaDePagoList" runat="server" AutoPostBack="True">
-                <asp:ListItem Selected="True">Efectivo</asp:ListItem>
-                <asp:ListItem>Tarjeta</asp:ListItem>
             </asp:RadioButtonList>
             <br />
             <asp:Panel ID="panelTarjeta" runat="server" Visible="False">
                 <asp:Label ID="numeroTarjeta_126" runat="server" Text="numero" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<asp:TextBox ID="numeroTarjeta" runat="server" Text="" MaxLength="22"></asp:TextBox>
+                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22">
                 <br />
                 <br />
                 <asp:Label ID="nombreTarjeta_127" runat="server" Text="nombre" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<asp:TextBox ID="nombreTarjeta" runat="server" Text="" MaxLength="50"></asp:TextBox>
+                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50"/>
                 <br />
                 <br />
                 <asp:Label ID="fechaVtoTarjeta_128" runat="server" Text="fecha vto" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<asp:TextBox ID="fechaVtoTarjeta" runat="server" Text="" Placeholder="mm/YY" MaxLength="5"></asp:TextBox>
+                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10"/>
                 <br />
                 <br />
                 <asp:Label ID="codigoTarjeta_129" runat="server" Text="cod." CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<asp:TextBox ID="codigoTarjeta" runat="server" Text="" MaxLength="4"></asp:TextBox>
+                &nbsp;<input id="inputCodTarjeta" type="text" name="cvc" maxlength="4"/>
                 <br />
+                <br />
+                <div class="card-wrapper"></div>
             </asp:Panel>
-            <div class="card-wrapper"></div>
-            <input type="text" name="number">
-            <input type="text" name="name" />
-            <input type="text" name="expiry" />
-            <input type="text" name="cvc" />
             <br />
             <br />
             <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" />
@@ -86,15 +81,11 @@
     <br />
     <br />
     <!-- at the end of BODY -->
-    <script src="https://rawgit.com/jessepollak/card/master/lib/js/card.js?v=beta1"></script>
-    <script type="text/javascript" >
+    <script src="/Scripts/card.js"></script>
+    <script type="text/javascript">
         var card = new Card({
-            // a selector or DOM element for the form where users will
-            // be entering their information
-            form: 'formBase', // *required*
-            // a selector or DOM element for the container
-            // where you want the card to appear
-            container: '.card-wrapper', // *required*
+            form: 'form',
+            container: '.card-wrapper',
             debug: true // optional - default false
         });
     </script>

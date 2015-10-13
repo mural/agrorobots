@@ -8,7 +8,7 @@ Public Class Inscripcion
     Dim idElementoAcademico As String
     Dim elementoAcademico As ElementoAcademico
 
-    Dim comprobanteBusiness As New Comprobante_Business
+    Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idElementoAcademico = Request.QueryString("id")
@@ -17,6 +17,13 @@ Public Class Inscripcion
             CargarElementoAcademico()
         Else
             Response.Redirect(PaginasConocidas.HOME)
+        End If
+
+        If Not Page.IsPostBack Then
+            'combo pago
+            formaDePagoList.Items.Clear()
+            formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(122), "Efectivo"))
+            formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(123), "Tarjeta"))
         End If
     End Sub
 
@@ -38,6 +45,15 @@ Public Class Inscripcion
     End Sub
 
     Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
+        Dim ctacteItemUsuario As New CtaCteItemUsuario
+        ctacteItemUsuario.IdUsuario = usuario.ID
+        Dim estado = "PAGO" 'tarjeta
+        If formaDePagoList.SelectedValue.Equals("Efectivo") Then
+            estado = "NO_PAGO"
+        End If
+        ctacteItemUsuario.Tipo = 1 'B
+        ctacteItemUsuario.Estado = estado
+
         Dim comprobante As New Comprobante
         comprobante.Numero = 1
         comprobante.Sucursal = 1
@@ -48,7 +64,6 @@ Public Class Inscripcion
         Dim subtotal As Decimal = 0
 
         Dim comprobanteDetalle1 As New ComprobanteDetalle
-
         comprobanteDetalle1.CodigoProducto = idElementoAcademico
         comprobanteDetalle1.Detalle = elementoAcademico.Nombre
         comprobanteDetalle1.Cantidad = 1
@@ -57,10 +72,14 @@ Public Class Inscripcion
         subtotal += comprobanteDetalle1.Subtotal
 
         comprobante.Items.Add(comprobanteDetalle1)
-
         comprobante.Subtotal = subtotal
-        If comprobanteBusiness.Crear(comprobante) Then
+        ctacteItemUsuario.Comprobante = comprobante
+
+        If ctaCteUsuarioBusiness.Crear(ctacteItemUsuario) Then
             MensajeOk(lblMensajes)
+            'agregar a usuario ?
+
+            Response.Redirect(PaginasConocidas.INSCRIPTO_CALIFICAR)
         Else
             MensajeError(lblMensajes)
         End If
