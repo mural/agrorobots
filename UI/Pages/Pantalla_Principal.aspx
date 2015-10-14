@@ -49,5 +49,5 @@
     <asp:Button ID="recalcular_710" runat="server" Text="Recalcular Digitos"
         Visible="False" />
     <br />
-
+    <asp:Button ID="PDF" runat="server" Text="Factura"/>
 </asp:Content>

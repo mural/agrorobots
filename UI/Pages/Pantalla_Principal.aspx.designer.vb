@@ -75,4 +75,13 @@ Partial Public Class Pantalla_Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents recalcular_710 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''PDF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PDF As Global.System.Web.UI.WebControls.Button
 End Class
