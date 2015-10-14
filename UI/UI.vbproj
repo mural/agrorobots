@@ -203,6 +203,7 @@
     <Content Include="Pages\CambioIdioma.aspx" />
     <Content Include="Pages\CarrerasMaterias.aspx" />
     <Content Include="Pages\CarrerasDetalle.aspx" />
+    <Content Include="Pages\Carrito.aspx" />
     <Content Include="Pages\Comparacion.aspx" />
     <Content Include="Pages\ContenidoCarrera.aspx" />
     <Content Include="Pages\ContenidoElementoAcademico.aspx" />
@@ -568,6 +569,13 @@
     </Compile>
     <Compile Include="Pages\CarrerasDetalle.aspx.vb">
       <DependentUpon>CarrerasDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Carrito.aspx.designer.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Carrito.aspx.vb">
+      <DependentUpon>Carrito.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Comparacion.aspx.designer.vb">

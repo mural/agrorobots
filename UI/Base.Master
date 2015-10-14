@@ -178,12 +178,19 @@
                             </a>
                         </li>
                     </ul>
-                    <p>
-                        <asp:Label ID="idiomas_29" runat="server" Text="idiomas"></asp:Label>
-                        &nbsp;
+                    <ul>
+                        <li class="last">
+                            <a href="/Pages/Carrito.aspx">
+                                <asp:Label ID="carrito" Text="carrito" runat="server" />
+                            </a>
+                        </li>
+                        <li>
+                            <asp:Label ID="idiomas_29" runat="server" Text="idiomas"></asp:Label>
+                            &nbsp;
                         <asp:DropDownList ID="comboIdiomas" runat="server" AutoPostBack="True" TabIndex="1"></asp:DropDownList>
-                        &nbsp;&nbsp;
-                    </p>
+                            &nbsp;&nbsp;
+                        </li>
+                    </ul>
                 </div>
                 <br class="clear" />
             </div>
@@ -274,7 +281,8 @@
                     <h2>
                         <asp:Label ID="mantengaContanto_76" Text="terminos" runat="server" /></h2>
                     <p>
-                        <asp:Label ID="ingreseEmailListaCorreo_77" Text="ingrese su email para ser parte" runat="server" /></p>
+                        <asp:Label ID="ingreseEmailListaCorreo_77" Text="ingrese su email para ser parte" runat="server" />
+                    </p>
                     <div>
                         <%--<form action="#" method="post">--%>
                         <fieldset>
@@ -284,9 +292,11 @@
                         </fieldset>
                     </div>
                     <%--</form>--%>
-                    <p><a href="#">
-                        <asp:Label ID="removerSuscripcion_79" Text="remover suscripcion" runat="server" />
-                        &raquo;</a></p>
+                    <p>
+                        <a href="#">
+                            <asp:Label ID="removerSuscripcion_79" Text="remover suscripcion" runat="server" />
+                            &raquo;</a>
+                    </p>
                 </div>
                 <div class="footbox">
                     <h2>
