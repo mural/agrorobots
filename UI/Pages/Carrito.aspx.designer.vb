@@ -30,4 +30,13 @@ Partial Public Class Carrito
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents carrito As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridView1_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 End Class

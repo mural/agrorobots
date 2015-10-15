@@ -25,6 +25,7 @@
     Public Shared ReadOnly CATALOGO As String = DIR_PAGES + "Carreras" + ASPX
     Public Shared ReadOnly CATALOGO_DETALLE As String = DIR_PAGES + "CarrerasDetalle" + ASPX
     Public Shared ReadOnly COMPARACION As String = DIR_PAGES + "Comparacion" + ASPX
+    Public Shared ReadOnly CARRITO As String = DIR_PAGES + "Carrito" + ASPX
 
     'Inscripcion
     Public Shared Property INSCRIPCION As String = DIR_PAGES + "Inscripcion" + ASPX

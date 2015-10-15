@@ -1,4 +1,5 @@
 ﻿Public Class ElementoAcademico
+    Implements IEquatable(Of ElementoAcademico)
 
     Public Property EstadoActual = ElementoAcademicoEnum.NoIniciada
     Enum ElementoAcademicoEnum
@@ -59,5 +60,9 @@
             Case Else
                 Return ElementoAcademicoEnum.NoIniciada
         End Select
+    End Function
+
+    Public Overloads Function Equals(other As ElementoAcademico) As Boolean Implements IEquatable(Of ElementoAcademico).Equals
+        Return CodigoAcademico.Equals(other.CodigoAcademico)
     End Function
 End Class

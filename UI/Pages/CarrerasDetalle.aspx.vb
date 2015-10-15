@@ -41,7 +41,18 @@ Public Class CarrerasDetalle
     Protected Sub inscribirse_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
         'comprobar sesion
         If UsuarioLogueado() Then
-            Response.Redirect(PaginasConocidas.INSCRIPCION + "?id=" + idElementoAcademico)
+            'Response.Redirect(PaginasConocidas.INSCRIPCION + "?id=" + idElementoAcademico)
+            Dim carritoSesion As List(Of ElementoAcademico) = Session("carrito")
+            If carritoSesion Is Nothing Then
+                carritoSesion = New List(Of ElementoAcademico)
+            End If
+            If Not carritoSesion.Contains(elementoAcademico) Then
+                carritoSesion.Add(elementoAcademico)
+            End If
+
+            Session("carrito") = carritoSesion
+
+            Response.Redirect(PaginasConocidas.CARRITO)
         Else
             Response.Redirect(PaginasConocidas.LOGIN + "?inscribir=" + idElementoAcademico)
         End If
