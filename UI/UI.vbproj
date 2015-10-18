@@ -501,14 +501,14 @@
     </Compile>
     <Compile Include="Pages\AbmEncuestas.aspx.vb">
       <DependentUpon>AbmEncuestas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmFichas.aspx.designer.vb">
       <DependentUpon>AbmFichas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AbmFichas.aspx.vb">
       <DependentUpon>AbmFichas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmIdiomas.aspx.designer.vb">
       <DependentUpon>AbmIdiomas.aspx</DependentUpon>

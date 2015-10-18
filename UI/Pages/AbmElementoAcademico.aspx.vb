@@ -25,14 +25,6 @@ Public Class AbmElementoAcademico
         Me.GridView1_.DataBind()
     End Sub
 
-    Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
-        GridView1_.EditIndex = e.NewEditIndex
-        CargarElementosAcademicos()
-    End Sub
-    Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
-        GridView1_.EditIndex = -1
-        CargarElementosAcademicos()
-    End Sub
     Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
         If Not elementoAcademico Is Nothing Then
 
