@@ -15,6 +15,10 @@ Public Class AbmFichas
             CargarFichas()
             CargarPreguntas()
         End If
+        If Not fichaBase Is Nothing Then
+            Me.txtPregunta.Enabled = True
+            Me.btnAdd_5.Enabled = True
+        End If
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -142,6 +146,10 @@ Public Class AbmFichas
         fichaBase = Session("fichaSeleccionada")
 
         Me.areaContenido.InnerText = fichaBase.Descripcion
+
+        Me.txtPregunta.Enabled = True
+        Me.btnAdd_5.Enabled = True
+        CargarPreguntas()
     End Sub
 
     Private Sub Limpiar()
@@ -151,17 +159,42 @@ Public Class AbmFichas
     End Sub
 
     Protected Sub NuevaPregunta(ByVal sender As Object, ByVal e As EventArgs)
+        Dim pregunta = Me.txtPregunta.Text
 
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(pregunta) Then
+                valido = False
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
+            End If
+            If valido Then
+                Dim preguntaNueva As New FichaEncuestaPregunta
+                preguntaNueva.ID = 0
+                preguntaNueva.IDFichaEncuestaBase = fichaBase.ID
+                preguntaNueva.Pregunta = pregunta
 
+                If fichaEncuestaPreguntaBusiness.Crear(preguntaNueva) Then
+                    MensajeOk(lblMensajes)
+                    Me.txtPregunta.Text = ""
+                Else
+                    MensajeError(lblMensajes)
+                End If
+            End If
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
+
+        GridViewPreguntas.EditIndex = -1
         CargarPreguntas()
     End Sub
 
     Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
-        GridView1_.EditIndex = e.NewEditIndex
+        GridViewPreguntas.EditIndex = e.NewEditIndex
         CargarPreguntas()
     End Sub
     Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
-        GridView1_.EditIndex = -1
+        GridViewPreguntas.EditIndex = -1
         CargarPreguntas()
     End Sub
     Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
@@ -173,7 +206,7 @@ Public Class AbmFichas
 
         fichaEncuestaPreguntaBusiness.Borrar(lnkRemove.CommandArgument)
 
-        GridView1_.EditIndex = -1
+        GridViewPreguntas.EditIndex = -1
         CargarPreguntas()
     End Sub
 End Class
