@@ -191,6 +191,8 @@
     <Content Include="Imagenes\logo.png" />
     <Content Include="Imagenes\terminos.png" />
     <Content Include="Pages\AbmElementoAcademico.aspx" />
+    <Content Include="Pages\AbmEncuestas.aspx" />
+    <Content Include="Pages\AbmFichas.aspx" />
     <Content Include="Pages\AbmIdiomas.aspx" />
     <Content Include="Pages\AbmNovedades.aspx" />
     <Content Include="Pages\AbmPermisos.aspx" />
@@ -210,11 +212,14 @@
     <Content Include="Pages\ContenidoMateria.aspx" />
     <Content Include="Pages\CuentaCorriente.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
+    <Content Include="Pages\EstadisticasRespuesta.aspx" />
     <Content Include="Pages\ExamenCorrecion.aspx" />
     <Content Include="Pages\Examenes.aspx" />
     <Content Include="Pages\ExamenEvaluacionRevision.aspx" />
     <Content Include="Pages\ExamenMateria.aspx" />
     <Content Include="Pages\ExamenResultado.aspx" />
+    <Content Include="Pages\Ganancias.aspx" />
+    <Content Include="Pages\GananciasComparativas.aspx" />
     <Content Include="Pages\Inscripcion.aspx" />
     <Content Include="Pages\InscriptoCalificacion.aspx" />
     <Content Include="Pages\MateriasDetalle.aspx" />
@@ -224,8 +229,11 @@
     <Content Include="Pages\NuevaMateria.aspx" />
     <Content Include="Pages\Pago.aspx" />
     <Content Include="Pages\Carreras.aspx" />
+    <Content Include="Pages\ResultadosEncuestas.aspx" />
+    <Content Include="Pages\ResultadosFichas.aspx" />
     <Content Include="Pages\RevisionCarrera.aspx" />
     <Content Include="Pages\RevisionMateria.aspx" />
+    <Content Include="Pages\Satisfaccion.aspx" />
     <Content Include="Pages\SeleccionMaterias.aspx" />
     <Content Include="Pages\SinPermisos.aspx" />
     <Content Include="Pantalla_Login.aspx" />
@@ -488,6 +496,20 @@
       <DependentUpon>AbmElementoAcademico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\AbmEncuestas.aspx.designer.vb">
+      <DependentUpon>AbmEncuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmEncuestas.aspx.vb">
+      <DependentUpon>AbmEncuestas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmFichas.aspx.designer.vb">
+      <DependentUpon>AbmFichas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmFichas.aspx.vb">
+      <DependentUpon>AbmFichas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Pages\AbmIdiomas.aspx.designer.vb">
       <DependentUpon>AbmIdiomas.aspx</DependentUpon>
     </Compile>
@@ -621,6 +643,13 @@
       <DependentUpon>DetalleExamen.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\EstadisticasRespuesta.aspx.designer.vb">
+      <DependentUpon>EstadisticasRespuesta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EstadisticasRespuesta.aspx.vb">
+      <DependentUpon>EstadisticasRespuesta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Pages\ExamenCorrecion.aspx.designer.vb">
       <DependentUpon>ExamenCorrecion.aspx</DependentUpon>
     </Compile>
@@ -654,6 +683,20 @@
     </Compile>
     <Compile Include="Pages\ExamenResultado.aspx.vb">
       <DependentUpon>ExamenResultado.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Ganancias.aspx.designer.vb">
+      <DependentUpon>Ganancias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Ganancias.aspx.vb">
+      <DependentUpon>Ganancias.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GananciasComparativas.aspx.designer.vb">
+      <DependentUpon>GananciasComparativas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GananciasComparativas.aspx.vb">
+      <DependentUpon>GananciasComparativas.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Inscripcion.aspx.designer.vb">
@@ -703,6 +746,27 @@
     </Compile>
     <Compile Include="Pages\NuevaMateria.aspx.vb">
       <DependentUpon>NuevaMateria.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadosEncuestas.aspx.designer.vb">
+      <DependentUpon>ResultadosEncuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResultadosEncuestas.aspx.vb">
+      <DependentUpon>ResultadosEncuestas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ResultadosFichas.aspx.designer.vb">
+      <DependentUpon>ResultadosFichas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResultadosFichas.aspx.vb">
+      <DependentUpon>ResultadosFichas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Satisfaccion.aspx.designer.vb">
+      <DependentUpon>Satisfaccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Satisfaccion.aspx.vb">
+      <DependentUpon>Satisfaccion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PaginaAutorizada.vb">
