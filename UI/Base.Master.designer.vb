@@ -86,13 +86,13 @@ Partial Public Class Base
     Protected WithEvents sobreNosotros_153 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''carrito control.
+    '''carrito_10112 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents carrito As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents carrito_10112 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''idiomas_29 control.
@@ -327,4 +327,13 @@ Partial Public Class Base
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents derechosReservados_75 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''politicasPie_152 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents politicasPie_152 As Global.System.Web.UI.WebControls.Label
 End Class

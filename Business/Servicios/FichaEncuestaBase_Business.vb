@@ -5,7 +5,7 @@ Public Class FichaEncuestaBase_Business
     Inherits Business(Of FichaEncuestaBase)
 
     Sub New()
-        Me.mapper = New FichaEncuestaBase_Mapper
+        Me.mapperGenerico = New FichaEncuestaBase_Mapper
     End Sub
 
 End Class

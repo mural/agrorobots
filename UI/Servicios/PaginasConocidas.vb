@@ -38,6 +38,14 @@
     'Gestion
     Public Shared Property GESTION_CURSOS As String = DIR_PAGES + "AbmElementoAcademico" + ASPX
     Public Shared Property CONTENIDO_CURSOS As String = DIR_PAGES + "ContenidoElementoAcademico" + ASPX
-
+    Public Shared Property ABM_NOVEDADES As String = DIR_PAGES + "AbmNovedades" + ASPX
+    Public Shared Property ABM_ENCUESTAS As String = DIR_PAGES + "AbmEncuestas" + ASPX
+    Public Shared Property ABM_FICHAS As String = DIR_PAGES + "AbmFichas" + ASPX
+    Public Shared Property RESULTADOS_ENCUESTAS As String = DIR_PAGES + "ResultadosEncuestas" + ASPX
+    Public Shared Property RESULTADOS_FICHAS As String = DIR_PAGES + "ResultadosFichas" + ASPX
+    Public Shared Property ESTADISTICAS_RESPUESTA As String = DIR_PAGES + "EstadisticasRespuesta" + ASPX
+    Public Shared Property GANANCIAS As String = DIR_PAGES + "Ganancias" + ASPX
+    Public Shared Property SATISFACCION As String = DIR_PAGES + "Satisfaccion" + ASPX
+    Public Shared Property GANANACIAS_COMPARATIVAS As String = DIR_PAGES + "GananciasComparativas" + ASPX
 
 End Class

@@ -1,7 +1,6 @@
 ﻿Public MustInherit Class Mapper(Of EE As New)
     Implements IMapper(Of EE)
 
-
     Public Property Transaccion = AccionTransaccion.Unica
     Enum AccionTransaccion
         Unica
@@ -65,8 +64,12 @@
 
     MustOverride Function Obtener(ByVal id As Integer) As EE Implements IMapper(Of EE).Obtener
 
-    Protected Overridable Function Listar(ByVal nombreProcedimiento As String) As List(Of EE)
+    Protected Overridable Function Listar(ByVal nombreProcedimiento As String, Optional ByVal campoFiltro As String = "", Optional ByVal valorFiltro As String = "") As List(Of EE)
         Preparar()
+
+        If Not String.IsNullOrEmpty(campoFiltro) Then
+            hdatos.Add("@" + campoFiltro, valorFiltro)
+        End If
 
         DS = oDatos.Leer(nombreProcedimiento, hdatos)
         Dim listado As New List(Of EE)

@@ -4,9 +4,15 @@ Imports MPP
 Public Class CtaCteUsuario_Business
     Inherits Business(Of CtaCteItemUsuario)
 
+    Dim mapperPropio As New CtaCteUsuario_Mapper
+
     Sub New()
-        Me.mapper = New CtaCteUsuario_Mapper
+        Me.mapperGenerico = New CtaCteUsuario_Mapper
     End Sub
+
+    Function ListarPorUsuario(idUsuario As Integer) As Object
+        Return mapperPropio.ListarPorUsuario(idUsuario)
+    End Function
 
 
 End Class

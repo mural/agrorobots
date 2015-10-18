@@ -37,7 +37,25 @@
             <img class="imagenMediana imagenMasSeparada fl_right w3-circle" src="/Imagenes/curso_generico.jpg" />
             <br />
             <asp:Label ID="nombre_11" runat="server" Text="nombre" CssClass="w3-text-blue w3-large"></asp:Label>
-            <asp:Label ID="lblNombre" runat="server" Text="nombre"></asp:Label>
+            <asp:GridView ID="GridView1_" runat="server"
+                ShowHeader="False"
+                RowStyle-CssClass="light"
+                AlternatingRowStyle-CssClass="dark"
+                AutoGenerateColumns="False"
+                CssClass="">
+                <EmptyDataTemplate>
+                    <asp:Label ID="varrito_vacio" Text="el carrito esta vacio" runat="server"></asp:Label>
+                </EmptyDataTemplate>
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Label ID="nombre" runat="server" Text='<%# Eval("Nombre")%>'>
+                            </asp:Label>
+                            &#x27a4;
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
             <br />
             <br />
             <asp:Label ID="precio_41" runat="server" Text="precio" CssClass="w3-text-blue w3-large"></asp:Label>

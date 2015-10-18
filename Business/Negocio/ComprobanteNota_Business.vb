@@ -5,7 +5,7 @@ Public Class ComprobanteNota_Business
     Inherits Business(Of ComprobanteNota)
 
     Sub New()
-        Me.mapper = New ComprobanteNota_Mapper
+        Me.mapperGenerico = New ComprobanteNota_Mapper
     End Sub
 
 

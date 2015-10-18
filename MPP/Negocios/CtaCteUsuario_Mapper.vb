@@ -54,11 +54,25 @@ Public Class CtaCteUsuario_Mapper
     End Sub
 
     Public Overrides Function Obtener(ByVal idCtaCteUsuario As Integer) As CtaCteItemUsuario
-        Return Obtener(idCtaCteUsuario, "CtaCteUsuarioObtener")
+        Dim ctacte = Obtener(idCtaCteUsuario, "CtaCteUsuarioObtener")
+        ctacte.Comprobante = comprobante_Mapper.Obtener(ctacte.IdComprobante)
+        Return ctacte
     End Function
 
     Public Overrides Function Listar() As List(Of CtaCteItemUsuario)
-        Return Listar("CtaCteUsuarioListar")
+        Dim cuentas = Listar("CtaCteUsuarioListar")
+        For Each cuenta In cuentas
+            cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+        Next
+        Return cuentas
+    End Function
+
+    Public Function ListarPorUsuario(ByVal idUsuario As String) As List(Of CtaCteItemUsuario)
+        Dim cuentas = Listar("CtaCteUsuarioListarPorUsuario", "IdUsuario", idUsuario)
+        For Each cuenta In cuentas
+            cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+        Next
+        Return cuentas
     End Function
 
     Public Overloads Overrides Function Borrar(id As Integer) As Boolean

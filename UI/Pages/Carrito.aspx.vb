@@ -34,4 +34,7 @@ Public Class Carrito
         CargarCarrito()
     End Sub
 
+    Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
+        Response.Redirect(PaginasConocidas.INSCRIPCION)
+    End Sub
 End Class

@@ -11,25 +11,25 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Carrito
+Partial Public Class CuentaCorriente
 
     '''<summary>
-    '''navCarrito control.
+    '''navNovedades_10111 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navCarrito As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navNovedades_10111 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''carrito control.
+    '''lblTitulo_10111 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents carrito As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10111 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridView1_ control.
@@ -39,13 +39,4 @@ Partial Public Class Carrito
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''inscribirse_118 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents inscribirse_118 As Global.System.Web.UI.WebControls.Button
 End Class

@@ -68,13 +68,13 @@ Partial Public Class Inscripcion
     Protected WithEvents nombre_11 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblNombre control.
+    '''GridView1_ control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNombre As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''precio_41 control.

@@ -5,6 +5,6 @@ Public Class CategoriaTema_Business
     Inherits Business(Of CategoriaTema)
 
     Sub New()
-        Me.mapper = New CategoriaTema_Mapper
+        Me.mapperGenerico = New CategoriaTema_Mapper
     End Sub
 End Class

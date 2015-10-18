@@ -72,6 +72,8 @@ Public Class MenuBase
                 Response.Redirect("CambioIdioma.aspx")
 
                 'alumno
+            Case "CuentaCorriente_10111"
+                Response.Redirect("CuentaCorriente.aspx")
             Case "RendirExamen"
                 Response.Redirect("ExamenMateria.aspx")
 
@@ -117,8 +119,23 @@ Public Class MenuBase
             Case "AbmUsuarios_10107"
                 Response.Redirect("AbmUsuarios.aspx")
             Case "AbmNovedades_10108"
-                Response.Redirect("AbmNovedades.aspx")
-
+                Response.Redirect(PaginasConocidas.ABM_NOVEDADES)
+            Case "AbmEncuestas_10113"
+                Response.Redirect(PaginasConocidas.ABM_ENCUESTAS)
+            Case "AbmFichas_10114"
+                Response.Redirect(PaginasConocidas.ABM_FICHAS)
+            Case "ResultadosEncuestas_10115"
+                Response.Redirect(PaginasConocidas.RESULTADOS_ENCUESTAS)
+            Case "ResultadosFichas_10116"
+                Response.Redirect(PaginasConocidas.RESULTADOS_FICHAS)
+            Case "EstadisticasRespuesta_10117"
+                Response.Redirect(PaginasConocidas.ESTADISTICAS_RESPUESTA)
+            Case "Ganancias_10118"
+                Response.Redirect(PaginasConocidas.GANANCIAS)
+            Case "Satisfaccion_10119"
+                Response.Redirect(PaginasConocidas.SATISFACCION)
+            Case "GananciasComparativas_10120"
+                Response.Redirect(PaginasConocidas.GANANACIAS_COMPARATIVAS)
         End Select
     End Sub
 

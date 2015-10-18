@@ -6,20 +6,18 @@ Public Class Inscripcion
 
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
     Dim idElementoAcademico As String
-    Dim elementoAcademico As ElementoAcademico
+    Dim carritoSesion As List(Of ElementoAcademico)
 
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        idElementoAcademico = Request.QueryString("id")
-        Dim idElementoAcademicoInt As Integer
-        If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademicoBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
-            CargarElementoAcademico()
-        Else
+        carritoSesion = Session("carrito")
+        If carritoSesion Is Nothing Then
             Response.Redirect(PaginasConocidas.HOME)
         End If
-
         If Not Page.IsPostBack Then
+            CargarCarrito()
+
             'combo pago
             formaDePagoList.Items.Clear()
             formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(122), "Efectivo"))
@@ -31,17 +29,15 @@ Public Class Inscripcion
 
     End Sub
 
-    Private Sub CargarElementoAcademico()
-        Try
-            elementoAcademico = elementoAcademicoBusiness.Obtener(CInt(idElementoAcademico))
+    Private Sub CargarCarrito()
+        Me.GridView1_.DataSource = carritoSesion
+        Me.GridView1_.DataBind()
 
-            nav_curso.Text = elementoAcademico.Nombre
-            nav_curso_link.HRef = PaginasConocidas.CATALOGO_DETALLE + "?id=" + idElementoAcademico
-
-            lblNombre.Text = elementoAcademico.Nombre
-            lblPrecio.Text = elementoAcademico.Precio
-        Catch e As Exception
-        End Try
+        Dim precioTotal As Integer
+        For Each elemento In carritoSesion
+            precioTotal += elemento.Precio
+        Next
+        lblPrecio.Text = precioTotal
     End Sub
 
     Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
@@ -65,10 +61,10 @@ Public Class Inscripcion
 
         Dim comprobanteDetalle1 As New ComprobanteDetalle
         comprobanteDetalle1.CodigoProducto = idElementoAcademico
-        comprobanteDetalle1.Detalle = elementoAcademico.Nombre
+        comprobanteDetalle1.Detalle = carritoSesion(0).Nombre
         comprobanteDetalle1.Cantidad = 1
-        comprobanteDetalle1.PrecioUnitario = elementoAcademico.Precio
-        comprobanteDetalle1.Subtotal = elementoAcademico.Precio 'calcular
+        comprobanteDetalle1.PrecioUnitario = carritoSesion(0).Precio
+        comprobanteDetalle1.Subtotal = carritoSesion(0).Precio 'calcular
         subtotal += comprobanteDetalle1.Subtotal
 
         comprobante.Items.Add(comprobanteDetalle1)

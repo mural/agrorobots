@@ -180,8 +180,8 @@
                     </ul>
                     <ul>
                         <li class="last">
-                            <a href="/Pages/Carrito.aspx">
-                                <asp:Label ID="carrito" Text="carrito" runat="server" />
+                            <a href='<%= PaginasConocidas.CARRITO %>'>
+                                <asp:Label ID="carrito_10112" Text="carrito" runat="server" />
                             </a>
                         </li>
                         <li>
@@ -337,7 +337,10 @@
                 <p class="fl_left">
                     Copyright &copy; 2015 -
                     <asp:Label ID="derechosReservados_75" runat="server" Text="derechos reservados"></asp:Label>
-                    - <a href="#">agrorobots.net</a>
+                    - 
+                    <a href='<%= PaginasConocidas.POLITICAS %>'>
+                        <asp:Label ID="politicasPie_152" Text="politicas" runat="server" />
+                    </a>
                 </p>
                 <p class="fl_right"><a target="_blank" href="../Pantalla_Login.aspx" title="Agrorobots E-Learning">Agrorobots E-Learning</a></p>
                 <br class="clear" />

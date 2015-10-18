@@ -208,6 +208,7 @@
     <Content Include="Pages\ContenidoCarrera.aspx" />
     <Content Include="Pages\ContenidoElementoAcademico.aspx" />
     <Content Include="Pages\ContenidoMateria.aspx" />
+    <Content Include="Pages\CuentaCorriente.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
     <Content Include="Pages\ExamenCorrecion.aspx" />
     <Content Include="Pages\Examenes.aspx" />
@@ -605,6 +606,13 @@
     <Compile Include="Pages\ContenidoMateria.aspx.vb">
       <DependentUpon>ContenidoMateria.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CuentaCorriente.aspx.designer.vb">
+      <DependentUpon>CuentaCorriente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CuentaCorriente.aspx.vb">
+      <DependentUpon>CuentaCorriente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\DetalleExamen.aspx.designer.vb">
       <DependentUpon>DetalleExamen.aspx</DependentUpon>

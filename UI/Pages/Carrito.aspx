@@ -56,7 +56,7 @@
 
                 </Columns>
             </asp:GridView>
-            k
+            <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" />
         </div>
     </div>
 </asp:Content>
