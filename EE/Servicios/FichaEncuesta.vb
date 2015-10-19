@@ -8,5 +8,11 @@
     Public Property Sesion As String '(varchar(max), null)
     Public Property RespuestaUnica As String '(varchar(max), null)
 
+    Public Property Respuestas As List(Of FichaEncuestaRespuesta)
+
+    Sub New()
+        Respuestas = New List(Of FichaEncuestaRespuesta)
+    End Sub
+
 End Class
 

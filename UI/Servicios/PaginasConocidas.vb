@@ -31,6 +31,9 @@
     Public Shared Property INSCRIPCION As String = DIR_PAGES + "Inscripcion" + ASPX
     Public Shared Property INSCRIPTO_CALIFICAR As String = DIR_PAGES + "InscriptoCalificacion" + ASPX
 
+    'Comprobantes
+    Public Shared Property CUENTA_CORRIENTE As String = DIR_PAGES + "CuentaCorriente" + ASPX
+
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX
     Public Shared ReadOnly MENSAJES As String = DIR_PAGES + "Mensajes" + ASPX

@@ -3,6 +3,35 @@
 Public Class FichaEncuesta_Mapper
     Inherits Mapper(Of FichaEncuesta)
 
+    Dim fichaEncuestaRespuestaMapper As New FichaEncuestaRespuesta_Mapper
+    Public Property IdFichaEncuesta As Integer
+
+    Public Overrides Function Insertar(ByRef obj As FichaEncuesta) As Boolean
+        Preparar()
+        Dim resultado = False
+
+        If obj.Respuestas.Count > 0 Then 'ficha
+            Me.Transaccion = AccionTransaccion.Iniciar
+            resultado = Me.Actualizar(obj, True)
+            IdFichaEncuesta = oDatos.RespuestaEscritura
+
+            If resultado Then 'si salio bien la escritura anterior
+                fichaEncuestaRespuestaMapper.Transaccion = AccionTransaccion.Continuar
+                For i = 0 To obj.Respuestas.Count - 1
+                    Dim respuesta As FichaEncuestaRespuesta = obj.Respuestas(i)
+                    respuesta.IDFichaEncuesta = IdFichaEncuesta
+                    If i = obj.Respuestas.Count - 1 Then
+                        fichaEncuestaRespuestaMapper.Transaccion = AccionTransaccion.Cerrar
+                    End If
+                    resultado = fichaEncuestaRespuestaMapper.Insertar(respuesta)
+                Next
+            End If
+        Else 'encuesta
+            resultado = Me.Actualizar(obj, True)
+        End If
+        Return resultado
+    End Function
+
     Public Overloads Overrides Function Actualizar(ByRef obj As FichaEncuesta, Optional insertar As Boolean = False) As Boolean
         Return Actualizar(obj, "FichaEncuestaActualizar")
     End Function

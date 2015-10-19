@@ -7,8 +7,8 @@ Public Class InscriptoCalificacion
     Dim fichaBaseBusiness As New FichaEncuestaBase_Business
     Dim fichaBusiness As New FichaEncuesta_Business
 
-    Dim listaOpciones As New RadioButtonList
     Dim fichaBase As FichaEncuestaBase
+    Dim respuestas As New List(Of RadioButtonList)
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         CargarFicha()
@@ -33,10 +33,18 @@ Public Class InscriptoCalificacion
         descripcionInicio.Text += "<div class='w3-container'>"
         encuestaInicio.Controls.Add(descripcionInicio)
 
-        For Each opcion In fichaBase.Preguntas
-            listaOpciones.Items.Add(New ListItem(opcion.Pregunta))
+        For Each pregunta In fichaBase.Preguntas
+            encuestaCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
+            Dim listaOpciones As New RadioButtonList
+            listaOpciones.ID = pregunta.ID
+            listaOpciones.Items.Add(New ListItem("Muy mala", 1))
+            listaOpciones.Items.Add(New ListItem("Mala", 2))
+            listaOpciones.Items.Add(New ListItem("Buena", 3))
+            listaOpciones.Items.Add(New ListItem("Muy buena", 4))
+            listaOpciones.Items.Add(New ListItem("Excelente", 5))
+            encuestaCierre.Controls.Add(listaOpciones)
+            respuestas.Add(listaOpciones)
         Next
-        encuestaCierre.Controls.Add(listaOpciones)
         Dim submit As New Button()
         submit.Text = idiomas.GetTranslationById(135) 'enviar
         submit.CssClass = "w3-btn w3-khaki"
@@ -54,12 +62,18 @@ Public Class InscriptoCalificacion
 
     Private Sub Votar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            Dim nuevaEncuesta = New FichaEncuesta
-            nuevaEncuesta.IDFichaEncuestaBase = fichaBase.ID
-            nuevaEncuesta.Fecha = Date.Now
-            nuevaEncuesta.RespuestaUnica = listaOpciones.SelectedValue
-            nuevaEncuesta.Usuario = usuario.ID
-            If fichaBusiness.Crear(nuevaEncuesta) Then
+            Dim nuevaFicha = New FichaEncuesta
+            nuevaFicha.IDFichaEncuestaBase = fichaBase.ID
+            nuevaFicha.Fecha = Date.Now
+            nuevaFicha.RespuestaUnica = ""
+            For Each respuestaElegida In respuestas
+                Dim respuesta As New FichaEncuestaRespuesta
+                respuesta.Respuesta = respuestaElegida.SelectedValue
+                respuesta.IDPregunta = respuestaElegida.ID 'ID original de la pregunta
+                nuevaFicha.Respuestas.Add(respuesta)
+            Next
+            nuevaFicha.Usuario = usuario.ID
+            If fichaBusiness.Crear(nuevaFicha) Then
                 MensajeOk(lblMensajes)
             Else
                 MensajeError(lblMensajes)
@@ -67,7 +81,8 @@ Public Class InscriptoCalificacion
         Catch ex As Exception
             MensajeError(lblMensajes)
         End Try
-        CargarFicha()
+
+        Response.Redirect(PaginasConocidas.CUENTA_CORRIENTE)
     End Sub
 
 End Class
