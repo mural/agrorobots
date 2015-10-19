@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\ComprobanteGenerico.vb" />
+    <Compile Include="Negocio\Tarjeta.vb" />
     <Compile Include="Negocio\CtaCteItemUsuario.vb" />
     <Compile Include="EncuestaResultado.vb" />
     <Compile Include="Negocio\Comprobante.vb" />

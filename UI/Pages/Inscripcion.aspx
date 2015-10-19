@@ -69,27 +69,28 @@
             </asp:RadioButtonList>
             <br />
             <asp:Panel ID="panelTarjeta" runat="server" Visible="False">
+                <input id="inputTipoTarjeta" type="hidden" name="tipo" maxlength="20" runat="server">
                 <asp:Label ID="numeroTarjeta_126" runat="server" Text="numero" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22">
+                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22" runat="server">
                 <br />
                 <br />
                 <asp:Label ID="nombreTarjeta_127" runat="server" Text="nombre" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50"/>
+                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50" runat="server"/>
                 <br />
                 <br />
                 <asp:Label ID="fechaVtoTarjeta_128" runat="server" Text="fecha vto" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10"/>
+                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10" runat="server"/>
                 <br />
                 <br />
                 <asp:Label ID="codigoTarjeta_129" runat="server" Text="cod." CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputCodTarjeta" type="text" name="cvc" maxlength="4"/>
+                &nbsp;<input id="inputCodTarjeta" type="text" name="cvc" maxlength="4" runat="server"/>
                 <br />
                 <br />
                 <div class="card-wrapper"></div>
             </asp:Panel>
             <br />
             <br />
-            <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" />
+            <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" OnClientClick="inputTipoTarjeta.value=card.cardType" />
             <br />
             <br />
         </div>

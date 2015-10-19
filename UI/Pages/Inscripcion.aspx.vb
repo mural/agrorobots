@@ -4,6 +4,7 @@ Imports Business
 Public Class Inscripcion
     Inherits PaginaAutorizada
 
+    Dim tarjetaBusiness As New Tarjeta_Business
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
     Dim idElementoAcademico As String
     Dim carritoSesion As List(Of ElementoAcademico)
@@ -46,6 +47,17 @@ Public Class Inscripcion
         Dim estado = "PAGO" 'tarjeta
         If formaDePagoList.SelectedValue.Equals("Efectivo") Then
             estado = "NO_PAGO"
+        Else
+            'tarjeta
+            Dim tarjeta As New Tarjeta
+            tarjeta.IdUsuario = usuario.ID
+            tarjeta.Tipo = inputTipoTarjeta.Value
+            tarjeta.Numero = inputNumeroTarjeta.Value
+            tarjeta.Nombre = inputNombreTarjeta.Value
+            'tarjeta.Expiracion = New Date(inputVtoTarjeta)
+            tarjeta.Expiracion = New Date
+
+            tarjetaBusiness.GuardarTarjeta(tarjeta)
         End If
         ctacteItemUsuario.Tipo = 1 'B
         ctacteItemUsuario.Estado = estado

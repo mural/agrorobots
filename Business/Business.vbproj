@@ -94,6 +94,7 @@
     <Compile Include="Business.vb" />
     <Compile Include="Negocio\ComprobanteNota_Business.vb" />
     <Compile Include="Negocio\Comprobante_Business.vb" />
+    <Compile Include="Negocio\Tarjeta_Business.vb" />
     <Compile Include="Negocio\CtaCteUsuario_Business.vb" />
     <Compile Include="Servicios\FichaEncuestaRespuesta_Business.vb" />
     <Compile Include="Servicios\FichaEncuestaPregunta_Business.vb" />
