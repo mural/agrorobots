@@ -711,7 +711,7 @@
     </Compile>
     <Compile Include="Pages\InscriptoCalificacion.aspx.vb">
       <DependentUpon>InscriptoCalificacion.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\MateriasDetalle.aspx.designer.vb">
       <DependentUpon>MateriasDetalle.aspx</DependentUpon>

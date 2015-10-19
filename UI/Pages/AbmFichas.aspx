@@ -41,7 +41,7 @@
                     AutoGenerateColumns="False"
                     RowStyle-CssClass="light"
                     AlternatingRowStyle-CssClass="dark"
-                    AllowPaging="true" ShowFooter="True"
+                    AllowPaging="true" ShowFooter="False"
                     OnRowEditing="Edit"
                     OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
                     PageSize="10">
@@ -70,9 +70,7 @@
                             <ItemTemplate>
                                 <asp:LinkButton ID="lnkBorrar" runat="server"
                                     CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="BorrarPregunta">
-                            <img src="/Imagenes/borrar.png" alt="x" />
-                                </asp:LinkButton>
+                                    Text="borrar" OnClick="BorrarPregunta"> <img src="/Imagenes/borrar.png" alt="x" /></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -106,6 +104,8 @@
         <br />
     </div>
     <br />
+    <asp:Label ID="lblActivo_19" runat="server" Text="activo"></asp:Label>
+    <asp:CheckBox ID="cbxActivo" runat="server" Checked="true"></asp:CheckBox>
     <br />
     <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
     <br />
@@ -155,6 +155,13 @@
                     <ItemTemplate>
                         <asp:Image ID="imgImagen" runat="server" CssClass="imagenesTabla"
                             ImageUrl='<%# ObtenerImagen(Eval("Foto"))%>'></asp:Image>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Activo_19">
+                    <ItemTemplate>
+                        <asp:CheckBox ID="cbxActiva" runat="server" Enabled="False"
+                            Checked='<%# Eval("Activa")%>'></asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 

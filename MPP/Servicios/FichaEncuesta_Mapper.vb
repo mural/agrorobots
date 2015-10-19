@@ -19,7 +19,7 @@ Public Class FichaEncuesta_Mapper
         obj.Email = DbStringOrNull(Item("Email"))
         obj.Sesion = DbStringOrNull(Item("Sesion"))
         obj.RespuestaUnica = DbStringOrNull(Item("RespuestaUnica"))
-        obj.Activa = CBool(Item("Activa"))
+
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of FichaEncuesta)
@@ -34,7 +34,7 @@ Public Class FichaEncuesta_Mapper
         hdatos.Add("@Email", obj.Email)
         hdatos.Add("@Sesion", obj.Sesion)
         hdatos.Add("@RespuestaUnica", obj.RespuestaUnica)
-        hdatos.Add("@Activa", obj.Activa)
+
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuesta

@@ -50,22 +50,22 @@ Partial Public Class InscriptoCalificacion
     Protected WithEvents lblEncuesta As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''formaDePagoList control.
+    '''encuestaInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents formaDePagoList As Global.System.Web.UI.WebControls.RadioButtonList
+    Protected WithEvents encuestaInicio As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''enviar control.
+    '''encuestaCierre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents enviar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents encuestaCierre As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''lblMensajes control.

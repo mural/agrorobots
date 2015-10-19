@@ -60,6 +60,7 @@ Public Class AbmFichas
                 End If
                 If valido Then
                     fichaBase.Descripcion = descripcion
+                    fichaBase.Activa = Me.cbxActivo.Checked
                     If Not imgByte Is Nothing Then
                         fichaBase.Foto = imgByte
                     End If
@@ -123,6 +124,7 @@ Public Class AbmFichas
                     fichaBaseNueva.Foto = imgByte
                 End If
                 fichaBaseNueva.Tipo = "F" 'enum?
+                fichaBaseNueva.Activa = Me.cbxActivo.Checked
 
                 If fichaEncuestaBaseBusiness.Crear(fichaBaseNueva) Then
                     MensajeOk(lblMensajes)
@@ -146,6 +148,7 @@ Public Class AbmFichas
         fichaBase = Session("fichaSeleccionada")
 
         Me.areaContenido.InnerText = fichaBase.Descripcion
+        Me.cbxActivo.Checked = fichaBase.Activa
 
         Me.txtPregunta.Enabled = True
         Me.btnAdd_5.Enabled = True
@@ -198,7 +201,37 @@ Public Class AbmFichas
         CargarPreguntas()
     End Sub
     Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
+        Dim IDPregunta As String = DirectCast(GridViewPreguntas.Rows(e.RowIndex) _
+                             .FindControl("lblID"), Label).Text
+        Dim pregunta As String = DirectCast(GridViewPreguntas.Rows(e.RowIndex) _
+                                     .FindControl("txtPregunta"), TextBox).Text
 
+        Try
+            Dim valido = True
+            If String.IsNullOrEmpty(pregunta) Then
+                valido = False
+                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                lblMensajes.CssClass = "formError"
+            End If
+            If valido Then
+                Dim preguntaModificada As New FichaEncuestaPregunta
+                preguntaModificada.ID = IDPregunta
+                preguntaModificada.IDFichaEncuestaBase = fichaBase.ID
+                preguntaModificada.Pregunta = pregunta
+
+                If fichaEncuestaPreguntaBusiness.Actualizar(preguntaModificada) Then
+                    MensajeOk(lblMensajes)
+                    Me.txtPregunta.Text = ""
+                Else
+                    MensajeError(lblMensajes)
+                End If
+            End If
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
+
+        GridViewPreguntas.EditIndex = -1
+        CargarPreguntas()
     End Sub
 
     Protected Sub BorrarPregunta(ByVal sender As Object, ByVal e As EventArgs)

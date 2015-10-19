@@ -21,6 +21,7 @@ Public Class FichaEncuestaBase_Mapper
         End If
         obj.Tipo = CStr(Item("Tipo"))
         obj.Descripcion = CStr(Item("Descripcion"))
+        obj.Activa = CBool(Item("Activa"))
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of FichaEncuestaBase)
@@ -44,9 +45,16 @@ Public Class FichaEncuestaBase_Mapper
         hdatos.Add("@Foto", obj.Foto)
         hdatos.Add("@Tipo", obj.Tipo)
         hdatos.Add("@Descripcion", obj.Descripcion)
+        hdatos.Add("@Activa", obj.Activa)
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuestaBase
-        Return Obtener(0, "FichaEncuesta_BaseObtener")
+        Dim fichaEncuestaBase = Obtener(id, "FichaEncuesta_BaseObtener")
+        For Each pregunta In fichaEncuestaPreguntaMapper.Listar
+            If pregunta.IDFichaEncuestaBase = fichaEncuestaBase.ID Then
+                fichaEncuestaBase.Preguntas.Add(pregunta)
+            End If
+        Next
+        Return fichaEncuestaBase
     End Function
 End Class

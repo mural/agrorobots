@@ -7,6 +7,6 @@
     Public Property Email As String '(varchar(50), null)
     Public Property Sesion As String '(varchar(max), null)
     Public Property RespuestaUnica As String '(varchar(max), null)
-    Public Property Activa As Boolean
+
 End Class
 

@@ -26,12 +26,21 @@ Public Class Carrito
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        Dim borrarUsuario = New Usuario()
-        borrarUsuario.ID = lnkRemove.CommandArgument
-        ''quitar elemento de session
+        Dim IDElemento = CInt(lnkRemove.CommandArgument)
+        'quitar elemento de sesion
+        Dim nuevoCarrito As New List(Of ElementoAcademico)
+        For Each elemento As ElementoAcademico In carritoSesion
+            If Not elemento.CodigoAcademico = IDElemento Then
+                nuevoCarrito.Add(elemento)
+            End If
+        Next
+        Session("carrito") = nuevoCarrito
 
         GridView1_.EditIndex = -1
         CargarCarrito()
+
+        'recargar la pagina
+        'Response.Redirect(Request.RawUrl)
     End Sub
 
     Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click

@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class Carrito
 
     '''<summary>
-    '''navCarrito control.
+    '''navCarrito_10112 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navCarrito As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navCarrito_10112 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''carrito control.
+    '''carrito_10112 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents carrito As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents carrito_10112 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridView1_ control.

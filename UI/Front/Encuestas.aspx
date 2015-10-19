@@ -17,7 +17,7 @@
                 <asp:Label ID="titleEncuestas_52" runat="server" Text="encuestas">
                 </asp:Label>
             </h1>
-            <asp:Panel ID="encuestaInicio" runat="server" Text="faq detalle"></asp:Panel>
+            <asp:Panel ID="encuestaInicio" runat="server" Text="inicio"></asp:Panel>
             <asp:Chart ID="Resultado" runat="server" EnableTheming="true"
                 BorderDashStyle="Solid" BackSecondaryColor="White"
                 BackGradientStyle="TopBottom" BorderWidth="2px" BackColor="211, 223, 240"
@@ -47,7 +47,7 @@
                     </asp:ChartArea>
                 </ChartAreas>
             </asp:Chart>
-            <asp:Panel ID="encuestaCierre" runat="server" Text="faq detalle"></asp:Panel>
+            <asp:Panel ID="encuestaCierre" runat="server" Text="cierre"></asp:Panel>
             <br />
             <br />
             <asp:Label ID="lblMensajes" runat="server" CssClass="formError"></asp:Label>

@@ -5,7 +5,7 @@
     <li>»</li>
     <li>
         <a href="#">
-            <asp:Label ID="navCarrito" runat="server" Text="carrito"></asp:Label>
+            <asp:Label ID="navCarrito_10112" runat="server" Text="carrito"></asp:Label>
         </a>
     </li>
 </asp:Content>
@@ -13,15 +13,10 @@
     <div class="wrapper col4">
         <div id="container">
             <h1>
-                <asp:Label ID="carrito" runat="server" Text="carrito"></asp:Label>
+                <asp:Label ID="carrito_10112" runat="server" Text="carrito"></asp:Label>
             </h1>
-            _detalle de todos los items... (dejo eliminar) 
             <br />
-            si esta todo bien mando >>>> a INSCRIPCION (donde solo valida el pago)
-            <br />
-            <br />
-            (validar materias q no se superpongan, DIAS de cursada con HORARIOS)  
-            <br />
+            (validar materias q no se superpongan, DIAS de cursada con HORARIOS?)  
             <br />
             ver webcam max.
             <br />
@@ -33,7 +28,7 @@
                 AutoGenerateColumns="False"
                 CssClass="">
                 <EmptyDataTemplate>
-                    <asp:Label ID="varrito_vacio" Text="el carrito esta vacio" runat="server"></asp:Label>
+                    <asp:Label ID="carritoVacio_141" Text="el carrito esta vacio" runat="server"></asp:Label>
                 </EmptyDataTemplate>
                 <Columns>
                     <asp:TemplateField>
