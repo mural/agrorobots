@@ -24,9 +24,11 @@
     Public Property Precio As Decimal '(decimal(18,2), null)
     Public Property Imagen() As Byte()
     Public Property Estado As String
+    Public Property Alumnos As List(Of Usuario)
 
     Public Sub New()
         FechaInicio = Now
+        Me.Alumnos = New List(Of Usuario)
     End Sub
 
     Public Function EstadoEnumATexto(ByVal elementoAcademicoEnum As ElementoAcademicoEnum) As String

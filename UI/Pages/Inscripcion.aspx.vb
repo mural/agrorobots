@@ -85,13 +85,16 @@ Public Class Inscripcion
 
         Dim comprobanteDetalle1 As New ComprobanteDetalle
         comprobanteDetalle1.CodigoProducto = idElementoAcademico
+
+        elementoAcademicoBusiness.Inscribir(usuario.ID, idElementoAcademico) 'juntar con cta cte y tomar mas de 1
+
         comprobanteDetalle1.Detalle = carritoSesion(0).Nombre
         comprobanteDetalle1.Cantidad = 1
         comprobanteDetalle1.PrecioUnitario = carritoSesion(0).Precio
         comprobanteDetalle1.Subtotal = carritoSesion(0).Precio 'calcular
         subtotal += comprobanteDetalle1.Subtotal
 
-        comprobante.Items.Add(comprobanteDetalle1)
+        comprobante.Items.Add(comprobanteDetalle1) 'tomar mas de 1
         comprobante.Subtotal = subtotal
         ctacteItemUsuario.Comprobante = comprobante
 
