@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="CuentaCorriente.aspx.vb" Inherits="Agorobots.CuentaCorriente" %>
+﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="MiCursada.aspx.vb" Inherits="Agorobots.MiCursada" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
 </asp:Content>
@@ -6,13 +6,13 @@
     <li>»</li>
     <li>
         <a href="#">
-            <asp:Label ID="navActual_10111" runat="server" Text="cta cte"></asp:Label>
+            <asp:Label ID="navActual_10121" runat="server" Text="cursada"></asp:Label>
         </a>
     </li>
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
-        <asp:Label ID="lblTitulo_10111" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="lblTitulo_10121" runat="server" Text="titulo"></asp:Label>
     </h2>
     <div id="dvGrid">
         <br />
@@ -28,24 +28,17 @@
                 <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
             </EmptyDataTemplate>
             <Columns>
-                <asp:TemplateField HeaderText="estado_112">
+                <asp:TemplateField HeaderText="nombre_11">
                     <ItemTemplate>
-                        <asp:Label ID="lblEstado" runat="server"
-                            Text='<%# Eval("Estado")%>'></asp:Label>
+                        <asp:Label ID="lblNombre" runat="server"
+                            Text='<%# Eval("Nombre")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="concepto_142">
+                <asp:TemplateField HeaderText="desc_12">
                     <ItemTemplate>
-                        <asp:Label ID="lblMonto" runat="server"
-                            Text='<%# Eval("Comprobante.Items(0).Detalle")%>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="monto_138">
-                    <ItemTemplate>
-                        <asp:Label ID="lblMonto" runat="server"
-                            Text='<%# Eval("Comprobante.Subtotal")%>'></asp:Label>
+                        <asp:Label ID="lblDescripcion" runat="server"
+                            Text='<%# Eval("Descripcion")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

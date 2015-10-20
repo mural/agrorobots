@@ -29,4 +29,14 @@ Public Class ElementoAcademico_Business
         alumnoElementoAcademicoMapper.Insertar(alumnoElementoAcademico)
     End Sub
 
+    Public Function ObtenerPorUsuario(ByVal idUsuario As Integer) As List(Of ElementoAcademico)
+        Dim elementosAcademicos As New List(Of ElementoAcademico)
+        For Each alumnoElementoAcademico In alumnoElementoAcademicoMapper.Listar()
+            If alumnoElementoAcademico.IdAlumno = idUsuario Then
+                elementosAcademicos.Add(Obtener(alumnoElementoAcademico.IdElementoAcademico))
+            End If
+        Next
+        Return elementosAcademicos
+    End Function
+
 End Class

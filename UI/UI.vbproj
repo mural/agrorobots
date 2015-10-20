@@ -225,6 +225,7 @@
     <Content Include="Pages\MateriasDetalle.aspx" />
     <Content Include="Pages\Materias.aspx" />
     <Content Include="Pages\Mensajes.aspx" />
+    <Content Include="Pages\MiCursada.aspx" />
     <Content Include="Pages\NuevaCarrera.aspx" />
     <Content Include="Pages\NuevaMateria.aspx" />
     <Content Include="Pages\Pago.aspx" />
@@ -733,6 +734,13 @@
     <Compile Include="Pages\Mensajes.aspx.vb">
       <DependentUpon>Mensajes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MiCursada.aspx.designer.vb">
+      <DependentUpon>MiCursada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MiCursada.aspx.vb">
+      <DependentUpon>MiCursada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\NuevaCarrera.aspx.designer.vb">
       <DependentUpon>NuevaCarrera.aspx</DependentUpon>

@@ -6,7 +6,6 @@ Public Class Inscripcion
 
     Dim tarjetaBusiness As New Tarjeta_Business
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
-    Dim idElementoAcademico As String
     Dim carritoSesion As List(Of ElementoAcademico)
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
 
@@ -84,9 +83,9 @@ Public Class Inscripcion
         Dim subtotal As Decimal = 0
 
         Dim comprobanteDetalle1 As New ComprobanteDetalle
-        comprobanteDetalle1.CodigoProducto = idElementoAcademico
+        comprobanteDetalle1.CodigoProducto = carritoSesion(0).CodigoAcademico
 
-        elementoAcademicoBusiness.Inscribir(usuario.ID, idElementoAcademico) 'juntar con cta cte y tomar mas de 1
+        elementoAcademicoBusiness.Inscribir(usuario.ID, carritoSesion(0).CodigoAcademico) 'juntar con cta cte y tomar mas de 1
 
         comprobanteDetalle1.Detalle = carritoSesion(0).Nombre
         comprobanteDetalle1.Cantidad = 1

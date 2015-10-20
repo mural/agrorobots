@@ -11,16 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CuentaCorriente
+Partial Public Class MiCursada
 
     '''<summary>
-    '''navActual_10111 control.
+    '''navActual_10121 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navActual_10111 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navActual_10121 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblTitulo_10111 control.

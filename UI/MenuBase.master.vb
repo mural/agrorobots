@@ -74,6 +74,8 @@ Public Class MenuBase
                 'alumno
             Case "CuentaCorriente_10111"
                 Response.Redirect("CuentaCorriente.aspx")
+            Case "MiCursada_10121"
+                Response.Redirect("MiCursada.aspx")
             Case "RendirExamen"
                 Response.Redirect("ExamenMateria.aspx")
 
