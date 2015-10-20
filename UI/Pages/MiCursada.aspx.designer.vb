@@ -23,13 +23,13 @@ Partial Public Class MiCursada
     Protected WithEvents navActual_10121 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10111 control.
+    '''lblTitulo_10121 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10111 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10121 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridView1_ control.

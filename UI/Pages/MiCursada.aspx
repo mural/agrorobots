@@ -42,6 +42,23 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="material">
+                    <ItemTemplate>
+                        ->
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="examen">
+                    <ItemTemplate>
+                        ->
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="foro">
+                    <ItemTemplate>
+                        ->
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />
