@@ -17,6 +17,7 @@ Public Class Usuario
     Private _email As String
     Private _Foto As Byte()
     Public Property CtaCte As List(Of CtaCteItemUsuario)
+    Public Property ElementosAcademicos As List(Of ElementoAcademico)
 
     Public Property Activo() As Boolean
         Get
@@ -180,6 +181,7 @@ Public Class Usuario
         Me.UserName = username
         Me.Email = email
         Me.CtaCte = New List(Of CtaCteItemUsuario)
+        Me.ElementosAcademicos = New List(Of ElementoAcademico)
     End Sub
 
 End Class ' Usuario

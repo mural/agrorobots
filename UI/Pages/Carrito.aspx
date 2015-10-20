@@ -16,10 +16,6 @@
                 <asp:Label ID="carrito_10112" runat="server" Text="carrito"></asp:Label>
             </h1>
             <br />
-            (validar materias q no se superpongan, DIAS de cursada con HORARIOS?)  
-            <br />
-            ver webcam max.
-            <br />
             <br />
             <asp:GridView ID="GridView1_" runat="server"
                 ShowHeader="False"

@@ -8,8 +8,9 @@ Public Class Inscripcion
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
     Dim idElementoAcademico As String
     Dim carritoSesion As List(Of ElementoAcademico)
-
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
+
+    Public Shared Property TarjetaGuardada As String = ""
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         carritoSesion = Session("carrito")
@@ -23,6 +24,14 @@ Public Class Inscripcion
             formaDePagoList.Items.Clear()
             formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(122), "Efectivo"))
             formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(123), "Tarjeta"))
+            formaDePagoList.SelectedIndex = 1 'tarjeta
+
+            'tarjeta guardada ?
+            If Not tarjetaBusiness.ObtenerTarjetaDeUsuario(usuario.ID) Is Nothing Then
+                TarjetaGuardada = tarjetaBusiness.ObtenerTarjetaDeUsuario(usuario.ID).Numero
+            Else
+                TarjetaGuardada = ""
+            End If
         End If
     End Sub
 
@@ -51,13 +60,16 @@ Public Class Inscripcion
             'tarjeta
             Dim tarjeta As New Tarjeta
             tarjeta.IdUsuario = usuario.ID
-            tarjeta.Tipo = inputTipoTarjeta.Value
-            tarjeta.Numero = inputNumeroTarjeta.Value
-            tarjeta.Nombre = inputNombreTarjeta.Value
-            'tarjeta.Expiracion = New Date(inputVtoTarjeta)
-            tarjeta.Expiracion = New Date
-
-            tarjetaBusiness.GuardarTarjeta(tarjeta)
+            tarjeta.Tipo = UCase(inputTipoTarjetaHidden.Value)
+            tarjeta.Numero = inputNumeroTarjetaHidden.Value
+            tarjeta.Nombre = inputNombreTarjetaHidden.Value
+            'tarjeta.Expiracion = inputVtoTarjetaHidden.Value
+            tarjeta.Expiracion = Now
+            If cbxGuardarTarjeta.Checked Then
+                tarjetaBusiness.GuardarTarjeta(tarjeta)
+            Else
+                tarjetaBusiness.BorrarPorUsuario(usuario.ID)
+            End If
         End If
         ctacteItemUsuario.Tipo = 1 'B
         ctacteItemUsuario.Estado = estado

@@ -3,18 +3,26 @@
 <%@ Import Namespace="Agorobots" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
+    <script type="text/javascript">
+        function completarTarjeta() {
+            var inputTipoTarjetaHiddenVar = document.getElementById("<%:inputTipoTarjetaHidden.ClientID%>");
+            inputTipoTarjetaHiddenVar.value = card.cardType;
+            var inputNumeroTarjetaHiddenVar = document.getElementById("<%:inputNumeroTarjetaHidden.ClientID%>");
+            inputNumeroTarjetaHiddenVar.value = document.getElementById("inputNumeroTarjeta").value;
+            var inputNombreTarjetaHiddenVar = document.getElementById("<%:inputNombreTarjetaHidden.ClientID%>");
+            inputNombreTarjetaHiddenVar.value = document.getElementById("inputNombreTarjeta").value;
+            var inputVtoTarjetaHiddenVar = document.getElementById("<%:inputVtoTarjetaHidden.ClientID%>");
+            inputVtoTarjetaHiddenVar.value = document.getElementById("inputVtoTarjeta").value;
+            var inputCodTarjetaHiddenVar = document.getElementById("<%:inputCodTarjetaHidden.ClientID%>");
+            inputCodTarjetaHiddenVar.value = document.getElementById("inputCodTarjeta").value;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
     <li>»</li>
     <li>
         <a href='<%= PaginasConocidas.CATALOGO%>'>
             <asp:Label ID="navCatalogo_50" runat="server" Text="catalogo"></asp:Label>
-        </a>
-    </li>
-    <li>»</li>
-    <li>
-        <a id="nav_curso_link" href="#" runat="server">
-            <asp:Label ID="nav_curso" runat="server" Text="..."></asp:Label>
         </a>
     </li>
     <li>»</li>
@@ -68,29 +76,37 @@
             <asp:RadioButtonList ID="formaDePagoList" runat="server" AutoPostBack="True">
             </asp:RadioButtonList>
             <br />
-            <asp:Panel ID="panelTarjeta" runat="server" Visible="False">
-                <input id="inputTipoTarjeta" type="hidden" name="tipo" maxlength="20" runat="server">
+            <asp:Panel ID="panelTarjeta" runat="server" Visible="True">
+                <input type="hidden" id="inputTipoTarjetaHidden" runat="server" />
+                <input type="hidden" id="inputNumeroTarjetaHidden" runat="server" />
+                <input type="hidden" id="inputNombreTarjetaHidden" runat="server" />
+                <input type="hidden" id="inputVtoTarjetaHidden" runat="server" />
+                <input type="hidden" id="inputCodTarjetaHidden" runat="server" />
                 <asp:Label ID="numeroTarjeta_126" runat="server" Text="numero" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22" runat="server">
+                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22" value='<%= Inscripcion.TarjetaGuardada%>' />
                 <br />
                 <br />
                 <asp:Label ID="nombreTarjeta_127" runat="server" Text="nombre" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50" runat="server"/>
+                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50" />
                 <br />
                 <br />
                 <asp:Label ID="fechaVtoTarjeta_128" runat="server" Text="fecha vto" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10" runat="server"/>
+                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10" />
                 <br />
                 <br />
                 <asp:Label ID="codigoTarjeta_129" runat="server" Text="cod." CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputCodTarjeta" type="text" name="cvc" maxlength="4" runat="server"/>
+                &nbsp;<input id="inputCodTarjeta" type="text" name="cvc" maxlength="4" />
+                <br />
+                <br />
+                <asp:Label ID="guardarTarjeta_143" runat="server" Text="guardar tarjeta" CssClass="w3-text-blue w3-large"></asp:Label>
+                &nbsp;<asp:CheckBox ID="cbxGuardarTarjeta" runat="server" Checked="true" />
                 <br />
                 <br />
                 <div class="card-wrapper"></div>
             </asp:Panel>
             <br />
             <br />
-            <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" OnClientClick="inputTipoTarjeta.value=card.cardType" />
+            <asp:Button ID="inscribirse_118" runat="server" Text="confirmar" CssClass="w3-btn w3-blue" OnClientClick="completarTarjeta()" />
             <br />
             <br />
         </div>
@@ -107,5 +123,7 @@
             container: '.card-wrapper',
             debug: true // optional - default false
         });
+
+        document.getElementById("inputNumeroTarjeta").focus(); // importante para cargar el tipo de tarjeta
     </script>
 </asp:Content>

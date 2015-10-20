@@ -1955,6 +1955,8 @@ Payment = (function() {
     QJ.on(el, 'keypress', formatCardNumber);
     QJ.on(el, 'keydown', formatBackCardNumber);
     QJ.on(el, 'keyup', setCardType);
+    QJ.on(el, 'focus', setCardType);
+    QJ.on(el, 'focused', setCardType);
     QJ.on(el, 'paste', reFormatCardNumber);
     return el;
   };

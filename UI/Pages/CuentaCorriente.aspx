@@ -22,6 +22,7 @@
             RowStyle-CssClass="light"
             AlternatingRowStyle-CssClass="dark"
             AllowPaging="true" ShowFooter="False"
+            OnPageIndexChanging="OnPaging"
             PageSize="10">
             <EmptyDataTemplate>
                 <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
@@ -31,6 +32,13 @@
                     <ItemTemplate>
                         <asp:Label ID="lblEstado" runat="server"
                             Text='<%# Eval("Estado")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="concepto">
+                    <ItemTemplate>
+                        <asp:Label ID="lblMonto" runat="server"
+                            Text='<%# Eval("Comprobante.Items(0).Detalle")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

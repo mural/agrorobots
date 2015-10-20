@@ -23,24 +23,6 @@ Partial Public Class Inscripcion
     Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''nav_curso_link control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents nav_curso_link As Global.System.Web.UI.HtmlControls.HtmlAnchor
-
-    '''<summary>
-    '''nav_curso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents nav_curso As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''nav_57 control.
     '''</summary>
     '''<remarks>
@@ -122,13 +104,49 @@ Partial Public Class Inscripcion
     Protected WithEvents panelTarjeta As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''inputTipoTarjeta control.
+    '''inputTipoTarjetaHidden control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents inputTipoTarjeta As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+    Protected WithEvents inputTipoTarjetaHidden As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+
+    '''<summary>
+    '''inputNumeroTarjetaHidden control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inputNumeroTarjetaHidden As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+
+    '''<summary>
+    '''inputNombreTarjetaHidden control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inputNombreTarjetaHidden As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+
+    '''<summary>
+    '''inputVtoTarjetaHidden control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inputVtoTarjetaHidden As Global.System.Web.UI.HtmlControls.HtmlInputHidden
+
+    '''<summary>
+    '''inputCodTarjetaHidden control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents inputCodTarjetaHidden As Global.System.Web.UI.HtmlControls.HtmlInputHidden
 
     '''<summary>
     '''numeroTarjeta_126 control.
@@ -140,15 +158,6 @@ Partial Public Class Inscripcion
     Protected WithEvents numeroTarjeta_126 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''inputNumeroTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents inputNumeroTarjeta As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
     '''nombreTarjeta_127 control.
     '''</summary>
     '''<remarks>
@@ -156,15 +165,6 @@ Partial Public Class Inscripcion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents nombreTarjeta_127 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''inputNombreTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents inputNombreTarjeta As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
     '''fechaVtoTarjeta_128 control.
@@ -176,15 +176,6 @@ Partial Public Class Inscripcion
     Protected WithEvents fechaVtoTarjeta_128 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''inputVtoTarjeta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents inputVtoTarjeta As Global.System.Web.UI.HtmlControls.HtmlInputText
-
-    '''<summary>
     '''codigoTarjeta_129 control.
     '''</summary>
     '''<remarks>
@@ -194,13 +185,22 @@ Partial Public Class Inscripcion
     Protected WithEvents codigoTarjeta_129 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''inputCodTarjeta control.
+    '''guardarTarjeta_143 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents inputCodTarjeta As Global.System.Web.UI.HtmlControls.HtmlInputText
+    Protected WithEvents guardarTarjeta_143 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''cbxGuardarTarjeta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbxGuardarTarjeta As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''inscribirse_118 control.
