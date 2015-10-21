@@ -25,6 +25,7 @@
     Public Property Imagen() As Byte()
     Public Property Estado As String
     Public Property Alumnos As List(Of Usuario)
+    Public Property Profesor As Usuario
 
     Public Sub New()
         FechaInicio = Now

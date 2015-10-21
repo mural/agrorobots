@@ -9,6 +9,11 @@
             selector: 'textarea.editable'
         });
     </script>
+        <script>
+            $(function () {
+                $("input.datepicker").datepicker();
+            });
+    </script>
 </asp:Content>
 <asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
     <li>»</li>
@@ -41,6 +46,17 @@
     <br />
     <asp:DropDownList ID="comboEstados" runat="server" AutoPostBack="False">
     </asp:DropDownList>
+    <br />
+    <br />
+    <asp:Label ID="profesor_144" runat="server" Text="prof."></asp:Label>
+    <br />
+    <asp:DropDownList ID="comboProfesores" runat="server" AutoPostBack="False">
+    </asp:DropDownList>
+    <br />
+    <br />
+    <asp:Label ID="fInicio_116" runat="server" Text="fecha inicio"></asp:Label>
+    <br />
+    <input type="text" id="datepicker" class="datepicker" runat="server" readonly="readonly" >
     <br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />

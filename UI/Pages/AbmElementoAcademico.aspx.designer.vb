@@ -95,6 +95,42 @@ Partial Public Class AbmElementoAcademico
     Protected WithEvents comboEstados As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''profesor_144 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents profesor_144 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comboProfesores control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboProfesores As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''fInicio_116 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fInicio_116 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''datepicker control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents datepicker As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
     '''btnCrear_32 control.
     '''</summary>
     '''<remarks>

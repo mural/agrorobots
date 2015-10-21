@@ -5,6 +5,7 @@ Imports EE.ElementoAcademico
 Public Class AbmElementoAcademico
     Inherits PaginaAutorizada
 
+    Dim usuarioBusiness As New Business.Usuario_Business
     Dim elementoAcademicoBusiness As New Business.ElementoAcademico_Business
     Dim elementoAcademico As New ElementoAcademico
 
@@ -13,6 +14,7 @@ Public Class AbmElementoAcademico
         If Not (Page.IsPostBack) Then
             CargarElementosAcademicos()
             CargarEstados()
+            CargarProfesores()
         End If
     End Sub
 
@@ -31,6 +33,13 @@ Public Class AbmElementoAcademico
         comboEstados.Items.Add(New ListItem("Con contenido", "CON_CONTENIDO"))
         comboEstados.Items.Add(New ListItem("Con contenido rechazado", "CON_CONTENIDO_RECHAZADO"))
         comboEstados.Items.Add(New ListItem("Disponible", "DISPONIBLE"))
+    End Sub
+
+    Private Sub CargarProfesores()
+        comboProfesores.Items.Add(New ListItem("-", -1))
+        For Each profesor As Usuario In usuarioBusiness.ObtenerProfesores
+            comboProfesores.Items.Add(New ListItem(profesor.Nombre, profesor.ID))
+        Next
     End Sub
 
     Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click

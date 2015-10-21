@@ -2,6 +2,7 @@
 Option Strict On
 
 Public MustInherit Class Component
+    Implements IEquatable(Of Component)
 
     Private _Desc As String
     Private _ID As Integer
@@ -48,6 +49,10 @@ Public MustInherit Class Component
 
     Public Overrides Function ToString() As String
         Return Name()
+    End Function
+
+    Public Overloads Function Equals(other As Component) As Boolean Implements IEquatable(Of Component).Equals
+        Return ID.Equals(other.ID)
     End Function
 
 End Class ' Component
