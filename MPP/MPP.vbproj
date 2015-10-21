@@ -81,6 +81,8 @@
     <Compile Include="Negocios\ComprobanteNota_Mapper.vb" />
     <Compile Include="Negocios\Comprobante_Mapper.vb" />
     <Compile Include="Negocios\AlumnoElementoAcademico_Mapper.vb" />
+    <Compile Include="Negocios\MaterialDeEstudio_Mapper.vb" />
+    <Compile Include="Negocios\ProfesorElementoAcademico_Mapper.vb" />
     <Compile Include="Negocios\Tarjeta_Mapper.vb" />
     <Compile Include="Negocios\CtaCteUsuario_Mapper.vb" />
     <Compile Include="Negocios\ElementoAcademico_Mapper.vb" />

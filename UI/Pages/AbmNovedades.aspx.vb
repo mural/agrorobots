@@ -61,7 +61,7 @@ Public Class AbmNovedades
     Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
         Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("lblID"), Label).Text
         Dim Texto As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("txtTexto"), TextBox).Text
-        Dim Tema As Integer = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("comboTipos"), DropDownList).SelectedValue
+        Dim Tema As Integer = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("comboTiposEdit"), DropDownList).SelectedValue
 
         Dim img As FileUpload = CType(imgUpload, FileUpload)
         Dim imgByte As Byte() = Nothing
