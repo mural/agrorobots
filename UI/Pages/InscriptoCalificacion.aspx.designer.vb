@@ -23,13 +23,13 @@ Partial Public Class InscriptoCalificacion
     Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''nav control.
+    '''nav_101 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents nav As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nav_101 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblTitulo_101 control.
@@ -41,13 +41,13 @@ Partial Public Class InscriptoCalificacion
     Protected WithEvents lblTitulo_101 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblEncuesta control.
+    '''lblEncuesta_137 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblEncuesta As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblEncuesta_137 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''encuestaInicio control.

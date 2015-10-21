@@ -51,7 +51,6 @@ Public Class InscriptoCalificacion
         AddHandler submit.Click, AddressOf Me.Votar
         encuestaCierre.Controls.Add(submit)
 
-
         Dim descripcionCierre = New LiteralControl()
         descripcionCierre.Text = ""
         descripcionCierre.Text += "</div>"

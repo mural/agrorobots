@@ -66,7 +66,7 @@ Public Class Principal
 
                 If Not String.IsNullOrEmpty(idElementoAcademico) Then 'ir a inscribirse
                     FormsAuthentication.SetAuthCookie(usuarioEntrante.Apellido, False)
-                    Response.Redirect(PaginasConocidas.INSCRIPCION + "?id=" + idElementoAcademico)
+                    Response.Redirect(PaginasConocidas.CATALOGO_DETALLE + "?id=" + idElementoAcademico)
                 Else 'flujo comun
                     FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)
                 End If

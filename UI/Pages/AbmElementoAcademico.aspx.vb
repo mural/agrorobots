@@ -12,6 +12,7 @@ Public Class AbmElementoAcademico
         elementoAcademico = Session("elementoSeleccionado")
         If Not (Page.IsPostBack) Then
             CargarElementosAcademicos()
+            CargarEstados()
         End If
     End Sub
 
@@ -23,6 +24,13 @@ Public Class AbmElementoAcademico
     Private Sub CargarElementosAcademicos()
         Me.GridView1_.DataSource = elementoAcademicoBusiness.Listar
         Me.GridView1_.DataBind()
+    End Sub
+
+    Private Sub CargarEstados()
+        comboEstados.Items.Add(New ListItem("Sin contenido", "SIN_CONTENIDO"))
+        comboEstados.Items.Add(New ListItem("Con contenido", "CON_CONTENIDO"))
+        comboEstados.Items.Add(New ListItem("Con contenido rechazado", "CON_CONTENIDO_RECHAZADO"))
+        comboEstados.Items.Add(New ListItem("Disponible", "DISPONIBLE"))
     End Sub
 
     Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
@@ -52,7 +60,7 @@ Public Class AbmElementoAcademico
                     If Not imgByte Is Nothing Then
                         elementoAcademico.Imagen = imgByte
                     End If
-                    elementoAcademico.Estado = elementoAcademico.EstadoEnumATexto(ElementoAcademicoEnum.SinContenido)
+                    elementoAcademico.Estado = comboEstados.SelectedValue
 
                     If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
                         MensajeOk(lblMensajes)
@@ -114,7 +122,7 @@ Public Class AbmElementoAcademico
                 If Not imgByte Is Nothing Then
                     elementoAcademico.Imagen = imgByte
                 End If
-                elementoAcademico.Estado = "SIN CONTENIDO" 'enum?
+                elementoAcademico.Estado = "SIN_CONTENIDO" 'enum?
 
                 If elementoAcademicoBusiness.Crear(elementoAcademico) Then
                     MensajeOk(lblMensajes)
@@ -139,6 +147,7 @@ Public Class AbmElementoAcademico
 
         Me.txtNombre.Text = elementoAcademico.Nombre
         Me.areaContenido.InnerText = elementoAcademico.Contenido
+        Me.comboEstados.SelectedValue = elementoAcademico.Estado
     End Sub
 
     Private Sub Limpiar()

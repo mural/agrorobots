@@ -11,10 +11,13 @@ Public Class ElementoAcademico_Business
         Me.mapperGenerico = New ElementoAcademico_Mapper
     End Sub
 
-    Public Shadows Function ListarPorEstado(ByVal estado As ElementoAcademicoEnum) As List(Of ElementoAcademico)
+    Public Shadows Function ListarPorEstado(ByVal estado As ElementoAcademicoEnum, Optional ByVal incluirRechazados As Boolean = False) As List(Of ElementoAcademico)
         Dim elementosAcademicos As New List(Of ElementoAcademico)
         For Each elementoAcademico In mapperGenerico.Listar()
             If elementoAcademico.EstadoActual = estado Then
+                elementosAcademicos.Add(elementoAcademico)
+            End If
+            If incluirRechazados And elementoAcademico.EstadoActual = ElementoAcademicoEnum.ConContenidoRechazado Then
                 elementosAcademicos.Add(elementoAcademico)
             End If
         Next

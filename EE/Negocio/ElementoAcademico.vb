@@ -34,30 +34,30 @@
     Public Function EstadoEnumATexto(ByVal elementoAcademicoEnum As ElementoAcademicoEnum) As String
         Select Case elementoAcademicoEnum
             Case elementoAcademicoEnum.NoIniciada
-                Return "NoIniciada"
+                Return "NO_INICIADA"
             Case elementoAcademicoEnum.SinContenido
-                Return "SinContenido"
+                Return "SIN_CONTENIDO"
             Case elementoAcademicoEnum.ConContenido
-                Return "ConContenido"
+                Return "CON_CONTENIDO"
             Case elementoAcademicoEnum.ConContenidoRechazado
-                Return "ConContenidoRechazado"
+                Return "CON_CONTENIDO_RECHAZADO"
             Case elementoAcademicoEnum.Disponible
-                Return "Disponible"
+                Return "DISPONIBLE"
         End Select
         Return ""
     End Function
 
     Public Function TextoAEstadoEnum(ByVal estado As String) As ElementoAcademicoEnum
         Select Case estado
-            Case "NoIniciada"
+            Case "NO_INICIADA"
                 Return ElementoAcademicoEnum.NoIniciada
-            Case "SinContenido"
+            Case "SIN_CONTENIDO"
                 Return ElementoAcademicoEnum.SinContenido
-            Case "ConContenido"
+            Case "CON_CONTENIDO"
                 Return ElementoAcademicoEnum.ConContenido
-            Case "ConContenidoRechazado"
+            Case "CON_CONTENIDO_RECHAZADO"
                 Return ElementoAcademicoEnum.ConContenidoRechazado
-            Case "Disponible"
+            Case "DISPONIBLE"
                 Return ElementoAcademicoEnum.Disponible
             Case Else
                 Return ElementoAcademicoEnum.NoIniciada

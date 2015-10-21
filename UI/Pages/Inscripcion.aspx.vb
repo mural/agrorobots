@@ -86,6 +86,7 @@ Public Class Inscripcion
         comprobanteDetalle1.CodigoProducto = carritoSesion(0).CodigoAcademico
 
         elementoAcademicoBusiness.Inscribir(usuario.ID, carritoSesion(0).CodigoAcademico) 'juntar con cta cte y tomar mas de 1
+        'refrescar en usuario de sesion el elemento academico o cargarlo todo de nuevo
 
         comprobanteDetalle1.Detalle = carritoSesion(0).Nombre
         comprobanteDetalle1.Cantidad = 1

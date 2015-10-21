@@ -39,6 +39,10 @@
     <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
     <br />
     <br />
+    <asp:DropDownList ID="comboEstados" runat="server" AutoPostBack="False">
+    </asp:DropDownList>
+    <br />
+    <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
     &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" />
     <br />
@@ -96,7 +100,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="estado">
+                <asp:TemplateField HeaderText="estado_112">
                     <ItemTemplate>
                         <asp:Label ID="lblEstado" runat="server"
                             Text='<%# Eval("Estado")%>'></asp:Label>

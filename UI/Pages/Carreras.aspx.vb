@@ -1,4 +1,5 @@
 ﻿Imports Business
+Imports EE.ElementoAcademico
 
 Public Class Carreras
     Inherits PaginaGenerica
@@ -13,7 +14,7 @@ Public Class Carreras
 
     Private Sub CargarElementosAcademicos()
         Try
-            Me.GridView1_.DataSource = elementoAcademico_Business.Listar()
+            Me.GridView1_.DataSource = elementoAcademico_Business.ListarPorEstado(ElementoAcademicoEnum.Disponible)
             Me.GridView1_.DataBind()
         Catch e As Exception
         End Try

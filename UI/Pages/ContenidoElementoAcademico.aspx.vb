@@ -21,7 +21,7 @@ Public Class ContenidoElementoAcademico
     End Sub
 
     Private Sub CargarElementosAcademicos()
-        Me.GridView1_.DataSource = elementoAcademicoBusiness.ListarPorEstado(ElementoAcademicoEnum.SinContenido)
+        Me.GridView1_.DataSource = elementoAcademicoBusiness.ListarPorEstado(ElementoAcademicoEnum.SinContenido, True)
         Me.GridView1_.DataBind()
     End Sub
 
