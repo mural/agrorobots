@@ -122,13 +122,13 @@ Partial Public Class AbmElementoAcademico
     Protected WithEvents fInicio_116 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''datepicker control.
+    '''txtFechaInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents datepicker As Global.System.Web.UI.HtmlControls.HtmlInputText
+    Protected WithEvents txtFechaInicio As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
     '''btnCrear_32 control.

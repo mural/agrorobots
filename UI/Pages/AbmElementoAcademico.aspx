@@ -56,7 +56,7 @@
     <br />
     <asp:Label ID="fInicio_116" runat="server" Text="fecha inicio"></asp:Label>
     <br />
-    <input type="text" id="datepicker" class="datepicker" runat="server" readonly="readonly" >
+    <input type="text" id="txtFechaInicio" class="datepicker" runat="server" readonly="readonly" >
     <br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />

@@ -55,6 +55,7 @@ Public Class AbmElementoAcademico
                 'force the control to load data in array
                 File.InputStream.Read(imgByte, 0, File.ContentLength)
             End If
+            Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
 
             Try
                 Dim valido = True
@@ -69,6 +70,7 @@ Public Class AbmElementoAcademico
                     If Not imgByte Is Nothing Then
                         elementoAcademico.Imagen = imgByte
                     End If
+                    elementoAcademico.FechaInicio = FechaInicio
                     elementoAcademico.Estado = comboEstados.SelectedValue
 
                     If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
@@ -115,6 +117,7 @@ Public Class AbmElementoAcademico
             'force the control to load data in array
             File.InputStream.Read(imgByte, 0, File.ContentLength)
         End If
+        Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
 
         Try
             Dim valido = True
@@ -131,6 +134,7 @@ Public Class AbmElementoAcademico
                 If Not imgByte Is Nothing Then
                     elementoAcademico.Imagen = imgByte
                 End If
+                elementoAcademico.FechaInicio = FechaInicio
                 elementoAcademico.Estado = "SIN_CONTENIDO" 'enum?
 
                 If elementoAcademicoBusiness.Crear(elementoAcademico) Then
@@ -157,11 +161,16 @@ Public Class AbmElementoAcademico
         Me.txtNombre.Text = elementoAcademico.Nombre
         Me.areaContenido.InnerText = elementoAcademico.Contenido
         Me.comboEstados.SelectedValue = elementoAcademico.Estado
+        Me.comboProfesores.SelectedValue = -1
+        Me.txtFechaInicio.Value = elementoAcademico.FechaInicio.ToString("MM/dd/yyyy")
     End Sub
 
     Private Sub Limpiar()
         Me.txtNombre.Text = ""
-        areaContenido.InnerText = ""
+        Me.areaContenido.InnerText = ""
+        Me.comboEstados.SelectedValue = "SIN_CONTENIDO"
+        Me.comboProfesores.SelectedValue = -1
+        Me.txtFechaInicio.Value = ""
         'imagen
         Session("elementoSeleccionado") = Nothing
     End Sub
