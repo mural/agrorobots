@@ -7,6 +7,8 @@ Imports System.Collections.Generic
 
 Public Class Usuario_Business
 
+    Dim familiaBusiness As New Familia_Business
+
     Public Shared ReadOnly MAX_TRIES As Integer = 3
 
     Function CambiarPassword(ByVal userID As Integer, ByVal password As String) As Boolean
@@ -155,6 +157,17 @@ Public Class Usuario_Business
         Return usuarioObtener
     End Function
 
+    Public Function obtenerUsuarioPorID(usuarioID As Integer) As Usuario
+        Dim usuarioObtener As Usuario
+        Try
+            Dim usu_data As New Usuario_Data
+            usuarioObtener = usu_data.ConsultarPorId(usuarioID)
+        Catch ex As Exception
+            Return Nothing
+        End Try
+        Return usuarioObtener
+    End Function
+
     Public Function ObtenerProfesores() As List(Of Usuario)
         Dim fliasBusiness As New Familia_Business
         Dim datUser As New Usuario_Data
@@ -168,4 +181,11 @@ Public Class Usuario_Business
         Return profesores
     End Function
 
+    Function EsAlumno(usuario As Usuario) As Boolean
+        Return usuario.GetFamilias.Contains(familiaBusiness.ObtenerFamiliaAlumno)
+    End Function
+
+    Function EsProfesor(usuario As Usuario) As Boolean
+        Return usuario.GetFamilias.Contains(familiaBusiness.ObtenerFamiliaProfesor)
+    End Function
 End Class

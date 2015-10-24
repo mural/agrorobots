@@ -19,7 +19,12 @@ Public Class Login
             compDinam.ObtenerComponentsOfUser(obj)
 
             Dim elemDinam As New ElementoAcademico_Business
-            obj.ElementosAcademicos = elemDinam.ObtenerPorUsuario(obj.ID)
+            If user_dinam.EsAlumno(obj) Then
+                obj.ElementosAcademicos = elemDinam.ObtenerPorAlumno(obj.ID)
+            End If
+            If user_dinam.EsProfesor(obj) Then
+                obj.ElementosAcademicos = elemDinam.ObtenerPorProfesor(obj.ID)
+            End If
         End If
     End Sub
 

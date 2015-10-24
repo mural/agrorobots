@@ -36,7 +36,7 @@ Public Class AbmElementoAcademico
     End Sub
 
     Private Sub CargarProfesores()
-        comboProfesores.Items.Add(New ListItem("-", -1))
+        comboProfesores.Items.Add(New ListItem("-", 0))
         For Each profesor As Usuario In usuarioBusiness.ObtenerProfesores
             comboProfesores.Items.Add(New ListItem(profesor.Nombre, profesor.ID))
         Next
@@ -72,8 +72,9 @@ Public Class AbmElementoAcademico
                     End If
                     elementoAcademico.FechaInicio = FechaInicio
                     elementoAcademico.Estado = comboEstados.SelectedValue
+                    elementoAcademico.Profesor = usuarioBusiness.obtenerUsuarioPorID(comboProfesores.SelectedValue)
 
-                    If elementoAcademicoBusiness.Actualizar(elementoAcademico) Then
+                    If elementoAcademicoBusiness.ActualizarConProfesor(elementoAcademico) Then
                         MensajeOk(lblMensajes)
 
                         Limpiar()
@@ -136,8 +137,9 @@ Public Class AbmElementoAcademico
                 End If
                 elementoAcademico.FechaInicio = FechaInicio
                 elementoAcademico.Estado = "SIN_CONTENIDO" 'enum?
+                elementoAcademico.Profesor = usuarioBusiness.obtenerUsuarioPorID(comboProfesores.SelectedValue)
 
-                If elementoAcademicoBusiness.Crear(elementoAcademico) Then
+                If elementoAcademicoBusiness.CrearConProfesor(elementoAcademico) Then
                     MensajeOk(lblMensajes)
 
                     Limpiar()
@@ -161,7 +163,11 @@ Public Class AbmElementoAcademico
         Me.txtNombre.Text = elementoAcademico.Nombre
         Me.areaContenido.InnerText = elementoAcademico.Contenido
         Me.comboEstados.SelectedValue = elementoAcademico.Estado
-        Me.comboProfesores.SelectedValue = -1
+        If elementoAcademico.Profesor Is Nothing Then
+            Me.comboProfesores.SelectedValue = 0
+        Else
+            Me.comboProfesores.SelectedValue = elementoAcademico.Profesor.ID
+        End If
         Me.txtFechaInicio.Value = elementoAcademico.FechaInicio.ToString("MM/dd/yyyy")
     End Sub
 
@@ -169,7 +175,7 @@ Public Class AbmElementoAcademico
         Me.txtNombre.Text = ""
         Me.areaContenido.InnerText = ""
         Me.comboEstados.SelectedValue = "SIN_CONTENIDO"
-        Me.comboProfesores.SelectedValue = -1
+        Me.comboProfesores.SelectedValue = 0
         Me.txtFechaInicio.Value = ""
         'imagen
         Session("elementoSeleccionado") = Nothing
