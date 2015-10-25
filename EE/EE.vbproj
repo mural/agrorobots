@@ -75,6 +75,11 @@
   <ItemGroup>
     <Compile Include="Negocio\AlumnoElementoAcademico.vb" />
     <Compile Include="Negocio\ComprobanteGenerico.vb" />
+    <Compile Include="Negocio\Examen.vb" />
+    <Compile Include="Negocio\ExamenBase.vb" />
+    <Compile Include="Negocio\ExamenBasePregunta.vb" />
+    <Compile Include="Negocio\ExamenBasePreguntaOpcion.vb" />
+    <Compile Include="Negocio\ExamenRespuesta.vb" />
     <Compile Include="Negocio\MaterialDeEstudio.vb" />
     <Compile Include="Negocio\ProfesorElementoAcademico.vb" />
     <Compile Include="Negocio\Tarjeta.vb" />
