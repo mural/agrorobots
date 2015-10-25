@@ -178,7 +178,9 @@
     <Content Include="Imagenes\avatar.gif" />
     <Content Include="Imagenes\borrar.png" />
     <Content Include="Imagenes\curso_generico.jpg" />
+    <Content Include="Imagenes\examen.jpg" />
     <Content Include="Imagenes\faq.jpg" />
+    <Content Include="Imagenes\foro.png" />
     <Content Include="Imagenes\home_1_200x140.jpg" />
     <Content Include="Imagenes\home_2_200x140.png" />
     <Content Include="Imagenes\home_3_200x140.jpg" />
@@ -189,6 +191,8 @@
     <Content Include="Imagenes\ir.png" />
     <Content Include="Imagenes\login-sprite.png" />
     <Content Include="Imagenes\logo.png" />
+    <Content Include="Imagenes\material.png" />
+    <Content Include="Imagenes\pdf.png" />
     <Content Include="Imagenes\terminos.png" />
     <Content Include="Pages\AbmElementoAcademico.aspx" />
     <Content Include="Pages\AbmEncuestas.aspx" />
@@ -212,6 +216,7 @@
     <Content Include="Pages\ContenidoMateria.aspx" />
     <Content Include="Pages\CuentaCorriente.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
+    <Content Include="Pages\EdicionMaterial.aspx" />
     <Content Include="Pages\EstadisticasRespuesta.aspx" />
     <Content Include="Pages\ExamenCorrecion.aspx" />
     <Content Include="Pages\Examenes.aspx" />
@@ -226,6 +231,7 @@
     <Content Include="Pages\Materias.aspx" />
     <Content Include="Pages\Mensajes.aspx" />
     <Content Include="Pages\MiCursada.aspx" />
+    <Content Include="Pages\MisClases.aspx" />
     <Content Include="Pages\NuevaCarrera.aspx" />
     <Content Include="Pages\NuevaMateria.aspx" />
     <Content Include="Pages\Pago.aspx" />
@@ -644,6 +650,13 @@
       <DependentUpon>DetalleExamen.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\EdicionMaterial.aspx.designer.vb">
+      <DependentUpon>EdicionMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EdicionMaterial.aspx.vb">
+      <DependentUpon>EdicionMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\EstadisticasRespuesta.aspx.designer.vb">
       <DependentUpon>EstadisticasRespuesta.aspx</DependentUpon>
     </Compile>
@@ -741,6 +754,13 @@
     <Compile Include="Pages\MiCursada.aspx.vb">
       <DependentUpon>MiCursada.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MisClases.aspx.designer.vb">
+      <DependentUpon>MisClases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MisClases.aspx.vb">
+      <DependentUpon>MisClases.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\NuevaCarrera.aspx.designer.vb">
       <DependentUpon>NuevaCarrera.aspx</DependentUpon>
@@ -938,7 +958,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>14544</DevelopmentServerPort>
+          <DevelopmentServerPort>19741</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -25,4 +25,5 @@ Public Class MiCursada
         GridView1_.PageIndex = e.NewPageIndex
         GridView1_.DataBind()
     End Sub
+
 End Class

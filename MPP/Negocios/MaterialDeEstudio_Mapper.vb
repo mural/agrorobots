@@ -13,6 +13,7 @@ Public Class MaterialDeEstudio_Mapper
         hdatos.Add("@Detalle", obj.Detalle)
         hdatos.Add("@Contenido", obj.Contenido)
         hdatos.Add("@Activo", obj.Activo)
+        hdatos.Add("@FechaMaxVisita", obj.FechaMaxVisita)
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As MaterialDeEstudio, Optional ByVal insertar As Boolean = False) As Boolean
@@ -26,6 +27,7 @@ Public Class MaterialDeEstudio_Mapper
         objNuevo.Detalle = CStr(Item("Detalle"))
         objNuevo.Contenido = CStr(Item("Contenido"))
         objNuevo.Activo = CBool(Item("Activo"))
+        objNuevo.FechaMaxVisita = CDate(Item("FechaMaxVisita"))
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As MaterialDeEstudio

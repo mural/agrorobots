@@ -75,7 +75,7 @@ Public Class MenuBase
             Case "CuentaCorriente_10111"
                 Response.Redirect("CuentaCorriente.aspx")
             Case "MiCursada_10121"
-                Response.Redirect("MiCursada.aspx")
+                Response.Redirect(PaginasConocidas.MI_CURSADA)
             Case "RendirExamen"
                 Response.Redirect("ExamenMateria.aspx")
 
@@ -88,6 +88,12 @@ Public Class MenuBase
                 Response.Redirect("ContenidoMateria.aspx")
             Case "ContenidoElementoAcademico_10110"
                 Response.Redirect("ContenidoElementoAcademico.aspx")
+            Case "MisClases_10122"
+                Response.Redirect(PaginasConocidas.MIS_CLASES)
+            Case "EdicionMaterial_10123"
+                Response.Redirect(PaginasConocidas.EDICION_MATERIAL)
+            Case "EdicionExamen_10124"
+                Response.Redirect(PaginasConocidas.EDICION_EXAMEN)
 
                 'administrativo
             Case "Pago"

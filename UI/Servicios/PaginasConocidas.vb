@@ -35,6 +35,11 @@
     Public Shared Property CUENTA_CORRIENTE As String = DIR_PAGES + "CuentaCorriente" + ASPX
     Public Shared Property MI_CURSADA As String = DIR_PAGES + "MiCursada" + ASPX
 
+    'Profesor
+    Public Shared Property MIS_CLASES As String = DIR_PAGES + "MisClases" + ASPX
+    Public Shared Property EDICION_MATERIAL As String = DIR_PAGES + "EdicionMaterial" + ASPX
+    Public Shared Property EDICION_EXAMEN As String = DIR_PAGES + "EdicionExamen" + ASPX
+
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX
     Public Shared ReadOnly MENSAJES As String = DIR_PAGES + "Mensajes" + ASPX
