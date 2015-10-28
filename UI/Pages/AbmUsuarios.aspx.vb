@@ -77,7 +77,6 @@ Public Class AbmUsuario
             Try
                 Dim nuevoUsuario = New Usuario(Activo, Admin, Apellido, 0, Nothing, 0, Nombre, Password, UserName, Email)
                 For Each familia In Familias
-                    usuarioSeleccionado.AddComponent(familia)
                     nuevoUsuario.AddComponent(familia)
                 Next
                 usuario_Business.Alta(nuevoUsuario)

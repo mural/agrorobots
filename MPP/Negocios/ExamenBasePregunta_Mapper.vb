@@ -13,7 +13,7 @@ Public Class ExamenBasePregunta_Mapper
 
     Public Overrides Sub DSaEE(ByRef obj As ExamenBasePregunta, ByRef Item As DataRow)
         obj.ID = CInt(Item("ID"))
-        obj.IdExamenBase = CInt(Item("IDExamenBaseBase"))
+        obj.IdExamenBase = CInt(Item("IDExamenBase"))
         obj.Pregunta = CStr(Item("Pregunta"))
     End Sub
 
@@ -23,7 +23,7 @@ Public Class ExamenBasePregunta_Mapper
 
     Public Overrides Sub OBJaHASH(ByRef obj As ExamenBasePregunta, ByRef Item As Hashtable)
         hdatos.Add("@ID", obj.ID)
-        hdatos.Add("@IDExamenBaseBase", obj.IdExamenBase)
+        hdatos.Add("@IDExamenBase", obj.IdExamenBase)
         hdatos.Add("@Pregunta", obj.Pregunta)
     End Sub
 

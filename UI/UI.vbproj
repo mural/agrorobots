@@ -216,6 +216,7 @@
     <Content Include="Pages\ContenidoMateria.aspx" />
     <Content Include="Pages\CuentaCorriente.aspx" />
     <Content Include="Pages\DetalleExamen.aspx" />
+    <Content Include="Pages\EdicionExamen.aspx" />
     <Content Include="Pages\EdicionMaterial.aspx" />
     <Content Include="Pages\EstadisticasRespuesta.aspx" />
     <Content Include="Pages\ExamenCorrecion.aspx" />
@@ -649,6 +650,13 @@
     <Compile Include="Pages\DetalleExamen.aspx.vb">
       <DependentUpon>DetalleExamen.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EdicionExamen.aspx.designer.vb">
+      <DependentUpon>EdicionExamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EdicionExamen.aspx.vb">
+      <DependentUpon>EdicionExamen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\EdicionMaterial.aspx.designer.vb">
       <DependentUpon>EdicionMaterial.aspx</DependentUpon>
