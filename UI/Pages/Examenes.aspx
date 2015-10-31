@@ -75,7 +75,7 @@
                 <asp:TemplateField HeaderText="nota_169">
                     <ItemTemplate>
                         <asp:Label ID="lblTipo" runat="server"
-                            Text='<%# Eval("Nota")%>'></asp:Label>
+                            Text='<%# Eval("NotaConFormato")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

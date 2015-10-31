@@ -14,49 +14,49 @@ Option Explicit On
 Partial Public Class DetalleExamen
 
     '''<summary>
-    '''navActual_10122 control.
+    '''navActual_147 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navActual_10122 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navActual_147 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_101 control.
+    '''lblTitulo_147 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_101 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_147 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblEncuesta_137 control.
+    '''lblExamen_147 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblEncuesta_137 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblExamen_147 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''encuestaInicio control.
+    '''examenInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents encuestaInicio As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents examenInicio As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''encuestaCierre control.
+    '''examenCierre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents encuestaCierre As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents examenCierre As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''lblMensajes control.

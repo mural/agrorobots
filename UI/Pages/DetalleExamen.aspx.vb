@@ -4,37 +4,45 @@ Imports Business
 Public Class DetalleExamen
     Inherits PaginaAutorizada
 
-    Dim fichaBaseBusiness As New FichaEncuestaBase_Business
-    Dim fichaBusiness As New FichaEncuesta_Business
+    Dim examenBaseBusiness As New ExamenBase_Business
+    Dim examenBusiness As New Examen_Business
 
-    Dim fichaBase As FichaEncuestaBase
+    Dim examenBase As ExamenBase
     Dim respuestas As New List(Of RadioButtonList)
 
+    Dim idExamenBase As String
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        CargarFicha()
+        idExamenBase = Request.QueryString("id")
+        Dim idElementoAcademicoInt As Integer
+        If Not String.IsNullOrEmpty(idExamenBase) And Integer.TryParse(idExamenBase, idElementoAcademicoInt) And Not examenBaseBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
+            CargarExamen()
+        Else
+            Response.Redirect(PaginasConocidas.HOME)
+        End If
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
 
     End Sub
 
-    Private Sub CargarFicha()
-        fichaBase = fichaBaseBusiness.Obtener(2) 'inscripcion
+    Private Sub CargarExamen()
+        examenBase = examenBaseBusiness.Obtener(CInt(idExamenBase)) 'inscripcion
 
-        encuestaInicio.Controls.Clear()
-        encuestaCierre.Controls.Clear()
+        examenInicio.Controls.Clear()
+        examenCierre.Controls.Clear()
 
         Dim descripcionInicio = New LiteralControl()
         descripcionInicio.Text = ""
         descripcionInicio.Text += "<div class='w3-card-4'>"
         descripcionInicio.Text += "<header class='w3-container w3-blue'>"
-        descripcionInicio.Text += fichaBase.Descripcion
+        descripcionInicio.Text += examenBase.Detalle
         descripcionInicio.Text += "</header>"
         descripcionInicio.Text += "<div class='w3-container'>"
-        encuestaInicio.Controls.Add(descripcionInicio)
+        examenInicio.Controls.Add(descripcionInicio)
 
-        For Each pregunta In fichaBase.Preguntas
-            encuestaCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
+        For Each pregunta In examenBase.Preguntas
+            examenCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
             Dim listaOpciones As New RadioButtonList
             listaOpciones.ID = pregunta.ID
             listaOpciones.Items.Add(New ListItem("Muy mala", 1))
@@ -42,37 +50,38 @@ Public Class DetalleExamen
             listaOpciones.Items.Add(New ListItem("Buena", 3))
             listaOpciones.Items.Add(New ListItem("Muy buena", 4))
             listaOpciones.Items.Add(New ListItem("Excelente", 5))
-            encuestaCierre.Controls.Add(listaOpciones)
+            examenCierre.Controls.Add(listaOpciones)
             respuestas.Add(listaOpciones)
         Next
         Dim submit As New Button()
         submit.Text = idiomas.GetTranslationById(135) 'enviar
         submit.CssClass = "w3-btn w3-khaki"
-        AddHandler submit.Click, AddressOf Me.Votar
-        encuestaCierre.Controls.Add(submit)
+        AddHandler submit.Click, AddressOf Me.Finalizar
+        examenCierre.Controls.Add(submit)
 
         Dim descripcionCierre = New LiteralControl()
         descripcionCierre.Text = ""
         descripcionCierre.Text += "</div>"
         descripcionCierre.Text += "</div>"
         descripcionCierre.Text += "<br/><hr/><br/>"
-        encuestaCierre.Controls.Add(descripcionCierre)
+        examenCierre.Controls.Add(descripcionCierre)
     End Sub
 
-    Private Sub Votar(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            Dim nuevaFicha = New FichaEncuesta
-            nuevaFicha.IDFichaEncuestaBase = fichaBase.ID
-            nuevaFicha.Fecha = Date.Now
-            nuevaFicha.RespuestaUnica = ""
+            Dim nuevoExamen = New Examen
+            nuevoExamen.IdExamenBase = examenBase.ID
+            nuevoExamen.Fecha = Date.Now
+            nuevoExamen.IdAlumno = usuario.ID
+            nuevoExamen.Nota = -1 'sin corregir
+
             For Each respuestaElegida In respuestas
-                Dim respuesta As New FichaEncuestaRespuesta
+                Dim respuesta As New ExamenRespuesta
                 respuesta.Respuesta = respuestaElegida.SelectedValue
                 respuesta.IDPregunta = respuestaElegida.ID 'ID original de la pregunta
-                nuevaFicha.Respuestas.Add(respuesta)
+                nuevoExamen.Respuestas.Add(respuesta)
             Next
-            nuevaFicha.Usuario = usuario.ID
-            If fichaBusiness.Crear(nuevaFicha) Then
+            If examenBusiness.Crear(nuevoExamen) Then
                 MensajeOk(lblMensajes)
             Else
                 MensajeError(lblMensajes)
@@ -81,7 +90,7 @@ Public Class DetalleExamen
             MensajeError(lblMensajes)
         End Try
 
-        Response.Redirect(PaginasConocidas.CUENTA_CORRIENTE)
+        Response.Redirect(PaginasConocidas.MI_CURSADA)
     End Sub
 
 

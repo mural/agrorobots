@@ -10,4 +10,15 @@
     Sub New()
         Respuestas = New List(Of ExamenRespuesta)
     End Sub
+
+    Public ReadOnly Property NotaConFormato As String
+        Get
+            If Nota = -1 Then
+                Return "-"
+            End If
+            Return Nota.ToString
+        End Get
+    End Property
+
+
 End Class
