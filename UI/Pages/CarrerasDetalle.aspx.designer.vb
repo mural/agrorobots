@@ -158,13 +158,13 @@ Partial Public Class CarrerasDetalle
     Protected WithEvents inscribirse_118 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''comentarios control.
+    '''comentarios_175 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents comentarios As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents comentarios_175 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridComentarios control.
