@@ -8,7 +8,7 @@ Public Class DetalleExamen
     Dim examenBusiness As New Examen_Business
 
     Dim examenBase As ExamenBase
-    Dim respuestas As New List(Of RadioButtonList)
+    Dim respuestas As New List(Of TextBox)
 
     Dim idExamenBase As String
 
@@ -42,16 +42,12 @@ Public Class DetalleExamen
         examenInicio.Controls.Add(descripcionInicio)
 
         For Each pregunta In examenBase.Preguntas
-            examenCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
-            Dim listaOpciones As New RadioButtonList
-            listaOpciones.ID = pregunta.ID
-            listaOpciones.Items.Add(New ListItem("Muy mala", 1))
-            listaOpciones.Items.Add(New ListItem("Mala", 2))
-            listaOpciones.Items.Add(New ListItem("Buena", 3))
-            listaOpciones.Items.Add(New ListItem("Muy buena", 4))
-            listaOpciones.Items.Add(New ListItem("Excelente", 5))
-            examenCierre.Controls.Add(listaOpciones)
-            respuestas.Add(listaOpciones)
+            examenCierre.Controls.Add(New LiteralControl(" " + pregunta.Pregunta + "<br/>"))
+            Dim respuesta As New TextBox
+            respuesta.ID = pregunta.ID
+            examenCierre.Controls.Add(respuesta)
+            respuestas.Add(respuesta)
+            examenCierre.Controls.Add(New LiteralControl("<br/><br/>"))
         Next
         Dim submit As New Button()
         submit.Text = idiomas.GetTranslationById(135) 'enviar
@@ -77,7 +73,7 @@ Public Class DetalleExamen
 
             For Each respuestaElegida In respuestas
                 Dim respuesta As New ExamenRespuesta
-                respuesta.Respuesta = respuestaElegida.SelectedValue
+                respuesta.Respuesta = respuestaElegida.Text
                 respuesta.IDPregunta = respuestaElegida.ID 'ID original de la pregunta
                 nuevoExamen.Respuestas.Add(respuesta)
             Next

@@ -13,6 +13,8 @@ Public Class ExamenCorreccion
 
     Dim idExamen As String
 
+    Dim nota As New TextBox()
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamen = Request.QueryString("id")
         Dim idElementoAcademicoInt As Integer
@@ -48,6 +50,11 @@ Public Class ExamenCorreccion
             Dim respuesta = examenRespuestaBusiness.ObtenerPorPregunta(pregunta.ID)
             examenCierre.Controls.Add(New LiteralControl(" - " + respuesta + "<br/><br/>"))
         Next
+
+        examenCierre.Controls.Add(New LiteralControl(idiomas.GetTranslationById(169))) 'nota
+        nota.ID = "notaExamen"
+        examenCierre.Controls.Add(nota)
+
         Dim submit As New Button()
         submit.Text = idiomas.GetTranslationById(135) 'enviar
         submit.CssClass = "w3-btn w3-khaki"
@@ -64,7 +71,7 @@ Public Class ExamenCorreccion
 
     Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            examen.Nota = 5
+            examen.Nota = nota.Text
             If examenBusiness.Actualizar(examen) Then
                 MensajeOk(lblMensajes)
             Else
