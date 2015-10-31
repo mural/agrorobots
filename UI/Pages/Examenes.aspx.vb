@@ -31,12 +31,12 @@ Public Class Examenes
     End Sub
 
     Private Sub CargarExamenesARendir()
-        Me.GridView1_.DataSource = examenBaseBusiness.ListarPorElementoAcademico(CInt(idElementoAcademico), True)
+        Me.GridView1_.DataSource = examenBaseBusiness.ListarPorElementoAcademicoNoRendidos(CInt(idElementoAcademico), usuario.ID)
         Me.GridView1_.DataBind()
     End Sub
 
     Private Sub CargarExamenesRendidos()
-        Me.GridView2_.DataSource = examenBusiness.ListarPorElementoAcademico(CInt(idElementoAcademico))
+        Me.GridView2_.DataSource = examenBusiness.ListarPorElementoAcademicoYAlumno(CInt(idElementoAcademico), usuario.ID)
         Me.GridView2_.DataBind()
     End Sub
 
