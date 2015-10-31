@@ -18,6 +18,7 @@ Public Class ExamenBase_Mapper
         obj.IdElementoAcademico = CInt(Item("IdElementoAcademico"))
         obj.Detalle = CStr(Item("Detalle"))
         obj.Tipo = CStr(Item("Tipo"))
+        obj.TiempoMax = CInt(Item("TiempoMax"))
         obj.Activo = CBool(Item("Activo"))
     End Sub
 
@@ -42,6 +43,7 @@ Public Class ExamenBase_Mapper
         hdatos.Add("@IdElementoAcademico", obj.IdElementoAcademico)
         hdatos.Add("@Detalle", obj.Detalle)
         hdatos.Add("@Tipo", obj.Tipo)
+        hdatos.Add("@TiempoMax", obj.TiempoMax)
         hdatos.Add("@Activo", obj.Activo)
     End Sub
 

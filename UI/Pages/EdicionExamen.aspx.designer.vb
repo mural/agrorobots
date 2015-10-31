@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class EdicionExamen
 
     '''<summary>
-    '''nav_10123 control.
+    '''nav_10124 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents nav_10123 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents nav_10124 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10114 control.
+    '''lblTitulo_10124 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10114 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10124 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''desc_12 control.

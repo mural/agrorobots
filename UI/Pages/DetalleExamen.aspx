@@ -1,37 +1,38 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="DetalleExamen.aspx.vb" Inherits="Agorobots.DetalleExamen" %>
+﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="DetalleExamen.aspx.vb" Inherits="Agorobots.DetalleExamen" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <title>Examen</title>
-    </asp:Content>
-<asp:Content ID="TitleContent" runat="server" ContentPlaceHolderID="TitleContent">
-     - Examen
+<asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
 </asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Examen para Materia 1 - dd/mm/aaaa - 88 minutos restantes</h2>
+<asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
+    <li>»</li>
+    <li>
+        <a href="#">
+            <asp:Label ID="navActual_10122" runat="server" Text="clases"></asp:Label>
+        </a>
+    </li>
+</asp:Content>
+<asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
+    <h2>
+        <asp:Label ID="lblTitulo_101" runat="server" Text="gracias"></asp:Label></h2>
     <br />
-    <div class="main">
-        <div class="detalle"><b>Profesor:</b> Horacio Martinez</div>
-        <br />
-        <div class="detalle">
-            <b>Pregunta 1:</b> ¿De que color era el caballo blanco de... ?
+    <div class='w3-card-4'>
+        <header class='w3-container w3-blue'>
+            <h2 class="w3-blue">
+                <asp:Label ID="lblEncuesta_137" runat="server" Text="denos su opinion"></asp:Label>
+            </h2>
+        </header>
+        <div class='w3-container'>
+            <img class="imagenMediana imagenMasSeparada fl_right w3-circle" src="/Imagenes/curso_generico.jpg" />
             <br />
-            <asp:TextBox ID="TextBox1" runat="server" CssClass="respuesta"></asp:TextBox>
+            <br />
+            <asp:Panel ID="encuestaInicio" runat="server" Text="inicio"></asp:Panel>
+            <br />
+            <br />
+            <asp:Panel ID="encuestaCierre" runat="server" Text="cierre"></asp:Panel>
+            <br />
             <br />
         </div>
-        <div class="detalle">
-            <b>Pregunta 2:</b> ¿Cuantos elementos tiene...?
-            <br />
-            <br />
-            <asp:RadioButton ID="RadioButton1" runat="server" Text="15" />
-            <asp:RadioButton ID="RadioButton2" runat="server" Text="25" />
-            <asp:RadioButton ID="RadioButton3" runat="server" Text="35" />
-            <br />
-        </div>
-        <asp:Button ID="finalizar" runat="server" OnClick="finalizarExamen" Text="Finalizar" CssClass="margenIzq400"/>
-        <br />
-        <br />
-        <br />
-        <div class="detalle"><b>Mensajes:</b> presione "Finalizar" para entregar el examen.</div>
     </div>
-
+    <br />
+    <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
+    <br />
 </asp:Content>

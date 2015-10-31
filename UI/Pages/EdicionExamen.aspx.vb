@@ -36,7 +36,7 @@ Public Class EdicionExamen
     End Sub
 
     Private Sub CargarExamenes()
-        Me.GridView1_.DataSource = examenBaseBusiness.ListarPorElementoAcademico(CInt(idElementoAcademico))
+        Me.GridView1_.DataSource = examenBaseBusiness.ListarPorElementoAcademico(CInt(idElementoAcademico), False)
         Me.GridView1_.DataBind()
     End Sub
 
@@ -112,6 +112,7 @@ Public Class EdicionExamen
                 examenBaseNueva.Detalle = descripcion
                 examenBaseNueva.Activo = Me.cbxActivo.Checked
                 examenBaseNueva.Tipo = comboTipos.SelectedValue
+                examenBaseNueva.TiempoMax = 60 'una hora para todos
                 examenBaseNueva.IdElementoAcademico = idElementoAcademico
 
                 If examenBaseBusiness.Crear(examenBaseNueva) Then

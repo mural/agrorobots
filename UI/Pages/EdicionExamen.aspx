@@ -19,13 +19,13 @@
     <li>»</li>
     <li>
         <a href="#">
-            <asp:Label ID="nav_10123" runat="server" Text="edicion material"></asp:Label>
+            <asp:Label ID="nav_10124" runat="server" Text="edicion examen"></asp:Label>
         </a>
     </li>
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
-        <asp:Label ID="lblTitulo_10114" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="lblTitulo_10124" runat="server" Text="titulo"></asp:Label>
     </h2>
     <br />
     <br />

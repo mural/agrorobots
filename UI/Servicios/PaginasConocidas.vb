@@ -34,6 +34,9 @@
     'Alumno
     Public Shared Property CUENTA_CORRIENTE As String = DIR_PAGES + "CuentaCorriente" + ASPX
     Public Shared Property MI_CURSADA As String = DIR_PAGES + "MiCursada" + ASPX
+    Public Shared Property EXAMENES_ALUMNOS As String = DIR_PAGES + "Examenes" + ASPX
+    Public Shared Property RENDIR_EXAMEN As String = DIR_PAGES + "DetalleExamen" + ASPX
+    Public Shared Property RESULTADO_EXAMEN As String = DIR_PAGES + "ExamenResultado" + ASPX
 
     'Profesor
     Public Shared Property MIS_CLASES As String = DIR_PAGES + "MisClases" + ASPX

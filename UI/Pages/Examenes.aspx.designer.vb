@@ -14,20 +14,56 @@ Option Explicit On
 Partial Public Class Examenes
 
     '''<summary>
-    '''alumno1 control.
+    '''navActual_10122 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents alumno1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navActual_10122 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''alumno2 control.
+    '''lblTitulo_10122 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents alumno2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10122 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''rendir_170 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rendir_170 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridView1_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''rendido_171 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rendido_171 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridView2_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
 End Class

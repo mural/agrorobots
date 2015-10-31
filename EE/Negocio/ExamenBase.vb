@@ -4,6 +4,7 @@
     Public Property IdElementoAcademico As Integer '(int, null)
     Public Property Detalle As String '(varchar(255), null)
     Public Property Tipo As String '(varchar(50), null)
+    Public Property TiempoMax As Integer '(int, null)
     Public Property Activo As Boolean '(bit, null)
 
     Public Property Preguntas As List(Of ExamenBasePregunta)

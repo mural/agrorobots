@@ -14,47 +14,56 @@ Option Explicit On
 Partial Public Class DetalleExamen
 
     '''<summary>
-    '''TextBox1 control.
+    '''navActual_10122 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents navActual_10122 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RadioButton1 control.
+    '''lblTitulo_101 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButton1 As Global.System.Web.UI.WebControls.RadioButton
+    Protected WithEvents lblTitulo_101 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RadioButton2 control.
+    '''lblEncuesta_137 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButton2 As Global.System.Web.UI.WebControls.RadioButton
+    Protected WithEvents lblEncuesta_137 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''RadioButton3 control.
+    '''encuestaInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadioButton3 As Global.System.Web.UI.WebControls.RadioButton
+    Protected WithEvents encuestaInicio As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''finalizar control.
+    '''encuestaCierre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents finalizar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents encuestaCierre As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 End Class

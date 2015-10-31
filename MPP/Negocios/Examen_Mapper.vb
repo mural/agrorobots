@@ -45,7 +45,6 @@ Public Class Examen_Mapper
         obj.IdExamenBase = CInt(Item("IdExamenBase"))
         obj.Fecha = CDate(Item("Fecha"))
         obj.IdAlumno = CInt(Item("IdAlumno"))
-        obj.TiempoMax = CInt(Item("TiempoMax"))
         obj.Nota = CDec(Item("Nota"))
 
     End Sub
@@ -59,7 +58,6 @@ Public Class Examen_Mapper
         hdatos.Add("@IdExamenBase", obj.IdExamenBase)
         hdatos.Add("@Fecha", obj.Fecha)
         hdatos.Add("@IdAlumno", obj.IdAlumno)
-        hdatos.Add("@TiempoMax", obj.TiempoMax)
         hdatos.Add("@Nota", obj.Nota)
 
     End Sub
