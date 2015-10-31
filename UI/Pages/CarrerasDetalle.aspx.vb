@@ -8,13 +8,21 @@ Public Class CarrerasDetalle
     Dim idElementoAcademico As String
     Dim elementoAcademico As ElementoAcademico
 
+    Dim comentariosBusiness As New Comentarios_Business
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idElementoAcademico = Request.QueryString("id")
         Dim idElementoAcademicoInt As Integer
         If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademico_Business.Obtener(idElementoAcademicoInt) Is Nothing Then
             CargarElementoAcademico()
+            CargarComentarios()
         Else
             Response.Redirect(PaginasConocidas.HOME)
+        End If
+        If UsuarioLogueado() Then
+            panelComentario.Visible = True
+        Else
+            panelComentario.Visible = False
         End If
     End Sub
 
@@ -32,6 +40,11 @@ Public Class CarrerasDetalle
             lblFechaInicio.Text = elementoAcademico.FechaInicio
         Catch e As Exception
         End Try
+    End Sub
+
+    Private Sub CargarComentarios()
+        Me.GridComentarios.DataSource = comentariosBusiness.ListarPorElementoAcademico(CInt(idElementoAcademico))
+        Me.GridComentarios.DataBind()
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -56,5 +69,16 @@ Public Class CarrerasDetalle
         Else
             Response.Redirect(PaginasConocidas.LOGIN + "?inscribir=" + idElementoAcademico)
         End If
+    End Sub
+
+    Protected Sub Comentar_135_Click(sender As Object, e As EventArgs) Handles Comentar_135.Click
+        Dim comentarioNuevo = New Comentario
+        comentarioNuevo.IdUsuario = usuario.ID
+        comentarioNuevo.IdElementoAcademico = CInt(idElementoAcademico)
+        comentarioNuevo.Comentario = comentario.Text
+        comentarioNuevo.Fecha = Date.Now
+        comentariosBusiness.Crear(comentarioNuevo)
+
+        RecargarPagina()
     End Sub
 End Class

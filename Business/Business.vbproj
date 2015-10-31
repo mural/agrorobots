@@ -101,6 +101,7 @@
     <Compile Include="Negocio\MaterialDeEstudio_Business.vb" />
     <Compile Include="Negocio\Tarjeta_Business.vb" />
     <Compile Include="Negocio\CtaCteUsuario_Business.vb" />
+    <Compile Include="Servicios\Comentarios_Business.vb" />
     <Compile Include="Servicios\FichaEncuestaRespuesta_Business.vb" />
     <Compile Include="Servicios\FichaEncuestaPregunta_Business.vb" />
     <Compile Include="Servicios\FichaEncuestaBase_Business.vb" />

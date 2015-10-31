@@ -59,6 +59,52 @@
                 </div>
             </div>
             <br />
+            <br />
+            <h6>
+                <asp:Label ID="comentarios_175" runat="server" Text="comentarios"></asp:Label>
+            </h6>
+            <br />
+            <asp:GridView ID="GridComentarios" runat="server"
+                ShowHeader="False"
+                RowStyle-CssClass="light"
+                AlternatingRowStyle-CssClass="dark"
+                AutoGenerateColumns="False"
+                CssClass="tablaDatos">
+                <EmptyDataTemplate>
+                    <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+                </EmptyDataTemplate>
+                <Columns>
+                    <asp:TemplateField ShowHeader="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblComentario" runat="server" Text='<%# Eval("Comentario")%>'>
+                            </asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField ShowHeader="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblApellido" runat="server" Text='<%# Eval("Usuario.Apellido")%>'>
+                            </asp:Label>
+                            <asp:Label ID="lblNombre" runat="server" Text='<%# Eval("Usuario.Nombre")%>'>
+                            </asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField ShowHeader="false">
+                        <ItemTemplate>
+                            <asp:Label ID="lblFecha" runat="server" Text='<%# Eval("Fecha")%>'>
+                            </asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <asp:Panel ID="panelComentario" runat="server" Visible="False">
+                <asp:TextBox ID="comentario" runat="server"></asp:TextBox>
+                &nbsp;
+                <asp:Button ID="Comentar_135" runat="server" Text="enviar" />
+            </asp:Panel>
+            <br />
+
         </div>
     </div>
 

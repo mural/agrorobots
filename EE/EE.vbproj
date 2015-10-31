@@ -93,6 +93,7 @@
     <Compile Include="Negocio\ElementoAcademico.vb" />
     <Compile Include="Servicios\Bitacora.vb" />
     <Compile Include="Servicios\CategoriaTema.vb" />
+    <Compile Include="Servicios\Comentario.vb" />
     <Compile Include="Servicios\Component.vb" />
     <Compile Include="Servicios\Familia.vb" />
     <Compile Include="Servicios\FichaEncuesta.vb" />

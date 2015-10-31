@@ -93,6 +93,7 @@
     <Compile Include="Servicios\Bitacora_Data.vb" />
     <Compile Include="Servicios\CategoriaTema_Mapper.vb" />
     <Compile Include="IMapper.vb" />
+    <Compile Include="Servicios\Comentarios_Mapper.vb" />
     <Compile Include="Servicios\FichaEncuestaRespuesta_Mapper.vb" />
     <Compile Include="Servicios\FichaEncuestaPregunta_Mapper.vb" />
     <Compile Include="Servicios\FichaEncuesta_Mapper.vb" />

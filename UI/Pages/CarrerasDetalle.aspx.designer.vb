@@ -156,4 +156,49 @@ Partial Public Class CarrerasDetalle
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents inscribirse_118 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''comentarios control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comentarios As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridComentarios control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridComentarios As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''panelComentario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents panelComentario As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''comentario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comentario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Comentar_135 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Comentar_135 As Global.System.Web.UI.WebControls.Button
 End Class
