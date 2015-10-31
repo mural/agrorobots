@@ -42,6 +42,8 @@
     Public Shared Property MIS_CLASES As String = DIR_PAGES + "MisClases" + ASPX
     Public Shared Property EDICION_MATERIAL As String = DIR_PAGES + "EdicionMaterial" + ASPX
     Public Shared Property EDICION_EXAMEN As String = DIR_PAGES + "EdicionExamen" + ASPX
+    Public Shared Property EXAMENES_CORRECION As String = DIR_PAGES + "ExamenesCorreccion" + ASPX
+    Public Shared Property CORRECCION_EXAMEN As String = DIR_PAGES + "ExamenCorreccion" + ASPX
 
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX

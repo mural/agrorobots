@@ -6,13 +6,13 @@
     <li>»</li>
     <li>
         <a href="#">
-            <asp:Label ID="navActual_10122" runat="server" Text="clases"></asp:Label>
+            <asp:Label ID="navActual_10125" runat="server" Text="Examenes"></asp:Label>
         </a>
     </li>
 </asp:Content>
 <asp:Content ID="Body" ContentPlaceHolderID="BodyMenuContenido" runat="server">
     <h2>
-        <asp:Label ID="lblTitulo_10122" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="lblTitulo_10125" runat="server" Text="titulo"></asp:Label>
     </h2>
     <div id="dvGrid">
         <br />

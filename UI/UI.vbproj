@@ -219,10 +219,10 @@
     <Content Include="Pages\EdicionExamen.aspx" />
     <Content Include="Pages\EdicionMaterial.aspx" />
     <Content Include="Pages\EstadisticasRespuesta.aspx" />
-    <Content Include="Pages\ExamenCorrecion.aspx" />
+    <Content Include="Pages\ExamenCorreccion.aspx" />
     <Content Include="Pages\Examenes.aspx" />
     <Content Include="Pages\ExamenEvaluacionRevision.aspx" />
-    <Content Include="Pages\ExamenMateria.aspx" />
+    <Content Include="Pages\ExamenesCorreccion.aspx" />
     <Content Include="Pages\ExamenResultado.aspx" />
     <Content Include="Pages\Ganancias.aspx" />
     <Content Include="Pages\GananciasComparativas.aspx" />
@@ -672,11 +672,11 @@
       <DependentUpon>EstadisticasRespuesta.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Pages\ExamenCorrecion.aspx.designer.vb">
-      <DependentUpon>ExamenCorrecion.aspx</DependentUpon>
+    <Compile Include="Pages\ExamenCorreccion.aspx.designer.vb">
+      <DependentUpon>ExamenCorreccion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ExamenCorrecion.aspx.vb">
-      <DependentUpon>ExamenCorrecion.aspx</DependentUpon>
+    <Compile Include="Pages\ExamenCorreccion.aspx.vb">
+      <DependentUpon>ExamenCorreccion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Examenes.aspx.designer.vb">
@@ -693,11 +693,11 @@
       <DependentUpon>ExamenEvaluacionRevision.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Pages\ExamenMateria.aspx.designer.vb">
-      <DependentUpon>ExamenMateria.aspx</DependentUpon>
+    <Compile Include="Pages\ExamenesCorreccion.aspx.designer.vb">
+      <DependentUpon>ExamenesCorreccion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ExamenMateria.aspx.vb">
-      <DependentUpon>ExamenMateria.aspx</DependentUpon>
+    <Compile Include="Pages\ExamenesCorreccion.aspx.vb">
+      <DependentUpon>ExamenesCorreccion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\ExamenResultado.aspx.designer.vb">

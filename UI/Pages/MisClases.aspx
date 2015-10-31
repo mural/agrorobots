@@ -50,10 +50,18 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="examen_147">
+                <asp:TemplateField HeaderText="examen_172">
                     <ItemTemplate>
-                        <asp:ImageButton ID="lnkExamen" runat="server"
-                            OnClick="Examen" CommandArgument='<%# Eval("CodigoAcademico")%>'
+                        <asp:ImageButton ID="lnkExamenEdicion" runat="server"
+                            OnClick="ExamenEdicion" CommandArgument='<%# Eval("CodigoAcademico")%>'
+                            CssClass="tablaDatosAction" ImageUrl="/Imagenes/examen.jpg"></asp:ImageButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="examen_173">
+                    <ItemTemplate>
+                        <asp:ImageButton ID="lnkExamenCorregir" runat="server"
+                            OnClick="ExamenCorregir" CommandArgument='<%# Eval("CodigoAcademico")%>'
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/examen.jpg"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>

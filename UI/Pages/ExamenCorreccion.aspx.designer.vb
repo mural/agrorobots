@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class ExamenCorrecion
+Partial Public Class ExamenCorreccion
 
     '''<summary>
     '''DropDownList1 control.

@@ -132,8 +132,8 @@ Public Class EdicionExamen
     End Sub
 
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
-        Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
-        Session("examenSeleccionado") = examenBaseBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
+        Dim ID = CInt(DirectCast(GridView1_.Rows(e.NewSelectedIndex).FindControl("lblId"), Label).Text)
+        Session("examenSeleccionado") = examenBaseBusiness.Obtener(ID)
         examenBase = Session("examenSeleccionado")
 
         Me.areaContenido.InnerText = examenBase.Detalle

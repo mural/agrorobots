@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="ExamenCorrecion.aspx.vb" Inherits="Agorobots.ExamenCorrecion" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="ExamenCorreccion.aspx.vb" Inherits="Agorobots.ExamenCorreccion" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <title>Examen</title>
