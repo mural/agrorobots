@@ -32,6 +32,6 @@ Public Class ExamenRespuesta_Mapper
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As ExamenRespuesta
-        Return Obtener(0, "ExamenRespuestaObtener")
+        Return Obtener(id, "ExamenRespuestaObtener")
     End Function
 End Class

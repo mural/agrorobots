@@ -14,29 +14,56 @@ Option Explicit On
 Partial Public Class ExamenCorreccion
 
     '''<summary>
-    '''DropDownList1 control.
+    '''navActual_10126 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DropDownList1 As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents navActual_10126 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''TextBox2 control.
+    '''lblTitulo_10126 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TextBox2 As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblTitulo_10126 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''corregir control.
+    '''lblExamen_147 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents corregir As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lblExamen_147 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''examenInicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents examenInicio As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''examenCierre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents examenCierre As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 End Class
