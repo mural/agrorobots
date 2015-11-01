@@ -45,6 +45,9 @@ Public Class CambioClave
                 txtPasswordActual.Text = ""
                 txtPassword.Text = ""
                 txtConfirmPassword.Text = ""
+
+                'Enviar email
+                emailCambioClave()
             Catch ex As Exception
                 lblMensajes.Text = IdiomManager.GetIdiomManager.GetTranslationById(90040)
                 lblMensajes.CssClass = "formError"
@@ -67,4 +70,11 @@ Public Class CambioClave
             vldPasswordCustom.Text = IdiomManager.GetIdiomManager.GetTranslationById(90036)
         End If
     End Sub
+
+    Protected Sub emailCambioClave()
+        Dim asunto = idiomas.GetTranslationById(176) 'Cambio de clave en Agrorobots
+        Dim cuerpo = idiomas.GetTranslationById(177) 'Su clave fue modificada, sino solicito este cambio avise al administrador
+        EmailManager.EnviarEmail(Server, usuario.Email, asunto, cuerpo)
+    End Sub
+
 End Class
