@@ -32,6 +32,24 @@ Partial Public Class AbmFichas
     Protected WithEvents lblTitulo_10114 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''tipo_162 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tipo_162 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comboTipos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboTipos As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''desc_12 control.
     '''</summary>
     '''<remarks>

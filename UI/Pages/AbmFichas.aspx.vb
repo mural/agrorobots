@@ -14,6 +14,7 @@ Public Class AbmFichas
         If Not (Page.IsPostBack) Then
             CargarFichas()
             CargarPreguntas()
+            CargarTipos()
         End If
         If Not fichaBase Is Nothing Then
             Me.txtPregunta.Enabled = True
@@ -27,15 +28,20 @@ Public Class AbmFichas
     End Sub
 
     Private Sub CargarFichas()
-        Me.GridView1_.DataSource = fichaEncuestaBaseBusiness.ListarFichas
+        Me.GridView1_.DataSource = fichaEncuestaBaseBusiness.Listar
         Me.GridView1_.DataBind()
     End Sub
 
     Private Sub CargarPreguntas()
         If Not fichaBase Is Nothing Then
-            Me.GridViewPreguntas.DataSource = fichaEncuestaPreguntaBusiness.ListarPorFicha(fichaBase.ID)
+            Me.GridViewPreguntas.DataSource = fichaEncuestaPreguntaBusiness.ListarPorBase(fichaBase.ID)
         End If
         Me.GridViewPreguntas.DataBind()
+    End Sub
+
+    Private Sub CargarTipos()
+        comboTipos.Items.Add(New ListItem("Encuesta", "E"))
+        comboTipos.Items.Add(New ListItem("Ficha de opinion", "F"))
     End Sub
 
     Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
@@ -64,11 +70,10 @@ Public Class AbmFichas
                     If Not imgByte Is Nothing Then
                         fichaBase.Foto = imgByte
                     End If
+                    fichaBase.Tipo = comboTipos.SelectedValue
 
                     If fichaEncuestaBaseBusiness.Actualizar(fichaBase) Then
                         MensajeOk(lblMensajes)
-
-                        Limpiar()
                     Else
                         MensajeError(lblMensajes)
                     End If
@@ -123,7 +128,7 @@ Public Class AbmFichas
                 If Not imgByte Is Nothing Then
                     fichaBaseNueva.Foto = imgByte
                 End If
-                fichaBaseNueva.Tipo = "F" 'enum?
+                fichaBaseNueva.Tipo = comboTipos.SelectedValue
                 fichaBaseNueva.Activa = Me.cbxActivo.Checked
 
                 If fichaEncuestaBaseBusiness.Crear(fichaBaseNueva) Then
@@ -144,9 +149,10 @@ Public Class AbmFichas
 
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
-        Session("fichaSeleccionada") = fichaEncuestaBaseBusiness.ListarFichas.ElementAt(pageFactor + e.NewSelectedIndex)
+        Session("fichaSeleccionada") = fichaEncuestaBaseBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
         fichaBase = Session("fichaSeleccionada")
 
+        Me.comboTipos.SelectedValue = fichaBase.Tipo
         Me.areaContenido.InnerText = fichaBase.Descripcion
         Me.cbxActivo.Checked = fichaBase.Activa
 

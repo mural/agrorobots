@@ -24,6 +24,11 @@
     </h2>
     <br />
     <br />
+    <asp:Label ID="tipo_162" runat="server" Text="descripcion"></asp:Label>
+    <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False">
+    </asp:DropDownList>
+    <br />
+    <br />
     <asp:Label ID="desc_12" runat="server" Text="descripcion"></asp:Label>
     <br />
     <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
@@ -162,6 +167,13 @@
                     <ItemTemplate>
                         <asp:CheckBox ID="cbxActiva" runat="server" Enabled="False"
                             Checked='<%# Eval("Activa")%>'></asp:CheckBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Tipo_162">
+                    <ItemTemplate>
+                        <asp:Label ID="lblTipo" runat="server"
+                            Text='<%# Eval("Tipo")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

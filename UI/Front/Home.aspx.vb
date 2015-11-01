@@ -24,10 +24,15 @@ Public Class Home
     End Sub
 
     Private Sub CargarEncuesta()
-        encuestaBase = encuestaBaseBusiness.Listar(0)
-        'ver si ya voto
+        Dim encuestas = encuestaBaseBusiness.ListarEncuestas
+        Dim cantidad = encuestas.Count
+        Dim random As New Random
+        Dim numeroAzar = random.Next(cantidad)
+
+        encuestaBase = encuestas(numeroAzar)
+        'ver si ya voto en esta encuesta
         For Each encuesta In encuestaBusiness.Listar
-            If encuesta.Sesion = idSesion Then
+            If encuestaBase.ID = encuesta.IDFichaEncuestaBase And encuesta.Sesion = idSesion Then
                 voto = True
                 Exit For
             End If
