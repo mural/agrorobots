@@ -68,6 +68,13 @@
         <br />
         <asp:Label ID="notePass_90037" runat="server" Text="*pass ignorado en update"></asp:Label>
     </p>
+    <p>
+        <br />
+        <asp:TextBox ID="txtBusqueda" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
+        </asp:TextBox>
+        <asp:Button ID="buscar_31" runat="server" Text="buscar" />
+        <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
+    </p>
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"
             AutoGenerateColumns="False"

@@ -29,7 +29,7 @@ Public Class AbmUsuario
     End Sub
 
     Private Sub CargarUsuarios()
-        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuarios(True)
+        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuariosFiltrados(Session.Item("filtroUsuariosUser"))
         Me.GridView1_.DataBind()
     End Sub
 
@@ -212,5 +212,16 @@ Public Class AbmUsuario
         If Not Validaciones.MinimaLongitud(args, cvldPass_27, 4) Then
             Exit Sub
         End If
+    End Sub
+
+    Protected Sub buscar_31_Click(sender As Object, e As EventArgs) Handles buscar_31.Click
+        Session.Item("filtroUsuariosUser") = txtBusqueda.Text
+        Vaciar()
+    End Sub
+
+    Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
+        Session.Item("filtroUsuariosUser") = ""
+
+        RecargarPagina()
     End Sub
 End Class

@@ -188,4 +188,21 @@ Public Class Usuario_Business
     Function EsProfesor(usuario As Usuario) As Boolean
         Return usuario.GetFamilias.Contains(familiaBusiness.ObtenerFamiliaProfesor)
     End Function
+
+    Function ObtenerUsuariosFiltrados(username As String) As List(Of Usuario)
+        Dim filtrado = New List(Of Usuario)
+        For Each usuario In ObtenerUsuarios(True)
+            Dim valida = True
+            If Not username Is Nothing Then
+                If Not String.IsNullOrEmpty(username) And Not usuario.UserName.Contains(username) Then
+                    valida = False
+                End If
+            End If
+            If valida Then
+                filtrado.Add(usuario)
+            End If
+        Next
+        Return filtrado
+    End Function
+
 End Class
