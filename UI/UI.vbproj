@@ -424,7 +424,7 @@
     </Compile>
     <Compile Include="Front\Home.aspx.vb">
       <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Front\Institucional.aspx.designer.vb">
       <DependentUpon>Institucional.aspx</DependentUpon>

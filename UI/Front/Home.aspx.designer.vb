@@ -176,31 +176,40 @@ Partial Public Class Home
     Protected WithEvents masinfo5_82 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''cree_93 control.
+    '''tituloEncuesta control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents cree_93 As Global.System.Web.UI.WebControls.Literal
+    Protected WithEvents tituloEncuesta As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
-    '''creeDetalle_97 control.
+    '''encuestaInicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents creeDetalle_97 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents encuestaInicio As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''masinfo6_82 control.
+    '''Resultado control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents masinfo6_82 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Resultado As Global.System.Web.UI.DataVisualization.Charting.Chart
+
+    '''<summary>
+    '''encuestaCierre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents encuestaCierre As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
     '''ventajas_94 control.

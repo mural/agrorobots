@@ -123,21 +123,39 @@
                     </li>
                     <li>
                         <h2>
-                            <asp:Literal ID="cree_93" runat="server" Text="cree su negocio" />
+                            <asp:Literal ID="tituloEncuesta" runat="server" Text="encuesta" />
                         </h2>
-                        <div class="imgholder">
-                            <a href="#">
-                                <img src="../Imagenes/home_3_200x140.jpg" alt="" /></a>
-                        </div>
-                        <p>
-                            <asp:Label ID="creeDetalle_97" runat="server" Text="Desde nuestro establecimiento fomentamos este tipo de desarrollo sustentable de cultivos" />
-                        </p>
-                        <p class="readmore">
-                            <a href="#">
-                                <asp:Label ID="masinfo6_82" runat="server" Text="mas info" />
-                                &raquo;
-                            </a>
-                        </p>
+                        <asp:Panel ID="encuestaInicio" runat="server" Text="inicio"></asp:Panel>
+                        <asp:Chart ID="Resultado" runat="server" EnableTheming="true"
+                            BorderDashStyle="Solid" BackSecondaryColor="White"
+                            BackGradientStyle="TopBottom" BorderWidth="2px" BackColor="211, 223, 240"
+                            BorderColor="#1A3B69" Width="240px">
+                            <Series>
+                                <asp:Series Name="Categories" ChartType="Bar" ChartArea="MainChartArea"
+                                    BorderWidth="2" Color="YellowGreen">
+                                </asp:Series>
+                            </Series>
+
+                            <ChartAreas>
+                                <asp:ChartArea Name="MainChartArea" Area3DStyle-Enable3D="true"
+                                    BorderColor="64, 64, 64, 64"
+                                    BorderDashStyle="Solid" BackSecondaryColor="White"
+                                    BackColor="64, 165, 191, 228"
+                                    ShadowColor="Transparent" BackGradientStyle="TopBottom">
+                                    <Area3DStyle Rotation="10" Perspective="10" Inclination="15"
+                                        IsRightAngleAxes="False" WallWidth="0" IsClustered="False"></Area3DStyle>
+                                    <AxisY LineColor="64, 64, 64, 64">
+                                        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                        <MajorGrid LineColor="64, 64, 64, 64" />
+                                    </AxisY>
+                                    <AxisX LineColor="64, 64, 64, 64">
+                                        <LabelStyle Font="Trebuchet MS, 8.25pt, style=Bold" />
+                                        <MajorGrid LineColor="64, 64, 64, 64" />
+                                    </AxisX>
+                                </asp:ChartArea>
+                            </ChartAreas>
+                        </asp:Chart>
+                        <asp:Panel ID="encuestaCierre" runat="server" Text="cierre"></asp:Panel>
                     </li>
                     <li class="last">
                         <h2>
