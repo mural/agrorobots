@@ -23,13 +23,40 @@ Partial Public Class Bitacora
     Protected WithEvents lblTitulo_10103 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''DateDe control.
+    '''fInicio_116 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DateDe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents fInicio_116 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFechaInicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaInicio As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''txtFechaFin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaFin As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''filtrarFechas control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents filtrarFechas As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''ScriptManager1 control.

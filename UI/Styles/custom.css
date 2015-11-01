@@ -118,3 +118,7 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
 #container h2 {
     margin: 0;
 }
+
+.combosNegros {
+    color: black;
+}

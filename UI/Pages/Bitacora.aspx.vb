@@ -14,7 +14,7 @@ Public Class Bitacora
     End Sub
 
     Private Sub CargarBitacora()
-        Dim entradas = bitacora_Business.GetItemsBitacora(Session("filtroUsuario"), Session("filtroTipos"))
+        Dim entradas = bitacora_Business.GetItemsBitacora(Session("filtroUsuario"), Session("filtroTipos"), Session("filtroInicio"), Session("filtroFin"))
         Me.GridView1_.DataSource = entradas
         Me.GridView1_.DataBind()
 
@@ -79,6 +79,28 @@ Public Class Bitacora
     Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
         Session("filtroUsuario") = ""
         Session("filtroTipos") = ""
+        Session("filtroInicio") = Nothing
+        txtFechaInicio.Value = ""
+        Session("filtroFin") = Nothing
+        txtFechaFin.Value = ""
+
+        CargarBitacora()
+    End Sub
+
+    Protected Sub filtrarFechas_Click(sender As Object, e As EventArgs) Handles filtrarFechas.Click
+        Try
+            Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+            Session("filtroInicio") = FechaInicio
+        Catch ex As Exception
+            Session("filtroInicio") = Nothing
+        End Try
+        Try
+            Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
+            Session("filtroFin") = FechaFin
+        Catch ex As Exception
+            Session("filtroFin") = Nothing
+        End Try
+        
         CargarBitacora()
     End Sub
 End Class

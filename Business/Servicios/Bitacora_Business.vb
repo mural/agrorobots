@@ -40,27 +40,26 @@ Public Class Bitacora_Business
         Return _bit
     End Function
 
-    Public Function GetItemsBitacora(Optional ByVal usuario As String = "", Optional ByVal tipo As String = "") As List(Of Bitacora)
-        Dim bitacora = bitacoraData.GetItemsBitacora()
-        'For Each bita In bitacora
-        '    bita.Tipo = IdiomManager.GetIdiomManager().GetTranslationById(CInt(bita.Tipo))
-        '    bita.Detalle = IdiomManager.GetIdiomManager().GetTranslationById(CInt(bita.Detalle))
-        'Next
-        If Not String.IsNullOrEmpty(usuario) Or Not String.IsNullOrEmpty(tipo) Then
-            Dim filtrado = New List(Of Bitacora)
-            For Each entrada In bitacora
-                If Not String.IsNullOrEmpty(usuario) And Not String.IsNullOrEmpty(tipo) Then 'filtrado por los dos
-                    If entrada.Usuario.Equals(usuario) And entrada.Tipo.Equals(tipo) Then
-                        filtrado.Add(entrada)
-                    End If
-                Else
-                    If entrada.Usuario.Equals(usuario) Or entrada.Tipo.Equals(tipo) Then
-                        filtrado.Add(entrada)
-                    End If
-                End If
-            Next
-            Return filtrado
-        End If
-        Return bitacora
+    Public Function GetItemsBitacora(Optional ByVal usuario As String = "", Optional ByVal tipo As String = "", Optional ByVal inicio As Date = Nothing, Optional ByVal fin As Date = Nothing) As List(Of Bitacora)
+        Dim filtrado = New List(Of Bitacora)
+        For Each entrada In bitacoraData.GetItemsBitacora()
+            Dim valida = True
+            If Not fin = Nothing And entrada.Fecha > fin Then
+                valida = False
+            End If
+            If Not inicio = Nothing And entrada.Fecha < inicio Then
+                valida = False
+            End If
+            If Not String.IsNullOrEmpty(usuario) And Not entrada.Usuario.Equals(usuario) Then
+                valida = False
+            End If
+            If Not String.IsNullOrEmpty(tipo) And Not entrada.Tipo.Equals(tipo) Then
+                valida = False
+            End If
+            If valida Then
+                filtrado.Add(entrada)
+            End If
+        Next
+        Return filtrado
     End Function
 End Class

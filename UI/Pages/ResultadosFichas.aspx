@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="ResultadosFichas.aspx.vb" Inherits="Agorobots.ResultadosFichas" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="ResultadosFichas.aspx.vb" Inherits="Agorobots.ResultadosFichas" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
 </asp:Content>

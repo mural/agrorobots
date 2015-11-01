@@ -3,7 +3,7 @@
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
     <script>
         $(function () {
-            $("#datepicker").datepicker();
+            $("input.datepicker").datepicker();
         });
     </script>
 </asp:Content>
@@ -12,9 +12,13 @@
         <asp:Label ID="lblTitulo_10103" runat="server" Text="titulo"></asp:Label>
     </h2>
     <br />
-    <asp:TextBox ID="DateDe" name="Datede" runat="server" ReadOnly="true" CssClass="hasDatepicker"></asp:TextBox>
-    <input type="text" value="9/23/2009" style="width: 100px;" name="Date" id="Date1" class="hasDatepicker"/>
-    <p>Date: <input type="text" id="datepicker"></p>
+    <asp:Label ID="fInicio_116" runat="server" Text="fecha inicio"></asp:Label>
+    <br />
+    <input type="text" id="txtFechaInicio" class="datepicker" runat="server" readonly="readonly">
+    ->
+    <input type="text" id="txtFechaFin" class="datepicker" runat="server" readonly="readonly">&nbsp;
+    <asp:Button ID="filtrarFechas" runat="server" Text=">" />
+    <br />
     <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -27,6 +31,9 @@
                     AlternatingRowStyle-CssClass="dark"
                     AllowSorting="True" OnSorting="Sort"
                     AllowPaging="True" OnPageIndexChanging="OnPaging" PageSize="20">
+                    <EmptyDataTemplate>
+                        <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+                    </EmptyDataTemplate>
                     <Columns>
                         <asp:TemplateField HeaderText="ID">
                             <ItemTemplate>
@@ -38,7 +45,7 @@
                         <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="usuario_17" runat="server" Text="titulo"></asp:Label>
-                                <asp:DropDownList ID="comboUsuarios" runat="server"
+                                <asp:DropDownList ID="comboUsuarios" runat="server" CssClass="combosNegros"
                                     OnSelectedIndexChanged="UserFilter" AutoPostBack="true"
                                     AppendDataBoundItems="true">
                                     <asp:ListItem Text="-----" Value=""></asp:ListItem>
@@ -53,7 +60,7 @@
                         <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:Label ID="tipo_162" runat="server" Text="titulo"></asp:Label>
-                                <asp:DropDownList ID="comboTipos" runat="server"
+                                <asp:DropDownList ID="comboTipos" runat="server" CssClass="combosNegros"
                                     OnSelectedIndexChanged="TipoFilter" AutoPostBack="true"
                                     AppendDataBoundItems="true">
                                     <asp:ListItem Text="-----" Value=""></asp:ListItem>
