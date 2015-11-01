@@ -311,6 +311,15 @@ Partial Public Class AbmUsuario
     Protected WithEvents notePass_90037 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''user_17 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents user_17 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''txtBusqueda control.
     '''</summary>
     '''<remarks>
@@ -336,6 +345,42 @@ Partial Public Class AbmUsuario
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''email_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents email_109 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtBusquedaMail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBusquedaMail As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''buscarMail_31 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents buscarMail_31 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''limpiarMail_36 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents limpiarMail_36 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''GridView1_ control.

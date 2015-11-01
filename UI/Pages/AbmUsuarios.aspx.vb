@@ -14,8 +14,10 @@ Public Class AbmUsuario
         usuarioSeleccionado = Session("usuarioSeleccionado")
         If Not (Page.IsPostBack) Then
             CargarUsuarios()
-
             lstbFamilia.Items.Clear()
+
+            txtBusqueda.Text = Session.Item("filtroUsuariosUser")
+            txtBusquedaMail.Text = Session.Item("filtroUsuariosMail")
             For Each familia As Familia In familia_Business.ObtenerFamilias
                 lstbFamilia.Items.Add(familia.Name)
             Next
@@ -29,7 +31,7 @@ Public Class AbmUsuario
     End Sub
 
     Private Sub CargarUsuarios()
-        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuariosFiltrados(Session.Item("filtroUsuariosUser"))
+        Me.GridView1_.DataSource = usuario_Business.ObtenerUsuariosFiltrados(Session.Item("filtroUsuariosUser"), Session.Item("filtroUsuariosMail"))
         Me.GridView1_.DataBind()
     End Sub
 
@@ -221,7 +223,16 @@ Public Class AbmUsuario
 
     Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
         Session.Item("filtroUsuariosUser") = ""
+        RecargarPagina()
+    End Sub
 
+    Protected Sub buscarMail_31_Click(sender As Object, e As EventArgs) Handles buscarMail_31.Click
+        Session.Item("filtroUsuariosMail") = txtBusquedaMail.Text
+        Vaciar()
+    End Sub
+
+    Protected Sub limpiarMail_36_Click(sender As Object, e As EventArgs) Handles limpiarMail_36.Click
+        Session.Item("filtroUsuariosMail") = ""
         RecargarPagina()
     End Sub
 End Class
