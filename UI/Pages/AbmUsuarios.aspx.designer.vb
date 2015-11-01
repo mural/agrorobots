@@ -347,6 +347,42 @@ Partial Public Class AbmUsuario
     Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''nombre_22 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombre_22 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtBusquedaNombre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBusquedaNombre As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''buscarNombre_31 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents buscarNombre_31 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''limpiarNombre_36 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents limpiarNombre_36 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''email_109 control.
     '''</summary>
     '''<remarks>

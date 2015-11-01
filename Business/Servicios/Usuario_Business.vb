@@ -189,7 +189,7 @@ Public Class Usuario_Business
         Return usuario.GetFamilias.Contains(familiaBusiness.ObtenerFamiliaProfesor)
     End Function
 
-    Function ObtenerUsuariosFiltrados(username As String, email As String) As List(Of Usuario)
+    Function ObtenerUsuariosFiltrados(username As String, email As String, nombre As String) As List(Of Usuario)
         Dim filtrado = New List(Of Usuario)
         For Each usuario In ObtenerUsuarios(True)
             Dim valida = True
@@ -200,6 +200,11 @@ Public Class Usuario_Business
             End If
             If Not email Is Nothing Then
                 If Not String.IsNullOrEmpty(email) And Not usuario.Email.Contains(email) Then
+                    valida = False
+                End If
+            End If
+            If Not nombre Is Nothing Then
+                If Not String.IsNullOrEmpty(nombre) And Not usuario.Nombre.Contains(nombre) Then
                     valida = False
                 End If
             End If

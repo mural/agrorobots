@@ -70,14 +70,21 @@
     </p>
     <p>
         <br />
-        <asp:Label ID="user_17" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="user_17" runat="server" Text="user"></asp:Label>
         <asp:TextBox ID="txtBusqueda" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
         </asp:TextBox>
         <asp:Button ID="buscar_31" runat="server" Text="buscar" />
         <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     </p>
     <p>
-        <asp:Label ID="email_109" runat="server" Text="titulo"></asp:Label>
+        <asp:Label ID="nombre_22" runat="server" Text="nombre"></asp:Label>
+        <asp:TextBox ID="txtBusquedaNombre" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
+        </asp:TextBox>
+        <asp:Button ID="buscarNombre_31" runat="server" Text="buscar" />
+        <asp:Button ID="limpiarNombre_36" runat="server" Text="limpiar" />
+    </p>
+    <p>
+        <asp:Label ID="email_109" runat="server" Text="email"></asp:Label>
         <asp:TextBox ID="txtBusquedaMail" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
         </asp:TextBox>
         <asp:Button ID="buscarMail_31" runat="server" Text="buscar" />
