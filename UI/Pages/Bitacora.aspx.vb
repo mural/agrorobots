@@ -14,7 +14,7 @@ Public Class Bitacora
     End Sub
 
     Private Sub CargarBitacora()
-        Dim entradas = bitacora_Business.GetItemsBitacora(Session("filtroUsuario"), Session("filtroTipos"), Session("filtroInicio"), Session("filtroFin"))
+        Dim entradas = bitacora_Business.GetItemsBitacora(Session("filtroBitacoraUsuario"), Session("filtroBitacoraTipos"), Session("filtroBitacoraInicio"), Session("filtroBitacoraFin"))
         Me.GridView1_.DataSource = entradas
         Me.GridView1_.DataBind()
 
@@ -28,13 +28,13 @@ Public Class Bitacora
                 End If
             Next
             'cargar combo tipos
-            For Each entrada In bitacora_Business.GetItemsBitacora(Session("filtroUsuario"))
+            For Each entrada In bitacora_Business.GetItemsBitacora(Session("filtroBitacoraUsuario"))
                 If Not comboTipos.Items.Contains(New ListItem(entrada.Tipo)) Then
                     comboTipos.Items.Add(entrada.Tipo)
                 End If
             Next
-            comboUsuarios.SelectedValue = Session("filtroUsuario")
-            comboTipos.SelectedValue = Session("filtroTipos")
+            comboUsuarios.SelectedValue = Session("filtroBitacoraUsuario")
+            comboTipos.SelectedValue = Session("filtroBitacoraTipos")
         End If
     End Sub
 
@@ -67,21 +67,21 @@ Public Class Bitacora
 
     Protected Sub UserFilter(ByVal sender As Object, ByVal e As EventArgs)
         Dim comboUsuarios As DropDownList = DirectCast(sender, DropDownList)
-        Session("filtroUsuario") = comboUsuarios.SelectedValue
-        Session("filtroTipos") = ""
+        Session("filtroBitacoraUsuario") = comboUsuarios.SelectedValue
+        Session("filtroBitacoraTipos") = ""
     End Sub
 
     Protected Sub TipoFilter(ByVal sender As Object, ByVal e As EventArgs)
         Dim comboTipos As DropDownList = DirectCast(sender, DropDownList)
-        Session("filtroTipos") = comboTipos.SelectedValue
+        Session("filtroBitacoraTipos") = comboTipos.SelectedValue
     End Sub
 
     Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
-        Session("filtroUsuario") = ""
-        Session("filtroTipos") = ""
-        Session("filtroInicio") = Nothing
+        Session("filtroBitacoraUsuario") = ""
+        Session("filtroBitacoraTipos") = ""
+        Session("filtroBitacoraInicio") = Nothing
         txtFechaInicio.Value = ""
-        Session("filtroFin") = Nothing
+        Session("filtroBitacoraFin") = Nothing
         txtFechaFin.Value = ""
 
         CargarBitacora()
@@ -90,15 +90,15 @@ Public Class Bitacora
     Protected Sub filtrarFechas_Click(sender As Object, e As EventArgs) Handles filtrarFechas.Click
         Try
             Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
-            Session("filtroInicio") = FechaInicio
+            Session("filtroBitacoraInicio") = FechaInicio
         Catch ex As Exception
-            Session("filtroInicio") = Nothing
+            Session("filtroBitacoraInicio") = Nothing
         End Try
         Try
             Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
-            Session("filtroFin") = FechaFin
+            Session("filtroBitacoraFin") = FechaFin
         Catch ex As Exception
-            Session("filtroFin") = Nothing
+            Session("filtroBitacoraFin") = Nothing
         End Try
         
         CargarBitacora()

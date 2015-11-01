@@ -27,7 +27,17 @@ Public Class Novedades
     Protected Sub CargarNovedades()
         contenidoNovedades.Text = ""
         For Each novedad In novedadesBusiness.Listar()
-            If comboTipos.SelectedValue = -1 Or comboTipos.SelectedValue = novedad.IDCategoriaTema Then
+            Dim valida = True
+            If Not comboTipos.SelectedValue = -1 And Not comboTipos.SelectedValue = novedad.IDCategoriaTema Then
+                valida = False
+            End If
+            If Not Application("filtroNovedadesFin") = Nothing And novedad.Fecha > Application("filtroNovedadesFin") Then
+                valida = False
+            End If
+            If Not Application("filtroNovedadesInicio") = Nothing And novedad.Fecha < Application("filtroNovedadesInicio") Then
+                valida = False
+            End If
+            If valida Then
                 contenidoNovedades.Text += "<div class='w3-card-4'>"
                 contenidoNovedades.Text += "<header class='w3-container w3-blue'>"
                 contenidoNovedades.Text += categoriaTemaBusiness.Obtener(novedad.IDCategoriaTema).Nombre
@@ -50,6 +60,34 @@ Public Class Novedades
     End Sub
 
     Protected Sub comboTipos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTipos.SelectedIndexChanged
+        CargarNovedades()
+    End Sub
+
+    Protected Sub filtrarFechas_Click(sender As Object, e As EventArgs) Handles filtrarFechas.Click
+        Try
+            Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+            Application("filtroNovedadesInicio") = FechaInicio
+        Catch ex As Exception
+            Application("filtroNovedadesInicio") = Nothing
+        End Try
+        Try
+            Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
+            Application("filtroNovedadesFin") = FechaFin
+        Catch ex As Exception
+            Application("filtroNovedadesFin") = Nothing
+        End Try
+
+        CargarNovedades()
+    End Sub
+
+    Protected Sub limpiar_36_Click(sender As Object, e As EventArgs) Handles limpiar_36.Click
+        comboTipos.SelectedValue = -1
+
+        Application("filtroNovedadesInicio") = Nothing
+        txtFechaInicio.Value = ""
+        Application("filtroNovedadesInicio") = Nothing
+        txtFechaFin.Value = ""
+
         CargarNovedades()
     End Sub
 End Class
