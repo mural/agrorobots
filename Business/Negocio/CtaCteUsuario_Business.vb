@@ -14,5 +14,15 @@ Public Class CtaCteUsuario_Business
         Return mapperPropio.ListarPorUsuario(idUsuario)
     End Function
 
+    Function ListarPorFacturasNoPagas() As List(Of CtaCteItemUsuario)
+        Dim listaCtaCte As New List(Of CtaCteItemUsuario)
+        For Each ctaCteItemUsuario In Listar()
+            If ctaCteItemUsuario.Tipo = 1 And ctaCteItemUsuario.Estado = "NO_PAGO" Then
+                listaCtaCte.Add(ctaCteItemUsuario)
+            End If
+        Next
+        Return listaCtaCte
+    End Function
+
 
 End Class

@@ -6,4 +6,5 @@
     Public Property Tipo As Integer '(int, null)
     Public Property Estado As String '(varchar(50), null)
     Public Property Comprobante As ComprobanteGenerico
+    Public Property Usuario As Usuario
 End Class

@@ -14,11 +14,29 @@ Option Explicit On
 Partial Public Class Pago
 
     '''<summary>
-    '''confirmar control.
+    '''navActual_178 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents confirmar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents navActual_178 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblTitulo_178 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblTitulo_178 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridView1_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
 End Class
