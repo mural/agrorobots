@@ -50,18 +50,19 @@ Public Class ElementoAcademico_Business
         Return elementosAcademicos
     End Function
 
-    Public Sub Inscribir(idUsuario As Integer, idElementoAcademico As String)
+    Public Sub Inscribir(idUsuario As Integer, idElementoAcademico As String, activo As Boolean)
         Dim alumnoElementoAcademico = New AlumnoElementoAcademico
         alumnoElementoAcademico.ID = 0
         alumnoElementoAcademico.IdAlumno = idUsuario
         alumnoElementoAcademico.IdElementoAcademico = idElementoAcademico
+        alumnoElementoAcademico.Activo = activo
         alumnoElementoAcademicoMapper.Insertar(alumnoElementoAcademico)
     End Sub
 
     Public Function ObtenerPorAlumno(ByVal idUsuario As Integer) As List(Of ElementoAcademico)
         Dim elementosAcademicos As New List(Of ElementoAcademico)
         For Each alumnoElementoAcademico In alumnoElementoAcademicoMapper.Listar()
-            If alumnoElementoAcademico.IdAlumno = idUsuario Then
+            If alumnoElementoAcademico.Activo = True And alumnoElementoAcademico.IdAlumno = idUsuario Then
                 elementosAcademicos.Add(Obtener(alumnoElementoAcademico.IdElementoAcademico))
             End If
         Next

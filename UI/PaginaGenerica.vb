@@ -33,6 +33,10 @@ Public MustInherit Class PaginaGenerica
         End Try
     End Sub
 
+    Protected Sub ActualizarUsuarioEnSesion(ByRef usuario As Usuario)
+        Session.Item("user") = usuario
+    End Sub
+
     Protected Overrides Sub InitializeCulture()
         Dim culturaActual = Application.Item(Variables.CULTURA_CODIGO_ACTUAL)
         If culturaActual Is Nothing Then

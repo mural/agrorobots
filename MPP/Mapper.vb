@@ -124,6 +124,22 @@
         Return stringDb
     End Function
 
+    Public Shared Function DbIntegerOrNull(ByRef Item As Object) As Integer
+        Dim integerDb As Integer = Nothing
+        If Not Item Is DBNull.Value Then
+            integerDb = CInt(Item)
+        End If
+        Return integerDb
+    End Function
+
+    Public Shared Function DbDecimalOrNull(ByRef Item As Object) As Decimal
+        Dim decimalDb As Decimal = Nothing
+        If Not Item Is DBNull.Value Then
+            decimalDb = CDec(Item)
+        End If
+        Return decimalDb
+    End Function
+
     Public Shared Function DbImageOrNull(ByRef Item As Object) As Byte()
         Dim imageDb As Byte() = Nothing
         If Not Item Is DBNull.Value Then

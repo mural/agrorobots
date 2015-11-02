@@ -10,6 +10,9 @@ Public Class AlumnoElementoAcademico_Mapper
         hdatos.Add("@ID", obj.ID)
         hdatos.Add("@IdAlumno", obj.IdAlumno)
         hdatos.Add("@IdElementoAcademico", obj.IdElementoAcademico)
+        hdatos.Add("@Activo", obj.Activo)
+        hdatos.Add("@Nota", obj.Nota)
+        hdatos.Add("@Presentismo", obj.Presentismo)
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As AlumnoElementoAcademico, Optional ByVal insertar As Boolean = False) As Boolean
@@ -20,6 +23,9 @@ Public Class AlumnoElementoAcademico_Mapper
         objNuevo.ID = CInt(Item("ID"))
         objNuevo.IdAlumno = CInt(Item("IdAlumno"))
         objNuevo.IdElementoAcademico = CInt(Item("IdElementoAcademico"))
+        objNuevo.Activo = CBool(Item("Activo"))
+        objNuevo.Nota = DbDecimalOrNull(Item("Nota"))
+        objNuevo.Presentismo = DbIntegerOrNull(Item("Presentismo"))
     End Sub
 
     Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As AlumnoElementoAcademico
