@@ -5,6 +5,7 @@ Public Class CtaCteUsuario_Mapper
 
     Dim comprobante_Mapper As New Comprobante_Mapper
     Dim comprobanteDetalleMapper As New ComprobanteDetalle_Mapper
+    Dim usuarioMapper As New Usuario_Data
     Public Property IdComprobante As Integer
 
     Public Sub New()
@@ -63,6 +64,7 @@ Public Class CtaCteUsuario_Mapper
         Dim cuentas = Listar("CtaCteUsuarioListar")
         For Each cuenta In cuentas
             cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+            cuenta.Usuario = usuarioMapper.ConsultarPorId(cuenta.IdUsuario)
         Next
         Return cuentas
     End Function
