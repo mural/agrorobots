@@ -63,9 +63,9 @@ Public Class Home
         Else
             'muestro resultados
             Resultado.Visible = True
-            Dim resultados As New List(Of EncuestaResultado)
+            Dim resultados As New List(Of FichaEncuestaResultado)
             For Each opcion In encuestaBase.Preguntas
-                resultados.Add(New EncuestaResultado With {.Opcion = opcion.Pregunta})
+                resultados.Add(New FichaEncuestaResultado With {.Opcion = opcion.Pregunta})
             Next
             For Each encuesta In encuestaBusiness.Listar
                 For Each encuestaResultado In resultados

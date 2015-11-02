@@ -796,7 +796,7 @@
     </Compile>
     <Compile Include="Pages\ResultadosFichas.aspx.vb">
       <DependentUpon>ResultadosFichas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Satisfaccion.aspx.designer.vb">
       <DependentUpon>Satisfaccion.aspx</DependentUpon>

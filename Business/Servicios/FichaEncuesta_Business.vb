@@ -8,4 +8,5 @@ Public Class FichaEncuesta_Business
         Me.mapperGenerico = New FichaEncuesta_Mapper
     End Sub
 
+
 End Class

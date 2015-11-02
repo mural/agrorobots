@@ -84,7 +84,7 @@
     <Compile Include="Negocio\ProfesorElementoAcademico.vb" />
     <Compile Include="Negocio\Tarjeta.vb" />
     <Compile Include="Negocio\CtaCteItemUsuario.vb" />
-    <Compile Include="EncuestaResultado.vb" />
+    <Compile Include="FichaEncuestaResultado.vb" />
     <Compile Include="Negocio\Comprobante.vb" />
     <Compile Include="Negocio\ComprobanteDetalle.vb" />
     <Compile Include="Negocio\ComprobanteNota.vb" />
