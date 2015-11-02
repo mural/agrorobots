@@ -59,6 +59,18 @@ Public Class ElementoAcademico_Business
         alumnoElementoAcademicoMapper.Insertar(alumnoElementoAcademico)
     End Sub
 
+    Public Sub ActivarInscripcion(idUsuario As Integer, idElementoAcademico As Integer)
+        Dim alumnoElementoAcademico = New AlumnoElementoAcademico
+        For Each alumnoElementoAcademicoBuscado In alumnoElementoAcademicoMapper.Listar
+            If alumnoElementoAcademicoBuscado.IdAlumno = idUsuario And alumnoElementoAcademicoBuscado.IdElementoAcademico = idElementoAcademico Then
+                alumnoElementoAcademico = alumnoElementoAcademicoBuscado
+                Exit For
+            End If
+        Next
+        alumnoElementoAcademico.Activo = True
+        alumnoElementoAcademicoMapper.Actualizar(alumnoElementoAcademico)
+    End Sub
+
     Public Function ObtenerPorAlumno(ByVal idUsuario As Integer) As List(Of ElementoAcademico)
         Dim elementosAcademicos As New List(Of ElementoAcademico)
         For Each alumnoElementoAcademico In alumnoElementoAcademicoMapper.Listar()

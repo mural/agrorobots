@@ -5,6 +5,7 @@ Public Class Pago
     Inherits PaginaAutorizada
 
     Dim ctaCteUsuarioBusiness As New Business.CtaCteUsuario_Business
+    Dim elementoAcademicoBusiness As New ElementoAcademico_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
@@ -31,6 +32,14 @@ Public Class Pago
     Protected Sub ConfirmarPago(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
         Dim ID = CInt(link.CommandArgument)
+
+        Dim ctacte = ctaCteUsuarioBusiness.Obtener(ID)
+        ctacte.Estado = "PAGO"
+        ctaCteUsuarioBusiness.Actualizar(ctacte)
+
+        For Each comprobanteDetalle In ctacte.Comprobante.Items
+            elementoAcademicoBusiness.ActivarInscripcion(ctacte.IdUsuario, comprobanteDetalle.CodigoProducto)
+        Next
 
         RecargarPagina()
     End Sub
