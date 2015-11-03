@@ -803,7 +803,7 @@
     </Compile>
     <Compile Include="Pages\Satisfaccion.aspx.vb">
       <DependentUpon>Satisfaccion.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PaginaAutorizada.vb">
       <SubType>ASPXCodeBehind</SubType>

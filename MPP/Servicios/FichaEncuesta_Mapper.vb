@@ -67,6 +67,6 @@ Public Class FichaEncuesta_Mapper
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuesta
-        Return Obtener(0, "FichaEncuestaObtener")
+        Return Obtener(id, "FichaEncuestaObtener")
     End Function
 End Class

@@ -61,6 +61,6 @@ Public Class Newsletter_Mapper
     End Sub
 
     Public Overloads Overrides Function Obtener(ByVal id As Integer) As Newsletter
-        Return Obtener(0, "NewsletterObtener")
+        Return Obtener(id, "NewsletterObtener")
     End Function
 End Class

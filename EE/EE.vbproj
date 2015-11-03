@@ -73,6 +73,8 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SatisfaccionResultado.vb" />
+    <Compile Include="TiemposRespuestaResultado.vb" />
     <Compile Include="GananciasResultado.vb" />
     <Compile Include="Negocio\AlumnoElementoAcademico.vb" />
     <Compile Include="Negocio\ComprobanteGenerico.vb" />

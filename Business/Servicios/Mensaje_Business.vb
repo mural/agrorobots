@@ -85,4 +85,8 @@ Public Class Mensaje_Business
     Function BorrarMensaje(ByVal idMensaje As Integer) As Boolean
         Return mensajesMapper.Borrar(idMensaje)
     End Function
+
+    Function Listar() As List(Of Mensaje)
+        Return mensajesMapper.Listar
+    End Function
 End Class
