@@ -719,7 +719,7 @@
     </Compile>
     <Compile Include="Pages\GananciasComparativas.aspx.vb">
       <DependentUpon>GananciasComparativas.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Inscripcion.aspx.designer.vb">
       <DependentUpon>Inscripcion.aspx</DependentUpon>

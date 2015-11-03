@@ -23,11 +23,83 @@ Partial Public Class GananciasComparativas
     Protected WithEvents navActual_10120 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblTitulo_10120 control.
+    '''lblTitulo_10118 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblTitulo_10120 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTitulo_10118 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''comboAno1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboAno1 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''comboMes1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboMes1 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''comboAno2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboAno2 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''comboMes2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comboMes2 As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''comparar_51 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents comparar_51 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''encuestasPanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents encuestasPanel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Resultado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Resultado As Global.System.Web.UI.DataVisualization.Charting.Chart
+
+    '''<summary>
+    '''lblMensajes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensajes As Global.System.Web.UI.WebControls.Label
 End Class
