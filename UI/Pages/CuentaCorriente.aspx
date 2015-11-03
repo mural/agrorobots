@@ -37,7 +37,7 @@
 
                 <asp:TemplateField HeaderText="concepto_142">
                     <ItemTemplate>
-                        <asp:Label ID="lblMonto" runat="server"
+                        <asp:Label ID="lblConcepto" runat="server"
                             Text='<%# Eval("Comprobante.Items(0).Detalle")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -49,6 +49,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="PDF">
+                    <ItemTemplate>
+                        <asp:ImageButton ID="lnkPdf" runat="server"
+                            OnClick="PDF" CommandArgument='<%# Eval("IdComprobante")%>'
+                            CssClass="tablaDatosAction" ImageUrl="/Imagenes/pdf.png"></asp:ImageButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />

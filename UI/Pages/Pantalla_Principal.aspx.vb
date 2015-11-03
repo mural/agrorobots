@@ -51,7 +51,7 @@ Public Class Pantalla_Principal
     Public Function ObtenerInconsistencias() As String
         If usuario.Admin = True Then
             'Inconsistencias.Visible = True
-            recalcular_710.Visible = True
+            'recalcular_710.Visible = True
 
             Dim dig As New Servicio_Digitos
             'Verifico si hubo un cambio por fuera del sistema
