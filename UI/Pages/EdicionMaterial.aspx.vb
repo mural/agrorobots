@@ -94,8 +94,6 @@ Public Class EdicionMaterial
             GridView1_.EditIndex = -1
             CargarMateriales()
         End If
-
-        Interaction.MsgBox("Ok!", MsgBoxStyle.Information)
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)

@@ -73,6 +73,14 @@
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/foro.png"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="streaming_182">
+                    <ItemTemplate>
+                        <asp:ImageButton ID="lnkStreaming" runat="server"
+                            OnClick="Streaming" CommandArgument='<%# Eval("CodigoAcademico")%>'
+                            CssClass="tablaDatosAction" ImageUrl="/Imagenes/streaming.jpg"></asp:ImageButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />

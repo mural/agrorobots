@@ -193,6 +193,7 @@
     <Content Include="Imagenes\logo.png" />
     <Content Include="Imagenes\material.png" />
     <Content Include="Imagenes\pdf.png" />
+    <Content Include="Imagenes\streaming.svg" />
     <Content Include="Imagenes\terminos.png" />
     <Content Include="Pages\AbmElementoAcademico.aspx" />
     <Content Include="Pages\AbmEncuestas.aspx" />
@@ -245,6 +246,7 @@
     <Content Include="Pages\Satisfaccion.aspx" />
     <Content Include="Pages\SeleccionMaterias.aspx" />
     <Content Include="Pages\SinPermisos.aspx" />
+    <Content Include="Pages\Streaming.aspx" />
     <Content Include="Pages\VistaMaterial.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
@@ -832,6 +834,13 @@
     </Compile>
     <Compile Include="Pages\Satisfaccion.aspx.vb">
       <DependentUpon>Satisfaccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Streaming.aspx.designer.vb">
+      <DependentUpon>Streaming.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Streaming.aspx.vb">
+      <DependentUpon>Streaming.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\VistaMaterial.aspx.designer.vb">

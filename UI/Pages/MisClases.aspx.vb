@@ -45,4 +45,10 @@ Public Class MisClases
         Dim link As ImageButton = DirectCast(sender, ImageButton)
         Response.Redirect(PaginasConocidas.FORO + "?id=" + link.CommandArgument)
     End Sub
+
+    Protected Sub Streaming(ByVal sender As Object, ByVal e As EventArgs)
+        Dim link As ImageButton = DirectCast(sender, ImageButton)
+        Response.Redirect(PaginasConocidas.STREAMING + "?id=" + link.CommandArgument)
+    End Sub
+
 End Class
