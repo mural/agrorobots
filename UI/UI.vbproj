@@ -244,6 +244,7 @@
     <Content Include="Pages\Satisfaccion.aspx" />
     <Content Include="Pages\SeleccionMaterias.aspx" />
     <Content Include="Pages\SinPermisos.aspx" />
+    <Content Include="Pages\VistaMaterial.aspx" />
     <Content Include="Pantalla_Login.aspx" />
     <Content Include="Pages\Pantalla_Principal.aspx" />
     <Content Include="packages.config" />
@@ -803,6 +804,13 @@
     </Compile>
     <Compile Include="Pages\Satisfaccion.aspx.vb">
       <DependentUpon>Satisfaccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\VistaMaterial.aspx.designer.vb">
+      <DependentUpon>VistaMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VistaMaterial.aspx.vb">
+      <DependentUpon>VistaMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PaginaAutorizada.vb">

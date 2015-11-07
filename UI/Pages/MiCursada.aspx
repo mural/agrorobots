@@ -42,9 +42,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="material">
+                <asp:TemplateField HeaderText="material_145">
                     <ItemTemplate>
-                        ->
+                        <asp:ImageButton ID="lnkMaterial" runat="server"
+                            OnClick="Material" CommandArgument='<%# Eval("CodigoAcademico")%>'
+                            CssClass="tablaDatosAction" ImageUrl="/Imagenes/material.png"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 

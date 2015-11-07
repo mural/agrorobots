@@ -26,6 +26,11 @@ Public Class MiCursada
         GridView1_.DataBind()
     End Sub
 
+    Protected Sub Material(ByVal sender As Object, ByVal e As EventArgs)
+        Dim link As ImageButton = DirectCast(sender, ImageButton)
+        Response.Redirect(PaginasConocidas.VISTA_MATERIAL + "?id=" + link.CommandArgument)
+    End Sub
+
     Protected Sub Examen(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
         Response.Redirect(PaginasConocidas.EXAMENES_ALUMNOS + "?id=" + link.CommandArgument)

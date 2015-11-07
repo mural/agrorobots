@@ -37,6 +37,7 @@
     Public Shared Property EXAMENES_ALUMNOS As String = DIR_PAGES + "Examenes" + ASPX
     Public Shared Property RENDIR_EXAMEN As String = DIR_PAGES + "DetalleExamen" + ASPX
     Public Shared Property RESULTADO_EXAMEN As String = DIR_PAGES + "ExamenResultado" + ASPX
+    Public Shared Property VISTA_MATERIAL As String = DIR_PAGES + "VistaMaterial" + ASPX
 
     'Profesor
     Public Shared Property MIS_CLASES As String = DIR_PAGES + "MisClases" + ASPX
