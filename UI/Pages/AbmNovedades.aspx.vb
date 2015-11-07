@@ -72,6 +72,9 @@ Public Class AbmNovedades
             File.InputStream.Read(imgByte, 0, File.ContentLength)
         End If
 
+        Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+        Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
+
         Try
             Dim valido = True
             If String.IsNullOrEmpty(Texto) Then
@@ -88,6 +91,8 @@ Public Class AbmNovedades
                 End If
                 novedad.Fecha = Date.Now
                 novedad.IDCategoriaTema = Tema
+                novedad.FechaInicio = FechaInicio
+                novedad.FechaFin = FechaFin
 
                 novedadesBusiness.Actualizar(novedad)
                 MensajeOk(lblMensajes)
@@ -128,6 +133,9 @@ Public Class AbmNovedades
             File.InputStream.Read(imgByte, 0, File.ContentLength)
         End If
 
+        Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+        Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
+
         Try
             Dim valido = True
             If String.IsNullOrEmpty(textoHTML) Then
@@ -144,6 +152,8 @@ Public Class AbmNovedades
                 End If
                 novedad.Fecha = Date.Now
                 novedad.IDCategoriaTema = Tema
+                novedad.FechaInicio = FechaInicio
+                novedad.FechaFin = FechaFin
 
                 novedadesBusiness.Crear(novedad)
                 MensajeOk(lblMensajes)

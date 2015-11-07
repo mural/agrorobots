@@ -68,6 +68,42 @@ Partial Public Class AbmFichas
     Protected WithEvents areaContenido As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
+    '''fInicio_116 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fInicio_116 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFechaInicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaInicio As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''fFin_128 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fFin_128 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFechaFin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaFin As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
     '''preguntas_139 control.
     '''</summary>
     '''<remarks>

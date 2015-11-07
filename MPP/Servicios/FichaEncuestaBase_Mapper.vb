@@ -22,6 +22,8 @@ Public Class FichaEncuestaBase_Mapper
         obj.Tipo = CStr(Item("Tipo"))
         obj.Descripcion = CStr(Item("Descripcion"))
         obj.Activa = CBool(Item("Activa"))
+        obj.FechaInicio = CDate(Item("FechaInicio"))
+        obj.FechaFin = CDate(Item("FechaFin"))
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of FichaEncuestaBase)
@@ -46,6 +48,8 @@ Public Class FichaEncuestaBase_Mapper
         hdatos.Add("@Tipo", obj.Tipo)
         hdatos.Add("@Descripcion", obj.Descripcion)
         hdatos.Add("@Activa", obj.Activa)
+        hdatos.Add("@FechaInicio", obj.FechaInicio)
+        hdatos.Add("@FechaFin", obj.FechaFin)
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As FichaEncuestaBase

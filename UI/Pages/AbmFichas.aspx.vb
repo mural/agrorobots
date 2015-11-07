@@ -56,6 +56,8 @@ Public Class AbmFichas
                 'force the control to load data in array
                 File.InputStream.Read(imgByte, 0, File.ContentLength)
             End If
+            Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+            Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
 
             Try
                 Dim valido = True
@@ -71,6 +73,8 @@ Public Class AbmFichas
                         fichaBase.Foto = imgByte
                     End If
                     fichaBase.Tipo = comboTipos.SelectedValue
+                    fichaBase.FechaInicio = FechaInicio
+                    fichaBase.FechaFin = FechaFin
 
                     If fichaEncuestaBaseBusiness.Actualizar(fichaBase) Then
                         MensajeOk(lblMensajes)
@@ -113,6 +117,8 @@ Public Class AbmFichas
             'force the control to load data in array
             File.InputStream.Read(imgByte, 0, File.ContentLength)
         End If
+        Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+        Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
 
         Try
             Dim valido = True
@@ -130,6 +136,8 @@ Public Class AbmFichas
                 End If
                 fichaBaseNueva.Tipo = comboTipos.SelectedValue
                 fichaBaseNueva.Activa = Me.cbxActivo.Checked
+                fichaBase.FechaInicio = FechaInicio
+                fichaBase.FechaFin = FechaFin
 
                 If fichaEncuestaBaseBusiness.Crear(fichaBaseNueva) Then
                     MensajeOk(lblMensajes)
@@ -155,6 +163,8 @@ Public Class AbmFichas
         Me.comboTipos.SelectedValue = fichaBase.Tipo
         Me.areaContenido.InnerText = fichaBase.Descripcion
         Me.cbxActivo.Checked = fichaBase.Activa
+        Me.txtFechaInicio.Value = fichaBase.FechaInicio.ToString("MM/dd/yyyy")
+        Me.txtFechaFin.Value = fichaBase.FechaFin.ToString("MM/dd/yyyy")
 
         Me.txtPregunta.Enabled = True
         Me.btnAdd_5.Enabled = True

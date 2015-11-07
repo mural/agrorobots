@@ -9,6 +9,11 @@
             selector: 'textarea.editable'
         });
     </script>
+    <script>
+        $(function () {
+            $("input.datepicker").datepicker();
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
     <li>»</li>
@@ -32,6 +37,15 @@
     <asp:Label ID="desc_12" runat="server" Text="descripcion"></asp:Label>
     <br />
     <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
+    <br />
+    <br />
+    <asp:Label ID="fInicio_116" runat="server" Text="fecha inicio"></asp:Label>
+    <br />
+    <input type="text" id="txtFechaInicio" class="datepicker" runat="server" readonly="readonly">
+    <br />
+    <asp:Label ID="fFin_128" runat="server" Text="fecha expiracion"></asp:Label>
+    <br />
+    <input type="text" id="txtFechaFin" class="datepicker" runat="server" readonly="readonly">
     <br />
     <br />
     <asp:Label ID="preguntas_139" runat="server" Text="preguntas"></asp:Label>

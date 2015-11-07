@@ -5,6 +5,8 @@
     Public Property Tipo As String '(varchar(10), null)
     Public Property Descripcion As String '(varchar(max), null)
     Public Property Activa As Boolean
+    Public Property FechaInicio As Date
+    Public Property FechaFin As Date
 
     Public Property Preguntas As List(Of FichaEncuestaPregunta)
 

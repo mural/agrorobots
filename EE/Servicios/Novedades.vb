@@ -4,6 +4,7 @@
     Public Property Foto() As Byte() '(image, null)
     Public Property Fecha As DateTime '(datetime, null)
     Public Property IDCategoriaTema As Integer '(int, null)
-
+    Public Property FechaInicio As Date
+    Public Property FechaFin As Date
 
 End Class

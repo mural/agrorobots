@@ -68,6 +68,42 @@ Partial Public Class AbmNovedades
     Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
+    '''fInicio_116 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fInicio_116 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFechaInicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaInicio As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
+    '''fFin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fFin As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFechaFin control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaFin As Global.System.Web.UI.HtmlControls.HtmlInputText
+
+    '''<summary>
     '''btnCrear_32 control.
     '''</summary>
     '''<remarks>
