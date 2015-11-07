@@ -43,6 +43,6 @@ Public Class MisClases
 
     Protected Sub Foro(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
-        Response.Redirect(PaginasConocidas.CATALOGO_DETALLE + "?id=" + link.CommandArgument)
+        Response.Redirect(PaginasConocidas.FORO + "?id=" + link.CommandArgument)
     End Sub
 End Class

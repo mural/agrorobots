@@ -49,6 +49,7 @@
     'Acceso usuario
     Public Shared ReadOnly CAMBIAR_CLAVE As String = DIR_PAGES + "CambioClave" + ASPX
     Public Shared ReadOnly MENSAJES As String = DIR_PAGES + "Mensajes" + ASPX
+    Public Shared Property FORO As String = DIR_PAGES + "Foro" + ASPX
 
     'Gestion
     Public Shared Property GESTION_CURSOS As String = DIR_PAGES + "AbmElementoAcademico" + ASPX

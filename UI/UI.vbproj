@@ -224,6 +224,7 @@
     <Content Include="Pages\ExamenEvaluacionRevision.aspx" />
     <Content Include="Pages\ExamenesCorreccion.aspx" />
     <Content Include="Pages\ExamenResultado.aspx" />
+    <Content Include="Pages\Foro.aspx" />
     <Content Include="Pages\Ganancias.aspx" />
     <Content Include="Pages\GananciasComparativas.aspx" />
     <Content Include="Pages\Inscripcion.aspx" />
@@ -706,6 +707,13 @@
     </Compile>
     <Compile Include="Pages\ExamenResultado.aspx.vb">
       <DependentUpon>ExamenResultado.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Foro.aspx.designer.vb">
+      <DependentUpon>Foro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Foro.aspx.vb">
+      <DependentUpon>Foro.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Ganancias.aspx.designer.vb">

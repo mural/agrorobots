@@ -37,9 +37,9 @@ Public Class EdicionMaterial
     End Sub
 
     Private Sub CargarTipos()
-        comboTipos.Items.Add(New ListItem("Texto", "TEXTO"))
-        comboTipos.Items.Add(New ListItem("Archivo", "ARCHIVO"))
-        comboTipos.Items.Add(New ListItem("Link", "LINK"))
+        comboTipos.Items.Add(New ListItem("Texto HTML", "HTML"))
+        comboTipos.Items.Add(New ListItem("PDF", "PDF"))
+        comboTipos.Items.Add(New ListItem("Video", "VIDEO"))
     End Sub
 
     Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click

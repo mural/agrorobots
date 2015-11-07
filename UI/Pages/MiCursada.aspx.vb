@@ -36,4 +36,9 @@ Public Class MiCursada
         Response.Redirect(PaginasConocidas.EXAMENES_ALUMNOS + "?id=" + link.CommandArgument)
     End Sub
 
+    Protected Sub Foro(ByVal sender As Object, ByVal e As EventArgs)
+        Dim link As ImageButton = DirectCast(sender, ImageButton)
+        Response.Redirect(PaginasConocidas.FORO + "?id=" + link.CommandArgument)
+    End Sub
+
 End Class
