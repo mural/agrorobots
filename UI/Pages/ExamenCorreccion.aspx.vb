@@ -18,7 +18,7 @@ Public Class ExamenCorreccion
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamen = Request.QueryString("id")
         Dim idElementoAcademicoInt As Integer
-        If Not String.IsNullOrEmpty(idExamen) And Integer.TryParse(idExamen, idElementoAcademicoInt) And Not examenBaseBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
+        If Not String.IsNullOrEmpty(idExamen) And Integer.TryParse(idExamen, idElementoAcademicoInt) And Not examenBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
             CargarExamen()
         Else
             Response.Redirect(PaginasConocidas.HOME)
