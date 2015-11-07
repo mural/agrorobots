@@ -24,69 +24,74 @@ Public Class Home
     End Sub
 
     Private Sub CargarEncuesta()
-        Dim encuestas = encuestaBaseBusiness.ListarEncuestas
-        Dim cantidad = encuestas.Count
-        Dim random As New Random
-        Dim numeroAzar = random.Next(cantidad)
-
-        encuestaBase = encuestas(numeroAzar)
-        'ver si ya voto en esta encuesta
-        For Each encuesta In encuestaBusiness.Listar
-            If encuestaBase.ID = encuesta.IDFichaEncuestaBase And encuesta.Sesion = idSesion Then
-                voto = True
-                Exit For
-            End If
-        Next
-
         encuestaInicio.Controls.Clear()
         encuestaCierre.Controls.Clear()
 
-        tituloEncuesta.Text = encuestaBase.Descripcion
+        Try
+            Dim encuestas = encuestaBaseBusiness.ListarEncuestas
+            Dim cantidad = encuestas.Count
+            Dim random As New Random
+            Dim numeroAzar = random.Next(cantidad)
 
-        Dim descripcionInicio = New LiteralControl()
-        descripcionInicio.Text = ""
-        descripcionInicio.Text += "<div class='w3-card-4'>"
-        descripcionInicio.Text += "<div class='w3-container'>"
-        encuestaInicio.Controls.Add(descripcionInicio)
-
-        If Not voto Then 'armo encuesta
-            Resultado.Visible = False
-            For Each opcion In encuestaBase.Preguntas
-                listaOpciones.Items.Add(New ListItem(opcion.Pregunta))
-            Next
-            encuestaCierre.Controls.Add(listaOpciones)
-            Dim submit As New Button()
-            submit.Text = idiomas.GetTranslationById(110)
-            submit.CssClass = "w3-btn w3-khaki"
-            AddHandler submit.Click, AddressOf Me.Votar
-            encuestaCierre.Controls.Add(submit)
-        Else
-            'muestro resultados
-            Resultado.Visible = True
-            Dim resultados As New List(Of FichaEncuestaResultado)
-            For Each opcion In encuestaBase.Preguntas
-                resultados.Add(New FichaEncuestaResultado With {.Opcion = opcion.Pregunta})
-            Next
+            encuestaBase = encuestas(numeroAzar)
+            'ver si ya voto en esta encuesta
             For Each encuesta In encuestaBusiness.Listar
-                For Each encuestaResultado In resultados
-                    If encuesta.RespuestaUnica = encuestaResultado.Opcion Then
-                        encuestaResultado.Votos += 1
-                    End If
-                Next
+                If encuestaBase.ID = encuesta.IDFichaEncuestaBase And encuesta.Sesion = idSesion Then
+                    voto = True
+                    Exit For
+                End If
             Next
 
-            Resultado.Series("Categories").XValueMember = "Opcion"
-            Resultado.Series("Categories").YValueMembers = "Votos"
-            Resultado.DataSource = resultados
-            Resultado.DataBind()
-            'encuestas.Controls.Add(submit)
-        End If
+            tituloEncuesta.Text = encuestaBase.Descripcion
 
-        Dim descripcionCierre = New LiteralControl()
-        descripcionCierre.Text = ""
-        descripcionCierre.Text += "</div>"
-        descripcionCierre.Text += "</div>"
-        encuestaCierre.Controls.Add(descripcionCierre)
+            Dim descripcionInicio = New LiteralControl()
+            descripcionInicio.Text = ""
+            descripcionInicio.Text += "<div class='w3-card-4'>"
+            descripcionInicio.Text += "<div class='w3-container'>"
+            encuestaInicio.Controls.Add(descripcionInicio)
+
+            If Not voto Then 'armo encuesta
+                Resultado.Visible = False
+                For Each opcion In encuestaBase.Preguntas
+                    listaOpciones.Items.Add(New ListItem(opcion.Pregunta))
+                Next
+                encuestaCierre.Controls.Add(listaOpciones)
+                Dim submit As New Button()
+                submit.Text = idiomas.GetTranslationById(110)
+                submit.CssClass = "w3-btn w3-khaki"
+                AddHandler submit.Click, AddressOf Me.Votar
+                encuestaCierre.Controls.Add(submit)
+            Else
+                'muestro resultados
+                Resultado.Visible = True
+                Dim resultados As New List(Of FichaEncuestaResultado)
+                For Each opcion In encuestaBase.Preguntas
+                    resultados.Add(New FichaEncuestaResultado With {.Opcion = opcion.Pregunta})
+                Next
+                For Each encuesta In encuestaBusiness.Listar
+                    For Each encuestaResultado In resultados
+                        If encuesta.RespuestaUnica = encuestaResultado.Opcion Then
+                            encuestaResultado.Votos += 1
+                        End If
+                    Next
+                Next
+
+                Resultado.Series("Categories").XValueMember = "Opcion"
+                Resultado.Series("Categories").YValueMembers = "Votos"
+                Resultado.DataSource = resultados
+                Resultado.DataBind()
+                'encuestas.Controls.Add(submit)
+            End If
+
+            Dim descripcionCierre = New LiteralControl()
+            descripcionCierre.Text = ""
+            descripcionCierre.Text += "</div>"
+            descripcionCierre.Text += "</div>"
+            encuestaCierre.Controls.Add(descripcionCierre)
+        Catch ex As Exception
+            tituloEncuesta.Text = idiomas.GetTranslationById(180) 'No hay encuestas disponibles
+            Resultado.Visible = False
+        End Try
     End Sub
 
     Private Sub Votar(ByVal sender As System.Object, ByVal e As System.EventArgs)
