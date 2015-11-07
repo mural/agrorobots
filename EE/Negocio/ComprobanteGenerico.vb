@@ -8,6 +8,7 @@ Public Class ComprobanteGenerico
     Public Property Subtotal As Decimal '(decimal(18,2), null)
     Public Property IVA As Decimal '(decimal(18,2), null)
     Public Property Items As List(Of ComprobanteDetalle)
+    Public Property Usuario As Usuario
 
     Public Sub New()
         Me.Items = New List(Of ComprobanteDetalle)

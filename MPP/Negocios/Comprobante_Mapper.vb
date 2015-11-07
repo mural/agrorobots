@@ -3,6 +3,7 @@
 Public Class Comprobante_Mapper
     Inherits Mapper(Of Comprobante)
 
+    Dim usuarioMapper As New Usuario_Data
     Dim comprobanteDetalleMapper As New ComprobanteDetalle_Mapper
     Public Property IdComprobante As Integer
 
@@ -65,6 +66,7 @@ Public Class Comprobante_Mapper
                 comprobante.Items.Add(comprobanteDetalle)
             End If
         Next
+        comprobante.Usuario = usuarioMapper.ConsultarPorId(comprobante.IdUsuario)
         Return comprobante
     End Function
 

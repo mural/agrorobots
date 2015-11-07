@@ -13,6 +13,7 @@ Public Class CuentaCorriente
     Inherits PaginaAutorizada
 
     Dim ctaCteUsuarioBusiness As New Business.CtaCteUsuario_Business
+    Dim comprobanteBusiness As New Business.Comprobante_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
@@ -38,12 +39,12 @@ Public Class CuentaCorriente
 
     Protected Sub PDF(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
-        Dim ID = CInt(link.CommandArgument)
+        Dim IDComprobante = CInt(link.CommandArgument)
 
         Dim filename = "factura.pdf"
         Dim virtualPath = "~/App_Data/" & filename
 
-        CreateDocument()
+        CreateDocument(comprobanteBusiness.Obtener(IDComprobante))
 
         Dim pdfRenderer As New PdfDocumentRenderer(False, PdfFontEmbedding.Always)
         pdfRenderer.Document = document
@@ -62,13 +63,13 @@ Public Class CuentaCorriente
     End Sub
 
     Dim document As New Document
-    Public Function CreateDocument() As Document
+    Public Function CreateDocument(ByVal paramComprobante As Comprobante) As Document
         document.Info.Title = "Factura B"
         document.Info.Subject = "Factura de compra"
         document.Info.Author = "Agrorobots"
         DefineStyles()
-        CreatePage()
-        FillContent()
+        CreatePage(paramComprobante)
+        FillContent(paramComprobante)
         Return document
     End Function
 
@@ -103,7 +104,7 @@ Public Class CuentaCorriente
     Dim image As MigraDoc.DocumentObjectModel.Shapes.Image
     Dim table As MigraDoc.DocumentObjectModel.Tables.Table
     Dim addressFrame As MigraDoc.DocumentObjectModel.Shapes.TextFrame
-    Private Sub CreatePage()
+    Private Sub CreatePage(ByVal paramComprobante As Comprobante)
         ' Each MigraDoc document needs at least one section.
         Dim section As Section = Me.document.AddSection()
 
@@ -135,17 +136,56 @@ Public Class CuentaCorriente
         ' Put sender in address frame
         paragraph = Me.addressFrame.AddParagraph("Agrorobots · Calle Falsa 123 · 1406 Buenos Aires")
         paragraph.Format.Font.Name = "Times New Roman"
-        paragraph.Format.Font.Size = 7
-        paragraph.Format.SpaceAfter = 3
+        paragraph.Format.Font.Size = 10
+        paragraph = section.AddParagraph()
+
+        paragraph = Me.addressFrame.AddParagraph("Calle Falsa 123 · 1406 Buenos Aires · Argentina")
+        paragraph.Format.Font.Name = "Times New Roman"
+        paragraph.Format.Font.Size = 10
+        paragraph = section.AddParagraph()
+        paragraph = Me.addressFrame.AddParagraph("www.agrorobots.com")
+        paragraph.Format.Font.Name = "Times New Roman"
+        paragraph.Format.Font.Size = 10
+
+        paragraph = section.AddParagraph()
+        paragraph.Format.SpaceBefore = "3.5cm"
+        paragraph.Format.Font.Size = 9
+        paragraph.AddFormattedText("Datos de Facturación:", TextFormat.Bold)
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Número de Factura: " & paramComprobante.Numero)
+        paragraph.Format.Font.Size = 9
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Fecha de Emisión: " & paramComprobante.FechaEmision)
+        paragraph.Format.Font.Size = 9
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Fecha de Vencimiento: " & paramComprobante.FechaVencimiento)
+        paragraph.Format.Font.Size = 9
+
+        paragraph = section.AddParagraph()
+        paragraph.Format.SpaceBefore = "0.5cm"
+        paragraph.AddFormattedText("Datos del Cliente: ", TextFormat.Bold)
+        paragraph.Format.Font.Size = 9
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Nombre: " & paramComprobante.Usuario.Nombre + paramComprobante.Usuario.Apellido)
+        paragraph.Format.Font.Size = 9
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Numero de Documento: " & paramComprobante.Usuario.Email) ''TODO !!!
+        paragraph.Format.Font.Size = 9
+        paragraph.AddTab()
+        paragraph = section.AddParagraph()
+        paragraph.AddText("Direccion:" & paramComprobante.Usuario.UserName) ''TODO !!!
+        paragraph.Format.Font.Size = 9
 
         ' Add the print date field
         paragraph = section.AddParagraph()
-        paragraph.Format.SpaceBefore = "8cm"
+        paragraph.Format.SpaceBefore = "1cm"
         paragraph.Style = "Reference"
         paragraph.AddFormattedText("FACTURA B", TextFormat.Bold)
-        paragraph.AddTab()
-        paragraph.AddText("Buenos Aires, ")
-        paragraph.AddDateField("dd.MM.yyyy")
 
         ' Create the item table
         Me.table = section.AddTable()
@@ -183,15 +223,15 @@ Public Class CuentaCorriente
         'row.Shading.Color = TableBlue
         row.Cells(0).AddParagraph("Item")
         row.Cells(0).Format.Font.Bold = False
-        row.Cells(0).Format.Alignment = ParagraphAlignment.Left
-        row.Cells(0).VerticalAlignment = VerticalAlignment.Bottom
+        row.Cells(0).Format.Alignment = ParagraphAlignment.Center
+        row.Cells(0).VerticalAlignment = VerticalAlignment.Center
         row.Cells(0).MergeDown = 1
-        row.Cells(1).AddParagraph("Agrorobots E-Learning")
-        row.Cells(1).Format.Alignment = ParagraphAlignment.Left
+        row.Cells(1).AddParagraph("Servicios Educativos - Agrorobots")
+        row.Cells(1).Format.Alignment = ParagraphAlignment.Center
         row.Cells(1).MergeRight = 3
-        row.Cells(5).AddParagraph("Detalle")
-        row.Cells(5).Format.Alignment = ParagraphAlignment.Left
-        row.Cells(5).VerticalAlignment = VerticalAlignment.Bottom
+        row.Cells(5).AddParagraph("TOTAL")
+        row.Cells(5).Format.Alignment = ParagraphAlignment.Center
+        row.Cells(5).VerticalAlignment = VerticalAlignment.Center
         row.Cells(5).MergeDown = 1
 
         row = table.AddRow()
@@ -200,13 +240,13 @@ Public Class CuentaCorriente
         row.Format.Font.Bold = True
         'row.Shading.Color = TableBlue
         row.Cells(1).AddParagraph("Cantidad")
-        row.Cells(1).Format.Alignment = ParagraphAlignment.Left
+        row.Cells(1).Format.Alignment = ParagraphAlignment.Center
         row.Cells(2).AddParagraph("Precio unitario")
-        row.Cells(2).Format.Alignment = ParagraphAlignment.Left
+        row.Cells(2).Format.Alignment = ParagraphAlignment.Center
         row.Cells(3).AddParagraph("Descuento (%)")
-        row.Cells(3).Format.Alignment = ParagraphAlignment.Left
+        row.Cells(3).Format.Alignment = ParagraphAlignment.Center
         row.Cells(4).AddParagraph("Impuesto")
-        row.Cells(4).Format.Alignment = ParagraphAlignment.Left
+        row.Cells(4).Format.Alignment = ParagraphAlignment.Center
 
         Me.table.SetEdge(0, 0, 6, 2, Edge.Box, BorderStyle.[Single], _
             0.75, Color.Empty)
@@ -214,57 +254,26 @@ Public Class CuentaCorriente
 
 
     Dim navigator As XPathNavigator
-    Private Sub FillContent()
+    Private Sub FillContent(ByVal paramComprobante As Comprobante)
         ' Fill address in address text frame
-        'Dim item As XPathNavigator = SelectItem("/invoice/to")
         Dim paragraph As Paragraph = Me.addressFrame.AddParagraph()
         paragraph.AddText("")
-        'paragraph.AddText(GetValue(item, "name/singleName"))
-        'paragraph.AddLineBreak()
-        'paragraph.AddText(GetValue(item, "address/line1"))
-        'paragraph.AddLineBreak()
-        'paragraph.AddText(GetValue(item, "address/postalCode") + " " + GetValue(item, "address/city"))
 
         ' Iterate the invoice items
         Dim totalExtendedPrice As Double = 0
-        'Dim iter As XPathNodeIterator = Me.navigator.[Select]("/invoice/items/*")
-        'While iter.MoveNext()
-        '    item = iter.Current
-        '    Dim quantity As Double = 4 'CDbl (item, "quantity")
-        '    Dim price As Double = 200 'CDbl(item, "price")
-        '    Dim discount As Double = 5 'CDbl(item, "discount")
 
-        '    ' Each item fills two rows
-        '    Dim row1 As Row = Me.table.AddRow()
-        '    Dim row2 As Row = Me.table.AddRow()
-        '    row1.TopPadding = 1.5
-        '    'row1.Cells(0).Shading.Color = TableGray
-        '    row1.Cells(0).VerticalAlignment = VerticalAlignment.Center
-        '    row1.Cells(0).MergeDown = 1
-        '    row1.Cells(1).Format.Alignment = ParagraphAlignment.Left
-        '    row1.Cells(1).MergeRight = 3
-        '    'row1.Cells(5).Shading.Color = TableGray
-        '    'row1.Cells(5).MergeDown = 1
+        Dim contador As Integer = 1
+        For Each midetalle As ComprobanteDetalle In paramComprobante.Items
+            Dim rowDetalle As Row = Me.table.AddRow
+            rowDetalle.Cells(0).AddParagraph(contador)
+            rowDetalle.Cells(1).AddParagraph(midetalle.Cantidad)
+            rowDetalle.Cells(2).AddParagraph("$ " & midetalle.Subtotal)
+            rowDetalle.Cells(3).AddParagraph("0%")
+            rowDetalle.Cells(4).AddParagraph("$ " & "0.00")
+            rowDetalle.Cells(5).AddParagraph("$ " & (midetalle.Subtotal))
+            contador += 1
+        Next
 
-        '    'row1.Cells(0).AddParagraph(GetValue(item, "itemNumber"))
-        '    'paragraph = row1.Cells(1).AddParagraph()
-        '    'paragraph.AddFormattedText(GetValue(item, "title"), TextFormat.Bold)
-        '    'paragraph.AddFormattedText(" by ", TextFormat.Italic)
-        '    'paragraph.AddText(GetValue(item, "author"))
-        '    'row2.Cells(1).AddParagraph(GetValue(item, "quantity"))
-        '    'row2.Cells(2).AddParagraph(price.ToString("0.00") + " €")
-        '    'row2.Cells(3).AddParagraph(discount.ToString("0.0"))
-        '    'row2.Cells(4).AddParagraph()
-        '    'row2.Cells(5).AddParagraph(price.ToString("0.00"))
-        '    'Dim extendedPrice As Double = quantity * price
-        '    'extendedPrice = extendedPrice * (100 - discount) / 100
-        '    'row1.Cells(5).AddParagraph(extendedPrice.ToString("0.00") + " €")
-        '    'row1.Cells(5).VerticalAlignment = VerticalAlignment.Bottom
-        '    'totalExtendedPrice += extendedPrice
-
-        '    Me.table.SetEdge(0, Me.table.Rows.Count - 2, 6, 2, Edge.Box, BorderStyle.[Single], _
-        '        0.75)
-        'End While
 
         ' Add an invisible row as a space line to the table
         Dim row As Row = Me.table.AddRow()
@@ -273,11 +282,11 @@ Public Class CuentaCorriente
         ' Add the total price row
         row = Me.table.AddRow()
         row.Cells(0).Borders.Visible = False
-        row.Cells(0).AddParagraph("Subtotal")
+        row.Cells(0).AddParagraph("SUBTOTAL")
         row.Cells(0).Format.Font.Bold = True
         row.Cells(0).Format.Alignment = ParagraphAlignment.Right
         row.Cells(0).MergeRight = 4
-        row.Cells(5).AddParagraph("$ " + totalExtendedPrice.ToString("0.00"))
+        row.Cells(5).AddParagraph("$ " & paramComprobante.Subtotal)
 
         ' Add the VAT row
         row = Me.table.AddRow()
@@ -286,26 +295,16 @@ Public Class CuentaCorriente
         row.Cells(0).Format.Font.Bold = True
         row.Cells(0).Format.Alignment = ParagraphAlignment.Right
         row.Cells(0).MergeRight = 4
-        row.Cells(5).AddParagraph("$ " + (0.19 * totalExtendedPrice).ToString("0.00"))
-
-        ' Add the additional fee row
-        row = Me.table.AddRow()
-        row.Cells(0).Borders.Visible = False
-        row.Cells(0).AddParagraph("Envio")
-        row.Cells(5).AddParagraph("$ " + 0.ToString("0.00"))
-        row.Cells(0).Format.Font.Bold = True
-        row.Cells(0).Format.Alignment = ParagraphAlignment.Right
-        row.Cells(0).MergeRight = 4
+        row.Cells(5).AddParagraph("$ " & paramComprobante.IVA)
 
         ' Add the total due row
         row = Me.table.AddRow()
-        row.Cells(0).AddParagraph("Total a pagar")
+        row.Cells(0).AddParagraph("TOTAL")
         row.Cells(0).Borders.Visible = False
         row.Cells(0).Format.Font.Bold = True
         row.Cells(0).Format.Alignment = ParagraphAlignment.Right
         row.Cells(0).MergeRight = 4
-        totalExtendedPrice += 0.19 * totalExtendedPrice
-        row.Cells(5).AddParagraph("$ " + totalExtendedPrice.ToString("0.00"))
+        row.Cells(5).AddParagraph("$ " & (paramComprobante.Subtotal + paramComprobante.IVA))
 
         ' Set the borders of the specified cell range
         Me.table.SetEdge(5, Me.table.Rows.Count - 4, 1, 4, Edge.Box, BorderStyle.[Single], _
@@ -316,10 +315,6 @@ Public Class CuentaCorriente
         paragraph.Format.SpaceBefore = "1cm"
         paragraph.Format.Borders.Width = 0.75
         paragraph.Format.Borders.Distance = 3
-        'paragraph.Format.Borders.Color = TableBorder
-        'paragraph.Format.Shading.Color = TableGray
-        'item = SelectItem("/invoice")
-        'paragraph.AddText(GetValue(item, "notes"))
     End Sub
 
 End Class
