@@ -75,7 +75,13 @@ Public Class VistaMaterial
         End If
 
         If materialDeEstudio.Tipo.Equals("VIDEO") Then
-            video.Attributes.Add("src", "https://www.youtube.com/embed/" + materialDeEstudio.Contenido)
+            Dim codigoVideo = materialDeEstudio.Contenido
+            Try
+                'ejemplo: https://www.youtube.com/watch?v=DUyLI02DqLA
+                codigoVideo = codigoVideo.Substring(codigoVideo.LastIndexOf("watch?v=") + 8) '8 es el largo de: watch?v=
+            Catch ex As Exception
+            End Try
+            video.Attributes.Add("src", "https://www.youtube.com/embed/" + codigoVideo)
             video.Visible = True
         End If
     End Sub

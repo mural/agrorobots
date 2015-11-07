@@ -69,7 +69,12 @@ Public Class EdicionMaterial
                 If valido Then
                     materialDeEstudio.Tipo = Tipo
                     materialDeEstudio.Detalle = Detalle
-                    materialDeEstudio.Contenido = Contenido
+                    If Me.comboTipos.SelectedValue = "HTML" Then
+                        materialDeEstudio.Contenido = Contenido
+                    ElseIf Me.comboTipos.SelectedValue = "VIDEO" Then
+                        Dim link = txtLink.Text
+                        materialDeEstudio.Contenido = link
+                    End If
                     materialDeEstudio.Activo = Activo
                     materialDeEstudio.FechaMaxVisita = FechaInicio
                     materialDeEstudio.Archivo = archivoByte
@@ -137,7 +142,12 @@ Public Class EdicionMaterial
                 materialDeEstudio.IdElementoAcademico = idElementoAcademico
                 materialDeEstudio.Tipo = Tipo
                 materialDeEstudio.Detalle = Detalle
-                materialDeEstudio.Contenido = Contenido
+                If Me.comboTipos.SelectedValue = "HTML" Then
+                    materialDeEstudio.Contenido = Contenido
+                ElseIf Me.comboTipos.SelectedValue = "VIDEO" Then
+                    Dim link = txtLink.Text
+                    materialDeEstudio.Contenido = link
+                End If
                 materialDeEstudio.Activo = Activo
                 materialDeEstudio.FechaMaxVisita = FechaInicio
                 materialDeEstudio.Archivo = archivoByte
@@ -166,7 +176,10 @@ Public Class EdicionMaterial
         Me.comboTipos.SelectedValue = materialDeEstudio.Tipo
         Me.txtDetalle.Text = materialDeEstudio.Detalle
         Me.areaContenido.InnerText = materialDeEstudio.Contenido
+        Me.txtLink.Text = materialDeEstudio.Contenido
         Me.txtFechaMax.Value = materialDeEstudio.FechaMaxVisita.ToString("MM/dd/yyyy")
+
+        comboTipos_SelectedIndexChanged(sender, e)
     End Sub
 
     Private Sub Limpiar()
@@ -178,15 +191,22 @@ Public Class EdicionMaterial
     End Sub
 
     Protected Sub comboTipos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTipos.SelectedIndexChanged
+        contenido_705.Visible = False
+        areaContenido.Visible = False
+        pdf.Visible = False
+        pdfUpload.Visible = False
+        link_181.Visible = False
+        txtLink.Visible = False
+
         If Me.comboTipos.SelectedValue = "HTML" Then
-            pdfUpload.Enabled = False
-            txtLink.Enabled = False
+            contenido_705.Visible = True
+            areaContenido.Visible = True
         ElseIf Me.comboTipos.SelectedValue = "PDF" Then
-            pdfUpload.Enabled = True
-            txtLink.Enabled = False
+            pdf.Visible = True
+            pdfUpload.Visible = True
         Else 'video link
-            pdfUpload.Enabled = False
-            txtLink.Enabled = True
+            link_181.Visible = True
+            txtLink.Visible = True
         End If
     End Sub
 End Class
