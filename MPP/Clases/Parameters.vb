@@ -40,7 +40,7 @@ Public Class Parameters
         _commandParameters.Add(objParameter)
     End Sub
 
-    Public Sub SetImageParameter(ByRef parameterName As String, ByRef parameterValue As Byte())
+    Public Sub SetByteParameter(ByRef parameterName As String, ByRef parameterValue As Byte())
         Dim objParameter As SqlParameter = Me.SetParameter(parameterName, SqlDbType.Image)
         objParameter.Value = parameterValue
         _commandParameters.Add(objParameter)

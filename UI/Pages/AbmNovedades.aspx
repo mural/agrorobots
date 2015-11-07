@@ -3,9 +3,9 @@
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
     <script>
         tinymce.init({
-            plugins: "code",
+            plugins: "code, link",
             menubar: false,
-            toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
+            toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough link | code",
             selector: 'textarea'
         });
     </script>

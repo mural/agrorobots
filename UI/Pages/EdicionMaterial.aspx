@@ -3,9 +3,9 @@
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
     <script>
         tinymce.init({
-            plugins: "code",
+            plugins: "code, link",
             menubar: false,
-            toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough | code",
+            toolbar: "cut copy paste | searchreplace | bullist numlist | bold italic underline strikethrough link | code",
             selector: 'textarea.editable'
         });
     </script>
@@ -41,13 +41,19 @@
     <br />
     <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
     <br />
-    <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
     <br />
+    <asp:Label ID="pdf" runat="server" Text="PDF"></asp:Label>&nbsp;<asp:FileUpload ID="pdfUpload" runat="server" />
+    <br />
+    <br />
+    <asp:Label ID="link_181" runat="server" Text="link"></asp:Label>
+    &nbsp;
+    <asp:TextBox ID="txtLink" runat="server">
+    </asp:TextBox>
     <br />
     <br />
     <asp:Label ID="tipo_162" runat="server" Text="tipo"></asp:Label>
     <br />
-    <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="False">
+    <asp:DropDownList ID="comboTipos" runat="server" AutoPostBack="True">
     </asp:DropDownList>
     <br />
     <br />

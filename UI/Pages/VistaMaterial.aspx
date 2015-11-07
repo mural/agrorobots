@@ -14,6 +14,18 @@
     <h2>
         <asp:Label ID="lblTitulo_10127" runat="server" Text="titulo"></asp:Label>
     </h2>
+    <br />
+    <br />
+    <asp:Literal ID="ltrDetalle" runat="server"></asp:Literal>
+    <asp:Literal ID="ltrContenido" runat="server" Visible="false"></asp:Literal>
+    <br />
+    <iframe id="pdf" width='640' height='390' allowfullscreen webkitallowfullscreen runat="server" visible="false" ></iframe>
+    <iframe id="video" width="640" height="390" frameborder="0" allowfullscreen runat="server" visible="false"></iframe>
+    <br />
+    <asp:Label ID="fLimite_165" runat="server" Text="fecha max vista"></asp:Label>
+    :&nbsp;
+    <asp:Label ID="fechaLimite" runat="server" Text=" "></asp:Label>
+    <br />
     <div id="dvGrid">
         <br />
         <br />

@@ -140,7 +140,7 @@
         Return decimalDb
     End Function
 
-    Public Shared Function DbImageOrNull(ByRef Item As Object) As Byte()
+    Public Shared Function DbByteOrNull(ByRef Item As Object) As Byte()
         Dim imageDb As Byte() = Nothing
         If Not Item Is DBNull.Value Then
             imageDb = CType(Item, Byte())

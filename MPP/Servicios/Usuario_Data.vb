@@ -169,7 +169,7 @@ Public Class Usuario_Data
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetIntParameter("@Intentos", obj.Intentos)
         params.SetStringParameter("@Email", obj.Email)
-        params.SetImageParameter("@Foto", obj.Foto)
+        params.SetByteParameter("@Foto", obj.Foto)
 
         con = Connection.GetObjConnextion()
 

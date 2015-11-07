@@ -334,6 +334,26 @@
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\ViewerJS\compatibility.js" />
+    <Content Include="Scripts\ViewerJS\example.local.css" />
+    <Content Include="Scripts\ViewerJS\images\kogmbh.png" />
+    <Content Include="Scripts\ViewerJS\images\nlnet.png" />
+    <Content Include="Scripts\ViewerJS\images\texture.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-download.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-fullscreen.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-menuArrows.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-pageDown.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-pageUp.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-presentation.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-zoomIn.png" />
+    <Content Include="Scripts\ViewerJS\images\toolbarButton-zoomOut.png" />
+    <Content Include="Scripts\ViewerJS\index.html" />
+    <Content Include="Scripts\ViewerJS\pdf.js" />
+    <Content Include="Scripts\ViewerJS\pdf.worker.js" />
+    <Content Include="Scripts\ViewerJS\pdfjsversion.js" />
+    <Content Include="Scripts\ViewerJS\text_layer_builder.js" />
+    <Content Include="Scripts\ViewerJS\ui_utils.js" />
+    <Content Include="Scripts\ViewerJS\webodf.js" />
     <Content Include="Styles\theme.css" />
     <Content Include="Styles\datepicker.css" />
     <Content Include="Styles\core.css" />
@@ -944,6 +964,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Archivos\" />
     <Folder Include="Styles\images\" />
   </ItemGroup>
   <ItemGroup>

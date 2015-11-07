@@ -41,7 +41,7 @@ Public Class ElementoAcademico_Mapper
         objNuevo.Cupo = CInt(Item("Cupo"))
         objNuevo.Clases = CInt(Item("Clases"))
         objNuevo.Precio = CDec(Item("Precio"))
-        objNuevo.Imagen = DbImageOrNull(Item("Imagen"))
+        objNuevo.Imagen = DbByteOrNull(Item("Imagen"))
         objNuevo.Estado = CStr(Item("Estado"))
         objNuevo.EstadoActual = objNuevo.TextoAEstadoEnum(objNuevo.Estado)
     End Sub

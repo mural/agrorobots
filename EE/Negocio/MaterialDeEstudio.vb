@@ -7,4 +7,5 @@
     Public Property Contenido As String '(varchar(max), null)
     Public Property Activo As Boolean '(bit, null)
     Public Property FechaMaxVisita As Date
+    Public Property Archivo As Byte()
 End Class

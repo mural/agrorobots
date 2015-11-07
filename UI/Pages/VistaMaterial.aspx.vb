@@ -1,6 +1,7 @@
 ﻿Imports EE
 Imports Business
 Imports EE.ElementoAcademico
+Imports System.IO
 
 Public Class VistaMaterial
     Inherits PaginaAutorizada
@@ -20,6 +21,7 @@ Public Class VistaMaterial
             Response.Redirect(PaginasConocidas.HOME)
         End If
         materialDeEstudio = Session("materialDeEstudio")
+
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()
@@ -44,6 +46,38 @@ Public Class VistaMaterial
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
         Session("materialDeEstudio") = materialBusiness.ListarPorElementoAcademico(idElementoAcademico).ElementAt(pageFactor + e.NewSelectedIndex)
         materialDeEstudio = Session("materialDeEstudio")
+
+        ltrDetalle.Text = materialDeEstudio.Detalle + "<br/>"
+        fechaLimite.Text = materialDeEstudio.FechaMaxVisita.ToString
+
+        ltrContenido.Text = ""
+        pdf.Attributes.Remove("src")
+        video.Attributes.Remove("src")
+
+        ltrContenido.Visible = False
+        pdf.Visible = False
+        video.Visible = False
+
+        If materialDeEstudio.Tipo.Equals("HTML") Then
+            ltrContenido.Text = materialDeEstudio.Contenido + "<br/>"
+            ltrContenido.Visible = True
+        End If
+
+        If materialDeEstudio.Tipo.Equals("PDF") And Not materialDeEstudio.Archivo Is Nothing Then
+            Dim documentBinary As Byte() = DirectCast(materialDeEstudio.Archivo, Byte())
+            Dim fStream As New FileStream(Server.MapPath("~/Archivos/") & "\" & "material.pdf", FileMode.Create)
+            fStream.Write(documentBinary, 0, documentBinary.Length)
+            fStream.Close()
+            fStream.Dispose()
+
+            pdf.Attributes.Add("src", "/Scripts/ViewerJS/index.html#/Archivos/material.pdf")
+            pdf.Visible = True
+        End If
+
+        If materialDeEstudio.Tipo.Equals("VIDEO") Then
+            video.Attributes.Add("src", "https://www.youtube.com/embed/" + materialDeEstudio.Contenido)
+            video.Visible = True
+        End If
     End Sub
 
 End Class

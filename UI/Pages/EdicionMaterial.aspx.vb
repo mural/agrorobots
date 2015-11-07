@@ -50,6 +50,14 @@ Public Class EdicionMaterial
             Dim Contenido = areaContenido.InnerText
             Dim Activo = True
             Dim FechaInicio = Date.ParseExact(txtFechaMax.Value, "MM/dd/yyyy", Nothing)
+            Dim archivo As FileUpload = CType(pdfUpload, FileUpload)
+            Dim archivoByte As Byte() = Nothing
+            If archivo.HasFile AndAlso Not archivo.PostedFile Is Nothing Then
+                Dim File As HttpPostedFile = pdfUpload.PostedFile
+                archivoByte = New Byte(File.ContentLength - 1) {}
+                'force the control to load data in array
+                File.InputStream.Read(archivoByte, 0, File.ContentLength)
+            End If
 
             Try
                 Dim valido = True
@@ -64,6 +72,7 @@ Public Class EdicionMaterial
                     materialDeEstudio.Contenido = Contenido
                     materialDeEstudio.Activo = Activo
                     materialDeEstudio.FechaMaxVisita = FechaInicio
+                    materialDeEstudio.Archivo = archivoByte
 
                     If materialBusiness.Actualizar(materialDeEstudio) Then
                         MensajeOk(lblMensajes)
@@ -80,6 +89,8 @@ Public Class EdicionMaterial
             GridView1_.EditIndex = -1
             CargarMateriales()
         End If
+
+        Interaction.MsgBox("Ok!", MsgBoxStyle.Information)
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
@@ -105,6 +116,15 @@ Public Class EdicionMaterial
         Dim Activo = True
         Dim FechaInicio = Date.ParseExact(txtFechaMax.Value, "MM/dd/yyyy", Nothing)
 
+        Dim archivo As FileUpload = CType(pdfUpload, FileUpload)
+        Dim archivoByte As Byte() = Nothing
+        If archivo.HasFile AndAlso Not archivo.PostedFile Is Nothing Then
+            Dim File As HttpPostedFile = pdfUpload.PostedFile
+            archivoByte = New Byte(File.ContentLength - 1) {}
+            'force the control to load data in array
+            File.InputStream.Read(archivoByte, 0, File.ContentLength)
+        End If
+
         Try
             Dim valido = True
             If String.IsNullOrEmpty(Detalle) And String.IsNullOrEmpty(Contenido) Then
@@ -120,6 +140,7 @@ Public Class EdicionMaterial
                 materialDeEstudio.Contenido = Contenido
                 materialDeEstudio.Activo = Activo
                 materialDeEstudio.FechaMaxVisita = FechaInicio
+                materialDeEstudio.Archivo = archivoByte
 
                 If materialBusiness.Crear(materialDeEstudio) Then
                     MensajeOk(lblMensajes)
@@ -149,11 +170,23 @@ Public Class EdicionMaterial
     End Sub
 
     Private Sub Limpiar()
-        Me.comboTipos.SelectedValue = "TEXTO"
+        Me.comboTipos.SelectedValue = "HTML"
         Me.txtDetalle.Text = ""
         Me.areaContenido.InnerText = ""
         Me.txtFechaMax.Value = ""
         Session("materialDeEstudio") = Nothing
     End Sub
 
+    Protected Sub comboTipos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboTipos.SelectedIndexChanged
+        If Me.comboTipos.SelectedValue = "HTML" Then
+            pdfUpload.Enabled = False
+            txtLink.Enabled = False
+        ElseIf Me.comboTipos.SelectedValue = "PDF" Then
+            pdfUpload.Enabled = True
+            txtLink.Enabled = False
+        Else 'video link
+            pdfUpload.Enabled = False
+            txtLink.Enabled = True
+        End If
+    End Sub
 End Class

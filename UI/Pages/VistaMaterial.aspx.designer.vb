@@ -32,6 +32,60 @@ Partial Public Class VistaMaterial
     Protected WithEvents lblTitulo_10127 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''ltrDetalle control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ltrDetalle As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''ltrContenido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ltrContenido As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
+    '''pdf control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pdf As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''video control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents video As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''fLimite_165 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fLimite_165 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''fechaLimite control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fechaLimite As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''ScriptManager1 control.
     '''</summary>
     '''<remarks>

@@ -68,22 +68,40 @@ Partial Public Class EdicionMaterial
     Protected WithEvents areaContenido As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
-    '''imagen_2 control.
+    '''pdf control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents imagen_2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents pdf As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''imgUpload control.
+    '''pdfUpload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents pdfUpload As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''link_181 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents link_181 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtLink control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtLink As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''tipo_162 control.
