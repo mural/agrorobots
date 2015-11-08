@@ -14,22 +14,22 @@ Option Explicit On
 Partial Public Class Carreras
 
     '''<summary>
-    '''navCatalogo_50 control.
+    '''navCatalogo_55 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents navCatalogo_50 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents navCatalogo_55 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''listado_50 control.
+    '''listado_55 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents listado_50 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents listado_55 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''GridView1_ control.

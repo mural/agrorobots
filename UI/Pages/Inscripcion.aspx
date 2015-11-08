@@ -83,15 +83,15 @@
                 <input type="hidden" id="inputVtoTarjetaHidden" runat="server" />
                 <input type="hidden" id="inputCodTarjetaHidden" runat="server" />
                 <asp:Label ID="numeroTarjeta_126" runat="server" Text="numero" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22" value='<%= Inscripcion.TarjetaGuardada%>' />
+                &nbsp;<input id="inputNumeroTarjeta" type="text" name="number" maxlength="22" value='<%= Inscripcion.NumeroTarjetaGuardada%>' />
                 <br />
                 <br />
                 <asp:Label ID="nombreTarjeta_127" runat="server" Text="nombre" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50" />
+                &nbsp;<input id="inputNombreTarjeta" type="text" name="name" maxlength="50" value='<%= Inscripcion.NombreTarjetaGuardada%>' />
                 <br />
                 <br />
                 <asp:Label ID="fechaVtoTarjeta_128" runat="server" Text="fecha vto" CssClass="w3-text-blue w3-large"></asp:Label>
-                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10" />
+                &nbsp;<input id="inputVtoTarjeta" type="text" name="expiry" maxlength="10" value='<%= Inscripcion.FechaTarjetaGuardada%>' />
                 <br />
                 <br />
                 <asp:Label ID="codigoTarjeta_129" runat="server" Text="cod." CssClass="w3-text-blue w3-large"></asp:Label>

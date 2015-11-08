@@ -14,6 +14,7 @@ Public Class CuentaCorriente
 
     Dim ctaCteUsuarioBusiness As New Business.CtaCteUsuario_Business
     Dim comprobanteBusiness As New Business.Comprobante_Business
+    Dim comprobanteNotaBusiness As New Business.ComprobanteNota_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
@@ -37,21 +38,62 @@ Public Class CuentaCorriente
         GridView1_.DataBind()
     End Sub
 
+    Public Function ObtenerDetalle(ByVal IDComprobante As Integer) As String
+        Dim comprobante As ComprobanteGenerico = Nothing
+        Try
+            comprobante = comprobanteBusiness.Obtener(IDComprobante)
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+        If comprobante Is Nothing Then
+            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
+            Return DirectCast(comprobante, ComprobanteNota).Motivo
+        End If
+        Dim detalle As String = ""
+        For Each comprobanteItem In comprobante.Items
+            detalle += comprobanteItem.Detalle + " "
+        Next
+        Return detalle
+    End Function
+
+    Public Function ObtenerMontoTotal(ByVal IDComprobante As Integer) As String
+        Dim comprobante As ComprobanteGenerico = Nothing
+        Try
+            comprobante = comprobanteBusiness.Obtener(IDComprobante)
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+        If comprobante Is Nothing Then
+            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
+        End If
+        Return "$ " + CStr(comprobante.IVA + comprobante.Subtotal)
+    End Function
+
     Protected Sub PDF(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
         Dim IDComprobante = CInt(link.CommandArgument)
 
         Dim filename = "factura.pdf"
-        Dim virtualPath = "~/App_Data/" & filename
 
-        CreateDocument(comprobanteBusiness.Obtener(IDComprobante))
+        Dim comprobante As ComprobanteGenerico = Nothing
+        Try
+            comprobante = comprobanteBusiness.Obtener(IDComprobante)
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+        If comprobante Is Nothing Then
+            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
+            filename = "nota.pdf"
+        End If
+        CreateDocument(comprobante)
 
         Dim pdfRenderer As New PdfDocumentRenderer(False, PdfFontEmbedding.Always)
         pdfRenderer.Document = document
         pdfRenderer.RenderDocument()
-        pdfRenderer.PdfDocument.Save(Server.MapPath("~/App_Data/") + "factura.pdf")
+        pdfRenderer.PdfDocument.Save(Server.MapPath("~/App_Data/") + filename)
 
         Try
+            Dim virtualPath = "~/App_Data/" & filename
             Response.ContentType = "application/pdf"
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + filename)
             Response.TransmitFile(Server.MapPath(virtualPath))
@@ -63,9 +105,9 @@ Public Class CuentaCorriente
     End Sub
 
     Dim document As New Document
-    Public Function CreateDocument(ByVal paramComprobante As Comprobante) As Document
-        document.Info.Title = "Factura B"
-        document.Info.Subject = "Factura de compra"
+    Public Function CreateDocument(ByVal paramComprobante As ComprobanteGenerico) As Document
+        document.Info.Title = "Comprobante"
+        document.Info.Subject = "Comprobante de transaccion"
         document.Info.Author = "Agrorobots"
         DefineStyles()
         CreatePage(paramComprobante)
@@ -104,7 +146,7 @@ Public Class CuentaCorriente
     Dim image As MigraDoc.DocumentObjectModel.Shapes.Image
     Dim table As MigraDoc.DocumentObjectModel.Tables.Table
     Dim addressFrame As MigraDoc.DocumentObjectModel.Shapes.TextFrame
-    Private Sub CreatePage(ByVal paramComprobante As Comprobante)
+    Private Sub CreatePage(ByVal paramComprobante As ComprobanteGenerico)
         ' Each MigraDoc document needs at least one section.
         Dim section As Section = Me.document.AddSection()
 
@@ -160,9 +202,11 @@ Public Class CuentaCorriente
         paragraph.AddText("Fecha de Emisión: " & paramComprobante.FechaEmision)
         paragraph.Format.Font.Size = 9
         paragraph.AddTab()
-        paragraph = section.AddParagraph()
-        paragraph.AddText("Fecha de Vencimiento: " & paramComprobante.FechaVencimiento)
-        paragraph.Format.Font.Size = 9
+        If TypeOf paramComprobante Is Comprobante Then
+            paragraph = section.AddParagraph()
+            paragraph.AddText("Fecha de Vencimiento: " & DirectCast(paramComprobante, Comprobante).FechaVencimiento)
+            paragraph.Format.Font.Size = 9
+        End If
 
         paragraph = section.AddParagraph()
         paragraph.Format.SpaceBefore = "0.5cm"
@@ -185,7 +229,11 @@ Public Class CuentaCorriente
         paragraph = section.AddParagraph()
         paragraph.Format.SpaceBefore = "1cm"
         paragraph.Style = "Reference"
-        paragraph.AddFormattedText("FACTURA B", TextFormat.Bold)
+        If TypeOf paramComprobante Is Comprobante Then
+            paragraph.AddFormattedText("FACTURA B", TextFormat.Bold)
+        Else
+            paragraph.AddFormattedText("NOTA DE CREDITO", TextFormat.Bold)
+        End If
 
         ' Create the item table
         Me.table = section.AddTable()
@@ -243,9 +291,9 @@ Public Class CuentaCorriente
         row.Cells(1).Format.Alignment = ParagraphAlignment.Center
         row.Cells(2).AddParagraph("Precio unitario")
         row.Cells(2).Format.Alignment = ParagraphAlignment.Center
-        row.Cells(3).AddParagraph("Descuento (%)")
+        row.Cells(3).AddParagraph("Detalle")
         row.Cells(3).Format.Alignment = ParagraphAlignment.Center
-        row.Cells(4).AddParagraph("Impuesto")
+        row.Cells(4).AddParagraph("Codigo")
         row.Cells(4).Format.Alignment = ParagraphAlignment.Center
 
         Me.table.SetEdge(0, 0, 6, 2, Edge.Box, BorderStyle.[Single], _
@@ -254,7 +302,7 @@ Public Class CuentaCorriente
 
 
     Dim navigator As XPathNavigator
-    Private Sub FillContent(ByVal paramComprobante As Comprobante)
+    Private Sub FillContent(ByVal paramComprobante As ComprobanteGenerico)
         ' Fill address in address text frame
         Dim paragraph As Paragraph = Me.addressFrame.AddParagraph()
         paragraph.AddText("")
@@ -263,13 +311,13 @@ Public Class CuentaCorriente
         Dim totalExtendedPrice As Double = 0
 
         Dim contador As Integer = 1
-        For Each midetalle As ComprobanteDetalle In paramComprobante.Items
+        For Each midetalle As ComprobanteDetalleGenerico In paramComprobante.Items
             Dim rowDetalle As Row = Me.table.AddRow
             rowDetalle.Cells(0).AddParagraph(contador)
             rowDetalle.Cells(1).AddParagraph(midetalle.Cantidad)
             rowDetalle.Cells(2).AddParagraph("$ " & midetalle.Subtotal)
-            rowDetalle.Cells(3).AddParagraph("0%")
-            rowDetalle.Cells(4).AddParagraph("$ " & "0.00")
+            rowDetalle.Cells(3).AddParagraph(midetalle.Detalle)
+            rowDetalle.Cells(4).AddParagraph(midetalle.CodigoProducto)
             rowDetalle.Cells(5).AddParagraph("$ " & (midetalle.Subtotal))
             contador += 1
         Next

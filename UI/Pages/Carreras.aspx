@@ -14,6 +14,7 @@
             <h2>
                 <asp:Label ID="listado_55" runat="server" Text="Label"></asp:Label>
             </h2>
+            <br />
             <asp:GridView ID="GridView1_" runat="server"
                 ShowHeader="False"
                 RowStyle-CssClass="light"

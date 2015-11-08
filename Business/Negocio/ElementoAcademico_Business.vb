@@ -57,6 +57,23 @@ Public Class ElementoAcademico_Business
         alumnoElementoAcademico.IdElementoAcademico = idElementoAcademico
         alumnoElementoAcademico.Activo = activo
         alumnoElementoAcademicoMapper.Insertar(alumnoElementoAcademico)
+
+        Dim elementoAcademico = Obtener(idElementoAcademico)
+        elementoAcademico.Cupo = elementoAcademico.Cupo - 1
+        Actualizar(elementoAcademico)
+    End Sub
+
+    Public Sub Desinscribir(idUsuario As Integer, idElementoAcademico As String)
+        For Each alumnoElementoAcademico In alumnoElementoAcademicoMapper.Listar
+            If alumnoElementoAcademico.IdAlumno = idUsuario And alumnoElementoAcademico.IdElementoAcademico = idElementoAcademico Then
+                alumnoElementoAcademicoMapper.Borrar(alumnoElementoAcademico.ID)
+                Exit For
+            End If
+        Next
+
+        Dim elementoAcademico = Obtener(idElementoAcademico)
+        elementoAcademico.Cupo = elementoAcademico.Cupo + 1
+        Actualizar(elementoAcademico)
     End Sub
 
     Public Sub ActivarInscripcion(idUsuario As Integer, idElementoAcademico As Integer)

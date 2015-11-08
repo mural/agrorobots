@@ -5,8 +5,12 @@ Public Class CtaCteUsuario_Mapper
 
     Dim comprobante_Mapper As New Comprobante_Mapper
     Dim comprobanteDetalleMapper As New ComprobanteDetalle_Mapper
+
     Dim usuarioMapper As New Usuario_Data
     Public Property IdComprobante As Integer
+
+    Dim comprobanteNota_Mapper As New ComprobanteNota_Mapper
+    Dim comprobanteNotaDetalleMapper As New ComprobanteNotaDetalle_Mapper
 
     Public Sub New()
     End Sub
@@ -14,16 +18,30 @@ Public Class CtaCteUsuario_Mapper
     Public Overrides Function Insertar(ByRef obj As CtaCteItemUsuario) As Boolean
         Preparar()
 
-        comprobante_Mapper.Transaccion = AccionTransaccion.Iniciar
-        Dim resultado = comprobante_Mapper.Actualizar(obj.Comprobante, True)
+        Dim resultado As Boolean
+        If obj.Tipo = 1 Then
+            comprobante_Mapper.Transaccion = AccionTransaccion.Iniciar
+            resultado = comprobante_Mapper.Actualizar(obj.Comprobante, True) 'Comprobante
+        Else
+            comprobanteNota_Mapper.Transaccion = AccionTransaccion.Iniciar
+            resultado = comprobanteNota_Mapper.Actualizar(obj.Comprobante, True) 'Comprobante Nota
+        End If
         IdComprobante = oDatos.RespuestaEscritura
 
         If resultado Then 'si salio bien la escritura anterior
-            comprobanteDetalleMapper.Transaccion = AccionTransaccion.Continuar
-            For Each itemDetalle As ComprobanteDetalle In obj.Comprobante.Items
-                itemDetalle.IdComprobante = IdComprobante
-                resultado = comprobanteDetalleMapper.Insertar(itemDetalle)
-            Next
+            If obj.Tipo = 1 Then
+                comprobanteDetalleMapper.Transaccion = AccionTransaccion.Continuar
+                For Each itemDetalle As ComprobanteDetalle In obj.Comprobante.Items
+                    itemDetalle.IdComprobante = IdComprobante
+                    resultado = comprobanteDetalleMapper.Insertar(itemDetalle)
+                Next
+            Else
+                comprobanteNotaDetalleMapper.Transaccion = AccionTransaccion.Continuar
+                For Each itemDetalle As ComprobanteNotaDetalle In obj.Comprobante.Items
+                    itemDetalle.IdComprobanteNota = IdComprobante
+                    resultado = comprobanteNotaDetalleMapper.Insertar(itemDetalle)
+                Next
+            End If
         End If
 
         Me.Transaccion = AccionTransaccion.Cerrar
@@ -56,14 +74,24 @@ Public Class CtaCteUsuario_Mapper
 
     Public Overrides Function Obtener(ByVal idCtaCteUsuario As Integer) As CtaCteItemUsuario
         Dim ctacte = Obtener(idCtaCteUsuario, "CtaCteUsuarioObtener")
-        ctacte.Comprobante = comprobante_Mapper.Obtener(ctacte.IdComprobante)
+        Try
+            ctacte.Comprobante = comprobante_Mapper.Obtener(ctacte.IdComprobante)
+        Catch ex As Exception
+        End Try
+        If ctacte.Comprobante Is Nothing Then
+            ctacte.Comprobante = comprobanteNota_Mapper.Obtener(ctacte.IdComprobante)
+        End If
         Return ctacte
     End Function
 
     Public Overrides Function Listar() As List(Of CtaCteItemUsuario)
         Dim cuentas = Listar("CtaCteUsuarioListar")
         For Each cuenta In cuentas
-            cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+            If cuenta.Tipo = 1 Then
+                cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+            Else
+                cuenta.Comprobante = comprobanteNota_Mapper.Obtener(cuenta.IdComprobante)
+            End If
             cuenta.Usuario = usuarioMapper.ConsultarPorId(cuenta.IdUsuario)
         Next
         Return cuentas
@@ -72,7 +100,11 @@ Public Class CtaCteUsuario_Mapper
     Public Function ListarPorUsuario(ByVal idUsuario As String) As List(Of CtaCteItemUsuario)
         Dim cuentas = Listar("CtaCteUsuarioListarPorUsuario", "IdUsuario", idUsuario)
         For Each cuenta In cuentas
-            cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante)
+            If cuenta.Tipo = 1 Then
+                cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante
+            Else
+                cuenta.Comprobante = comprobanteNota_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante Nota
+            End If
         Next
         Return cuentas
     End Function

@@ -73,6 +73,16 @@
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/streaming.jpg"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkBorrar" runat="server"
+                            CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
+                            Text="borrar" OnClick="Delete">
+                            <img src="/Imagenes/borrar.png" alt="x" />
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <br />

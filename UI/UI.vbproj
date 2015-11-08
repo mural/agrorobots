@@ -193,7 +193,7 @@
     <Content Include="Imagenes\logo.png" />
     <Content Include="Imagenes\material.png" />
     <Content Include="Imagenes\pdf.png" />
-    <Content Include="Imagenes\streaming.svg" />
+    <Content Include="Imagenes\streaming.jpg" />
     <Content Include="Imagenes\terminos.png" />
     <Content Include="Pages\AbmElementoAcademico.aspx" />
     <Content Include="Pages\AbmEncuestas.aspx" />
@@ -1012,7 +1012,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>22670</DevelopmentServerPort>
+          <DevelopmentServerPort>17012</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

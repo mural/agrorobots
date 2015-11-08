@@ -56,6 +56,8 @@
                     <asp:Button ID="inscribirse_118" runat="server" Text="Inscribirse" CssClass="w3-btn w3-blue" />
                     <br />
                     <br />
+    <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
+                    <br />
                 </div>
             </div>
             <br />

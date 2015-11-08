@@ -3,6 +3,9 @@
 Public Class ComprobanteNota_Mapper
     Inherits Mapper(Of ComprobanteNota)
 
+    Dim usuarioMapper As New Usuario_Data
+    Dim comprobanteNotaDetalleMapper As New ComprobanteNotaDetalle_Mapper
+
     Public Sub New()
     End Sub
 
@@ -14,7 +17,6 @@ Public Class ComprobanteNota_Mapper
         hdatos.Add("@FechaEmision", obj.FechaEmision)
         hdatos.Add("@Subtotal", obj.Subtotal)
         hdatos.Add("@IVA", obj.IVA)
-        hdatos.Add("@IdComprobante", obj.IdComprobante)
         hdatos.Add("@Motivo", obj.Motivo)
     End Sub
 
@@ -30,12 +32,18 @@ Public Class ComprobanteNota_Mapper
         objNuevo.FechaEmision = CDate(Item("FechaEmision"))
         objNuevo.Subtotal = CDec(Item("Subtotal"))
         objNuevo.IVA = CDec(Item("IVA"))
-        objNuevo.IdComprobante = CInt(Item("IdComprobante"))
         objNuevo.Motivo = CStr(Item("Motivo"))
     End Sub
 
-    Public Overrides Function Obtener(ByVal codigoAcademico As Integer) As ComprobanteNota
-        Return Obtener(codigoAcademico, "ComprobanteNotaObtener")
+    Public Overrides Function Obtener(ByVal idComprobante As Integer) As ComprobanteNota
+        Dim comprobanteNota As ComprobanteNota = Obtener(idComprobante, "ComprobanteNotaObtener")
+        For Each comprobanteNotaDetalle In comprobanteNotaDetalleMapper.Listar
+            If comprobanteNotaDetalle.IdComprobanteNota = idComprobante Then
+                comprobanteNota.Items.Add(comprobanteNotaDetalle)
+            End If
+        Next
+        comprobanteNota.Usuario = usuarioMapper.ConsultarPorId(comprobanteNota.IdUsuario)
+        Return comprobanteNota
     End Function
 
     Public Overrides Function Listar() As List(Of ComprobanteNota)

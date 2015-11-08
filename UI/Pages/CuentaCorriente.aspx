@@ -38,14 +38,14 @@
                 <asp:TemplateField HeaderText="concepto_142">
                     <ItemTemplate>
                         <asp:Label ID="lblConcepto" runat="server"
-                            Text='<%# Eval("Comprobante.Items(0).Detalle")%>'></asp:Label>
+                            Text='<%# ObtenerDetalle(Eval("IdComprobante"))%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="monto_138">
                     <ItemTemplate>
                         <asp:Label ID="lblMonto" runat="server"
-                            Text='<%# Eval("Comprobante.Subtotal")%>'></asp:Label>
+                            Text='<%# ObtenerMontoTotal(Eval("IdComprobante")) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

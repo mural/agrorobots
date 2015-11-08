@@ -40,10 +40,15 @@ Public Class Carrito
         CargarCarrito()
 
         'recargar la pagina
-        'Response.Redirect(Request.RawUrl)
+        Response.Redirect(Request.RawUrl)
     End Sub
 
     Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
-        Response.Redirect(PaginasConocidas.INSCRIPCION)
+        Dim carrito As List(Of ElementoAcademico) = Session("carrito")
+        If Not carrito Is Nothing Then
+            If carrito.Count > 0 Then
+                Response.Redirect(PaginasConocidas.INSCRIPCION)
+            End If
+        End If
     End Sub
 End Class

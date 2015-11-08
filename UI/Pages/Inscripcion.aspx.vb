@@ -8,8 +8,11 @@ Public Class Inscripcion
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
     Dim carritoSesion As List(Of ElementoAcademico)
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
+    Dim comprobanteBusiness As New Comprobante_Business
 
-    Public Shared Property TarjetaGuardada As String = ""
+    Public Shared Property NumeroTarjetaGuardada As String = ""
+    Public Shared Property NombreTarjetaGuardada As String = ""
+    Public Shared Property FechaTarjetaGuardada As String = ""
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         carritoSesion = Session("carrito")
@@ -27,9 +30,14 @@ Public Class Inscripcion
 
             'tarjeta guardada ?
             If Not tarjetaBusiness.ObtenerTarjetaDeUsuario(usuario.ID) Is Nothing Then
-                TarjetaGuardada = tarjetaBusiness.ObtenerTarjetaDeUsuario(usuario.ID).Numero
+                Dim tarjeta = tarjetaBusiness.ObtenerTarjetaDeUsuario(usuario.ID)
+                NumeroTarjetaGuardada = tarjeta.Numero
+                NombreTarjetaGuardada = tarjeta.Nombre
+                FechaTarjetaGuardada = CStr(tarjeta.Expiracion.Month) + " / " + CStr(tarjeta.Expiracion.Year)
             Else
-                TarjetaGuardada = ""
+                NumeroTarjetaGuardada = ""
+                NombreTarjetaGuardada = ""
+                FechaTarjetaGuardada = ""
             End If
         End If
     End Sub
@@ -70,39 +78,47 @@ Public Class Inscripcion
                 tarjetaBusiness.BorrarPorUsuario(usuario.ID)
             End If
         End If
-        ctacteItemUsuario.Tipo = 1 'B
+        ctacteItemUsuario.Tipo = 1 'Factura B
         ctacteItemUsuario.Estado = estado
 
         Dim comprobante As New Comprobante
-        comprobante.Numero = 1
-        comprobante.Sucursal = 1
+        comprobante.Numero = comprobanteBusiness.Listar.Count + 1
+        comprobante.Sucursal = 1 'ONLINE
         comprobante.Tipo = 1 'B
         comprobante.IdUsuario = usuario.ID
         comprobante.FechaEmision = Now
         comprobante.FechaVencimiento = Date.Today.AddDays(10)
         Dim subtotal As Decimal = 0
 
-        Dim comprobanteDetalle1 As New ComprobanteDetalle
-        comprobanteDetalle1.CodigoProducto = carritoSesion(0).CodigoAcademico
+        For Each elementoAcademico As ElementoAcademico In carritoSesion
+            elementoAcademicoBusiness.Inscribir(usuario.ID, elementoAcademico.CodigoAcademico, estado = "PAGO")
+            usuario.ElementosAcademicos = elementoAcademicoBusiness.ObtenerPorAlumno(usuario.ID)
 
-        elementoAcademicoBusiness.Inscribir(usuario.ID, carritoSesion(0).CodigoAcademico, estado = "PAGO") 'juntar con cta cte y tomar mas de 1
-        'refrescar en usuario de sesion el elemento academico o cargarlo todo de nuevo
-        usuario.ElementosAcademicos = elementoAcademicoBusiness.ObtenerPorAlumno(usuario.ID)
+            Dim comprobanteDetalle1 As New ComprobanteDetalle
+            comprobanteDetalle1.CodigoProducto = elementoAcademico.CodigoAcademico
+            comprobanteDetalle1.Detalle = elementoAcademico.Nombre
+            comprobanteDetalle1.Cantidad = 1 'a un solo curso por vez
+            Dim precioSinIVA = elementoAcademico.Precio / 1.21 'precio menos IVA
+            comprobanteDetalle1.PrecioUnitario = precioSinIVA
+            comprobanteDetalle1.Subtotal = precioSinIVA
+            subtotal += precioSinIVA 'sumo los precios sin IVA
+
+            comprobante.Items.Add(comprobanteDetalle1)
+        Next
+
         ActualizarUsuarioEnSesion(usuario)
 
-        comprobanteDetalle1.Detalle = carritoSesion(0).Nombre
-        comprobanteDetalle1.Cantidad = 1
-        comprobanteDetalle1.PrecioUnitario = carritoSesion(0).Precio
-        comprobanteDetalle1.Subtotal = carritoSesion(0).Precio 'calcular
-        subtotal += comprobanteDetalle1.Subtotal
-
-        comprobante.Items.Add(comprobanteDetalle1) 'tomar mas de 1
+        Dim montoIVA = subtotal * 0.21 'IVA solo
+        comprobante.IVA = montoIVA
         comprobante.Subtotal = subtotal
         ctacteItemUsuario.Comprobante = comprobante
 
         If ctaCteUsuarioBusiness.Crear(ctacteItemUsuario) Then
             MensajeOk(lblMensajes)
-            'agregar a usuario ?
+
+            'vaciar carrito
+            Dim nuevoCarrito As New List(Of ElementoAcademico)
+            Session("carrito") = nuevoCarrito
 
             Response.Redirect(PaginasConocidas.INSCRIPTO_CALIFICAR)
         Else
