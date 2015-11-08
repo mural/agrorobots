@@ -38,17 +38,16 @@ Public Class CuentaCorriente
         GridView1_.DataBind()
     End Sub
 
-    Public Function ObtenerDetalle(ByVal IDComprobante As Integer) As String
+    Public Function ObtenerDetalle(ByVal IDCtaCte As Integer) As String
+        Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
+
         Dim comprobante As ComprobanteGenerico = Nothing
-        Try
-            comprobante = comprobanteBusiness.Obtener(IDComprobante)
-        Catch ex As Exception
-            ex.ToString()
-        End Try
-        If comprobante Is Nothing Then
-            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
-            Return DirectCast(comprobante, ComprobanteNota).Motivo
+        If ctacte.Tipo = 1 Then
+            comprobante = comprobanteBusiness.Obtener(ctacte.IdComprobante)
+        Else
+            comprobante = comprobanteNotaBusiness.Obtener(ctacte.IdComprobante)
         End If
+
         Dim detalle As String = ""
         For Each comprobanteItem In comprobante.Items
             detalle += comprobanteItem.Detalle + " "
@@ -56,33 +55,31 @@ Public Class CuentaCorriente
         Return detalle
     End Function
 
-    Public Function ObtenerMontoTotal(ByVal IDComprobante As Integer) As String
+    Public Function ObtenerMontoTotal(ByVal IDCtaCte As Integer) As String
+        Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
+
         Dim comprobante As ComprobanteGenerico = Nothing
-        Try
-            comprobante = comprobanteBusiness.Obtener(IDComprobante)
-        Catch ex As Exception
-            ex.ToString()
-        End Try
-        If comprobante Is Nothing Then
-            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
+        If ctacte.Tipo = 1 Then
+            comprobante = comprobanteBusiness.Obtener(ctacte.IdComprobante)
+        Else
+            comprobante = comprobanteNotaBusiness.Obtener(ctacte.IdComprobante)
         End If
+
         Return "$ " + CStr(comprobante.IVA + comprobante.Subtotal)
     End Function
 
     Protected Sub PDF(ByVal sender As Object, ByVal e As EventArgs)
         Dim link As ImageButton = DirectCast(sender, ImageButton)
-        Dim IDComprobante = CInt(link.CommandArgument)
+        Dim IDCtaCte = CInt(link.CommandArgument)
+        Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
 
         Dim filename = "factura.pdf"
 
         Dim comprobante As ComprobanteGenerico = Nothing
-        Try
-            comprobante = comprobanteBusiness.Obtener(IDComprobante)
-        Catch ex As Exception
-            ex.ToString()
-        End Try
-        If comprobante Is Nothing Then
-            comprobante = comprobanteNotaBusiness.Obtener(IDComprobante)
+        If ctacte.Tipo = 1 Then
+            comprobante = comprobanteBusiness.Obtener(ctacte.IdComprobante)
+        Else
+            comprobante = comprobanteNotaBusiness.Obtener(ctacte.IdComprobante)
             filename = "nota.pdf"
         End If
         CreateDocument(comprobante)

@@ -47,7 +47,7 @@ Public Class ExamenCorreccion
 
         For Each pregunta In examenBase.Preguntas
             examenCierre.Controls.Add(New LiteralControl(" " + pregunta.Pregunta + "<br/>"))
-            Dim respuesta = examenRespuestaBusiness.ObtenerPorPregunta(pregunta.ID)
+            Dim respuesta = examenRespuestaBusiness.ObtenerPorPregunta(pregunta.ID, examen.ID)
             examenCierre.Controls.Add(New LiteralControl(" - " + respuesta + "<br/><br/>"))
         Next
 

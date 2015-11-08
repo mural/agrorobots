@@ -8,9 +8,9 @@ Public Class ExamenRespuesta_Business
         Me.mapperGenerico = New ExamenRespuesta_Mapper
     End Sub
 
-    Public Function ObtenerPorPregunta(idPregunta As Integer) As String
+    Public Function ObtenerPorPregunta(idPregunta As Integer, idExamen As Integer) As String
         For Each respuesta In mapperGenerico.Listar()
-            If respuesta.IdPregunta = idPregunta Then
+            If respuesta.IdPregunta = idPregunta And respuesta.IdExamen = idExamen Then
                 Return respuesta.Respuesta
             End If
         Next

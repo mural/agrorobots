@@ -38,21 +38,21 @@
                 <asp:TemplateField HeaderText="concepto_142">
                     <ItemTemplate>
                         <asp:Label ID="lblConcepto" runat="server"
-                            Text='<%# ObtenerDetalle(Eval("IdComprobante"))%>'></asp:Label>
+                            Text='<%# ObtenerDetalle(Eval("ID"))%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="monto_138">
                     <ItemTemplate>
                         <asp:Label ID="lblMonto" runat="server"
-                            Text='<%# ObtenerMontoTotal(Eval("IdComprobante")) %>'></asp:Label>
+                            Text='<%# ObtenerMontoTotal(Eval("ID"))%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="PDF">
                     <ItemTemplate>
                         <asp:ImageButton ID="lnkPdf" runat="server"
-                            OnClick="PDF" CommandArgument='<%# Eval("IdComprobante")%>'
+                            OnClick="PDF" CommandArgument='<%# Eval("ID")%>'
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/pdf.png"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>
