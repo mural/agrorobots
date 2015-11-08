@@ -61,6 +61,16 @@
         <br />
         <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
         <br />
+        <label for="emailNuevo" class="youmail" data-icon="e"></label>
+        <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>
+        <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com"
+            onkeypress="return alfanumerico1(event)"
+            onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
+            onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
+        </asp:TextBox>
+        <asp:RequiredFieldValidator ID="vldEmail_109" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="emailNuevo" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
+        &nbsp;<asp:RegularExpressionValidator ID="regVldEmail_158" runat="server" ControlToValidate="emailNuevo" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" CssClass="formError" Display="Dynamic" EnableClientScript="False"></asp:RegularExpressionValidator>
+        <br />
         <br />
         <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
         &nbsp;<asp:Button ID="btnActualizar_405" runat="server" Text="actualizar" EnableTheming="True" />
@@ -96,7 +106,7 @@
             RowStyle-CssClass="light"
             AlternatingRowStyle-CssClass="dark"
             OnPageIndexChanging="OnPaging"
-            AllowPaging="True" PageSize="5" ShowHeaderWhenEmpty="True">
+            AllowPaging="True" PageSize="10" ShowHeaderWhenEmpty="True">
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>

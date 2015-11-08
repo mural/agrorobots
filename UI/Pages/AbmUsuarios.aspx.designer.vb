@@ -266,6 +266,42 @@ Partial Public Class AbmUsuario
     Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
+    '''lblEmail_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblEmail_109 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''emailNuevo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents emailNuevo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''vldEmail_109 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents vldEmail_109 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''regVldEmail_158 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents regVldEmail_158 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+
+    '''<summary>
     '''btnCrear_32 control.
     '''</summary>
     '''<remarks>

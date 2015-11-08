@@ -31,6 +31,7 @@ Public Class Usuario_Data
         params.SetStringParameter("@Password", obj.Password)
         params.SetStringParameter("@UserName", obj.UserName)
         params.SetStringParameter("@Email", obj.Email)
+        params.SetByteParameter("@Foto", obj.Foto)
 
         Try
             con.Open()

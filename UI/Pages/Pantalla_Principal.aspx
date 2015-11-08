@@ -44,10 +44,9 @@
     </asp:GridView>
     <br />
     <br />
-    <asp:Label ID="inconsistencias" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="inconsistencias" runat="server" Text="Label" Visible="False"></asp:Label>
     <br />
-    <asp:Button ID="recalcular_710" runat="server" Text="Recalcular Digitos"
-        Visible="False" />
-    <br /> 
-    <asp:Button ID="PDF" runat="server" Text="Factura" Visible="False"/>
+    <asp:Button ID="recalcular_710" runat="server" Text="Recalcular Digitos" Visible="False" />
+    <br />
+    <asp:Button ID="PDF" runat="server" Text="Factura" Visible="False" />
 </asp:Content>

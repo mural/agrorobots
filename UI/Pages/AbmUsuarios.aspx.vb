@@ -44,6 +44,7 @@ Public Class AbmUsuario
         txtConfirmPassword.Text = ""
         Session("usuarioSeleccionado") = Nothing
         lblMensajes.Text = ""
+        emailNuevo.Text = ""
         LimpiarValidaciones()
     End Sub
 
@@ -54,13 +55,15 @@ Public Class AbmUsuario
         vldPassword_27.IsValid = True
         vldConfirmPassword_28.IsValid = True
         vldPasswordMatch.IsValid = True
+        vldEmail_109.IsValid = True
+        regVldEmail_158.IsValid = True
     End Sub
 
     Protected Sub AddNew(ByVal sender As Object, ByVal e As EventArgs) Handles btnCrear_32.Click
         Dim Apellido = txtApellido.Text
         Dim Nombre = txtNombre.Text
         Dim UserName = txtUsername.Text
-        Dim Email = "mural@scvsoft.com" 'actualizar la pagina para usar EMAIL ''AGREGAR FOTO ! usuarioSeleccionado.Foto = imgByte
+        Dim Email = emailNuevo.Text
         Dim Activo = cbxActivo.Checked
         Dim Admin = cbxAdmin.Checked
         Dim Password = txtPassword.Text
@@ -69,6 +72,15 @@ Public Class AbmUsuario
         For i = 0 To lstbFamilia.GetSelectedIndices.Length - 1
             Familias.Add(familia_Business.ObtenerFamilias(lstbFamilia.GetSelectedIndices(i)))
         Next
+
+        Dim img As FileUpload = CType(imgUpload, FileUpload)
+        Dim imgByte As Byte() = Nothing
+        If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
+            Dim File As HttpPostedFile = imgUpload.PostedFile
+            imgByte = New Byte(File.ContentLength - 1) {}
+            'force the control to load data in array
+            File.InputStream.Read(imgByte, 0, File.ContentLength)
+        End If
 
         lblMensajes.Text = ""
 
@@ -82,6 +94,9 @@ Public Class AbmUsuario
                 For Each familia In Familias
                     nuevoUsuario.AddComponent(familia)
                 Next
+                If Not imgByte Is Nothing Then
+                    nuevoUsuario.Foto = imgByte
+                End If
                 usuario_Business.Alta(nuevoUsuario)
 
                 Vaciar()
@@ -192,6 +207,7 @@ Public Class AbmUsuario
                 End If
             Next
         Next
+        Me.emailNuevo.Text = usuarioSeleccionado.Email
 
         Me.txtPassword.Text = "-"
         Me.txtConfirmPassword.Text = "-"
