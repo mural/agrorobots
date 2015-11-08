@@ -16,7 +16,10 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="BodyMenuContenido">
     <h2>
-        <asp:Label ID="comparacion_51" runat="server" Text="Label"></asp:Label></h2>
+        <asp:Label ID="comparacion_51" runat="server" Text="Label"></asp:Label>
+    </h2>
+    <br />
+
     <asp:DropDownList ID="comboElemento1" runat="server"
         OnSelectedIndexChanged="Elemento1" AutoPostBack="true"
         AppendDataBoundItems="true">
@@ -57,7 +60,14 @@
                 </ItemTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="horas_42">
+            <asp:TemplateField HeaderText="cupo_115">
+                <ItemTemplate>
+                    <asp:Label ID="lblCupo" runat="server"
+                        Text='<%# Eval("Cupo")%>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:TemplateField HeaderText="horas_113">
                 <ItemTemplate>
                     <asp:Label ID="lblDuracion" runat="server"
                         Text='<%# Eval("Duracion")%>'></asp:Label>
@@ -67,8 +77,7 @@
 
             <asp:TemplateField HeaderText="precio_41" SortExpression="precio">
                 <ItemTemplate>
-                    $
-                    <asp:Label ID="lblPrecio" runat="server"
+                    $<asp:Label ID="lblPrecio" runat="server"
                         Text='<%# Eval("Precio")%>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
