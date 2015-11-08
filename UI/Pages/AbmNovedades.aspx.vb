@@ -7,9 +7,13 @@ Public Class AbmNovedades
     Dim novedadesBusiness As New Business.Novedades_Business
     Dim categoriaTemaBusiness As New CategoriaTema_Business
 
+    Dim novedadSeleccionada As EE.Novedades
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        novedadSeleccionada = Session("novedadSeleccionada")
         If Not (Page.IsPostBack) Then
             CargarNovedades()
+            CargarTemas()
         End If
     End Sub
 
@@ -19,10 +23,8 @@ Public Class AbmNovedades
     End Sub
 
     Private Sub CargarNovedades()
-        Me.GridView1_.DataSource = novedadesBusiness.Listar
+        Me.GridView1_.DataSource = novedadesBusiness.ListarSinFiltros
         Me.GridView1_.DataBind()
-
-        CargarTemas()
     End Sub
 
     Public Function ObtenerTema(ByVal idTema As Integer) As String
@@ -31,78 +33,54 @@ Public Class AbmNovedades
 
     Protected Sub CargarTemas()
         comboTipos.Items.Clear()
-        Dim comboTiposEdit As DropDownList = Nothing
-        Dim temaSeleccionadoID As Integer
-        If GridView1_.EditIndex > -1 Then
-            Dim ID As String = DirectCast(GridView1_.Rows(GridView1_.EditIndex).FindControl("lblID"), Label).Text
-            temaSeleccionadoID = novedadesBusiness.Obtener(ID).IDCategoriaTema
-            comboTiposEdit = CType(GridView1_.Rows(GridView1_.EditIndex).FindControl("comboTiposEdit"), DropDownList)
-            comboTiposEdit.Items.Clear()
-        End If
         For Each categoriaTema In categoriaTemaBusiness.Listar()
-            If Not comboTipos Is Nothing Then
-                comboTipos.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
-            End If
-            If Not comboTiposEdit Is Nothing Then
-                comboTiposEdit.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
-                comboTiposEdit.SelectedValue = temaSeleccionadoID
-            End If
+            comboTipos.Items.Add(New ListItem(categoriaTema.Nombre, categoriaTema.ID))
         Next
     End Sub
 
-    Protected Sub Edit(ByVal sender As Object, ByVal e As GridViewEditEventArgs)
-        GridView1_.EditIndex = e.NewEditIndex
-        CargarNovedades()
-    End Sub
-    Protected Sub CancelEdit(ByVal sender As Object, ByVal e As GridViewCancelEditEventArgs)
-        GridView1_.EditIndex = -1
-        CargarNovedades()
-    End Sub
-    Protected Sub Update(ByVal sender As Object, ByVal e As GridViewUpdateEventArgs)
-        Dim ID As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("lblID"), Label).Text
-        Dim Texto As String = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("txtTexto"), TextBox).Text
-        Dim Tema As Integer = DirectCast(GridView1_.Rows(e.RowIndex).FindControl("comboTiposEdit"), DropDownList).SelectedValue
+    Protected Sub Update(sender As Object, e As EventArgs) Handles btnActualizar_405.Click
+        If Not novedadSeleccionada Is Nothing Then
+            Dim Tema As Integer = comboTipos.SelectedValue
+            Dim textoHTML = areaHTML.InnerText
 
-        Dim img As FileUpload = CType(imgUpload, FileUpload)
-        Dim imgByte As Byte() = Nothing
-        If img.HasFile AndAlso Not img.PostedFile Is Nothing Then
-            Dim File As HttpPostedFile = imgUpload.PostedFile
-            imgByte = New Byte(File.ContentLength - 1) {}
-            'force the control to load data in array
-            File.InputStream.Read(imgByte, 0, File.ContentLength)
-        End If
-
-        Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
-        Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
-
-        Try
-            Dim valido = True
-            If String.IsNullOrEmpty(Texto) Then
-                valido = False
-                lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
-                lblMensajes.CssClass = "formError"
+            Dim imgByte As Byte() = Nothing
+            If imgUpload.HasFile AndAlso Not imgUpload.PostedFile Is Nothing Then
+                Dim File As HttpPostedFile = imgUpload.PostedFile
+                imgByte = New Byte(File.ContentLength - 1) {}
+                'force the control to load data in array
+                File.InputStream.Read(imgByte, 0, File.ContentLength)
             End If
-            If valido Then
-                Dim novedad As New EE.Novedades
-                novedad.ID = CType(ID, Integer)
-                novedad.Texto = Texto
-                If Not imgByte Is Nothing Then
-                    novedad.Foto = imgByte
+
+            Dim FechaInicio = Date.ParseExact(txtFechaInicio.Value, "MM/dd/yyyy", Nothing)
+            Dim FechaFin = Date.ParseExact(txtFechaFin.Value, "MM/dd/yyyy", Nothing)
+
+            Try
+                Dim valido = True
+                If String.IsNullOrEmpty(textoHTML) Then
+                    valido = False
+                    lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
+                    lblMensajes.CssClass = "formError"
                 End If
-                novedad.Fecha = Date.Now
-                novedad.IDCategoriaTema = Tema
-                novedad.FechaInicio = FechaInicio
-                novedad.FechaFin = FechaFin
+                If valido Then
+                    novedadSeleccionada.Texto = textoHTML
+                    If Not imgByte Is Nothing Then
+                        novedadSeleccionada.Foto = imgByte
+                    End If
+                    novedadSeleccionada.Fecha = Date.Now
+                    novedadSeleccionada.IDCategoriaTema = Tema
+                    novedadSeleccionada.FechaInicio = FechaInicio
+                    novedadSeleccionada.FechaFin = FechaFin
 
-                novedadesBusiness.Actualizar(novedad)
-                MensajeOk(lblMensajes)
-            End If
-        Catch ex As Exception
-            MensajeError(lblMensajes)
-        End Try
+                    novedadesBusiness.Actualizar(novedadSeleccionada)
+                    MensajeOk(lblMensajes)
+                End If
+            Catch ex As Exception
+                MensajeError(lblMensajes)
+            End Try
 
-        GridView1_.EditIndex = -1
-        CargarNovedades()
+            GridView1_.EditIndex = -1
+            CargarNovedades()
+        End If
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
@@ -144,18 +122,18 @@ Public Class AbmNovedades
                 lblMensajes.CssClass = "formError"
             End If
             If valido Then
-                Dim novedad As New EE.Novedades
-                novedad.ID = 0
-                novedad.Texto = textoHTML
+                Dim novedadNueva As New EE.Novedades
+                novedadNueva.ID = 0
+                novedadNueva.Texto = textoHTML
                 If Not imgByte Is Nothing Then
-                    novedad.Foto = imgByte
+                    novedadNueva.Foto = imgByte
                 End If
-                novedad.Fecha = Date.Now
-                novedad.IDCategoriaTema = Tema
-                novedad.FechaInicio = FechaInicio
-                novedad.FechaFin = FechaFin
+                novedadNueva.Fecha = Date.Now
+                novedadNueva.IDCategoriaTema = Tema
+                novedadNueva.FechaInicio = FechaInicio
+                novedadNueva.FechaFin = FechaFin
 
-                novedadesBusiness.Crear(novedad)
+                novedadesBusiness.Crear(novedadNueva)
                 MensajeOk(lblMensajes)
 
                 areaHTML.InnerText = ""
@@ -167,4 +145,17 @@ Public Class AbmNovedades
         GridView1_.EditIndex = -1
         CargarNovedades()
     End Sub
+
+    Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
+        Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
+        Session("novedadSeleccionada") = novedadesBusiness.ListarSinFiltros.ElementAt(pageFactor + e.NewSelectedIndex)
+        novedadSeleccionada = Session("novedadSeleccionada")
+
+        Me.comboTipos.SelectedValue = novedadSeleccionada.IDCategoriaTema
+        Me.areaHTML.InnerText = novedadSeleccionada.Texto
+        Me.txtFechaInicio.Value = novedadSeleccionada.FechaInicio.ToString("MM/dd/yyyy")
+        Me.txtFechaFin.Value = novedadSeleccionada.FechaFin.ToString("MM/dd/yyyy")
+
+    End Sub
+
 End Class

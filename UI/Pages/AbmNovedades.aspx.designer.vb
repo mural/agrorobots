@@ -86,13 +86,13 @@ Partial Public Class AbmNovedades
     Protected WithEvents txtFechaInicio As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''fFin control.
+    '''fFin_128 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fFin As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents fFin_128 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtFechaFin control.
@@ -111,6 +111,15 @@ Partial Public Class AbmNovedades
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnCrear_32 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnActualizar_405 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''lblMensajes control.
@@ -147,24 +156,6 @@ Partial Public Class AbmNovedades
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents limpiar_36 As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''ScriptManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
-
-    '''<summary>
-    '''UpdatePanel1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''GridView1_ control.

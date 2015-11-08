@@ -19,4 +19,8 @@ Public Class Novedades_Business
         Return listaNovedades
     End Function
 
+    Public Function ListarSinFiltros() As List(Of Novedades)
+        Return mapperGenerico.Listar()
+    End Function
+
 End Class

@@ -45,6 +45,7 @@
     <br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
+    &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" />
     <br />
     <br />
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
@@ -57,100 +58,75 @@
     <asp:Button ID="buscar_31" runat="server" Text="buscar" />
     <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
     <div id="dvGrid">
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-            <ContentTemplate>
-                <br />
-                <asp:GridView ID="GridView1_" runat="server"
-                    ShowHeaderWhenEmpty="True"
-                    AutoGenerateColumns="False"
-                    RowStyle-CssClass="light"
-                    AlternatingRowStyle-CssClass="dark"
-                    AllowPaging="true" ShowFooter="False"
-                    OnPageIndexChanging="OnPaging" OnRowEditing="Edit"
-                    OnRowUpdating="Update" OnRowCancelingEdit="CancelEdit"
-                    PageSize="5">
-                    <EmptyDataTemplate>
-                        <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
-                    </EmptyDataTemplate>
-                    <Columns>
-                        <asp:TemplateField HeaderText="ID" Visible="False">
-                            <ItemTemplate>
-                                <asp:Label ID="lblID" runat="server"
-                                    Text='<%# Eval("ID")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+        <asp:GridView ID="GridView1_" runat="server"
+            ShowHeaderWhenEmpty="True"
+            AutoGenerateColumns="False"
+            RowStyle-CssClass="light"
+            AlternatingRowStyle-CssClass="dark"
+            AllowPaging="true" ShowFooter="False"
+            OnPageIndexChanging="OnPaging"
+            PageSize="5">
+            <EmptyDataTemplate>
+                <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+            </EmptyDataTemplate>
+            <Columns>
+                <asp:TemplateField HeaderText="ID" Visible="False">
+                    <ItemTemplate>
+                        <asp:Label ID="lblID" runat="server"
+                            Text='<%# Eval("ID")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="texto_46">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTexto" runat="server"
-                                    Text='<%# RecortarTexto(Eval("Texto"))%>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txtTexto" runat="server"
-                                    Text='<%# Eval("Texto")%>' CausesValidation="False"
-                                    onkeypress="return alfanumerico1(event)"
-                                    onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="texto_46">
+                    <ItemTemplate>
+                        <asp:Label ID="lblTexto" runat="server"
+                            Text='<%# RecortarTexto(Eval("Texto"))%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Fecha_133">
-                            <ItemTemplate>
-                                <asp:Label ID="lblFecha" runat="server"
-                                    Text='<%# Eval("Fecha")%>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="Fecha_133">
+                    <ItemTemplate>
+                        <asp:Label ID="lblFecha" runat="server"
+                            Text='<%# Eval("Fecha")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Foto_47">
-                            <ItemTemplate>
-                                <asp:Image ID="imgFoto" runat="server" CssClass="imagenesTabla"
-                                    ImageUrl='<%# ObtenerImagen(Eval("Foto"))%>'></asp:Image>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="Foto_47">
+                    <ItemTemplate>
+                        <asp:Image ID="imgFoto" runat="server" CssClass="imagenesTabla"
+                            ImageUrl='<%# ObtenerImagen(Eval("Foto"))%>'></asp:Image>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Tema_48">
-                            <ItemTemplate>
-                                <asp:Label ID="lblIdTema" runat="server"
-                                    Text='<%# ObtenerTema(Eval("IDCategoriaTema"))%>'></asp:Label>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:DropDownList ID="comboTiposEdit" runat="server" AutoPostBack="False"></asp:DropDownList>
-                                <% CargarTemas()%>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField HeaderText="Tema_48">
+                    <ItemTemplate>
+                        <asp:Label ID="lblIdTema" runat="server"
+                            Text='<%# ObtenerTema(Eval("IDCategoriaTema"))%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkRemove" runat="server"
-                                    CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
-                                    Text="borrar" OnClick="Delete"> <img src="/Imagenes/borrar.png" alt="x" /></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkRemove" runat="server"
+                            CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
+                            Text="borrar" OnClick="Delete"> <img src="/Imagenes/borrar.png" alt="x" /></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                        <asp:TemplateField ShowHeader="False">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="editar_7" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Edit" Text="editar"></asp:LinkButton>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:LinkButton ID="actualizar_405" runat="server" CausesValidation="True"
-                                    CssClass="tablaDatosAction" CommandName="Update" Text="actualizar"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="cancelar_14" runat="server" CausesValidation="False"
-                                    CssClass="tablaDatosAction" CommandName="Cancel" Text="cancelar"></asp:LinkButton>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkSeleccionar" runat="server" CausesValidation="False"
+                            CommandName="Select" Text="seleccionar">
+                            <img src="/Imagenes/ir.png" alt="->" />
+                        </asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
-                    </Columns>
+            </Columns>
 
-                    <PagerSettings Mode="NumericFirstLast" FirstPageText="<--" LastPageText="-->" />
-                </asp:GridView>
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="GridView1_" />
-            </Triggers>
-        </asp:UpdatePanel>
+            <PagerSettings Mode="NumericFirstLast" FirstPageText="<--" LastPageText="-->" />
+        </asp:GridView>
         <br />
     </div>
 </asp:Content>
