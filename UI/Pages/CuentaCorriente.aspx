@@ -28,6 +28,13 @@
                 <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
             </EmptyDataTemplate>
             <Columns>
+                <asp:TemplateField HeaderText="tipo_162">
+                    <ItemTemplate>
+                        <asp:Label ID="lblTipo" runat="server"
+                            Text='<%# ObtenerTipo(Eval("ID"))%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="estado_112">
                     <ItemTemplate>
                         <asp:Label ID="lblEstado" runat="server"

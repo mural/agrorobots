@@ -38,6 +38,17 @@ Public Class CuentaCorriente
         GridView1_.DataBind()
     End Sub
 
+    Public Function ObtenerTipo(ByVal IDCtaCte As Integer) As String
+        Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
+
+        Dim comprobante As ComprobanteGenerico = Nothing
+        If ctacte.Tipo = 1 Then
+            Return "Factura"
+        Else
+            Return "Nota de Credito"
+        End If
+    End Function
+
     Public Function ObtenerDetalle(ByVal IDCtaCte As Integer) As String
         Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
 
