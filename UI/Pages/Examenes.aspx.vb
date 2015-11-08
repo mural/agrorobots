@@ -7,6 +7,7 @@ Public Class Examenes
 
     Dim elementoAcademicoBusiness As New Business.ElementoAcademico_Business
     Dim idElementoAcademico As String
+    Dim usuarioBusiness As New Usuario_Business
 
     Dim examenBaseBusiness As New Business.ExamenBase_Business
     Dim examenBusiness As New Business.Examen_Business
@@ -16,8 +17,12 @@ Public Class Examenes
         Dim idElementoAcademicoInt As Integer
         If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademicoBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
             If Not (Page.IsPostBack) Then
-                CargarExamenesARendir()
-                CargarExamenesRendidos()
+                If usuarioBusiness.PoseeElementoAcademico(usuario, idElementoAcademico) Then
+                    CargarExamenesARendir()
+                    CargarExamenesRendidos()
+                Else
+                    Response.Redirect(PaginasConocidas.HOME)
+                End If
             End If
         Else
             Response.Redirect(PaginasConocidas.HOME)

@@ -7,6 +7,7 @@ Public Class CarrerasDetalle
     Dim elementoAcademico_Business As New ElementoAcademico_Business
     Dim idElementoAcademico As String
     Dim elementoAcademico As ElementoAcademico
+    Dim usuarioBusiness As New Usuario_Business
 
     Dim comentariosBusiness As New Comentarios_Business
 
@@ -57,14 +58,7 @@ Public Class CarrerasDetalle
             'hay cupo ?
             If elementoAcademico.Cupo > 0 Then
                 'ver que no este inscripto
-                Dim elementoABuscar As ElementoAcademico = Nothing
-                For Each elemAcademico As ElementoAcademico In usuario.ElementosAcademicos
-                    If elemAcademico.CodigoAcademico = elementoAcademico.CodigoAcademico Then
-                        elementoABuscar = elemAcademico
-                        Exit For
-                    End If
-                Next
-                If Not elementoABuscar Is Nothing Then
+                If usuarioBusiness.PoseeElementoAcademico(usuario, elementoAcademico) Then
                     MensajeError(lblMensajes, idiomas.GetTranslationById(183)) 'Ya esta inscripto
                 Else
                     'agrego al carrito

@@ -6,7 +6,7 @@ Public Class DetalleExamen
 
     Dim examenBaseBusiness As New ExamenBase_Business
     Dim examenBusiness As New Examen_Business
-
+    Dim usuarioBusiness As New Usuario_Business
     Dim examenBase As ExamenBase
     Dim respuestas As New List(Of TextBox)
 

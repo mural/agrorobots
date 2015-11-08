@@ -215,4 +215,19 @@ Public Class Usuario_Business
         Return filtrado
     End Function
 
+    Function PoseeElementoAcademico(usuario As Usuario, elemento As ElementoAcademico) As Boolean
+        For Each elemAcademico As ElementoAcademico In Usuario.ElementosAcademicos
+            If elemAcademico.CodigoAcademico = elemento.CodigoAcademico Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
+
+    Function PoseeElementoAcademico(usuario As Usuario, elemento As Integer) As Boolean
+        Dim elementoAcademicoBusiness As New Business.ElementoAcademico_Business
+        Dim elementoAcademico = elementoAcademicoBusiness.Obtener(elemento)
+        Return PoseeElementoAcademico(usuario, elementoAcademico)
+    End Function
+
 End Class

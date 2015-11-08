@@ -7,6 +7,7 @@ Public Class VistaMaterial
     Inherits PaginaAutorizada
 
     Dim elementoAcademicoBusiness As New Business.ElementoAcademico_Business
+    Dim usuarioBusiness As New Usuario_Business
 
     Dim idElementoAcademico As String
     Dim materialBusiness As New MaterialDeEstudio_Business
@@ -16,7 +17,11 @@ Public Class VistaMaterial
         idElementoAcademico = Request.QueryString("id")
         Dim idElementoAcademicoInt As Integer
         If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademicoBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
-            CargarMateriales()
+            If usuarioBusiness.PoseeElementoAcademico(usuario, idElementoAcademico) Then
+                CargarMateriales()
+            Else
+                Response.Redirect(PaginasConocidas.HOME)
+            End If
         Else
             Response.Redirect(PaginasConocidas.HOME)
         End If
