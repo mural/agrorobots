@@ -52,7 +52,11 @@
     Public Shared Property FORO As String = DIR_PAGES + "Foro" + ASPX
     Public Shared Property STREAMING As String = DIR_PAGES + "Streaming" + ASPX
 
-    'Gestion
+    'Empleado
+    Public Shared Property PAGO As String = DIR_PAGES + "Pago" + ASPX
+    Public Shared Property GESTION_COMPROBANTES As String = DIR_PAGES + "AbmComprobantes" + ASPX
+
+    'Director
     Public Shared Property GESTION_CURSOS As String = DIR_PAGES + "AbmElementoAcademico" + ASPX
     Public Shared Property CONTENIDO_CURSOS As String = DIR_PAGES + "ContenidoElementoAcademico" + ASPX
     Public Shared Property ABM_NOVEDADES As String = DIR_PAGES + "AbmNovedades" + ASPX

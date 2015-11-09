@@ -195,6 +195,7 @@
     <Content Include="Imagenes\pdf.png" />
     <Content Include="Imagenes\streaming.jpg" />
     <Content Include="Imagenes\terminos.png" />
+    <Content Include="Pages\AbmComprobantes.aspx" />
     <Content Include="Pages\AbmElementoAcademico.aspx" />
     <Content Include="Pages\AbmEncuestas.aspx" />
     <Content Include="Pages\AbmFichas.aspx" />
@@ -520,6 +521,13 @@
     <Compile Include="NavegacionBase.master.vb">
       <DependentUpon>NavegacionBase.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AbmComprobantes.aspx.designer.vb">
+      <DependentUpon>AbmComprobantes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AbmComprobantes.aspx.vb">
+      <DependentUpon>AbmComprobantes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\AbmElementoAcademico.aspx.designer.vb">
       <DependentUpon>AbmElementoAcademico.aspx</DependentUpon>
@@ -898,6 +906,7 @@
       <DependentUpon>SinPermisos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Servicios\ComprobantesHelper.vb" />
     <Compile Include="Servicios\EmailManager.vb" />
     <Compile Include="Servicios\Helper.vb" />
     <Compile Include="Servicios\Validaciones.vb" />

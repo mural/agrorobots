@@ -33,22 +33,6 @@ Public Class MenuBase
             Catch ex As Exception
             End Try
         Next
-
-        ' ''menu 2
-        'For Each menuItem As MenuItem In TopNavigationMenu.Items
-        '    Try
-        '        If menuItem.ChildItems.Count > 0 Then
-        '            For Each menuChild As MenuItem In menuItem.ChildItems
-        '                Try
-        '                    menuChild.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuChild.Value.Split("_")(1))
-        '                Catch ex As Exception
-        '                End Try
-        '            Next
-        '        End If
-        '        menuItem.Text = IdiomManager.GetIdiomManager.GetTranslationById(menuItem.Value.Split("_")(1))
-        '    Catch ex As Exception
-        '    End Try
-        'Next
     End Sub
 
     Public Sub ArmarMenuLateral(ByRef usuario As Usuario)
@@ -73,11 +57,9 @@ Public Class MenuBase
 
                 'alumno
             Case "CuentaCorriente_10111"
-                Response.Redirect("CuentaCorriente.aspx")
+                Response.Redirect(PaginasConocidas.CUENTA_CORRIENTE)
             Case "MiCursada_10121"
                 Response.Redirect(PaginasConocidas.MI_CURSADA)
-            Case "RendirExamen"
-                Response.Redirect("ExamenMateria.aspx")
 
                 'profesor
             Case "CorregirExamen"
@@ -97,7 +79,9 @@ Public Class MenuBase
 
                 'administrativo
             Case "Pago"
-                Response.Redirect("Pago.aspx")
+                Response.Redirect(PaginasConocidas.PAGO)
+            Case "AbmComprobantes_10129"
+                Response.Redirect(PaginasConocidas.GESTION_COMPROBANTES)
 
                 'director
             Case "EvaluarRevisionExamen"
