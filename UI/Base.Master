@@ -304,7 +304,11 @@
                     <ul>
                         <li><a href="#">Inscribase</a></li>
                         <li><a href="#">Becas</a></li>
-                        <li class="last"><a href="#">Contacte un representante</a></li>
+                        <li class="last">
+                            <a href='<%= PaginasConocidas.CONTACTO %>'>
+                                Contacte un representante
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footbox">

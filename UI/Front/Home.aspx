@@ -1,5 +1,7 @@
 <%@ Page Language="vb" AutoEventWireup="false" MasterPageFile="~/Base.Master" CodeBehind="Home.aspx.vb" Inherits="Agorobots.Home" %>
 
+<%@ Import Namespace="Agorobots" %>
+
 <asp:Content ID="BodyHome" ContentPlaceHolderID="BodyBaseContenido" runat="server">
     <div class="wrapper col3">
         <div id="featured_slide">
@@ -47,7 +49,9 @@
                         <img src="../Imagenes/1.jpg" alt="" />
                         <div class="floater">
                             <a href="#">
-                                <asp:Label ID="masinfo0_82" runat="server" Text="mas info" />
+                                <a href='<%= PaginasConocidas.CATALOGO %>'>
+                                    <asp:Label ID="masinfo0_82" runat="server" Text="mas info" />
+                                </a>
                                 &raquo;
                             </a>
                         </div>
