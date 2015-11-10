@@ -11,8 +11,8 @@ Public Class Backup
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         filename = "agrorobots_" & Today.Day.ToString("00") & "-" & Today.Month.ToString("00") & "-" & Today.Year.ToString & ".bak"
-        virtualPath = "~/App_Data/" & filename
-        serverPath = Server.MapPath("~/App_Data/")
+        virtualPath = PaginasConocidas.DIR_ESCRITURA_APP & filename
+        serverPath = PaginasConocidas.DIR_ESCRITURA_APP
         backupDestination = serverPath & filename
 
         BackupText.Text = backupDestination

@@ -85,5 +85,6 @@
             <PagerSettings Mode="NumericFirstLast" FirstPageText="<--" LastPageText="-->" />
         </asp:GridView>
         <br />
+        <embed src="D:\agrorobotsTemp\material.pdf" width="200px" height="400px">
     </div>
 </asp:Content>

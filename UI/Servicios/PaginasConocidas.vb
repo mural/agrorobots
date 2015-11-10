@@ -1,5 +1,7 @@
 ﻿Public Class PaginasConocidas
 
+    Public Shared ReadOnly DIR_ESCRITURA_APP As String = ConfigurationManager.AppSettings.Get("directorioEscritura").ToString
+
     Public Shared ReadOnly DIR_FRONT As String = "/Front/"
     Public Shared ReadOnly DIR_PAGES As String = "/Pages/"
     Public Shared ReadOnly ASPX As String = ".aspx"

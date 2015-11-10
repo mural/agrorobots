@@ -89,13 +89,13 @@ Public Class ComprobantesHelper
         Dim pdfRenderer As New PdfDocumentRenderer(False, PdfFontEmbedding.Always)
         pdfRenderer.Document = document
         pdfRenderer.RenderDocument()
-        pdfRenderer.PdfDocument.Save(server.MapPath("~/App_Data/") + filename)
+        pdfRenderer.PdfDocument.Save(PaginasConocidas.DIR_ESCRITURA_APP + filename)
 
         Try
-            Dim virtualPath = "~/App_Data/" & filename
+            Dim virtualPath = PaginasConocidas.DIR_ESCRITURA_APP & filename
             response.ContentType = "application/pdf"
             response.AppendHeader("Content-Disposition", "attachment; filename=" + filename)
-            response.TransmitFile(server.MapPath(virtualPath))
+            response.TransmitFile(virtualPath)
             response.End()
         Catch
 

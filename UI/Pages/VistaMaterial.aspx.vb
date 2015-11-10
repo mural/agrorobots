@@ -70,7 +70,7 @@ Public Class VistaMaterial
 
         If materialDeEstudio.Tipo.Equals("PDF") And Not materialDeEstudio.Archivo Is Nothing Then
             Dim documentBinary As Byte() = DirectCast(materialDeEstudio.Archivo, Byte())
-            Dim fStream As New FileStream(Server.MapPath("~/Archivos/") & "\" & "material.pdf", FileMode.Create)
+            Dim fStream As New FileStream(Server.MapPath("~/Archivos/") & "/" & "material.pdf", FileMode.Create)
             fStream.Write(documentBinary, 0, documentBinary.Length)
             fStream.Close()
             fStream.Dispose()

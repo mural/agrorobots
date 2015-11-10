@@ -55,23 +55,4 @@ Public Class Servicio_BackUp_Data
         con.Open()
     End Sub
 
-    Public Sub RestoreFromBackUp(ByVal pathSource As String)
-        Dim con As SqlConnection = Connection.GetObjConnextionMaster
-        Dim cmd As SqlCommand
-        Dim query As String = ""
-        query += "RESTORE DATABASE agrorobots FROM  DISK = '" & pathSource & "' WITH MOVE 'GAT2012' TO 'C:\agrorobots.mdf', MOVE 'GAT2012_log' TO 'C:\agrorobots_log.ldf'"
-
-        cmd = Data.GetCommandTypeText(query, con)
-        Try
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            Throw New ArgumentException("90006")
-        Finally
-            con.Close()
-            cmd.Dispose()
-            Connection.ResetConnections()
-        End Try
-
-    End Sub
-
 End Class
