@@ -45,7 +45,6 @@
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/examen.jpg"></asp:ImageButton>
                     </ItemTemplate>
                 </asp:TemplateField>
-
             </Columns>
         </asp:GridView>
         <br />
@@ -79,13 +78,20 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="examen_147">
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:Label ID="lblComentario" runat="server"
+                            Text='<%# Eval("Comentario")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <%--                <asp:TemplateField HeaderText="examen_147">
                     <ItemTemplate>
                         <asp:ImageButton ID="lnkExamenRendido" runat="server"
                             OnClick="ExamenRendido" CommandArgument='<%# Eval("ID")%>'
                             CssClass="tablaDatosAction" ImageUrl="/Imagenes/examen.jpg"></asp:ImageButton>
                     </ItemTemplate>
-                </asp:TemplateField>
+                </asp:TemplateField>--%>
             </Columns>
         </asp:GridView>
         <br />

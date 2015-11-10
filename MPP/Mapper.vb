@@ -147,4 +147,12 @@
         End If
         Return imageDb
     End Function
+
+    Public Shared Function DbBooleanOrNull(ByRef Item As Object) As Boolean
+        Dim BooleanDb As Boolean = Nothing
+        If Not Item Is DBNull.Value Then
+            BooleanDb = CBool(Item)
+        End If
+        Return BooleanDb
+    End Function
 End Class

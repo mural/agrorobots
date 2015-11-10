@@ -131,24 +131,6 @@ Partial Public Class EdicionExamen
     Protected WithEvents cbxActivo As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''imagen_2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents imagen_2 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''imgUpload control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents imgUpload As Global.System.Web.UI.WebControls.FileUpload
-
-    '''<summary>
     '''btnCrear_32 control.
     '''</summary>
     '''<remarks>

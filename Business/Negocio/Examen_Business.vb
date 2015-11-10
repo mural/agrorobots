@@ -26,7 +26,17 @@ Public Class Examen_Business
         Return listaExamenes
     End Function
 
-    Function ListarPorElementoAcademicoYAlumno(codigoAcademico As Integer, idAlumno As Integer) As List(Of Examen)
+    Function ListarPorElementoAcademicoYAlumnoRendidos(codigoAcademico As Integer, idAlumno As Integer) As List(Of Examen)
+        Dim listaExamenes As New List(Of Examen)
+        For Each examen In Listar()
+            If examen.Finalizado = True And examenBaseMapper.Obtener(examen.IdExamenBase).IdElementoAcademico = codigoAcademico And examen.IdAlumno = idAlumno Then
+                listaExamenes.Add(examen)
+            End If
+        Next
+        Return listaExamenes
+    End Function
+
+    Function ListarPorElementoAcademicoYAlumnoTodos(codigoAcademico As Integer, idAlumno As Integer) As List(Of Examen)
         Dim listaExamenes As New List(Of Examen)
         For Each examen In Listar()
             If examenBaseMapper.Obtener(examen.IdExamenBase).IdElementoAcademico = codigoAcademico And examen.IdAlumno = idAlumno Then
@@ -35,5 +45,4 @@ Public Class Examen_Business
         Next
         Return listaExamenes
     End Function
-
 End Class

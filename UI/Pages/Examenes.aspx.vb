@@ -41,7 +41,7 @@ Public Class Examenes
     End Sub
 
     Private Sub CargarExamenesRendidos()
-        Me.GridView2_.DataSource = examenBusiness.ListarPorElementoAcademicoYAlumno(CInt(idElementoAcademico), usuario.ID)
+        Me.GridView2_.DataSource = examenBusiness.ListarPorElementoAcademicoYAlumnoRendidos(CInt(idElementoAcademico), usuario.ID)
         Me.GridView2_.DataBind()
     End Sub
 

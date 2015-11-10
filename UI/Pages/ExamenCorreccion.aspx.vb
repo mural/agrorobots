@@ -72,6 +72,7 @@ Public Class ExamenCorreccion
     Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             examen.Nota = nota.Text
+            examen.Comentario = "Corregido"
             If examenBusiness.Actualizar(examen) Then
                 MensajeOk(lblMensajes)
             Else

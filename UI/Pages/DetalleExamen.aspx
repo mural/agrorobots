@@ -24,6 +24,18 @@
             <img class="imagenMediana imagenMasSeparada fl_right w3-circle" src="/Imagenes/curso_generico.jpg" />
             <br />
             <br />
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <asp:Timer ID="TimerExamen" runat="server"></asp:Timer>
+            <asp:UpdatePanel ID="PanelTiempo" runat="server">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="TimerExamen" EventName="Tick" />
+                </Triggers>
+                <ContentTemplate>
+                    <asp:Label ID="lblTiempo" runat="server" Text="-" CssClass="formError"></asp:Label>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <br />
             <asp:Panel ID="examenInicio" runat="server" Text="inicio"></asp:Panel>
             <br />
             <br />

@@ -9,16 +9,58 @@ Public Class DetalleExamen
     Dim usuarioBusiness As New Usuario_Business
     Dim examenBase As ExamenBase
     Dim respuestas As New List(Of TextBox)
-
     Dim idExamenBase As String
+
+    Dim TargetDT As DateTime
+    Dim CountDownFrom As TimeSpan
+    Dim rindiendo As Boolean = False
+    Dim examenEnCurso As Examen
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamenBase = Request.QueryString("id")
-        Dim idElementoAcademicoInt As Integer
-        If Not String.IsNullOrEmpty(idExamenBase) And Integer.TryParse(idExamenBase, idElementoAcademicoInt) And Not examenBaseBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
+        Dim idExamenBaseInt As Integer
+        If Not Page.IsPostBack Then
             CargarExamen()
-        Else
-            Response.Redirect(PaginasConocidas.HOME)
+
+            If Not String.IsNullOrEmpty(idExamenBase) And Integer.TryParse(idExamenBase, idExamenBaseInt) And Not examenBaseBusiness.Obtener(idExamenBaseInt) Is Nothing Then
+                For Each examen In examenBusiness.ListarPorElementoAcademicoYAlumnoTodos(examenBase.IdElementoAcademico, usuario.ID)
+                    If examen.Finalizado = False Then 'estoy rindiendo
+                        rindiendo = True
+                        examenEnCurso = examen
+                    End If
+                Next
+                If Not rindiendo Then
+                    Dim nuevoExamen = New Examen
+                    nuevoExamen.IdExamenBase = examenBase.ID
+                    nuevoExamen.Fecha = Date.Now.AddMinutes(10)
+                    nuevoExamen.IdAlumno = usuario.ID
+                    nuevoExamen.Nota = -1 'sin corregir
+                    nuevoExamen.Finalizado = False
+                    examenBusiness.Crear(nuevoExamen)
+
+                    'busco el examen recien creado
+                    For Each examen In examenBusiness.ListarPorElementoAcademicoYAlumnoTodos(examenBase.IdElementoAcademico, usuario.ID)
+                        If examen.Fecha > Date.Now Then
+                            rindiendo = True
+                            examenEnCurso = examen
+                        End If
+                    Next
+                End If
+
+                'inicio countdown
+                CountDownFrom = TimeSpan.FromMinutes(examenEnCurso.Fecha.Subtract(Date.Now).TotalMinutes)
+                If CountDownFrom.TotalMilliseconds > 0 Then 'me queda tiempo
+                    TargetDT = DateTime.Now.Add(CountDownFrom)
+                    Session("tiempoRestante") = TargetDT
+                    TimerExamen.Interval = 1000
+                    TimerExamen.Enabled = True
+                Else
+                    Finalizar(sender, e)
+                    Response.Redirect(PaginasConocidas.MI_CURSADA) 'se acabo el tiempo
+                End If
+            Else
+                Response.Redirect(PaginasConocidas.HOME)
+            End If
         End If
     End Sub
 
@@ -65,19 +107,15 @@ Public Class DetalleExamen
 
     Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            Dim nuevoExamen = New Examen
-            nuevoExamen.IdExamenBase = examenBase.ID
-            nuevoExamen.Fecha = Date.Now
-            nuevoExamen.IdAlumno = usuario.ID
-            nuevoExamen.Nota = -1 'sin corregir
+            examenEnCurso.Finalizado = True
 
             For Each respuestaElegida In respuestas
                 Dim respuesta As New ExamenRespuesta
                 respuesta.Respuesta = respuestaElegida.Text
                 respuesta.IDPregunta = respuestaElegida.ID 'ID original de la pregunta
-                nuevoExamen.Respuestas.Add(respuesta)
+                examenEnCurso.Respuestas.Add(respuesta)
             Next
-            If examenBusiness.Crear(nuevoExamen) Then
+            If examenBusiness.Actualizar(examenEnCurso) Then
                 MensajeOk(lblMensajes)
             Else
                 MensajeError(lblMensajes)
@@ -90,4 +128,20 @@ Public Class DetalleExamen
     End Sub
 
 
+    Protected Sub TimerExamen_Tick(sender As Object, e As EventArgs) Handles TimerExamen.Tick
+        Try
+        Dim ts As TimeSpan = Session("tiempoRestante").Subtract(DateTime.Now)
+        If ts.TotalMilliseconds > 0 Then
+            lblTiempo.Text = ts.ToString("mm\:ss")
+        Else
+            lblTiempo.Text = "00:00"
+            TimerExamen.Enabled = False
+            'finalizar examen sino finalizo
+            Finalizar(sender, e)
+            Session("tiempoRestante") = Nothing
+            End If
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+    End Sub
 End Class

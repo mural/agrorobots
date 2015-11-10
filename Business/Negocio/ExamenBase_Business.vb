@@ -30,8 +30,14 @@ Public Class ExamenBase_Business
         Dim listaExamenes As New List(Of ExamenBase)
         For Each examenBase In ListarPorElementoAcademico(codigoAcademico, True)
             Dim rendido = False
-            For Each examenRendido In examenBusiness.ListarPorElementoAcademicoYAlumno(codigoAcademico, idAlumno)
-                If examenRendido.IdExamenBase = examenBase.ID Then
+            For Each examenRendido In examenBusiness.ListarPorElementoAcademicoYAlumnoTodos(codigoAcademico, idAlumno)
+                If examenRendido.Finalizado = True And examenRendido.IdExamenBase = examenBase.ID Then
+                    rendido = True
+                    Exit For
+                End If
+                If examenRendido.Fecha < Date.Now And examenRendido.IdExamenBase = examenBase.ID Then
+                    examenRendido.Finalizado = True
+                    examenBusiness.Actualizar(examenRendido)
                     rendido = True
                     Exit For
                 End If
