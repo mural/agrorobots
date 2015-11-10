@@ -118,8 +118,7 @@
     <asp:Label ID="lblActivo_19" runat="server" Text="activo"></asp:Label>
     <asp:CheckBox ID="cbxActivo" runat="server" Checked="true"></asp:CheckBox>
     <br />
-    <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
-    <br />
+    &nbsp;<br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
     &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" />

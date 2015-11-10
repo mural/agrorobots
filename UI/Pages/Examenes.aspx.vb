@@ -46,8 +46,19 @@ Public Class Examenes
     End Sub
 
     Protected Sub ExamenARendir(ByVal sender As Object, ByVal e As EventArgs)
-        Dim link As ImageButton = DirectCast(sender, ImageButton)
-        Response.Redirect(PaginasConocidas.RENDIR_EXAMEN + "?id=" + link.CommandArgument)
+        Dim alumnoElementoAcademico As AlumnoElementoAcademico
+        For Each elemAcademico In usuario.ElementosAcademicos
+            If elemAcademico.CodigoAcademico = CInt(idElementoAcademico) Then
+                alumnoElementoAcademico = elemAcademico.AlumoEstado
+                Exit For
+            End If
+        Next
+        If alumnoElementoAcademico.Presentismo > 74 Then
+            Dim link As ImageButton = DirectCast(sender, ImageButton)
+            Response.Redirect(PaginasConocidas.RENDIR_EXAMEN + "?id=" + link.CommandArgument)
+        Else
+            Interaction.MsgBox("75 !", MsgBoxStyle.Information)
+        End If
     End Sub
 
     Protected Sub ExamenRendido(ByVal sender As Object, ByVal e As EventArgs)
