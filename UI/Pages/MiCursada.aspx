@@ -42,6 +42,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="%">
+                    <ItemTemplate>
+                        <asp:Label ID="lblPresentismo" runat="server"
+                            Text='<%# Eval("AlumoEstado.Presentismo")%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="material_145">
                     <ItemTemplate>
                         <asp:ImageButton ID="lnkMaterial" runat="server"

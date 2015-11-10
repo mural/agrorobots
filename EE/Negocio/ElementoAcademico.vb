@@ -26,6 +26,7 @@
     Public Property Estado As String
     Public Property Alumnos As List(Of Usuario)
     Public Property Profesor As Usuario
+    Public Property AlumoEstado As AlumnoElementoAcademico
 
     Public Sub New()
         FechaInicio = Now

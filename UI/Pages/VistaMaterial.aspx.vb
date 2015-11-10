@@ -89,6 +89,11 @@ Public Class VistaMaterial
             video.Attributes.Add("src", "https://www.youtube.com/embed/" + codigoVideo)
             video.Visible = True
         End If
+
+        'actualizar presentismo de ser necesario
+        If elementoAcademicoBusiness.ActualizarPresentismo(usuario, materialDeEstudio) Then
+            ActualizarUsuarioEnSesion(usuario)
+        End If
     End Sub
 
 End Class

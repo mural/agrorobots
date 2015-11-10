@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Negocio\ComprobanteDetalleGenerico.vb" />
+    <Compile Include="Negocio\AlumnoMaterialDeEstudio.vb" />
     <Compile Include="Negocio\Foro.vb" />
     <Compile Include="SatisfaccionResultado.vb" />
     <Compile Include="TiemposRespuestaResultado.vb" />
