@@ -43,6 +43,31 @@
         </Columns>
     </asp:GridView>
     <br />
+
+    <script src="/Scripts/jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">jwplayer.key = "WcyQ15MZB4t1wDrA/7Q0TGi38TqCWU8INPFwhA==";</script>
+<div id="mediaspace2">mediaspace2 text will be replaced</div>
+<%--<script>
+    jwplayer("mediaspace2").setup({
+        flashplayer: "jwplayer.js",
+        streamer: "rtmp://78.129.184.15:23491/streaming.rtmphost.com/jwplayer",
+        file: "rtmp://78.129.184.15:23491/streaming",
+        height: 270,
+        width: 480
+    });
+</script>--%>
+
+    <div id="myElement">myElement text will be replaced</div>
+    <script>
+    var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+    file: "rtmp://78.129.184.15:23491/streaming",
+	image: "/assets/myVideo.jpg",
+	height: 360,
+	width: 640
+});
+    </script>
+
     <br />
     <asp:Label ID="inconsistencias" runat="server" Text="Label" Visible="False"></asp:Label>
     <br />

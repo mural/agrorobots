@@ -262,6 +262,10 @@
     <Content Include="Scripts\jquery.slidepanel.setup.js" />
     <Content Include="Scripts\jquery.tabs.setup.js" />
     <Content Include="Scripts\jquery.ui.min.js" />
+    <Content Include="Scripts\jwplayer\jwplayer.flash.swf" />
+    <Content Include="Scripts\jwplayer\jwplayer.html5.js" />
+    <Content Include="Scripts\jwplayer\jwplayer.js" />
+    <Content Include="Scripts\jwplayer\README.html" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
