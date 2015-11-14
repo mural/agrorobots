@@ -1,5 +1,6 @@
 ﻿Imports EE
 Imports Business
+Imports System.Net
 
 Public Class Inscripcion
     Inherits PaginaAutorizada
@@ -9,23 +10,31 @@ Public Class Inscripcion
     Dim carritoSesion As List(Of ElementoAcademico)
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
     Dim comprobanteBusiness As New Comprobante_Business
+    Dim comprobanteNotaBusiness As New ComprobanteNota_Business
 
     Public Shared Property NumeroTarjetaGuardada As String = ""
     Public Shared Property NombreTarjetaGuardada As String = ""
     Public Shared Property FechaTarjetaGuardada As String = ""
+
+    Dim precioTotal As Integer
+    Dim notaCreditoAccion As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         carritoSesion = Session("carrito")
         If carritoSesion Is Nothing Then
             Response.Redirect(PaginasConocidas.HOME)
         End If
+        For Each elemento In carritoSesion
+            precioTotal += elemento.Precio
+        Next
         If Not Page.IsPostBack Then
             CargarCarrito()
 
             'combo pago
             formaDePagoList.Items.Clear()
-            formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(122), "Efectivo"))
-            formaDePagoList.Items.Add(New ListItem(idiomas.GetTranslationById(123), "Tarjeta"))
+            formaDePagoList.Items.Add(New ListItem(" " + idiomas.GetTranslationById(122), "Efectivo"))
+            formaDePagoList.Items.Add(New ListItem(" " + idiomas.GetTranslationById(123), "Tarjeta"))
+            formaDePagoList.Items.Add(New ListItem(" " + idiomas.GetTranslationById(188), "NotaCredito"))
             formaDePagoList.SelectedIndex = 1 'tarjeta
 
             'tarjeta guardada ?
@@ -39,6 +48,12 @@ Public Class Inscripcion
                 NombreTarjetaGuardada = ""
                 FechaTarjetaGuardada = ""
             End If
+
+            'combo notas de credito
+            comboNotasCredito.Items.Clear()
+            For Each notaCredito In comprobanteNotaBusiness.Listar
+                comboNotasCredito.Items.Add(New ListItem(Helper.StripTags(notaCredito.Motivo) + ": $" + CStr((notaCredito.Subtotal + notaCredito.IVA)), notaCredito.ID))
+            Next
         End If
     End Sub
 
@@ -49,12 +64,7 @@ Public Class Inscripcion
     Private Sub CargarCarrito()
         Me.GridView1_.DataSource = carritoSesion
         Me.GridView1_.DataBind()
-
-        Dim precioTotal As Integer
-        For Each elemento In carritoSesion
-            precioTotal += elemento.Precio
-        Next
-        lblPrecio.Text = precioTotal
+        lblPrecio.Text = precioTotal.ToString
     End Sub
 
     Protected Sub inscribirse_118_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
@@ -108,7 +118,7 @@ Public Class Inscripcion
 
         ActualizarUsuarioEnSesion(usuario)
 
-        Dim montoIVA = subtotal * 0.21 'IVA solo
+        Dim montoIVA = subtotal * 0.20999999999999999 'IVA solo
         comprobante.IVA = montoIVA
         comprobante.Subtotal = subtotal
         ctacteItemUsuario.Comprobante = comprobante
@@ -128,10 +138,31 @@ Public Class Inscripcion
 
 
     Protected Sub formaDePagoList_SelectedIndexChanged(sender As Object, e As EventArgs) Handles formaDePagoList.SelectedIndexChanged
+        notaCreditoEstado.Text = ""
+        comboNotasCredito.Enabled = False
+
         If formaDePagoList.SelectedValue.Equals("Efectivo") Then
-            panelTarjeta.Visible = False
-        Else 'tarjeta
-            panelTarjeta.Visible = True
+            'a pagar
+        ElseIf formaDePagoList.SelectedValue.Equals("Tarjeta") Then
+            'tarjeta
+        ElseIf formaDePagoList.SelectedValue.Equals("NotaCredito") Then
+            comboNotasCredito.Enabled = True
+            comboNotasCredito_SelectedIndexChanged(sender, e)
+        End If
+    End Sub
+
+    Protected Sub comboNotasCredito_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboNotasCredito.SelectedIndexChanged
+        Dim notaSeleccionada = comprobanteNotaBusiness.Obtener(comboNotasCredito.SelectedValue)
+        Dim valorNota = (notaSeleccionada.Subtotal + notaSeleccionada.IVA)
+        If valorNota > precioTotal Then 'sobra para pagar
+            notaCreditoEstado.Text = "El monto sobrante quedara para su uso."
+            notaCreditoAccion = "SOBRA"
+        ElseIf valorNota = precioTotal Then 'alcanza justo para pagar
+            notaCreditoEstado.Text = "Alcanza justo para pagar."
+            notaCreditoAccion = "JUSTO"
+        ElseIf valorNota < precioTotal Then 'no alcanza para pagar
+            notaCreditoEstado.Text = "No alcanza para pagar, complete los datos de la tarjeta de credito por el monto faltante."
+            notaCreditoAccion = "MENOR"
         End If
     End Sub
 End Class

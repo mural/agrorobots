@@ -60,4 +60,8 @@ Public Class CuentaCorriente
 
     End Sub
 
+    Public Function FechaFormateada(ByVal Fecha As Date) As String
+        Return Fecha.ToShortDateString
+    End Function
+
 End Class

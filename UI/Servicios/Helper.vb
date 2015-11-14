@@ -26,4 +26,9 @@
         control.CssClass = css
     End Sub
 
+    Public Shared Function StripTags(ByVal html As String) As String
+        ' Remove HTML tags.
+        Return Regex.Replace(html, "<.*?>", "")
+    End Function
+
 End Class

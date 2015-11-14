@@ -75,6 +75,11 @@
             <br />
             <asp:RadioButtonList ID="formaDePagoList" runat="server" AutoPostBack="True">
             </asp:RadioButtonList>
+            <asp:Label ID="notaCredito_188" runat="server" Text="nota de credito"></asp:Label>
+            <asp:DropDownList ID="comboNotasCredito" runat="server" AutoPostBack="True">
+            </asp:DropDownList>
+            &nbsp;<asp:Label ID="notaCreditoEstado" runat="server" Text=""></asp:Label>
+            <br />
             <br />
             <asp:Panel ID="panelTarjeta" runat="server" Visible="True">
                 <input type="hidden" id="inputTipoTarjetaHidden" runat="server" />

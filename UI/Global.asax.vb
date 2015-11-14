@@ -40,6 +40,9 @@ Public Class Global_asax
             '    Server.ClearError()
             '    Server.Transfer(PaginasConocidas.HOME + "?error=500")
             'End If
+
+            'Server.ClearError()
+            'Response.Redirect(PaginasConocidas.LOGIN + "?error=500")
         End If
 
     End Sub

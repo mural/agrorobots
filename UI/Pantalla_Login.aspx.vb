@@ -34,7 +34,19 @@ Public Class Principal
                         Resultado.Text = idiomas.GetTranslationById(69) 'Error al activar el usuario.
                     End If
                 End If
+            End If
+
+            'viene un error?
+            Dim codigoError As String
+            codigoError = Request.QueryString("error")
+            If Not String.IsNullOrEmpty(codigoError) Then 'muestro el error
+                If codigoError.Equals("404") Then
+                    Resultado.Text = idiomas.GetTranslationById(90040) 'Se produjo un error en la operacion
+                Else
+                    Resultado.Text = idiomas.GetTranslationById(90040) 'Se produjo un error en la operacion
                 End If
+            End If
+
         Catch ex As Exception
         End Try
     End Sub

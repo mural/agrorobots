@@ -60,16 +60,28 @@ Public Class ComprobantesHelper
     End Function
 
     Public Function ObtenerMontoTotal(ByVal IDCtaCte As Integer) As String
+        Dim simbolos = "$"
         Dim ctacte = ctaCteUsuarioBusiness.Obtener(IDCtaCte)
 
         Dim comprobante As ComprobanteGenerico = Nothing
         If ctacte.Tipo = 1 Then
             comprobante = comprobanteBusiness.Obtener(ctacte.IdComprobante)
-        Else 'credito y debito
+            If ctacte.Estado.Equals("NO_PAGO") Then
+                simbolos = simbolos + "-"
+            End If
+        ElseIf ctacte.Tipo = 2 Then 'credito
             comprobante = comprobanteNotaBusiness.Obtener(ctacte.IdComprobante)
+            If ctacte.Estado.Equals("SALDADA") Then
+                simbolos = simbolos + "-"
+            End If
+        ElseIf ctacte.Tipo = 3 Then 'debito
+            comprobante = comprobanteNotaBusiness.Obtener(ctacte.IdComprobante)
+            If ctacte.Estado.Equals("EMITIDA") Then
+                simbolos = simbolos + "-"
+            End If
         End If
 
-        Return "$ " + CStr(comprobante.IVA + comprobante.Subtotal)
+        Return simbolos + CStr(comprobante.IVA + comprobante.Subtotal)
     End Function
 
     Public Sub PDF(ByVal IDCtaCte As Integer, ByRef response As HttpResponse, ByRef server As HttpServerUtility)

@@ -35,6 +35,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="fecha_133">
+                    <ItemTemplate>
+                        <asp:Label ID="lblFecha" runat="server"
+                            Text='<%# FechaFormateada(Eval("Comprobante.FechaEmision"))%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="estado_112">
                     <ItemTemplate>
                         <asp:Label ID="lblEstado" runat="server"
