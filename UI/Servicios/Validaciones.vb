@@ -13,4 +13,46 @@ Public Class Validaciones
     End Function
 
     'Validar siempre punto y coma(;) comilla simple(') guion doble(--) comentarios("/*)(*/")
+
+    Shared Function EsSoloLetras(ByVal strInputText As String) As Boolean
+        If String.IsNullOrEmpty(strInputText) Then
+            Return False
+        End If
+
+        Dim IsAlpha As Boolean = False
+        If System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^[a-zA-Z]+$") Then
+            IsAlpha = True
+        Else
+            IsAlpha = False
+        End If
+        Return IsAlpha
+    End Function
+
+    Shared Function EsSoloNumeros(ByVal strInputText As String) As Boolean
+        If String.IsNullOrEmpty(strInputText) Then
+            Return False
+        End If
+
+        Dim IsAlpha As Boolean = False
+        If System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^[0-9]+$") Then
+            IsAlpha = True
+        Else
+            IsAlpha = False
+        End If
+        Return IsAlpha
+    End Function
+
+    Shared Function EsAlfanumerico(ByVal strInputText As String) As Boolean
+        If String.IsNullOrEmpty(strInputText) Then
+            Return False
+        End If
+
+        Dim IsAlpha As Boolean = False
+        If System.Text.RegularExpressions.Regex.IsMatch(strInputText, "^[a-zA-Z0-9]+$") Then
+            IsAlpha = True
+        Else
+            IsAlpha = False
+        End If
+        Return IsAlpha
+    End Function
 End Class

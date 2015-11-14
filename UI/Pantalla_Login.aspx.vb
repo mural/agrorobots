@@ -76,8 +76,8 @@ Public Class Principal
                 End If
                 ActualizarMensajes(mensajesNoLeidos)
 
+                FormsAuthentication.SetAuthCookie(usuarioEntrante.Apellido, False)
                 If Not String.IsNullOrEmpty(idElementoAcademico) Then 'ir a inscribirse
-                    FormsAuthentication.SetAuthCookie(usuarioEntrante.Apellido, False)
                     Response.Redirect(PaginasConocidas.CATALOGO_DETALLE + "?id=" + idElementoAcademico)
                 Else 'flujo comun
                     FormsAuthentication.RedirectFromLoginPage(usuarioEntrante.Apellido, False)

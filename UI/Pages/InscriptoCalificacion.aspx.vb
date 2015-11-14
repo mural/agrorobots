@@ -19,44 +19,54 @@ Public Class InscriptoCalificacion
     End Sub
 
     Private Sub CargarFicha()
-        fichaBase = fichaBaseBusiness.Obtener(2) 'inscripcion
+        Try
+            Dim fichas = fichaBaseBusiness.ListarFichas
+            Dim cantidad = fichas.Count
+            Dim random As New Random
+            Dim numeroAzar = random.Next(cantidad)
 
-        encuestaInicio.Controls.Clear()
-        encuestaCierre.Controls.Clear()
+            fichaBase = fichas(numeroAzar)
 
-        Dim descripcionInicio = New LiteralControl()
-        descripcionInicio.Text = ""
-        descripcionInicio.Text += "<div class='w3-card-4'>"
-        descripcionInicio.Text += "<header class='w3-container w3-blue'>"
-        descripcionInicio.Text += fichaBase.Descripcion
-        descripcionInicio.Text += "</header>"
-        descripcionInicio.Text += "<div class='w3-container'>"
-        encuestaInicio.Controls.Add(descripcionInicio)
+            encuestaInicio.Controls.Clear()
+            encuestaCierre.Controls.Clear()
 
-        For Each pregunta In fichaBase.Preguntas
-            encuestaCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
-            Dim listaOpciones As New RadioButtonList
-            listaOpciones.ID = pregunta.ID
-            listaOpciones.Items.Add(New ListItem("Muy mala", 1))
-            listaOpciones.Items.Add(New ListItem("Mala", 2))
-            listaOpciones.Items.Add(New ListItem("Buena", 3))
-            listaOpciones.Items.Add(New ListItem("Muy buena", 4))
-            listaOpciones.Items.Add(New ListItem("Excelente", 5))
-            encuestaCierre.Controls.Add(listaOpciones)
-            respuestas.Add(listaOpciones)
-        Next
-        Dim submit As New Button()
-        submit.Text = idiomas.GetTranslationById(135) 'enviar
-        submit.CssClass = "w3-btn w3-khaki"
-        AddHandler submit.Click, AddressOf Me.Votar
-        encuestaCierre.Controls.Add(submit)
+            Dim descripcionInicio = New LiteralControl()
+            descripcionInicio.Text = ""
+            descripcionInicio.Text += "<div class='w3-card-4'>"
+            descripcionInicio.Text += "<header class='w3-container w3-blue'>"
+            descripcionInicio.Text += fichaBase.Descripcion
+            descripcionInicio.Text += "</header>"
+            descripcionInicio.Text += "<div class='w3-container'>"
+            encuestaInicio.Controls.Add(descripcionInicio)
 
-        Dim descripcionCierre = New LiteralControl()
-        descripcionCierre.Text = ""
-        descripcionCierre.Text += "</div>"
-        descripcionCierre.Text += "</div>"
-        descripcionCierre.Text += "<br/><hr/><br/>"
-        encuestaCierre.Controls.Add(descripcionCierre)
+            For Each pregunta In fichaBase.Preguntas
+                encuestaCierre.Controls.Add(New LiteralControl(pregunta.Pregunta))
+                Dim listaOpciones As New RadioButtonList
+                listaOpciones.ID = pregunta.ID
+                listaOpciones.Items.Add(New ListItem("Muy mala", 1))
+                listaOpciones.Items.Add(New ListItem("Mala", 2))
+                listaOpciones.Items.Add(New ListItem("Buena", 3))
+                listaOpciones.Items.Add(New ListItem("Muy buena", 4))
+                listaOpciones.Items.Add(New ListItem("Excelente", 5))
+                encuestaCierre.Controls.Add(listaOpciones)
+                respuestas.Add(listaOpciones)
+            Next
+            Dim submit As New Button()
+            submit.Text = idiomas.GetTranslationById(135) 'enviar
+            submit.CssClass = "w3-btn w3-khaki"
+            AddHandler submit.Click, AddressOf Me.Votar
+            encuestaCierre.Controls.Add(submit)
+
+            Dim descripcionCierre = New LiteralControl()
+            descripcionCierre.Text = ""
+            descripcionCierre.Text += "</div>"
+            descripcionCierre.Text += "</div>"
+            descripcionCierre.Text += "<br/><hr/><br/>"
+            encuestaCierre.Controls.Add(descripcionCierre)
+
+        Catch ex As Exception
+            MensajeError(lblMensajes)
+        End Try
     End Sub
 
     Private Sub Votar(ByVal sender As System.Object, ByVal e As System.EventArgs)

@@ -41,13 +41,40 @@ Partial Public Class Base
     Protected WithEvents formBase As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''HeadLoginView control.
+    '''PanelNoLogueado control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents HeadLoginView As Global.System.Web.UI.WebControls.LoginView
+    Protected WithEvents PanelNoLogueado As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''PanelLogueado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PanelLogueado As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''lblNombreUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblCerrarSession_503 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCerrarSession_503 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''subtitulo_74 control.

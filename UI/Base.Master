@@ -122,20 +122,18 @@
                 </div>
                 <div id="loginpanel">
                     <ul>
-                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                            <AnonymousTemplate>
-                                <li class="left">Login &raquo;</li>
-                                <%--<li class="right" id="toggle"><a id="slideit" href="#slidepanel">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>--%>
-                                <li class="right" id="toggle"><a id="slideit" href="/Pantalla_Login.aspx">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
-                            </AnonymousTemplate>
-                            <LoggedInTemplate>
-                                <li class="left">
-                                    <asp:LoginName ID="HeadLoginName" runat="server" />
-                                    &raquo;</li>
-                                <li class="right" id="toggle">
-                                    <asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton></li>
-                            </LoggedInTemplate>
-                        </asp:LoginView>
+                        <asp:Panel ID="PanelNoLogueado" runat="server">
+                            <li class="left">Login &raquo;</li>
+                            <%--<li class="right" id="toggle"><a id="slideit" href="#slidepanel">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>--%>
+                            <li class="right" id="toggleOFF1"><a id="slideit" href="/Pantalla_Login.aspx">Login</a><a id="closeit" style="display: none;" href="#slidepanel">Close Panel</a></li>
+                        </asp:Panel>
+                        <asp:Panel ID="PanelLogueado" runat="server" Visible="False">
+                            <li class="left">
+                                <asp:Label ID="lblNombreUsuario" runat="server" />
+                                &raquo;</li>
+                            <li class="right" id="toggleOFF2">
+                                <asp:LinkButton ID="lblCerrarSession_503" runat="server" Text="cerrar" OnClick="Logout"></asp:LinkButton></li>
+                        </asp:Panel>
                     </ul>
                 </div>
                 <br class="clear" />
@@ -305,8 +303,7 @@
                         <li><a href="#">Inscribase</a></li>
                         <li><a href="#">Becas</a></li>
                         <li class="last">
-                            <a href='<%= PaginasConocidas.CONTACTO %>'>
-                                Contacte un representante
+                            <a href='<%= PaginasConocidas.CONTACTO %>'>Contacte un representante
                             </a>
                         </li>
                     </ul>

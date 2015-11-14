@@ -15,12 +15,22 @@ Public Class Base
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idiomas = IdiomManager.GetIdiomManager
 
+        'Si hay un usuario cargo su idioma
+        usuario = Session.Item("user")
+
+        If usuario Is Nothing Then
+            PanelNoLogueado.Visible = True
+            PanelLogueado.Visible = False
+        Else 'hay usuario
+            PanelNoLogueado.Visible = False
+            PanelLogueado.Visible = True
+            lblNombreUsuario.Text = usuario.Apellido
+        End If
+
         If Not Page.IsPostBack Then
             For Each idiomaDisponible In idiomaBusiness.ObtenerIdiomas
                 comboIdiomas.Items.Add(New ListItem(idiomaDisponible.Descripcion, idiomaDisponible.ID))
             Next
-            'Si hay un usuario cargo su idioma
-            usuario = Session.Item("user")
             If Not usuario Is Nothing Then
                 comboIdiomas.SelectedValue = usuario.Idioma.ID
                 Application.Item("idiomaIDseleccionado") = usuario.Idioma.ID

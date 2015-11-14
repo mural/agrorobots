@@ -95,6 +95,15 @@ Partial Public Class Inscripcion
     Protected WithEvents formaDePagoList As Global.System.Web.UI.WebControls.RadioButtonList
 
     '''<summary>
+    '''notaCredito_188 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents notaCredito_188 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''comboNotasCredito control.
     '''</summary>
     '''<remarks>

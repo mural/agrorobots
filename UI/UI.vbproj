@@ -932,6 +932,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Servicios\PaginasConocidas.vb" />
+    <Compile Include="Servicios\ValidarTrjeta.vb" />
     <Compile Include="Servicios\Variables.vb" />
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
