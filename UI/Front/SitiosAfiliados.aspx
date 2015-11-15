@@ -23,6 +23,9 @@
             </p>
             <asp:Label ID="sa_99005" runat="server" Text="detalle"></asp:Label>
             <br />
+            <br />
+            <br />
+            <br />
         </div>
     </div>
 </asp:Content>

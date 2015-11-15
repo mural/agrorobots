@@ -23,6 +23,10 @@
             </p>
             <asp:Label ID="n3_99009" runat="server" Text="detalle"></asp:Label>
             <br />
+            <p>
+                <img src="/Imagenes/ventajas.jpg" />
+            </p>
+            <br />
         </div>
     </div>
 </asp:Content>
