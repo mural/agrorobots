@@ -243,11 +243,18 @@
                             <asp:Label ID="asistencia_56" Text="buscar" runat="server" /></a>
                         <ul>
                             <li><a href="#">
-                                <asp:Label ID="inscripcion_57" Text="inscripcion" runat="server" /></a></li>
+                                <asp:Literal ID="stats_99" Text="estadisticas" runat="server" />
+                            </a>
+                            </li>
                             <li><a href="#">
-                                <asp:Label ID="empresas_58" Text="empresas" runat="server" /></a></li>
-                            <li class="last"><a href="#">
-                                <asp:Label ID="formasdepago_59" Text="formas de pago" runat="server" /></a></li>
+                                <asp:Literal ID="sites" Text="sitios afiliados" runat="server" />
+                            </a>
+                            </li>
+                            <li class="last">
+                                <a href="#">
+                                    <asp:Label ID="formasdepago_59" Text="formas de pago" runat="server" />
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
@@ -286,12 +293,14 @@
                         <fieldset>
                             <legend>Newsletter</legend>
                             <input type="text" value="Ingrese su Email&hellip;" onfocus="this.value=(this.value=='Ingrese su Email&hellip;')? '' : this.value ;" />
-                            <input type="submit" name="news_go" id="news_go" value="IR" />
+                            <a href='<%= PaginasConocidas.NEWSLETTER%>'>
+                                <input type="button" name="news_go" id="news_go" value="IR" />
+                            </a>
                         </fieldset>
                     </div>
                     <%--</form>--%>
                     <p>
-                        <a href="#">
+                        <a href='<%= PaginasConocidas.NEWSLETTER%>'>
                             <asp:Label ID="removerSuscripcion_79" Text="remover suscripcion" runat="server" />
                             &raquo;</a>
                     </p>
@@ -300,8 +309,11 @@
                     <h2>
                         <asp:Label ID="inscripcionAbajo_57" Text="inscripcion" runat="server" /></h2>
                     <ul>
-                        <li><a href="#">Inscribase</a></li>
-                        <li><a href="#">Becas</a></li>
+                        <li>
+                            <a href='<%= PaginasConocidas.CATALOGO%>'>
+                                <asp:Label ID="cata_55" Text="buscar" runat="server" />
+                            </a>
+                        </li>
                         <li class="last">
                             <a href='<%= PaginasConocidas.CONTACTO %>'>Contacte un representante
                             </a>
@@ -312,11 +324,14 @@
                     <h2>
                         <asp:Label ID="medioAmbiente_81" Text="medio ambiente" runat="server" /></h2>
                     <ul>
-                        <li><a href="#">Vea como ayudar</a></li>
                         <li><a href="#">
                             <asp:Literal ID="estadisticas_99" Text="estadisticas" runat="server" />
                         </a></li>
-                        <li><a href="#">Programa verde</a></li>
+                        <li>
+                            <a href='<%= PaginasConocidas.ENCUESTAS%>'>
+                                <asp:Label ID="enc_52" Text="encuestas" runat="server" />
+                            </a>
+                        </li>
                         <li class="last"><a href="#">Sitios afiliados</a></li>
                     </ul>
                 </div>
@@ -324,9 +339,12 @@
                     <h2>
                         <asp:Label ID="formaspago_59" Text="formas de pago" runat="server" /></h2>
                     <ul>
-                        <li><a href="#">Promociones</a></li>
                         <li><a href="#">Financiacion</a></li>
-                        <li class="last"><a href="#">Consulte por cantidad</a></li>
+                        <li class="last">
+                            <a href='<%= PaginasConocidas.FAQ%>'>
+                                <asp:Label ID="ffaaqq_49" Text="faq" runat="server" />
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <br class="clear" />

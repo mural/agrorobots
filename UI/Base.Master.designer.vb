@@ -221,22 +221,22 @@ Partial Public Class Base
     Protected WithEvents asistencia_56 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''inscripcion_57 control.
+    '''stats_99 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents inscripcion_57 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents stats_99 As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
-    '''empresas_58 control.
+    '''sites control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents empresas_58 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents sites As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
     '''formasdepago_59 control.
@@ -320,6 +320,15 @@ Partial Public Class Base
     Protected WithEvents inscripcionAbajo_57 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''cata_55 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cata_55 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''medioAmbiente_81 control.
     '''</summary>
     '''<remarks>
@@ -338,6 +347,15 @@ Partial Public Class Base
     Protected WithEvents estadisticas_99 As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
+    '''enc_52 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents enc_52 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''formaspago_59 control.
     '''</summary>
     '''<remarks>
@@ -345,6 +363,15 @@ Partial Public Class Base
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents formaspago_59 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ffaaqq_49 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ffaaqq_49 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''derechosReservados_75 control.
