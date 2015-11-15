@@ -48,10 +48,8 @@
                     <div class="featured_box" id="fc1">
                         <img src="../Imagenes/1.jpg" alt="" />
                         <div class="floater">
-                            <a href="#">
-                                <a href='<%= PaginasConocidas.CATALOGO %>'>
-                                    <asp:Label ID="masinfo0_82" runat="server" Text="mas info" />
-                                </a>
+                            <a href='<%= PaginasConocidas.CATALOGO %>'>
+                                <asp:Label ID="masinfo0_82" runat="server" Text="mas info" />
                                 &raquo;
                             </a>
                         </div>
@@ -59,7 +57,7 @@
                     <div class="featured_box" id="fc2">
                         <img src="../Imagenes/2.png" alt="" />
                         <div class="floater">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.CATALOGO %>'>
                                 <asp:Label ID="masinfo1_82" runat="server" Text="mas info" />
                                 &raquo;</a>
                         </div>
@@ -67,7 +65,7 @@
                     <div class="featured_box" id="fc3">
                         <img src="../Imagenes/3.jpg" alt="" />
                         <div class="floater">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.CATALOGO %>'>
                                 <asp:Label ID="masinfo2_82" runat="server" Text="mas info" />
                                 &raquo;</a>
                         </div>
@@ -75,7 +73,7 @@
                     <div class="featured_box" id="fc4">
                         <img src="../Imagenes/4.png" alt="" />
                         <div class="floater">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.CATALOGO %>'>
                                 <asp:Label ID="masinfo3_82" runat="server" Text="mas info" />
                                 &raquo;</a>
                         </div>
@@ -94,14 +92,14 @@
                             <asp:Literal ID="etapas_91" runat="server" Text="etapas de la hidroponia" />
                         </h2>
                         <div class="imgholder">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_1%>'>
                                 <img src="../Imagenes/home_1_200x140.jpg" alt="" /></a>
                         </div>
                         <p>
                             <asp:Label ID="etapasDetalle_95" runat="server" Text="Aprenda las distintas etapas de un cultivo" />
                         </p>
                         <p class="readmore">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_1%>'>
                                 <asp:Label ID="masinfo4_82" runat="server" Text="mas info" />
                                 &raquo;
                             </a>
@@ -112,14 +110,14 @@
                             <asp:Literal ID="aprenda_92" runat="server" Text="aprenda desde su casa" />
                         </h2>
                         <div class="imgholder">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_2%>'>
                                 <img src="../Imagenes/home_2_200x140.png" alt="" /></a>
                         </div>
                         <p>
                             <asp:Label ID="aprendaDetalle_96" runat="server" Text="Los cursos que ofrecemos son en modalidad online" />
                         </p>
                         <p class="readmore">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_2%>'>
                                 <asp:Label ID="masinfo5_82" runat="server" Text="mas info" />
                                 &raquo;
                             </a>
@@ -166,14 +164,14 @@
                             <asp:Literal ID="ventajas_94" runat="server" Text="ventajas de la hidroponia" />
                         </h2>
                         <div class="imgholder">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_3%>'>
                                 <img src="../Imagenes/home_4_200x140.jpg" alt="" /></a>
                         </div>
                         <p>
                             <asp:Label ID="ventajasDetalle_98" runat="server" Text="Descubra las ventajas de los cultivos hidroponicos en detalle" />
                         </p>
                         <p class="readmore">
-                            <a href="#">
+                            <a href='<%= PaginasConocidas.NOTA_3%>'>
                                 <asp:Label ID="masinfo7_82" runat="server" Text="mas info" />
                                 &raquo;
                             </a>

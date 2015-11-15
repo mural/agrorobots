@@ -176,15 +176,6 @@ Partial Public Class Base
     Protected WithEvents encuestas_52 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''faq_49 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents faq_49 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''catalogo_55 control.
     '''</summary>
     '''<remarks>
@@ -221,13 +212,13 @@ Partial Public Class Base
     Protected WithEvents asistencia_56 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''stats_99 control.
+    '''faq_49 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents stats_99 As Global.System.Web.UI.WebControls.Literal
+    Protected WithEvents faq_49 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''sites control.
@@ -336,15 +327,6 @@ Partial Public Class Base
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents medioAmbiente_81 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''estadisticas_99 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents estadisticas_99 As Global.System.Web.UI.WebControls.Literal
 
     '''<summary>
     '''enc_52 control.

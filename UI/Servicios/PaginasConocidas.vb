@@ -23,6 +23,12 @@
     Public Shared ReadOnly FAQ As String = DIR_FRONT + "FAQ" + ASPX
     Public Shared ReadOnly ENCUESTAS As String = DIR_FRONT + "Encuestas" + ASPX
 
+    Public Shared ReadOnly SITIOS_AFILIADOS As String = DIR_FRONT + "SitiosAfiliados" + ASPX
+    Public Shared ReadOnly FORMAS_DE_PAGO As String = DIR_FRONT + "FormasDePago" + ASPX
+    Public Shared ReadOnly NOTA_1 As String = DIR_FRONT + "Notas1" + ASPX
+    Public Shared ReadOnly NOTA_2 As String = DIR_FRONT + "Notas2" + ASPX
+    Public Shared ReadOnly NOTA_3 As String = DIR_FRONT + "Notas3" + ASPX
+
     'Catalogo
     Public Shared ReadOnly CATALOGO As String = DIR_PAGES + "Carreras" + ASPX
     Public Shared ReadOnly CATALOGO_DETALLE As String = DIR_PAGES + "CarrerasDetalle" + ASPX

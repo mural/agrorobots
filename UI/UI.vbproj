@@ -154,11 +154,16 @@
     <Content Include="Front\Contacto.aspx" />
     <Content Include="Front\Encuestas.aspx" />
     <Content Include="Front\FAQ.aspx" />
+    <Content Include="Front\FormasDePago.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
     <Content Include="Front\Newsletter.aspx" />
+    <Content Include="Front\Notas1.aspx" />
+    <Content Include="Front\Notas2.aspx" />
+    <Content Include="Front\Notas3.aspx" />
     <Content Include="Front\Novedades.aspx" />
     <Content Include="Front\Politicas.aspx" />
+    <Content Include="Front\SitiosAfiliados.aspx" />
     <Content Include="Front\Terminos.aspx" />
     <Content Include="Imagenes\1.gif" />
     <Content Include="Imagenes\1.jpg" />
@@ -448,6 +453,13 @@
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Front\FormasDePago.aspx.designer.vb">
+      <DependentUpon>FormasDePago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\FormasDePago.aspx.vb">
+      <DependentUpon>FormasDePago.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Front\Home.aspx.designer.vb">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
@@ -469,6 +481,27 @@
       <DependentUpon>Newsletter.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Front\Notas1.aspx.designer.vb">
+      <DependentUpon>Notas1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Notas1.aspx.vb">
+      <DependentUpon>Notas1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Notas2.aspx.designer.vb">
+      <DependentUpon>Notas2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Notas2.aspx.vb">
+      <DependentUpon>Notas2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\Notas3.aspx.designer.vb">
+      <DependentUpon>Notas3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\Notas3.aspx.vb">
+      <DependentUpon>Notas3.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Front\Novedades.aspx.designer.vb">
       <DependentUpon>Novedades.aspx</DependentUpon>
     </Compile>
@@ -481,6 +514,13 @@
     </Compile>
     <Compile Include="Front\Politicas.aspx.vb">
       <DependentUpon>Politicas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\SitiosAfiliados.aspx.designer.vb">
+      <DependentUpon>SitiosAfiliados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\SitiosAfiliados.aspx.vb">
+      <DependentUpon>SitiosAfiliados.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Front\Terminos.aspx.designer.vb">

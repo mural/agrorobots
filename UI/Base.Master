@@ -211,14 +211,9 @@
                                     <asp:Label ID="newsletter_42" Text="newsletter" runat="server" />
                                 </a>
                             </li>
-                            <li>
+                            <li class="last">
                                 <a href='<%= PaginasConocidas.ENCUESTAS%>'>
                                     <asp:Label ID="encuestas_52" Text="encuestas" runat="server" />
-                                </a>
-                            </li>
-                            <li class="last">
-                                <a href='<%= PaginasConocidas.FAQ%>'>
-                                    <asp:Label ID="faq_49" Text="faq" runat="server" />
                                 </a>
                             </li>
                         </ul>
@@ -242,16 +237,17 @@
                         <a href="Home.aspx">
                             <asp:Label ID="asistencia_56" Text="buscar" runat="server" /></a>
                         <ul>
-                            <li><a href="#">
-                                <asp:Literal ID="stats_99" Text="estadisticas" runat="server" />
-                            </a>
+                            <li>
+                                <a href='<%= PaginasConocidas.FAQ%>'>
+                                    <asp:Label ID="faq_49" Text="faq" runat="server" />
+                                </a>
                             </li>
-                            <li><a href="#">
-                                <asp:Literal ID="sites" Text="sitios afiliados" runat="server" />
+                            <li><a href='<%= PaginasConocidas.SITIOS_AFILIADOS%>'>
+                                <asp:Literal ID="sites_189" Text="sitios afiliados" runat="server" />
                             </a>
                             </li>
                             <li class="last">
-                                <a href="#">
+                                <a href='<%= PaginasConocidas.FORMAS_DE_PAGO%>'>
                                     <asp:Label ID="formasdepago_59" Text="formas de pago" runat="server" />
                                 </a>
                             </li>
@@ -324,22 +320,27 @@
                     <h2>
                         <asp:Label ID="medioAmbiente_81" Text="medio ambiente" runat="server" /></h2>
                     <ul>
-                        <li><a href="#">
-                            <asp:Literal ID="estadisticas_99" Text="estadisticas" runat="server" />
-                        </a></li>
                         <li>
                             <a href='<%= PaginasConocidas.ENCUESTAS%>'>
                                 <asp:Label ID="enc_52" Text="encuestas" runat="server" />
                             </a>
                         </li>
-                        <li class="last"><a href="#">Sitios afiliados</a></li>
+                        <li class="last">
+                            <a href='<%= PaginasConocidas.SITIOS_AFILIADOS%>'>
+                                <asp:Literal ID="sitiosa_189" Text="sitios afiliados" runat="server" />
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footbox">
                     <h2>
                         <asp:Label ID="formaspago_59" Text="formas de pago" runat="server" /></h2>
                     <ul>
-                        <li><a href="#">Financiacion</a></li>
+                        <li>
+                            <a href='<%= PaginasConocidas.FORMAS_DE_PAGO%>'>
+                                <asp:Literal ID="finan_190" Text="financ." runat="server" />
+                            </a>
+                        </li>
                         <li class="last">
                             <a href='<%= PaginasConocidas.FAQ%>'>
                                 <asp:Label ID="ffaaqq_49" Text="faq" runat="server" />
