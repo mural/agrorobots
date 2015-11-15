@@ -61,6 +61,9 @@ Public Class CtaCteUsuario_Mapper
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As CtaCteItemUsuario, Optional ByVal insertar As Boolean = False) As Boolean
+        If Not insertar Then
+            Me.Transaccion = AccionTransaccion.Unica
+        End If
         Return Actualizar(obj, "CtaCteUsuarioActualizar")
     End Function
 
@@ -99,13 +102,17 @@ Public Class CtaCteUsuario_Mapper
 
     Public Function ListarPorUsuario(ByVal idUsuario As String) As List(Of CtaCteItemUsuario)
         Dim cuentas = Listar("CtaCteUsuarioListarPorUsuario", "IdUsuario", idUsuario)
-        For Each cuenta In cuentas
-            If cuenta.Tipo = 1 Then
-                cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante
-            Else
-                cuenta.Comprobante = comprobanteNota_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante Nota
-            End If
-        Next
+        Try
+            For Each cuenta In cuentas
+                If cuenta.Tipo = 1 Then
+                    cuenta.Comprobante = comprobante_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante
+                Else
+                    cuenta.Comprobante = comprobanteNota_Mapper.Obtener(cuenta.IdComprobante) 'Comprobante Nota
+                End If
+            Next
+        Catch ex As Exception
+            ex.ToString()
+        End Try
         Return cuentas
     End Function
 

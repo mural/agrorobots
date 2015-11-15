@@ -20,7 +20,7 @@ Public Class ResultadosFichas
     Private Sub CargarEncuesta()
         encuestasPanel.Controls.Clear()
 
-        For Each fichaBase In fichaBaseBusiness.ListarFichas
+        For Each fichaBase In fichaBaseBusiness.ListarFichas(False)
 
             Dim descripcionInicio = New LiteralControl()
             descripcionInicio.Text = ""

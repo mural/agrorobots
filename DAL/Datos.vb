@@ -51,12 +51,15 @@ Public Class Datos
     Public Function Escribir(ByVal consulta As String, ByVal hdatos As Hashtable,
                              Optional ByVal iniciarTx As Boolean = True,
                              Optional ByVal confirmarTx As Boolean = True) As Boolean
-
-        If Cnn.State = ConnectionState.Closed Then
-            Cnn.Open()
-        End If
-
         Try
+            'If iniciarTx And confirmarTx Then
+            '    Cnn.Close()
+            'End If
+
+            If Cnn.State = ConnectionState.Closed Then
+                Cnn.Open()
+            End If
+
             If iniciarTx Then
                 Tranx = Cnn.BeginTransaction
             End If

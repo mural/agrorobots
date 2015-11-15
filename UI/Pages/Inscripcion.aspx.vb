@@ -24,8 +24,13 @@ Public Class Inscripcion
         If carritoSesion Is Nothing Then
             Response.Redirect(PaginasConocidas.HOME)
         End If
+
         notaCreditoEstado.Text = ""
-        comboNotasCredito.Enabled = False
+        notaCreditoAccion = Session("notaCreditoAccion")
+        If notaCreditoAccion Is Nothing Then
+            notaCreditoAccion = ""
+        End If
+
         For Each elemento In carritoSesion
             precioTotal += elemento.Precio
         Next
@@ -53,7 +58,7 @@ Public Class Inscripcion
 
             'combo notas de credito
             comboNotasCredito.Items.Clear()
-            For Each notaCredito In comprobanteNotaBusiness.ListarNotasDeCreditoPorUsuario(usuario.ID)
+            For Each notaCredito In comprobanteNotaBusiness.ListarNotasDeCreditoNoSaldadasPorUsuario(usuario.ID)
                 comboNotasCredito.Items.Add(New ListItem(Helper.StripTags(notaCredito.Motivo) + ": $" + CStr((notaCredito.Subtotal + notaCredito.IVA)), notaCredito.ID))
             Next
         End If
@@ -107,7 +112,7 @@ Public Class Inscripcion
                 Dim estado = "PAGO" 'tarjeta o nota de credito
                 If formaDePagoList.SelectedValue.Equals("Efectivo") Then
                     estado = "NO_PAGO"
-                Else
+                ElseIf formaDePagoList.SelectedValue.Equals("Tarjeta") Or notaCreditoAccion.Equals("NO_ALCANZA") Then
                     'tarjeta
                     Dim tarjeta As New Tarjeta
                     tarjeta.IdUsuario = usuario.ID
@@ -160,6 +165,34 @@ Public Class Inscripcion
                 If ctaCteUsuarioBusiness.Crear(ctacteItemUsuario) Then
                     MensajeOk(lblMensajes)
 
+                    If formaDePagoList.SelectedValue.Equals("NotaCredito") Then
+                        If notaCreditoAccion.Equals("SOBRA") Then
+                            'actualizo el valor de la nota de credito
+                            Dim comprobanteNotaCredito = comprobanteNotaBusiness.Obtener(comboNotasCredito.SelectedValue)
+                            comprobanteNotaCredito.Motivo = comprobanteNotaCredito.Motivo + " (-)"
+
+                            Dim nuevoTotal = comprobanteNotaCredito.Subtotal + comprobanteNotaCredito.IVA - precioTotal
+
+                            Dim comprobanteDetalle1 As New ComprobanteNotaDetalle
+                            comprobanteDetalle1.IdComprobanteNota = comprobanteNotaCredito.ID
+                            comprobanteDetalle1.CodigoProducto = 0
+                            comprobanteDetalle1.Detalle = "Descuento pago"
+                            comprobanteDetalle1.Cantidad = 1 'a un solo curso por vez
+                            comprobanteDetalle1.PrecioUnitario = -(precioTotal / 1.21) 'total menos IVA
+                            comprobanteDetalle1.Subtotal = -(precioTotal / 1.21) 'total menos IVA
+                            comprobanteNotaCredito.Items.Add(comprobanteDetalle1)
+
+                            comprobanteNotaCredito.Subtotal = nuevoTotal / 1.21 'total menos IVA
+                            comprobanteNotaCredito.IVA = comprobanteNotaCredito.Subtotal * 0.20999999999999999
+                            comprobanteNotaBusiness.Actualizar(comprobanteNotaCredito)
+                        ElseIf notaCreditoAccion.Equals("JUSTO") Then
+                            'actualizo el estado de la nota de credito en la cuenta corriente
+                            Dim cuentaCte = ctaCteUsuarioBusiness.ObtenerPorUsuarioYComprobante(usuario.ID, comboNotasCredito.SelectedValue)
+                            cuentaCte.Estado = "SALDADA"
+                            ctaCteUsuarioBusiness.Actualizar(cuentaCte)
+                        End If
+                    End If
+
                     'vaciar carrito
                     Dim nuevoCarrito As New List(Of ElementoAcademico)
                     Session("carrito") = nuevoCarrito
@@ -171,9 +204,11 @@ Public Class Inscripcion
 
             Else 'tarjeta NO valida 
                 MensajeError(lblMensajes, "Tarjeta no valida")
+                formaDePagoList.SelectedIndex = 1 'tarjeta
             End If
         Catch ex As Exception
             MensajeError(lblMensajes)
+            formaDePagoList.SelectedIndex = 1 'tarjeta
         End Try
     End Sub
 
@@ -203,9 +238,10 @@ Public Class Inscripcion
                 notaCreditoEstado.Text = "Alcanza justo para pagar."
                 notaCreditoAccion = "JUSTO"
             ElseIf valorNota < precioTotal Then 'no alcanza para pagar
-                notaCreditoEstado.Text = "No alcanza para pagar, complete los datos de la tarjeta de credito por el monto faltante."
+                notaCreditoEstado.Text = "No alcanza para pagar, complete los datos de la tarjeta de credito por el monto faltante de $" + CStr(precioTotal - valorNota)
                 notaCreditoAccion = "NO_ALCANZA"
             End If
+            Session("notaCreditoAccion") = notaCreditoAccion
         Else
             notaCreditoEstado.Text = "No dispone de una Nota de Credito para utilizar."
         End If

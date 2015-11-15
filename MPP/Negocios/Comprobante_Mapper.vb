@@ -61,12 +61,16 @@ Public Class Comprobante_Mapper
 
     Public Overrides Function Obtener(ByVal idComprobante As Integer) As Comprobante
         Dim comprobante As Comprobante = Obtener(idComprobante, "ComprobanteObtener")
-        For Each comprobanteDetalle In comprobanteDetalleMapper.Listar
-            If comprobanteDetalle.IdComprobante = idComprobante Then
-                comprobante.Items.Add(comprobanteDetalle)
-            End If
-        Next
-        comprobante.Usuario = usuarioMapper.ConsultarPorId(comprobante.IdUsuario)
+        Try
+            For Each comprobanteDetalle In comprobanteDetalleMapper.Listar
+                If comprobanteDetalle.IdComprobante = idComprobante Then
+                    comprobante.Items.Add(comprobanteDetalle)
+                End If
+            Next
+            comprobante.Usuario = usuarioMapper.ConsultarPorId(comprobante.IdUsuario)
+        Catch ex As Exception
+            ex.ToString()
+        End Try
         Return comprobante
     End Function
 

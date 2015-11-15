@@ -34,7 +34,7 @@ Public Class Satisfaccion
         Dim resultados As New List(Of SatisfaccionResultado)
         resultados.Add(New SatisfaccionResultado With {.Periodo = "2015"})
 
-        For Each fichaBase In fichaBaseBusiness.ListarFichas
+        For Each fichaBase In fichaBaseBusiness.ListarFichas(False)
             For Each fichaPregunta In fichaEncuestaRespuestaBusiness.Listar
                 Dim respuesta As Integer
                 If Integer.TryParse(fichaPregunta.Respuesta, respuesta) Then
@@ -96,7 +96,7 @@ Public Class Satisfaccion
         resultados.Add(New SatisfaccionResultado With {.Periodo = "Noviembre"})
         resultados.Add(New SatisfaccionResultado With {.Periodo = "Diciembre"})
 
-        For Each fichaBase In fichaBaseBusiness.ListarFichas
+        For Each fichaBase In fichaBaseBusiness.ListarFichas(False)
             For Each fichaPregunta In fichaEncuestaRespuestaBusiness.Listar
                 Dim respuesta As Integer
                 If Integer.TryParse(fichaPregunta.Respuesta, respuesta) Then

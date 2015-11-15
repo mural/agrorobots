@@ -10,8 +10,17 @@ Public Class CtaCteUsuario_Business
         Me.mapperGenerico = New CtaCteUsuario_Mapper
     End Sub
 
-    Function ListarPorUsuario(idUsuario As Integer) As Object
+    Function ListarPorUsuario(idUsuario As Integer) As List(Of CtaCteItemUsuario)
         Return mapperPropio.ListarPorUsuario(idUsuario)
+    End Function
+
+    Function ObtenerPorUsuarioYComprobante(idUsuario As Integer, idComprobante As Integer) As CtaCteItemUsuario
+        For Each ctacte In ListarPorUsuario(idUsuario)
+            If ctacte.IdComprobante = idComprobante Then
+                Return ctacte
+            End If
+        Next
+        Return Nothing
     End Function
 
     Function ListarPorFacturasNoPagas() As List(Of CtaCteItemUsuario)

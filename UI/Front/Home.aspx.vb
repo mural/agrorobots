@@ -28,7 +28,7 @@ Public Class Home
         encuestaCierre.Controls.Clear()
 
         Try
-            Dim encuestas = encuestaBaseBusiness.ListarEncuestas
+            Dim encuestas = encuestaBaseBusiness.ListarEncuestas(True)
             Dim cantidad = encuestas.Count
             Dim random As New Random
             Dim numeroAzar = random.Next(cantidad)

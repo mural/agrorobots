@@ -21,6 +21,25 @@ Public Class ComprobanteNota_Mapper
     End Sub
 
     Public Overrides Function Actualizar(ByRef obj As ComprobanteNota, Optional ByVal insertar As Boolean = False) As Boolean
+        If Not insertar Then
+            Me.Transaccion = AccionTransaccion.Unica
+        End If
+        For Each detalle As ComprobanteNotaDetalle In obj.Items
+            Try
+                'buscar si no existe 
+                Dim existe = False
+                For Each detalleDB In comprobanteNotaDetalleMapper.Listar
+                    If detalleDB.IdComprobanteNota = detalle.IdComprobanteNota And detalleDB.CodigoProducto = detalle.CodigoProducto Then
+                        existe = True
+                    End If
+                Next
+                If Not existe Then
+                    comprobanteNotaDetalleMapper.Insertar(detalle)
+                End If
+            Catch ex As Exception
+                ex.ToString()
+            End Try
+        Next
         Return Actualizar(obj, "ComprobanteNotaActualizar")
     End Function
 
@@ -37,12 +56,16 @@ Public Class ComprobanteNota_Mapper
 
     Public Overrides Function Obtener(ByVal idComprobante As Integer) As ComprobanteNota
         Dim comprobanteNota As ComprobanteNota = Obtener(idComprobante, "ComprobanteNotaObtener")
-        For Each comprobanteNotaDetalle In comprobanteNotaDetalleMapper.Listar
-            If comprobanteNotaDetalle.IdComprobanteNota = idComprobante Then
-                comprobanteNota.Items.Add(comprobanteNotaDetalle)
-            End If
-        Next
-        comprobanteNota.Usuario = usuarioMapper.ConsultarPorId(comprobanteNota.IdUsuario)
+        Try
+            For Each comprobanteNotaDetalle In comprobanteNotaDetalleMapper.Listar
+                If comprobanteNotaDetalle.IdComprobanteNota = idComprobante Then
+                    comprobanteNota.Items.Add(comprobanteNotaDetalle)
+                End If
+            Next
+            comprobanteNota.Usuario = usuarioMapper.ConsultarPorId(comprobanteNota.IdUsuario)
+        Catch ex As Exception
+            ex.ToString()
+        End Try
         Return comprobanteNota
     End Function
 

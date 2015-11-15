@@ -19,7 +19,7 @@ Public Class ResultadosEncuestas
     Private Sub CargarEncuesta()
         encuestasPanel.Controls.Clear()
 
-        For Each encuestaBase In encuestaBaseBusiness.ListarEncuestas
+        For Each encuestaBase In encuestaBaseBusiness.ListarEncuestas(False)
 
             Dim descripcionInicio = New LiteralControl()
             descripcionInicio.Text = ""

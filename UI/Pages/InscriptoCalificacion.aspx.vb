@@ -20,7 +20,7 @@ Public Class InscriptoCalificacion
 
     Private Sub CargarFicha()
         Try
-            Dim fichas = fichaBaseBusiness.ListarFichas
+            Dim fichas = fichaBaseBusiness.ListarFichas(True)
             Dim cantidad = fichas.Count
             Dim random As New Random
             Dim numeroAzar = random.Next(cantidad)
