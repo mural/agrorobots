@@ -173,7 +173,7 @@ Public Class ElementoAcademico_Business
     Public Function ActualizarPresentismo(ByRef alumno As Usuario, ByRef materialDeEstudio As MaterialDeEstudio) As Boolean
         Dim alumnoMaterialBuscado = Nothing
         For Each alumnoMaterial In alumnoMaterialDeEstudioMapper.Listar
-            If alumnoMaterial.IdMaterialDeEstudio = materialDeEstudio.ID Then
+            If alumnoMaterial.IdMaterialDeEstudio = materialDeEstudio.ID And alumnoMaterial.IdAlumno = alumno.ID Then
                 alumnoMaterialBuscado = alumnoMaterial
                 Exit For
             End If

@@ -30,4 +30,13 @@ Partial Public Class Streaming
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblTitulo_182 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''iStreaming control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents iStreaming As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

@@ -15,6 +15,8 @@
         <asp:Label ID="lblTitulo_182" runat="server" Text="titulo"></asp:Label>
     </h2>
     <br />
-
+    <br />
+    <iframe id="iStreaming" width="640" height="360" frameborder="0" allowfullscreen runat="server" ></iframe>
+    <br />
     <br />
 </asp:Content>

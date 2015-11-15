@@ -51,7 +51,7 @@
             </Columns>
         </asp:GridView>
         <asp:Panel ID="panelComentario" runat="server" Visible="True">
-            <asp:TextBox ID="comentario" runat="server"></asp:TextBox>
+            <asp:TextBox ID="comentario" runat="server" MaxLength="50"></asp:TextBox>
             &nbsp;
                 <asp:Button ID="Comentar_135" runat="server" Text="enviar" />
         </asp:Panel>

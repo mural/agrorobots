@@ -49,7 +49,7 @@
     <script>
         var playerInstance = jwplayer("myElement");
         playerInstance.setup({
-            file: "https://youtu.be/T03mK6Y9w5o",
+            file: "https://www.youtube.com/watch?v=X8Be4YiO35A",
             image: "/assets/myVideo.jpg",
             height: 360,
             width: 640

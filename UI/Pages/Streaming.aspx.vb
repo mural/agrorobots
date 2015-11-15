@@ -25,7 +25,10 @@ Public Class Streaming
     End Sub
 
     Private Sub CargarStreaming()
-        Interaction.MsgBox("Streaming!", MsgBoxStyle.Information)
+        'Interaction.MsgBox("Streaming!", MsgBoxStyle.Information)
+        iStreaming.Attributes.Remove("src")
+        Dim link = ConfigurationManager.AppSettings.Get("linkStreaming").ToString
+        iStreaming.Attributes.Add("src", link)
     End Sub
 
 End Class
