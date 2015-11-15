@@ -64,7 +64,7 @@ Public Class AbmElementoAcademico
                     lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                     lblMensajes.CssClass = "formError"
                 End If
-                If valido Then
+                If valido And Page.IsValid Then
                     elementoAcademico.Nombre = Nombre
                     elementoAcademico.Contenido = Contenido
                     If Not imgByte Is Nothing Then
@@ -127,7 +127,7 @@ Public Class AbmElementoAcademico
                 lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                 lblMensajes.CssClass = "formError"
             End If
-            If valido Then
+            If valido And Page.IsValid Then
                 Dim elementoAcademico As New ElementoAcademico
                 elementoAcademico.CodigoAcademico = 0
                 elementoAcademico.Nombre = nombre
@@ -179,6 +179,15 @@ Public Class AbmElementoAcademico
         Me.txtFechaInicio.Value = ""
         'imagen
         Session("elementoSeleccionado") = Nothing
+    End Sub
+
+    Protected Sub validadorSize_ServerValidate(source As Object, args As ServerValidateEventArgs)
+        Dim filesize As Double = imgUpload.FileContent.Length
+        If filesize > 50000000 Then
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
     End Sub
 
 End Class

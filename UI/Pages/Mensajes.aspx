@@ -10,9 +10,9 @@
         <asp:DropDownList ID="comboUsuarios" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         &nbsp;
-        <asp:Label ID="emailNoUsuario" runat="server" Text="email" Visible="false" ></asp:Label>
+        <asp:Label ID="emailNoUsuario" runat="server" Text="email" Visible="false"></asp:Label>
         <br />
-        <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3"
+        <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3" MaxLength="50"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -71,10 +71,12 @@
 
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkBorrar_13" runat="server"
+                        <asp:LinkButton ID="lnkBorrar" runat="server"
                             CommandArgument='<%# Eval("ID")%>'
                             OnClientClick="return confirm(mensajeBorrar)"
-                            Text="borrar" OnClick="Delete" CssClass="tablaDatosAction"></asp:LinkButton>
+                            Text="" OnClick="Delete" CssClass="tablaDatosAction">
+                        <img src="/Imagenes/borrar.png" alt="x" />
+                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 

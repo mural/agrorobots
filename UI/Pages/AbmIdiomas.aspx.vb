@@ -90,7 +90,9 @@ Public Class AbmIdiomas
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        idioma_Business.BorrarIdioma(lnkRemove.CommandArgument)
+        If Not lnkRemove.CommandArgument = 1 Then 'espanol no se puede borrar!
+            idioma_Business.BorrarIdioma(lnkRemove.CommandArgument)
+        End If
 
         GridView1_.EditIndex = -1
         CargarIdiomas()

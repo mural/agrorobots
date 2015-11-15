@@ -66,7 +66,7 @@ Public Class AbmFichas
                     lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                     lblMensajes.CssClass = "formError"
                 End If
-                If valido Then
+                If valido And Page.IsValid Then
                     fichaBase.Descripcion = descripcion
                     fichaBase.Activa = Me.cbxActivo.Checked
                     If Not imgByte Is Nothing Then
@@ -127,7 +127,7 @@ Public Class AbmFichas
                 lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                 lblMensajes.CssClass = "formError"
             End If
-            If valido Then
+            If valido And Page.IsValid Then
                 Dim fichaBaseNueva As New FichaEncuestaBase
                 fichaBaseNueva.ID = 0
                 fichaBaseNueva.Descripcion = descripcion
@@ -257,5 +257,14 @@ Public Class AbmFichas
 
         GridViewPreguntas.EditIndex = -1
         CargarPreguntas()
+    End Sub
+
+    Protected Sub validadorSize_ServerValidate(source As Object, args As ServerValidateEventArgs)
+        Dim filesize As Double = imgUpload.FileContent.Length
+        If filesize > 50000000 Then
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
     End Sub
 End Class

@@ -60,6 +60,8 @@
         &nbsp;<asp:CompareValidator ID="vldPasswordMatch" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="CompareValidator" CssClass="formError" EnableClientScript="False"></asp:CompareValidator>
         <br />
         <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2_90048" runat="server" ErrorMessage="*" ControlToValidate="imgUpload" ValidationExpression="(.*).(.jpg|.JPG|.png|.PNG|.gif|.GIF)$" EnableClientScript="false" Display="Dynamic" CssClass="formError"></asp:RegularExpressionValidator>
+        <asp:CustomValidator ID="validadorSize_90048" runat="server" ErrorMessage="*" EnableClientScript="false" Display="Dynamic" CssClass="formError" ControlToValidate="imgUpload" OnServerValidate="validadorSize_ServerValidate"></asp:CustomValidator>
         <br />
         <label for="emailNuevo" class="youmail" data-icon="e"></label>
         <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>

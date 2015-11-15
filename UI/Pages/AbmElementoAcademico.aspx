@@ -42,6 +42,8 @@
     <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
     <br />
     <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2_90048" runat="server" ErrorMessage="*" ControlToValidate="imgUpload" ValidationExpression="(.*).(.jpg|.JPG|.png|.PNG|.gif|.GIF)$" EnableClientScript="false" Display="Dynamic" CssClass="formError"></asp:RegularExpressionValidator>
+    <asp:CustomValidator ID="validadorSize_90048" runat="server" ErrorMessage="*" EnableClientScript="false" Display="Dynamic" CssClass="formError" ControlToValidate="imgUpload" OnServerValidate="validadorSize_ServerValidate"></asp:CustomValidator>
     <br />
     <br />
     <asp:DropDownList ID="comboEstados" runat="server" AutoPostBack="False">

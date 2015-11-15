@@ -163,7 +163,11 @@ Public Class AbmPermisos
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        familia_Business.Baja(lnkRemove.CommandArgument)
+        Dim ID As Integer = lnkRemove.CommandArgument
+        If Not ID = 41 Or Not ID = 88 Or Not ID = 94 Or Not ID = 95 Or Not ID = 96 Then 'admin, profesor, alumno, empleado y director no se pueden borrar!
+            familia_Business.Baja(ID)
+        End If
+
         Session.Item("familiaSeleccionada") = 0
 
         GridView1_.EditIndex = -1

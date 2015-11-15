@@ -176,7 +176,10 @@ Public Class AbmUsuario
 
         Dim borrarUsuario = New Usuario()
         borrarUsuario.ID = lnkRemove.CommandArgument
-        usuario_Business.Baja(borrarUsuario)
+
+        If Not borrarUsuario.ID = 2 Then 'admin no se puede borrar!
+            usuario_Business.Baja(borrarUsuario)
+        End If
 
         Vaciar()
 
@@ -261,5 +264,14 @@ Public Class AbmUsuario
     Protected Sub limpiarNombre_36_Click(sender As Object, e As EventArgs) Handles limpiarNombre_36.Click
         Session.Item("filtroUsuariosNombre") = ""
         RecargarPagina()
+    End Sub
+
+    Protected Sub validadorSize_ServerValidate(source As Object, args As ServerValidateEventArgs)
+        Dim filesize As Double = imgUpload.FileContent.Length
+        If filesize > 50000000 Then
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
     End Sub
 End Class
