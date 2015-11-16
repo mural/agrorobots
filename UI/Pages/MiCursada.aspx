@@ -49,6 +49,13 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="nota_169">
+                    <ItemTemplate>
+                        <asp:Label ID="lblNota" runat="server"
+                            Text='<%# NotaCurso(Eval("CodigoAcademico"))%>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="material_145">
                     <ItemTemplate>
                         <asp:ImageButton ID="lnkMaterial" runat="server"

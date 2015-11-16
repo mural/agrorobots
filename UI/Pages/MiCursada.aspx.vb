@@ -7,6 +7,7 @@ Public Class MiCursada
     Dim elementoAcademicoBusiness As New ElementoAcademico_Business
     Dim ctaCteUsuarioBusiness As New CtaCteUsuario_Business
     Dim comprobanteNotaBusiness As New ComprobanteNota_Business
+    Dim examenBusiness As New Business.Examen_Business
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not (Page.IsPostBack) Then
@@ -102,5 +103,21 @@ Public Class MiCursada
 
         RecargarPagina()
     End Sub
+
+    Public Function NotaCurso(idCurso As Integer) As String
+        Dim notaAcumulada As Integer = 0
+        Dim examenesCorregidos As Integer = 0
+        For Each examenCorregido In examenBusiness.ListarPorElementoAcademicoYAlumnoRendidos(CInt(idCurso), usuario.ID)
+            If examenCorregido.Nota > 0 Then
+                notaAcumulada += examenCorregido.Nota
+                examenesCorregidos += 1
+            End If
+        Next
+        If examenesCorregidos > 0 Then
+            Dim promedio = CDec(notaAcumulada / examenesCorregidos)
+            Return promedio
+        End If
+        Return "-"
+    End Function
 
 End Class
