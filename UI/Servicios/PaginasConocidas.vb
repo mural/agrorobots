@@ -13,6 +13,7 @@
     Public Shared ReadOnly RECUPERAR_CLAVE As String = DIR_FRONT + "RecuperarClave" + ASPX
     Public Shared ReadOnly TERMINOS As String = DIR_FRONT + "Terminos" + ASPX
     Public Shared ReadOnly POLITICAS As String = DIR_FRONT + "Politicas" + ASPX
+    Public Shared ReadOnly MI_ERROR As String = DIR_FRONT + "MiError" + ASPX
 
     'Acceso comun
     Public Shared ReadOnly INSTITUCIONAL As String = DIR_FRONT + "Institucional" + ASPX

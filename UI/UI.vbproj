@@ -157,6 +157,7 @@
     <Content Include="Front\FormasDePago.aspx" />
     <Content Include="Front\Home.aspx" />
     <Content Include="Front\Institucional.aspx" />
+    <Content Include="Front\MiError.aspx" />
     <Content Include="Front\Newsletter.aspx" />
     <Content Include="Front\Notas1.aspx" />
     <Content Include="Front\Notas2.aspx" />
@@ -473,6 +474,13 @@
     <Compile Include="Front\Institucional.aspx.vb">
       <DependentUpon>Institucional.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Front\MiError.aspx.designer.vb">
+      <DependentUpon>MiError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Front\MiError.aspx.vb">
+      <DependentUpon>MiError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Front\Newsletter.aspx.designer.vb">
       <DependentUpon>Newsletter.aspx</DependentUpon>

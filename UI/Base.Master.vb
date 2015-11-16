@@ -15,8 +15,12 @@ Public Class Base
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idiomas = IdiomManager.GetIdiomManager
 
+        Try
         'Si hay un usuario cargo su idioma
-        usuario = Session.Item("user")
+            usuario = Session.Item("user")
+        Catch ex As Exception
+            ex.ToString()
+        End Try
 
         If usuario Is Nothing Then
             PanelNoLogueado.Visible = True

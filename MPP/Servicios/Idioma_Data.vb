@@ -14,7 +14,6 @@ Public Class Idioma_Data
         Try
             dt = Data.GetDataSet(cmd, "Idioma").Tables(0)
         Catch ex As Exception
-            Throw ex
         End Try
 
         Dim lstIdiom As New List(Of Idioma)
