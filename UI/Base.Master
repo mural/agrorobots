@@ -223,7 +223,7 @@
                             <asp:Label ID="catalogo_55" Text="buscar" runat="server" /></a>
                         <ul>
                             <li><a href='<%= PaginasConocidas.CATALOGO%>'>
-                                <asp:Label ID="carreras_3003" runat="server" Text="carreras"></asp:Label>
+                                <asp:Label ID="cursos_111" runat="server" Text="cursos"></asp:Label>
                             </a>
                             </li>
                             <li class="last">

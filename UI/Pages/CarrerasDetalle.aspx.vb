@@ -55,6 +55,8 @@ Public Class CarrerasDetalle
     Protected Sub inscribirse_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
         'comprobar sesion
         If UsuarioLogueado() Then
+            'valido FECHA INICIO !
+
             'hay cupo ?
             If elementoAcademico.Cupo > 0 Then
                 'ver que no este inscripto
