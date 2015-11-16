@@ -87,6 +87,8 @@ Public Class DetalleExamen
             examenCierre.Controls.Add(New LiteralControl(" " + pregunta.Pregunta + "<br/>"))
             Dim respuesta As New TextBox
             respuesta.ID = pregunta.ID
+            respuesta.Rows = 2
+            respuesta.MaxLength = 100
             examenCierre.Controls.Add(respuesta)
             respuestas.Add(respuesta)
             examenCierre.Controls.Add(New LiteralControl("<br/><br/>"))

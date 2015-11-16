@@ -44,11 +44,12 @@
     <br />
     <asp:Label ID="duracion_113" runat="server" Text="duracion"></asp:Label>
     <br />
-    <asp:TextBox ID="txtDuracion" runat="server"
-        onkeypress="return alfanumerico1(event)"
-        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
-    </asp:TextBox>
+    <asp:DropDownList ID="comboDuracion" runat="server">
+        <asp:ListItem Selected="True">20</asp:ListItem>
+        <asp:ListItem>30</asp:ListItem>
+        <asp:ListItem>40</asp:ListItem>
+        <asp:ListItem>50</asp:ListItem>
+    </asp:DropDownList>
     <br />
     <br />
     <asp:Button ID="btnEnviar_135" runat="server" EnableTheming="True" Text="enviar" />

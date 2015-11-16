@@ -34,7 +34,7 @@ Public Class ElementoAcademico_Mapper
         objNuevo.Contenido = CStr(Item("Contenido"))
         objNuevo.CriteriosAprobacion = DbStringOrNull(Item("CriteriosAprobacion"))
         objNuevo.Descripcion = DbStringOrNull(Item("Descripcion"))
-        objNuevo.Duracion = CInt(Item("Duracion"))
+        objNuevo.Duracion = DbIntegerOrNull(Item("Duracion"))
         objNuevo.FechaInicio = CDate(Item("FechaInicio"))
         objNuevo.Nombre = CStr(Item("Nombre"))
         objNuevo.Temas = DbStringOrNull(Item("Temas"))

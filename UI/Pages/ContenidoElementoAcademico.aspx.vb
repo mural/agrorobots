@@ -38,7 +38,7 @@ Public Class ContenidoElementoAcademico
 
             Dim Temas = areaTemas.InnerText
             Dim Criterios = areaCriterios.InnerText
-            Dim Duracion = txtDuracion.Text 'numeros
+            Dim Duracion = comboDuracion.SelectedValue 'numeros
 
             Try
                 Dim valido = True
@@ -94,6 +94,8 @@ Public Class ContenidoElementoAcademico
 
         Me.txtNombre.Text = elementoAcademico.Nombre
         Me.lblContenido.Text = elementoAcademico.Contenido
+        Me.areaTemas.InnerText = elementoAcademico.Temas
+        Me.areaCriterios.InnerText = elementoAcademico.CriteriosAprobacion
     End Sub
 
     Private Sub Limpiar()
@@ -101,7 +103,6 @@ Public Class ContenidoElementoAcademico
         Me.lblContenido.Text = ""
         Me.areaTemas.InnerText = ""
         Me.areaCriterios.InnerText = ""
-        Me.txtDuracion.Text = ""
         Session("elementoSeleccionado") = Nothing
     End Sub
 

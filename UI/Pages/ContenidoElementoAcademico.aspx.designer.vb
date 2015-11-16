@@ -113,13 +113,13 @@ Partial Public Class ContenidoElementoAcademico
     Protected WithEvents duracion_113 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtDuracion control.
+    '''comboDuracion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDuracion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents comboDuracion As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''btnEnviar_135 control.
