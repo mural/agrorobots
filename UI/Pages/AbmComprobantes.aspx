@@ -122,28 +122,22 @@
                 <asp:AsyncPostBackTrigger ControlID="GridViewItems" />
             </Triggers>
         </asp:UpdatePanel>
-        <asp:TextBox ID="txtDetalleItem" runat="server" MaxLength="30"
+        <asp:TextBox ID="txtDetalleItem" runat="server" MaxLength="30" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
         </asp:TextBox>
 
-        <asp:Button ID="btnAdd_5" runat="server" Text="agregar" OnClick="NuevoItem" />
+        <asp:Button ID="btnAdd_5" runat="server" Text="agregar" OnClick="NuevoItem" CssClass="w3-btn w3-khaki"/>
         <br />
     </div>
     <br />
     &nbsp;
-    <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
+    <asp:Button ID="btnCrear_32" runat="server" Text="crear" CssClass="w3-btn w3-khaki"/>
     &nbsp;
     <br />
     <br />
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
     <br />
-    <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="30"
-        onkeypress="return alfanumerico1(event)"
-        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
-    <asp:Button ID="buscar_31" runat="server" Text="buscar" />
-    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <div id="dvGrid">
         <br />

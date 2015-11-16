@@ -112,7 +112,7 @@ Public Class EdicionExamen
                 examenBaseNueva.Detalle = descripcion
                 examenBaseNueva.Activo = Me.cbxActivo.Checked
                 examenBaseNueva.Tipo = comboTipos.SelectedValue
-                examenBaseNueva.TiempoMax = 60 'una hora para todos
+                examenBaseNueva.TiempoMax = 30 'media hora para todos
                 examenBaseNueva.IdElementoAcademico = idElementoAcademico
 
                 If examenBaseBusiness.Crear(examenBaseNueva) Then

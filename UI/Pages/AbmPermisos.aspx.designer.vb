@@ -77,6 +77,15 @@ Partial Public Class AbmPermisos
     Protected WithEvents lblFamiliaSeleccionada As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''btnActualizar_405 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''UpdatePanel2 control.
     '''</summary>
     '''<remarks>
@@ -93,13 +102,4 @@ Partial Public Class AbmPermisos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''btnActualizar_405 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnActualizar_405 As Global.System.Web.UI.WebControls.Button
 End Class

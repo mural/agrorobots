@@ -27,7 +27,7 @@
             <br />
             <asp:Label ID="mensajeEnviar_700" runat="server" Text="mensajeEnviar"></asp:Label>
             <br />
-            <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3"
+            <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3" MaxLength="50" CssClass="entradaTexto"
                 onkeypress="return alfanumerico1(event)"
                 onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                 onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">

@@ -17,7 +17,9 @@
     <input type="text" id="txtFechaInicio" class="datepicker" runat="server" readonly="readonly">
     ->
     <input type="text" id="txtFechaFin" class="datepicker" runat="server" readonly="readonly">&nbsp;
-    <asp:Button ID="filtrarFechas" runat="server" Text=">" />
+    <asp:Button ID="filtrarFechas" runat="server" Text=">" CssClass="w3-btn w3-khaki"/>
+    &nbsp;&nbsp;
+    <asp:Button ID="limpiar_36" runat="server" CssClass="w3-btn w3-khaki" Text="limpiar" />
     <br />
     <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -96,7 +98,6 @@
         </asp:UpdatePanel>
     </div>
     <br />
-    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <br />
 </asp:Content>

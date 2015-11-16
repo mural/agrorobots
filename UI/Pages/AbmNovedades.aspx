@@ -44,19 +44,13 @@
     <input type="text" id="txtFechaFin" class="datepicker" runat="server" readonly="readonly">
     <br />
     <br />
-    <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
-    &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" />
+    <asp:Button ID="btnCrear_32" runat="server" Text="crear" CssClass="w3-btn w3-khaki"/>
+    &nbsp;<asp:Button ID="btnActualizar_405" runat="server" EnableTheming="True" Text="actualizar" CssClass="w3-btn w3-khaki" />
     <br />
     <br />
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
     <br />
     <br />
-    <asp:TextBox ID="txtBusqueda" runat="server"
-        onkeypress="return alfanumerico1(event)"
-        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
-    <asp:Button ID="buscar_31" runat="server" Text="buscar" />
-    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"

@@ -18,6 +18,12 @@ Public Class Streaming
             Response.Redirect(PaginasConocidas.HOME)
         End If
 
+        If My.Settings.FechaStreaming < Date.Now Then 'vivo!
+            fechaStreaming.Text = idiomas.GetTranslationById(192) + " " + idiomas.GetTranslationById(193)
+        Else
+            fechaStreaming.Text = idiomas.GetTranslationById(192) + " " + My.Settings.FechaStreaming.ToString
+        End If
+
     End Sub
 
     Protected Overrides Sub TraducirComponentesDinamicos()

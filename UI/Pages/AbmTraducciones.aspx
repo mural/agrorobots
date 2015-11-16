@@ -54,13 +54,13 @@
     </div>
     <br />
     <br />
-    <asp:TextBox ID="txtBusqueda" runat="server"
+    <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="50" CssClass="entradaTexto"
         onkeypress="return alfanumerico1(event)"
         onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
         onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
     </asp:TextBox>
-    <asp:Button ID="buscar_31" runat="server" Text="buscar" />
-    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
+    <asp:Button ID="buscar_31" runat="server" Text="buscar" CssClass="w3-btn w3-khaki"/>
+    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" CssClass="w3-btn w3-khaki"/>
     <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>

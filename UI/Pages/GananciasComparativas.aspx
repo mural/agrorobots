@@ -28,7 +28,7 @@
     </asp:DropDownList>
     <br />
     <br />
-    <asp:Button ID="comparar_51" runat="server" Text="comparacion" />
+    <asp:Button ID="comparar_51" runat="server" Text="comparacion" CssClass="w3-btn w3-khaki"/>
     <br />
     <br />
     <asp:Panel ID="encuestasPanel" runat="server" Text="inicio"></asp:Panel>

@@ -267,4 +267,5 @@ Public Class AbmFichas
             args.IsValid = True
         End If
     End Sub
+
 End Class

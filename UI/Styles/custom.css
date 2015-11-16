@@ -122,3 +122,8 @@ th a:link .tablaDatosHeader, a:visited .tablaDatosHeader {
 .combosNegros {
     color: black;
 }
+
+.entradaTexto {
+    width: 300px;
+    padding: 3px;
+}

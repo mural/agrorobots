@@ -12,13 +12,13 @@
         &nbsp;
         <asp:Label ID="emailNoUsuario" runat="server" Text="email" Visible="false"></asp:Label>
         <br />
-        <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3" MaxLength="50"
+        <asp:TextBox ID="txtMensaje_701" runat="server" Rows="3" MaxLength="50" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
         </asp:TextBox>
         *&nbsp;
-        <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" />
+        <asp:Button ID="btnEnviar_135" runat="server" Text="enviar" CssClass="w3-btn w3-khaki"/>
         <asp:RequiredFieldValidator ID="vldMensaje_701" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtMensaje_701" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
         <br />
         <br />

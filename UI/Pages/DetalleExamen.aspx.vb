@@ -17,7 +17,7 @@ Public Class DetalleExamen
     Dim examenEnCurso As Examen
 
     Public Property submit As New Button()
-    Public Shared Property TiempoSegundos As Integer = 600 '10 min
+    Public Shared Property TiempoSegundos As Integer = 1800 '30 min
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamenBase = Request.QueryString("id")
@@ -92,6 +92,7 @@ Public Class DetalleExamen
             examenCierre.Controls.Add(New LiteralControl(" " + pregunta.Pregunta + "<br/>"))
             Dim respuesta As New TextBox
             respuesta.ID = pregunta.ID
+            respuesta.Width = 300
             respuesta.Rows = 2
             respuesta.MaxLength = 100
             examenCierre.Controls.Add(respuesta)

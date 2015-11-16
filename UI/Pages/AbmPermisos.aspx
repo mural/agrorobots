@@ -102,7 +102,7 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
-                                    OnClick="AddNew" />
+                                    OnClick="AddNew" CssClass="w3-btn w3-khaki" />
                             </FooterTemplate>
                         </asp:TemplateField>
 
@@ -114,6 +114,8 @@
                     Text="Familia seleccionada: -"></asp:Label>
                 <asp:Label ID="lblFamiliaSeleccionada" runat="server"
                     Text="Familia seleccionada: -"></asp:Label>
+                &nbsp;&nbsp;
+                <asp:Button ID="btnActualizar_405" runat="server" CssClass="w3-btn w3-khaki" Text="Actualizar" />
             </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="GridView1_" />
@@ -166,7 +168,6 @@
         </asp:UpdatePanel>
     </div>
     <br />
-    <asp:Button ID="btnActualizar_405" runat="server" Text="Actualizar" />
     <br />
     <br />
 </asp:Content>

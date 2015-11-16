@@ -6,7 +6,7 @@
     </h2>
     <p>
         <asp:Label ID="lblApellido_21" runat="server" Text="apellido"></asp:Label>
-        <asp:TextBox ID="txtApellido" runat="server"
+        <asp:TextBox ID="txtApellido" runat="server" MaxLength="50" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -16,7 +16,7 @@
         <asp:CustomValidator ID="cvldApellido_21" runat="server" ControlToValidate="txtApellido" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
         <br />
         <asp:Label ID="lblNombre_22" runat="server" Text="nombre"></asp:Label>
-        <asp:TextBox ID="txtNombre" runat="server"
+        <asp:TextBox ID="txtNombre" runat="server" MaxLength="50" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -24,13 +24,14 @@
         *<asp:RequiredFieldValidator ID="vldNombre_22" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtNombre" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         <br />
         <asp:Label ID="lblUsername_23" runat="server" Text="user"></asp:Label>
-        <asp:TextBox ID="txtUsername" runat="server"
+        <asp:TextBox ID="txtUsername" runat="server" MaxLength="10" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
         </asp:TextBox>
         *<asp:RequiredFieldValidator ID="vldUser_23" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtUsername" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CustomValidator ID="cvldUser_23" runat="server" ControlToValidate="txtUsername" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
+        <br />
         <br />
         <asp:Label ID="lblActivo_19" runat="server" Text="activo"></asp:Label>
         <asp:CheckBox ID="cbxActivo" runat="server" Checked="true"></asp:CheckBox>
@@ -42,7 +43,7 @@
         <asp:ListBox ID="lstbFamilia" runat="server" Rows="5" SelectionMode="Multiple"></asp:ListBox>
         <br />
         <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
-        <asp:TextBox ID="txtPassword" runat="server"
+        <asp:TextBox ID="txtPassword" runat="server" MaxLength="10"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -51,7 +52,7 @@
         &nbsp;<asp:CustomValidator ID="cvldPass_27" runat="server" ControlToValidate="txtPassword" CssClass="formError" ErrorMessage="CustomValidator" EnableClientScript="False"></asp:CustomValidator>
         <br />
         <asp:Label ID="lblConfirmPassword_28" runat="server" Text="confirm pass"></asp:Label>
-        <asp:TextBox ID="txtConfirmPassword" runat="server"
+        <asp:TextBox ID="txtConfirmPassword" runat="server" MaxLength="10"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -59,13 +60,14 @@
         *<asp:RequiredFieldValidator ID="vldConfirmPassword_28" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtConfirmPassword" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:RequiredFieldValidator>
         &nbsp;<asp:CompareValidator ID="vldPasswordMatch" runat="server" ControlToCompare="txtPassword" ControlToValidate="txtConfirmPassword" ErrorMessage="CompareValidator" CssClass="formError" EnableClientScript="False"></asp:CompareValidator>
         <br />
+        <br />
         <asp:Label ID="imagen_2" runat="server" Text="imagen"></asp:Label>&nbsp;<asp:FileUpload ID="imgUpload" runat="server" />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2_90048" runat="server" ErrorMessage="*" ControlToValidate="imgUpload" ValidationExpression="(.*).(.jpg|.JPG|.png|.PNG|.gif|.GIF)$" EnableClientScript="false" Display="Dynamic" CssClass="formError"></asp:RegularExpressionValidator>
         <asp:CustomValidator ID="validadorSize_90048" runat="server" ErrorMessage="*" EnableClientScript="false" Display="Dynamic" CssClass="formError" ControlToValidate="imgUpload" OnServerValidate="validadorSize_ServerValidate"></asp:CustomValidator>
         <br />
         <label for="emailNuevo" class="youmail" data-icon="e"></label>
         <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>
-        <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com"
+        <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com" MaxLength="50" CssClass="entradaTexto"
             onkeypress="return alfanumerico1(event)"
             onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -74,33 +76,36 @@
         &nbsp;<asp:RegularExpressionValidator ID="regVldEmail_158" runat="server" ControlToValidate="emailNuevo" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" CssClass="formError" Display="Dynamic" EnableClientScript="False"></asp:RegularExpressionValidator>
         <br />
         <br />
-        <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
-        &nbsp;<asp:Button ID="btnActualizar_405" runat="server" Text="actualizar" EnableTheming="True" />
-        &nbsp;<asp:Button ID="btnLimpiar_36" runat="server" Text="limpiar" />&nbsp;<asp:Label ID="lblMensajes" runat="server" CssClass="formError"></asp:Label>
+        <asp:Button ID="btnCrear_32" runat="server" Text="crear" CssClass="w3-btn w3-khaki"/>
+        &nbsp;<asp:Button ID="btnActualizar_405" runat="server" Text="actualizar" EnableTheming="True" CssClass="w3-btn w3-khaki"/>
+        &nbsp;<asp:Button ID="btnLimpiar_36" runat="server" Text="limpiar" CssClass="w3-btn w3-khaki"/>&nbsp;<asp:Label ID="lblMensajes" runat="server" CssClass="formError"></asp:Label>
         <br />
         <asp:Label ID="notePass_90037" runat="server" Text="*pass ignorado en update"></asp:Label>
     </p>
     <p>
         <br />
         <asp:Label ID="user_17" runat="server" Text="user"></asp:Label>
-        <asp:TextBox ID="txtBusqueda" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
+        <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="50" CssClass="entradaTexto"
+            onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
         </asp:TextBox>
-        <asp:Button ID="buscar_31" runat="server" Text="buscar" />
-        <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
+        <asp:Button ID="buscar_31" runat="server" Text="buscar" CssClass="w3-btn w3-khaki"/>
+        <asp:Button ID="limpiar_36" runat="server" Text="limpiar" CssClass="w3-btn w3-khaki"/>
     </p>
     <p>
         <asp:Label ID="nombre_22" runat="server" Text="nombre"></asp:Label>
-        <asp:TextBox ID="txtBusquedaNombre" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
+        <asp:TextBox ID="txtBusquedaNombre" runat="server" MaxLength="50" CssClass="entradaTexto"
+             onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
         </asp:TextBox>
-        <asp:Button ID="buscarNombre_31" runat="server" Text="buscar" />
-        <asp:Button ID="limpiarNombre_36" runat="server" Text="limpiar" />
+        <asp:Button ID="buscarNombre_31" runat="server" Text="buscar" CssClass="w3-btn w3-khaki"/>
+        <asp:Button ID="limpiarNombre_36" runat="server" Text="limpiar" CssClass="w3-btn w3-khaki"/>
     </p>
     <p>
         <asp:Label ID="email_109" runat="server" Text="email"></asp:Label>
-        <asp:TextBox ID="txtBusquedaMail" runat="server" onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
+        <asp:TextBox ID="txtBusquedaMail" runat="server" MaxLength="50" CssClass="entradaTexto" 
+            onCopy="return false" onDrag="return false" onDrop="return false" onkeydown="alfanumerico2(this)" onkeypress="return alfanumerico1(event)" onkeyup="alfanumerico2(this)" onPaste="return false">
         </asp:TextBox>
-        <asp:Button ID="buscarMail_31" runat="server" Text="buscar" />
-        <asp:Button ID="limpiarMail_36" runat="server" Text="limpiar" />
+        <asp:Button ID="buscarMail_31" runat="server" Text="buscar" CssClass="w3-btn w3-khaki"/>
+        <asp:Button ID="limpiarMail_36" runat="server" Text="limpiar" CssClass="w3-btn w3-khaki"/>
     </p>
     <div id="dvGrid">
         <asp:GridView ID="GridView1_" runat="server"

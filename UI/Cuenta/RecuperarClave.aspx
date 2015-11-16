@@ -16,7 +16,7 @@
             <p>
                 <label for="usuarioRecuperar" class="uname" data-icon="u"></label>
                 <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
-                <asp:TextBox ID="usuarioRecuperar" runat="server" placeholder="miusuario"
+                <asp:TextBox ID="usuarioRecuperar" runat="server" placeholder="miusuario" MaxLength="50" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -26,7 +26,7 @@
             <p>
                 <label for="emailRecuperar" class="youmail" data-icon="e"></label>
                 <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>
-                <asp:TextBox ID="emailRecuperar" runat="server" placeholder="email@proveedor.com"
+                <asp:TextBox ID="emailRecuperar" runat="server" placeholder="email@proveedor.com" MaxLength="50" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -35,7 +35,7 @@
                 &nbsp;<asp:RegularExpressionValidator ID="regVldEmail" runat="server" ControlToValidate="emailRecuperar" ErrorMessage="RegularExpressionValidator" ValidationExpression="^[_a-z0-9-]+(.[a-z0-9-]+)@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" CssClass="formError" Display="Dynamic" EnableClientScript="False"></asp:RegularExpressionValidator>
             </p>
             <p class="signin button">
-                <asp:Button ID="btnRecuperar_490" runat="server" Text="recuperar" />
+                <asp:Button ID="btnRecuperar_490" runat="server" Text="recuperar" CssClass="w3-btn w3-khaki"/>
             </p>
             <p class="change_link">
                 <asp:Label ID="yaesusuario_61" runat="server" Text="ya es usuario?"></asp:Label>

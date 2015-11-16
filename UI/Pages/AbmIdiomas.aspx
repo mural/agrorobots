@@ -50,7 +50,7 @@
                                 </asp:TextBox>
                             </EditItemTemplate>
                             <FooterTemplate>
-                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="254"
+                                <asp:TextBox ID="txtDescripcion" runat="server" MaxLength="50"
                                     onkeypress="return alfanumerico1(event)"
                                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -90,7 +90,7 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <asp:Button ID="btnAdd_5" runat="server" Text="agregar"
-                                    OnClick="AddNew" />
+                                    OnClick="AddNew" CssClass="w3-btn w3-khaki"/>
                             </FooterTemplate>
                         </asp:TemplateField>
 

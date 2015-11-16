@@ -19,7 +19,7 @@
             <p>
                 <label for="nombreNuevo" class="uname" data-icon="u"></label>
                 <asp:Label ID="nombreNuevo_22" runat="server" Text="apellido"></asp:Label>
-                <asp:TextBox ID="nombreNuevo" runat="server" placeholder="apellido"
+                <asp:TextBox ID="nombreNuevo" runat="server" placeholder="apellido" MaxLength="50" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -29,7 +29,7 @@
             <p>
                 <label for="apellidoNuevo" class="uname" data-icon="u"></label>
                 <asp:Label ID="apellidoNuevo_21" runat="server" Text="nombre"></asp:Label>
-                <asp:TextBox ID="apellidoNuevo" runat="server" placeholder="nombre"
+                <asp:TextBox ID="apellidoNuevo" runat="server" placeholder="nombre" MaxLength="50" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -39,7 +39,7 @@
             <p>
                 <label for="usuarioNuevo" class="uname" data-icon="u"></label>
                 <asp:Label ID="lblUsername_23" runat="server" Text="apellido"></asp:Label>
-                <asp:TextBox ID="usuarioNuevo" runat="server" placeholder="miusuario"
+                <asp:TextBox ID="usuarioNuevo" runat="server" placeholder="miusuario" MaxLength="10" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -50,7 +50,7 @@
             <p>
                 <label for="emailNuevo" class="youmail" data-icon="e"></label>
                 <asp:Label ID="lblEmail_109" runat="server" Text="email"></asp:Label>
-                <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com"
+                <asp:TextBox ID="emailNuevo" runat="server" placeholder="email@proveedor.com" MaxLength="50" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -61,7 +61,7 @@
             <p>
                 <label for="passwordNuevo" class="youpasswd" data-icon="p"></label>
                 <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
-                <asp:TextBox ID="passwordNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!"
+                <asp:TextBox ID="passwordNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!" MaxLength="20" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -72,7 +72,7 @@
             <p>
                 <label for="passwordRepetidoNuevo" class="youpasswd" data-icon="p"></label>
                 <asp:Label ID="lblConfirmPassword_28" runat="server" Text="pass"></asp:Label>
-                <asp:TextBox ID="passwordRepetidoNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!"
+                <asp:TextBox ID="passwordRepetidoNuevo" runat="server" TextMode="Password" placeholder="cL4v3_!" MaxLength="20" CssClass="entradaTexto"
                     onkeypress="return alfanumerico1(event)"
                     onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
                     onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
@@ -95,7 +95,7 @@
                 <asp:CustomValidator ID="vldCbxTerminos" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="usuarioNuevo" CssClass="formError" EnableClientScript="False" Display="Dynamic"></asp:CustomValidator>
             </p>
             <p class="signin button">
-                <asp:Button ID="btnRegistrar_480" runat="server" Text="registarse" />
+                <asp:Button ID="btnRegistrar_480" runat="server" Text="registarse" CssClass="w3-btn w3-khaki"/>
             </p>
             <p class="change_link">
                 <asp:Label ID="yaesusuario_61" runat="server" Text="ya es usuario?"></asp:Label>

@@ -32,6 +32,15 @@ Partial Public Class Streaming
     Protected WithEvents lblTitulo_182 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
+    '''fechaStreaming control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fechaStreaming As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''iStreaming control.
     '''</summary>
     '''<remarks>

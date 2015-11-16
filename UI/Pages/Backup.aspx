@@ -5,7 +5,7 @@
         <asp:Label ID="BackUp_10002" runat="server" Text="titulo"></asp:Label>
     </h2>
     <p>
-        <asp:Button ID="BackupBtn_10104" runat="server" Text="BackUp" />
+        <asp:Button ID="BackupBtn_10104" runat="server" Text="BackUp" CssClass="w3-btn w3-khaki" />
         <asp:TextBox ID="BackupText" runat="server" ReadOnly="True" Width="600px">C:\</asp:TextBox>
     </p>
     <p>
@@ -16,7 +16,7 @@
         <asp:Label ID="Restore_33" runat="server" Text="titulo2"></asp:Label>
     </h2>
     <p>
-        <asp:Button ID="RestoreBtn_33" runat="server" Text="Restore" />
+        <asp:Button ID="RestoreBtn_33" runat="server" Text="Restore" CssClass="w3-btn w3-khaki"/>
         <asp:TextBox ID="RestoreText" runat="server" Width="600px" Wrap="False"
             onkeypress="return alfanumerico1(event)"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">C:\agrorobots.bak</asp:TextBox>
