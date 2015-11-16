@@ -219,7 +219,7 @@ Public Class ComprobantesHelper
             paragraph.Format.Font.Size = 9
         Else
             paragraph = section.AddParagraph()
-            paragraph.AddText("Motivo: " & DirectCast(paramComprobante, ComprobanteNota).Motivo)
+            paragraph.AddText("Motivo: " & Helper.StripTags(DirectCast(paramComprobante, ComprobanteNota).Motivo))
             paragraph.Format.Font.Size = 9
         End If
 
