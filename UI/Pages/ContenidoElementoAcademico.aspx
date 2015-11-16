@@ -31,7 +31,7 @@
     <br />
     <asp:Label ID="contenido_705" runat="server" Text="-"></asp:Label>
     <br />
-    <asp:Label ID="lblContenido" runat="server" Text="contenido detalle"></asp:Label>
+    <asp:Label ID="lblContenido" runat="server" Text="-"></asp:Label>
     <br />
     <br />
     <asp:Label ID="temas_119" runat="server" Text="temas"></asp:Label>
@@ -112,16 +112,6 @@
                     <ItemTemplate>
                         <asp:Image ID="imgImagen" runat="server" CssClass="imagenesTabla"
                             ImageUrl='<%# ObtenerImagen(Eval("Imagen"))%>'></asp:Image>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField ShowHeader="False">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkBorrar" runat="server"
-                            CommandArgument='<%# Eval("CodigoAcademico")%>' OnClientClick="return confirm(mensajeBorrar)"
-                            Text="borrar" OnClick="Delete">
-                            <img src="/Imagenes/borrar.png" alt="x" />
-                        </asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
 

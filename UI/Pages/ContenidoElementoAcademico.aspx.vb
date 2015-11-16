@@ -71,15 +71,6 @@ Public Class ContenidoElementoAcademico
         End If
     End Sub
 
-    Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
-        Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
-
-        elementoAcademicoBusiness.Borrar(lnkRemove.CommandArgument)
-
-        GridView1_.EditIndex = -1
-        CargarElementosAcademicos()
-    End Sub
-
     Protected Sub OnPaging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
         CargarElementosAcademicos()
         GridView1_.PageIndex = e.NewPageIndex

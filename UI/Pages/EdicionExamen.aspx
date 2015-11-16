@@ -32,7 +32,7 @@
     <asp:Label ID="desc_12" runat="server" Text="descripcion"></asp:Label>
     <br />
     <br />
-    <textarea id="areaContenido" class="editable" style="width: 100%" runat="server"></textarea>
+    <textarea id="areaContenido" class="editable" style="width: 100%" runat="server" maxlength="100"></textarea>
     <br />
     <asp:DropDownList ID="comboTipos" runat="server">
         <asp:ListItem Value="PARCIAL">Parcial</asp:ListItem>
@@ -105,7 +105,7 @@
                 <asp:AsyncPostBackTrigger ControlID="GridViewPreguntas" />
             </Triggers>
         </asp:UpdatePanel>
-        <asp:TextBox ID="txtPregunta" runat="server" Enabled="false"
+        <asp:TextBox ID="txtPregunta" runat="server" Enabled="false" MaxLength="50"
             onkeypress="return alfanumerico1(event)"
             onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)">
         </asp:TextBox>
@@ -127,7 +127,7 @@
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
     <br />
     <br />
-    <asp:TextBox ID="txtBusqueda" runat="server"
+    <asp:TextBox ID="txtBusqueda" runat="server" MaxLength="50"
         onkeypress="return alfanumerico1(event)"
         onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
         onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
@@ -175,7 +175,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField ShowHeader="False">
+<%--                <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
                         <asp:LinkButton ID="lnkBorrar" runat="server"
                             CommandArgument='<%# Eval("ID")%>' OnClientClick="return confirm(mensajeBorrar)"
@@ -183,7 +183,7 @@
                             <img src="/Imagenes/borrar.png" alt="x" />
                         </asp:LinkButton>
                     </ItemTemplate>
-                </asp:TemplateField>
+                </asp:TemplateField>--%>
 
                 <asp:TemplateField ShowHeader="False">
                     <ItemTemplate>
