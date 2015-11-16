@@ -53,7 +53,7 @@ Public Class Home
             If Not voto Then 'armo encuesta
                 Resultado.Visible = False
                 For Each opcion In encuestaBase.Preguntas
-                    listaOpciones.Items.Add(New ListItem(opcion.Pregunta))
+                    listaOpciones.Items.Add(New ListItem(" " + opcion.Pregunta))
                 Next
                 encuestaCierre.Controls.Add(listaOpciones)
                 Dim submit As New Button()

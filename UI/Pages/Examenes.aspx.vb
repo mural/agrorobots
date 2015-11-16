@@ -57,7 +57,7 @@ Public Class Examenes
             Dim link As ImageButton = DirectCast(sender, ImageButton)
             Response.Redirect(PaginasConocidas.RENDIR_EXAMEN + "?id=" + link.CommandArgument)
         Else
-            Interaction.MsgBox("75 !", MsgBoxStyle.Information)
+            Interaction.MsgBox(idiomas.GetTranslationById(191), MsgBoxStyle.Information) 'Se require 75% de presentismo para rendir
         End If
     End Sub
 

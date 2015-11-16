@@ -7,6 +7,9 @@ Public Class Ganancias
 
     Dim comprobanteBusiness As New Comprobante_Business
 
+    Dim ElementoAcademico_Business As New ElementoAcademico_Business
+    Dim Usuario_Business As New Usuario_Business
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         CargarGanancias()
         Resultado.Visible = False 'lo uso para copiarlo
@@ -18,8 +21,43 @@ Public Class Ganancias
     Private Sub CargarGanancias()
         encuestasPanel.Controls.Clear()
 
-        ''ANUALES
+        ''GENERALES
         Dim descripcionInicio = New LiteralControl()
+        descripcionInicio.Text = ""
+        descripcionInicio.Text += "<div class='w3-card-4'>"
+        descripcionInicio.Text += "<header class='w3-container w3-blue'>"
+        descripcionInicio.Text += "Generales"
+        descripcionInicio.Text += "</header>"
+        descripcionInicio.Text += "<div class='w3-container'>"
+        encuestasPanel.Controls.Add(descripcionInicio)
+
+        'muestro resultados
+        Dim resultadosG As New List(Of GeneralesResultado)
+        resultadosG.Add(New GeneralesResultado With {.Concepto = "Cursos", .Valor = ElementoAcademico_Business.Listar.Count})
+        resultadosG.Add(New GeneralesResultado With {.Concepto = "Profesores", .Valor = Usuario_Business.ObtenerProfesores.Count})
+        resultadosG.Add(New GeneralesResultado With {.Concepto = "Alumnos", .Valor = Usuario_Business.ObtenerAlumnos.Count})
+
+        Dim nuevoResultado As New Chart
+        nuevoResultado.Width = 550
+        nuevoResultado.Series.Add("Categories")
+        nuevoResultado.ChartAreas.Add("MainChartArea")
+
+        nuevoResultado.Series("Categories").XValueMember = "Concepto"
+        nuevoResultado.Series("Categories").YValueMembers = "Valor"
+        nuevoResultado.DataSource = resultadosG
+        nuevoResultado.DataBind()
+        encuestasPanel.Controls.Add(nuevoResultado)
+
+        Dim descripcionCierre = New LiteralControl()
+        descripcionCierre.Text = ""
+        descripcionCierre.Text += "</div>"
+        descripcionCierre.Text += "</div>"
+        descripcionCierre.Text += "<br/><hr/><br/>"
+        encuestasPanel.Controls.Add(descripcionCierre)
+
+
+        ''ANUALES
+        descripcionInicio = New LiteralControl()
         descripcionInicio.Text = ""
         descripcionInicio.Text += "<div class='w3-card-4'>"
         descripcionInicio.Text += "<header class='w3-container w3-blue'>"
@@ -39,7 +77,7 @@ Public Class Ganancias
             Next
         Next
 
-        Dim nuevoResultado As New Chart
+        nuevoResultado = New Chart
         nuevoResultado.Width = 550
         nuevoResultado.Series.Add("Categories")
         nuevoResultado.ChartAreas.Add("MainChartArea")
@@ -50,7 +88,7 @@ Public Class Ganancias
         nuevoResultado.DataBind()
         encuestasPanel.Controls.Add(nuevoResultado)
 
-        Dim descripcionCierre = New LiteralControl()
+        descripcionCierre = New LiteralControl()
         descripcionCierre.Text = ""
         descripcionCierre.Text += "</div>"
         descripcionCierre.Text += "</div>"

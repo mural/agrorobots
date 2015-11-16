@@ -1,6 +1,36 @@
 ﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="DetalleExamen.aspx.vb" Inherits="Agorobots.DetalleExamen" %>
 
+<%@ Import Namespace="Agorobots" %>
+
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
+    <        <script type ="text/javascript" >
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (minutes == 0 && seconds == 0) {
+                        document.getElementById("<%:submit.ClientID%>").click();
+                }
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var minutes = <%= DetalleExamen.TiempoSegundos%>;
+            display = document.querySelector('#time');
+            startTimer(minutes, display);
+        };
+    </script>
 </asp:Content>
 <asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
     <li>»</li>
@@ -24,17 +54,7 @@
             <img class="imagenMediana imagenMasSeparada fl_right w3-circle" src="/Imagenes/curso_generico.jpg" />
             <br />
             <br />
-            <asp:ScriptManager ID="ScriptManager1" runat="server">
-            </asp:ScriptManager>
-            <asp:Timer ID="TimerExamen" runat="server"></asp:Timer>
-            <asp:UpdatePanel ID="PanelTiempo" runat="server">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="TimerExamen" EventName="Tick" />
-                </Triggers>
-                <ContentTemplate>
-                    <asp:Label ID="lblTiempo" runat="server" Text="-" CssClass="formError"></asp:Label>
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <div><span id="time">--:--</span></div>
             <br />
             <asp:Panel ID="examenInicio" runat="server" Text="inicio"></asp:Panel>
             <br />
@@ -42,6 +62,7 @@
             <asp:Panel ID="examenCierre" runat="server" Text="cierre"></asp:Panel>
             <br />
             <br />
+            <%--<asp:Button ID="enviar_135" runat="server" Text="enviar" CssClass="w3-btn w3-khaki" />--%>
         </div>
     </div>
     <br />

@@ -181,6 +181,19 @@ Public Class Usuario_Business
         Return profesores
     End Function
 
+    Public Function ObtenerAlumnos() As List(Of Usuario)
+        Dim fliasBusiness As New Familia_Business
+        Dim datUser As New Usuario_Data
+        Dim alumnos As New List(Of Usuario)
+
+        For Each usuario As Usuario In datUser.ObtenerUsuarios()
+            If usuario.GetFamilias.Contains(fliasBusiness.ObtenerFamiliaAlumno) Then
+                alumnos.Add(usuario)
+            End If
+        Next
+        Return alumnos
+    End Function
+
     Function EsAlumno(usuario As Usuario) As Boolean
         Return usuario.GetFamilias.Contains(familiaBusiness.ObtenerFamiliaAlumno)
     End Function

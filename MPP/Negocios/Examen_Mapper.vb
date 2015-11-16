@@ -26,7 +26,7 @@ Public Class Examen_Mapper
                     resultado = examenRespuestaMapper.Insertar(respuesta)
                 Next
             End If
-        Else 'encuesta
+        Else '
             resultado = Me.Actualizar(obj, True)
         End If
         Return resultado

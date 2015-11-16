@@ -16,9 +16,15 @@ Public Class DetalleExamen
     Dim rindiendo As Boolean = False
     Dim examenEnCurso As Examen
 
+    Public Property submit As New Button()
+    Public Shared Property TiempoSegundos As Integer = 600 '10 min
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamenBase = Request.QueryString("id")
         Dim idExamenBaseInt As Integer
+
+        examenEnCurso = Session("examenEnCurso")
+
         'If Not Page.IsPostBack Then
         CargarExamen()
 
@@ -50,14 +56,13 @@ Public Class DetalleExamen
             'inicio countdown
             CountDownFrom = TimeSpan.FromMinutes(examenEnCurso.Fecha.Subtract(Date.Now).TotalMinutes)
             If CountDownFrom.TotalMilliseconds > 0 Then 'me queda tiempo
-                TargetDT = DateTime.Now.Add(CountDownFrom)
-                Session("tiempoRestante") = TargetDT
-                TimerExamen.Interval = 1000
-                TimerExamen.Enabled = True
+                TiempoSegundos = CInt(CountDownFrom.TotalMilliseconds / 1000)
             Else
                 Finalizar(sender, e)
                 Response.Redirect(PaginasConocidas.MI_CURSADA) 'se acabo el tiempo
             End If
+
+            Session("examenEnCurso") = examenEnCurso
         Else
             Response.Redirect(PaginasConocidas.HOME)
         End If
@@ -93,7 +98,8 @@ Public Class DetalleExamen
             respuestas.Add(respuesta)
             examenCierre.Controls.Add(New LiteralControl("<br/><br/>"))
         Next
-        Dim submit As New Button()
+
+
         submit.Text = idiomas.GetTranslationById(135) 'enviar
         submit.CssClass = "w3-btn w3-khaki"
         AddHandler submit.Click, AddressOf Me.Finalizar
@@ -107,19 +113,18 @@ Public Class DetalleExamen
         examenCierre.Controls.Add(descripcionCierre)
     End Sub
 
-    Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Protected Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            TimerExamen.Enabled = False
-
             examenEnCurso.Finalizado = True
 
             For Each respuestaElegida In respuestas
                 Dim respuesta As New ExamenRespuesta
+                respuesta.IdExamen = examenEnCurso.ID
                 respuesta.Respuesta = respuestaElegida.Text
                 respuesta.IdPregunta = respuestaElegida.ID 'ID original de la pregunta
                 examenEnCurso.Respuestas.Add(respuesta)
             Next
-            If examenBusiness.Actualizar(examenEnCurso) Then
+            If examenBusiness.ActualizarConRespuestas(examenEnCurso) Then
                 MensajeOk(lblMensajes)
             Else
                 MensajeError(lblMensajes)
@@ -131,21 +136,4 @@ Public Class DetalleExamen
         Response.Redirect(PaginasConocidas.MI_CURSADA)
     End Sub
 
-
-    Protected Sub TimerExamen_Tick(sender As Object, e As EventArgs) Handles TimerExamen.Tick
-        Try
-        Dim ts As TimeSpan = Session("tiempoRestante").Subtract(DateTime.Now)
-        If ts.TotalMilliseconds > 0 Then
-            lblTiempo.Text = ts.ToString("mm\:ss")
-        Else
-            lblTiempo.Text = "00:00"
-            TimerExamen.Enabled = False
-            'finalizar examen sino finalizo
-            Finalizar(sender, e)
-            Session("tiempoRestante") = Nothing
-            End If
-        Catch ex As Exception
-            ex.ToString()
-        End Try
-    End Sub
 End Class

@@ -5,6 +5,7 @@ Public Class Examen_Business
     Inherits Business(Of Examen)
 
     Dim examenBaseMapper As New ExamenBase_Mapper
+    Dim examenRespuestaMapper As New ExamenRespuesta_Mapper
 
     Sub New()
         Me.mapperGenerico = New Examen_Mapper
@@ -45,4 +46,12 @@ Public Class Examen_Business
         Next
         Return listaExamenes
     End Function
+
+    Function ActualizarConRespuestas(examenEnCurso As Examen) As Boolean
+        For Each respuesta In examenEnCurso.Respuestas
+            examenRespuestaMapper.Insertar(respuesta)
+        Next
+        Return Actualizar(examenEnCurso)
+    End Function
+
 End Class
