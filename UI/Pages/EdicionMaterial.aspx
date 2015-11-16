@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb"  ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="EdicionMaterial.aspx.vb" Inherits="Agorobots.EdicionMaterial" %>
+﻿<%@ Page Language="vb" ValidateRequest="False" AutoEventWireup="false" MasterPageFile="~/MenuBase.Master" CodeBehind="EdicionMaterial.aspx.vb" Inherits="Agorobots.EdicionMaterial" %>
 
 <asp:Content ID="Head" ContentPlaceHolderID="HeadBaseContenido" runat="server">
     <script>
@@ -9,10 +9,10 @@
             selector: 'textarea.editable'
         });
     </script>
-        <script>
-            $(function () {
-                $("input.datepicker").datepicker();
-            });
+    <script>
+        $(function () {
+            $("input.datepicker").datepicker();
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Nav" ContentPlaceHolderID="DetalleNavegacionContenido" runat="server">
@@ -43,11 +43,13 @@
     <br />
     <br />
     <asp:Label ID="pdf" runat="server" Text="PDF"></asp:Label>&nbsp;<asp:FileUpload ID="pdfUpload" runat="server" />
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2_90048" runat="server" ErrorMessage="*" ControlToValidate="pdfUpload" ValidationExpression="(.*).(.pdf|.PDF)$" EnableClientScript="false" Display="Dynamic" CssClass="formError"></asp:RegularExpressionValidator>
+    <asp:CustomValidator ID="validadorSize_90048" runat="server" ErrorMessage="*" EnableClientScript="false" Display="Dynamic" CssClass="formError" ControlToValidate="pdfUpload" OnServerValidate="validadorSize_ServerValidate"></asp:CustomValidator>
     <br />
     <br />
     <asp:Label ID="link_181" runat="server" Text="link"></asp:Label>
     &nbsp;
-    <asp:TextBox ID="txtLink" runat="server">
+    <asp:TextBox ID="txtLink" runat="server" MaxLength="150">
     </asp:TextBox>
     <br />
     <br />
@@ -59,7 +61,7 @@
     <br />
     <asp:Label ID="fLimite_165" runat="server" Text="fecha max vista"></asp:Label>
     <br />
-    <input type="text" id="txtFechaMax" class="datepicker" runat="server" readonly="readonly" >
+    <input type="text" id="txtFechaMax" class="datepicker" runat="server" readonly="readonly">
     <br />
     <br />
     <asp:Button ID="btnCrear_32" runat="server" Text="crear" />
@@ -107,8 +109,8 @@
 
                 <asp:TemplateField HeaderText="detalle_132">
                     <ItemTemplate>
-                                <asp:Label ID="lblDetalle" runat="server"
-                                    Text='<%# Eval("Detalle")%>'></asp:Label>
+                        <asp:Label ID="lblDetalle" runat="server"
+                            Text='<%# Eval("Detalle")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 

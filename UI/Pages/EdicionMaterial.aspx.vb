@@ -66,7 +66,7 @@ Public Class EdicionMaterial
                     lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                     lblMensajes.CssClass = "formError"
                 End If
-                If valido Then
+                If valido And Page.IsValid Then
                     materialDeEstudio.Tipo = Tipo
                     materialDeEstudio.Detalle = Detalle
                     If Me.comboTipos.SelectedValue = "HTML" Then
@@ -86,6 +86,8 @@ Public Class EdicionMaterial
                     Else
                         MensajeError(lblMensajes)
                     End If
+                Else
+                    MensajeError(lblMensajes)
                 End If
             Catch ex As Exception
                 MensajeError(lblMensajes)
@@ -135,7 +137,7 @@ Public Class EdicionMaterial
                 lblMensajes.Text = String.Format(idiomas.GetTranslationById(90016), "")
                 lblMensajes.CssClass = "formError"
             End If
-            If valido Then
+            If valido And Page.IsValid Then
                 Dim materialDeEstudio As New MaterialDeEstudio
                 materialDeEstudio.IdElementoAcademico = idElementoAcademico
                 materialDeEstudio.Tipo = Tipo
@@ -207,4 +209,14 @@ Public Class EdicionMaterial
             txtLink.Visible = True
         End If
     End Sub
+
+    Protected Sub validadorSize_ServerValidate(source As Object, args As ServerValidateEventArgs)
+        Dim filesize As Double = pdfUpload.FileContent.Length
+        If filesize > 3000000 Then '3mb
+            args.IsValid = False
+        Else
+            args.IsValid = True
+        End If
+    End Sub
+
 End Class
