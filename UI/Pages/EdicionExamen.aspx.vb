@@ -240,7 +240,7 @@ Public Class EdicionExamen
             If puedoBorrar Then
                 examenBasePreguntaBusiness.Borrar(lnkRemove.CommandArgument)
             Else
-                MensajeError(lblMensajes, "La pregunta es requerida por un examen ya rendido")
+                MensajeError(lblMensajes, idiomas.GetTranslationById(196)) 'La pregunta es requerida por un examen ya rendido
             End If
 
             GridViewPreguntas.EditIndex = -1

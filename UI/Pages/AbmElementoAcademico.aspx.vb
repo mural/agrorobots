@@ -106,7 +106,7 @@ Public Class AbmElementoAcademico
             If alumnos.Count = 0 Then
                 elementoAcademicoBusiness.Borrar(lnkRemove.CommandArgument)
             Else
-                MensajeError(lblMensajes, "Hay alumnos inscriptos")
+                MensajeError(lblMensajes, idiomas.GetTranslationById(197)) 'Hay alumnos inscriptos
             End If
 
             GridView1_.EditIndex = -1
