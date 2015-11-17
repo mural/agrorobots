@@ -52,7 +52,7 @@
     <br />
     <asp:Label ID="profesor_144" runat="server" Text="prof."></asp:Label>
     <br />
-    <asp:DropDownList ID="comboProfesores" runat="server" AutoPostBack="False">
+    <asp:DropDownList ID="comboProfesores" runat="server" AutoPostBack="False" Enabled="false">
     </asp:DropDownList>
     <br />
     <br />
