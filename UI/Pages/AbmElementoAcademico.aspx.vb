@@ -92,12 +92,22 @@ Public Class AbmElementoAcademico
     End Sub
 
     Protected Sub Delete(ByVal sender As Object, ByVal e As EventArgs)
-        Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
+        Try
+            Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        elementoAcademicoBusiness.Borrar(lnkRemove.CommandArgument)
+            'ver que no tenga alumnos asignados
+            Dim alumnos = elementoAcademicoBusiness.Obtener(lnkRemove.CommandArgument).Alumnos
+            If alumnos.Count = 0 Then
+                elementoAcademicoBusiness.Borrar(lnkRemove.CommandArgument)
+            Else
+                MensajeError(lblMensajes, "Hay alumnos inscriptos")
+            End If
 
-        GridView1_.EditIndex = -1
-        CargarElementosAcademicos()
+            GridView1_.EditIndex = -1
+            CargarElementosAcademicos()
+        Catch ex As Exception
+            ex.ToString()
+        End Try
     End Sub
 
     Protected Sub OnPaging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)

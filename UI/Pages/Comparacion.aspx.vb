@@ -20,7 +20,7 @@ Public Class Comparacion
         Try
             comboElemento1.Items.Clear()
             comboElemento1.Items.Add(New ListItem("-----", "-----"))
-            For Each elementoCombo1 In elementoAcademico_Business.Listar
+            For Each elementoCombo1 In elementoAcademico_Business.ListarPorEstado(ElementoAcademico.ElementoAcademicoEnum.Disponible)
                 comboElemento1.Items.Add(New ListItem(elementoCombo1.Nombre, elementoCombo1.CodigoAcademico))
             Next
 
@@ -34,7 +34,7 @@ Public Class Comparacion
         comboElemento2.Items.Clear()
         comboElemento2.Items.Add(New ListItem("-----", "-----"))
         If Not comboElemento1.SelectedValue.Equals("-----") Then
-            For Each elementoCombo2 In elementoAcademico_Business.Listar
+            For Each elementoCombo2 In elementoAcademico_Business.ListarPorEstado(ElementoAcademico.ElementoAcademicoEnum.Disponible)
                 If Not CInt(comboElemento1.SelectedValue).Equals(elementoCombo2.CodigoAcademico) Then
                     comboElemento2.Items.Add(New ListItem(elementoCombo2.Nombre, elementoCombo2.CodigoAcademico))
                 End If
@@ -50,7 +50,7 @@ Public Class Comparacion
         comboElemento3.Items.Clear()
         comboElemento3.Items.Add(New ListItem("-----", "-----"))
         If Not comboElemento2.SelectedValue.Equals("-----") Then
-            For Each elementoCombo3 In elementoAcademico_Business.Listar
+            For Each elementoCombo3 In elementoAcademico_Business.ListarPorEstado(ElementoAcademico.ElementoAcademicoEnum.Disponible)
                 If Not CInt(comboElemento2.SelectedValue).Equals(elementoCombo3.CodigoAcademico) And
                     Not CInt(comboElemento1.SelectedValue).Equals(elementoCombo3.CodigoAcademico) Then
                     comboElemento3.Items.Add(New ListItem(elementoCombo3.Nombre, elementoCombo3.CodigoAcademico))

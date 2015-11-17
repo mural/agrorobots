@@ -8,6 +8,7 @@ Public Class EdicionExamen
     Dim elementoAcademicoBusiness As New Business.ElementoAcademico_Business
     Dim idElementoAcademico As String
 
+    Dim examenRespuestaBusiness As New Business.ExamenRespuesta_Business
     Dim examenBaseBusiness As New Business.ExamenBase_Business
     Dim examenBasePreguntaBusiness As New Business.ExamenBasePregunta_Business
     Dim examenBase As ExamenBase
@@ -224,11 +225,29 @@ Public Class EdicionExamen
     End Sub
 
     Protected Sub BorrarPregunta(ByVal sender As Object, ByVal e As EventArgs)
-        Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
+        Try
 
-        examenBasePreguntaBusiness.Borrar(lnkRemove.CommandArgument)
+            Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
-        GridViewPreguntas.EditIndex = -1
-        CargarPreguntas()
+            'ver que no haya una RTA utilizandola
+            Dim puedoBorrar = True
+            For Each rta In examenRespuestaBusiness.Listar
+                If rta.IdPregunta = lnkRemove.CommandArgument Then
+                    puedoBorrar = False
+                End If
+            Next
+
+            If puedoBorrar Then
+                examenBasePreguntaBusiness.Borrar(lnkRemove.CommandArgument)
+            Else
+                MensajeError(lblMensajes, "La pregunta es requerida por un examen ya rendido")
+            End If
+
+            GridViewPreguntas.EditIndex = -1
+            CargarPreguntas()
+
+        Catch ex As Exception
+            ex.ToString()
+        End Try
     End Sub
 End Class
