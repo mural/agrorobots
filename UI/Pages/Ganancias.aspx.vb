@@ -169,17 +169,17 @@ Public Class Ganancias
             Dim semana As Integer = 0
             Select Case difEnDiasConHoy
                 Case 0 To 7
-                    semana = 1
+                    semana = 0
                 Case 8 To 14
-                    semana = 2
+                    semana = 1
                 Case 15 To 21
-                    semana = 3
+                    semana = 2
                 Case 22 To 27
-                    semana = 4
+                    semana = 3
                 Case 28 To 34
-                    semana = 5
+                    semana = 4
                 Case 35 To 41
-                    semana = 6
+                    semana = 5
             End Select
             If semana > 0 Then
                 resultados(semana).Monto += comprobante.Subtotal
@@ -229,19 +229,19 @@ Public Class Ganancias
             Dim dia As Integer = 0
             Select Case difEnDiasConHoy
                 Case 0
-                    dia = 1
+                    dia = 0
                 Case 1
-                    dia = 2
+                    dia = 1
                 Case 2
-                    dia = 3
+                    dia = 2
                 Case 3
-                    dia = 4
+                    dia = 3
                 Case 4
-                    dia = 5
+                    dia = 4
                 Case 5
-                    dia = 6
+                    dia = 5
                 Case 6
-                    dia = 7
+                    dia = 6
             End Select
             If dia > 0 And dia < 7 Then
                 resultados(dia).Monto += comprobante.Subtotal

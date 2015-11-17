@@ -38,8 +38,7 @@
                 <asp:TemplateField HeaderText="monto_138">
                     <ItemTemplate>
                         <asp:Label ID="lblMonto" runat="server"
-                            Text='<%# Eval("Comprobante.Subtotal")%>'></asp:Label> 
-                        MAS IVA !
+                            Text='<%# Eval("Comprobante.Total")%>'></asp:Label> 
                     </ItemTemplate>
                 </asp:TemplateField>
 

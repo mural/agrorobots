@@ -221,7 +221,7 @@
                     </li>
                     <li class="last" onmouseover="activarClase(this)" onmouseout="desactivarClase(this)">
                         <a href='<%= PaginasConocidas.BUSQUEDA %>'>
-                            <asp:Label ID="usuarios_8" Text="users" runat="server" /></a>
+                            <asp:Label ID="usuarios_10004" Text="users" runat="server" /></a>
                     </li>
                 </ul>
             </div>

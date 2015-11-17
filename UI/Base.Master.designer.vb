@@ -266,13 +266,13 @@ Partial Public Class Base
     Protected WithEvents politicas_152 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''usuarios_194 control.
+    '''usuarios_10004 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents usuarios_194 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents usuarios_10004 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''BodyBaseContenido control.

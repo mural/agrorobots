@@ -74,6 +74,8 @@ Public Class EdicionMaterial
                     ElseIf Me.comboTipos.SelectedValue = "VIDEO" Then
                         Dim link = txtLink.Text
                         materialDeEstudio.Contenido = link
+                    Else 'PDF
+                        materialDeEstudio.Contenido = "PDF"
                     End If
                     materialDeEstudio.Activo = Activo
                     materialDeEstudio.FechaMaxVisita = FechaInicio
@@ -147,6 +149,8 @@ Public Class EdicionMaterial
                 ElseIf Me.comboTipos.SelectedValue = "VIDEO" Then
                     Dim link = txtLink.Text
                     materialDeEstudio.Contenido = link
+                Else 'PDF
+                    materialDeEstudio.Contenido = "PDF"
                 End If
                 materialDeEstudio.Activo = Activo
                 materialDeEstudio.FechaMaxVisita = FechaInicio

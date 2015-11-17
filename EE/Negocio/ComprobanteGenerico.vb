@@ -10,6 +10,12 @@ Public Class ComprobanteGenerico
     Public Property Items As List(Of ComprobanteDetalleGenerico)
     Public Property Usuario As Usuario
 
+    Public ReadOnly Property Total As Decimal
+        Get
+            Return Subtotal + IVA
+        End Get
+    End Property
+
     Public Sub New()
         Me.Items = New List(Of ComprobanteDetalleGenerico)
     End Sub

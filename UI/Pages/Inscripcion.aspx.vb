@@ -185,7 +185,7 @@ Public Class Inscripcion
                             comprobanteNotaCredito.Subtotal = nuevoTotal / 1.21 'total menos IVA
                             comprobanteNotaCredito.IVA = comprobanteNotaCredito.Subtotal * 0.20999999999999999
                             comprobanteNotaBusiness.Actualizar(comprobanteNotaCredito)
-                        ElseIf notaCreditoAccion.Equals("JUSTO") Then
+                        ElseIf notaCreditoAccion.Equals("JUSTO") Or notaCreditoAccion.Equals("NO_ALCANZA") Then
                             'actualizo el estado de la nota de credito en la cuenta corriente
                             Dim cuentaCte = ctaCteUsuarioBusiness.ObtenerPorUsuarioYComprobante(usuario.ID, comboNotasCredito.SelectedValue)
                             cuentaCte.Estado = "SALDADA"

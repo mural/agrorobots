@@ -164,7 +164,7 @@ Public Class AbmPermisos
         Dim lnkRemove As LinkButton = DirectCast(sender, LinkButton)
 
         Dim ID As Integer = lnkRemove.CommandArgument
-        If Not ID = 41 Or Not ID = 88 Or Not ID = 94 Or Not ID = 95 Or Not ID = 96 Then 'admin, profesor, alumno, empleado y director no se pueden borrar!
+        If Not ID = 41 And Not ID = 88 And Not ID = 94 And Not ID = 95 And Not ID = 96 Then 'admin, profesor, alumno, empleado y director no se pueden borrar!
             familia_Business.Baja(ID)
         End If
 
