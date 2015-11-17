@@ -55,42 +55,47 @@ Public Class CarrerasDetalle
     Protected Sub inscribirse_Click(sender As Object, e As EventArgs) Handles inscribirse_118.Click
         'comprobar sesion
         If UsuarioLogueado() Then
-            'valido FECHA INICIO !
-            Dim elementos As New List(Of ElementoAcademico)
-            elementos.Add(elementoAcademico)
-            Dim enCurso = False
-            For Each elementoEnCurso In Helper.ElementosAcademicosEnCurso(elementos)
-                If elementoEnCurso.CodigoAcademico = elementoAcademico.CodigoAcademico Then
-                    enCurso = True
-                End If
-            Next
-            If enCurso Then 'dejo que se anote
+            If usuarioBusiness.EsAlumno(usuario) Then
 
-                'hay cupo ?
-                If elementoAcademico.Cupo > 0 Then
-                    'ver que no este inscripto
-                    If usuarioBusiness.PoseeElementoAcademico(usuario, elementoAcademico) Then
-                        MensajeError(lblMensajes, idiomas.GetTranslationById(183)) 'Ya esta inscripto
-                    Else
-                        'agrego al carrito
-                        Dim carritoSesion As List(Of ElementoAcademico) = Session("carrito")
-                        If carritoSesion Is Nothing Then
-                            carritoSesion = New List(Of ElementoAcademico)
-                        End If
-                        If Not carritoSesion.Contains(elementoAcademico) Then
-                            carritoSesion.Add(elementoAcademico)
-                        End If
-                        Session("carrito") = carritoSesion
-                        Response.Redirect(PaginasConocidas.CARRITO)
+                'valido FECHA INICIO !
+                Dim elementos As New List(Of ElementoAcademico)
+                elementos.Add(elementoAcademico)
+                Dim enCurso = False
+                For Each elementoEnCurso In Helper.ElementosAcademicosEnCurso(elementos)
+                    If elementoEnCurso.CodigoAcademico = elementoAcademico.CodigoAcademico Then
+                        enCurso = True
                     End If
-                Else
-                    MensajeError(lblMensajes, idiomas.GetTranslationById(184)) 'No hay cupo
+                Next
+                If enCurso Then 'dejo que se anote
+
+                    'hay cupo ?
+                    If elementoAcademico.Cupo > 0 Then
+                        'ver que no este inscripto
+                        If usuarioBusiness.PoseeElementoAcademico(usuario, elementoAcademico) Then
+                            MensajeError(lblMensajes, idiomas.GetTranslationById(183)) 'Ya esta inscripto
+                        Else
+                            'agrego al carrito
+                            Dim carritoSesion As List(Of ElementoAcademico) = Session("carrito")
+                            If carritoSesion Is Nothing Then
+                                carritoSesion = New List(Of ElementoAcademico)
+                            End If
+                            If Not carritoSesion.Contains(elementoAcademico) Then
+                                carritoSesion.Add(elementoAcademico)
+                            End If
+                            Session("carrito") = carritoSesion
+                            Response.Redirect(PaginasConocidas.CARRITO)
+                        End If
+                    Else
+                        MensajeError(lblMensajes, idiomas.GetTranslationById(184)) 'No hay cupo
+                    End If
+
+                Else 'no esta en curso el elem. academico
+                    MensajeError(lblMensajes, idiomas.GetTranslationById(195)) ''No esta abierto el curso para anotarse.
                 End If
 
-            Else 'no esta en curso el elem. academico
-                MensajeError(lblMensajes, idiomas.GetTranslationById(195)) ''No esta abierto el curso para anotarse.
+            Else 'no es alumno
+                MensajeError(lblMensajes, idiomas.GetTranslationById(198)) 'Debe ser un alumno.
             End If
-
         Else
             Response.Redirect(PaginasConocidas.LOGIN + "?inscribir=" + idElementoAcademico)
         End If

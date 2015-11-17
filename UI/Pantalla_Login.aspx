@@ -21,9 +21,9 @@
                 </p>
                 <p>
                     <label for="login_password" class="youpasswd" data-icon="p"></label>
-                    <asp:Label ID="lblPassword_27" runat="server" Text="pass"></asp:Label>
+                    <asp:Label ID="lblPassword_26" runat="server" Text="pass"></asp:Label>
                     <asp:TextBox ID="login_password" runat="server" TextMode="Password" placeholder="cL4v3_!" TabIndex="6" MaxLength="50" CssClass="entradaTexto"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="vldUser_27" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="login_password" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="vldUser_26" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="login_password" CssClass="formError" EnableClientScript="False"></asp:RequiredFieldValidator>
                 </p>
                 <p class="keeplogin" style="display: none">
                     <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />

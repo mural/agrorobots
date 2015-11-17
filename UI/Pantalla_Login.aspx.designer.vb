@@ -59,13 +59,13 @@ Partial Public Class Principal
     Protected WithEvents vldUser_23 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
-    '''lblPassword_27 control.
+    '''lblPassword_26 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPassword_27 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblPassword_26 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''login_password control.
@@ -77,13 +77,13 @@ Partial Public Class Principal
     Protected WithEvents login_password As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''vldUser_27 control.
+    '''vldUser_26 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents vldUser_27 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents vldUser_26 As Global.System.Web.UI.WebControls.RequiredFieldValidator
 
     '''<summary>
     '''Submit_500 control.
