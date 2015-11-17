@@ -49,7 +49,8 @@
     <script>
         var playerInstance = jwplayer("myElement");
         playerInstance.setup({
-            file: "https://www.youtube.com/watch?v=X8Be4YiO35A",
+            //file: "https://www.youtube.com/watch?v=X8Be4YiO35A",
+            file: "https://d3ldtt2c6t0t08.cloudfront.net/files/nczohocpa5ccy/2015/11/17/5N24KZAAUHRTV3HCJI6KQHYEIU/main_OUTPUT.tmp.mp4",
             image: "/assets/myVideo.jpg",
             height: 360,
             width: 640
