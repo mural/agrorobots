@@ -100,5 +100,41 @@
             </Columns>
         </asp:GridView>
         <br />
+        <br />
+        <asp:Label ID="fin_194" runat="server" Text="titulo"></asp:Label>
+        <div id="dvGrid2">
+            <asp:GridView ID="GridView2_" runat="server"
+                AutoGenerateColumns="false"
+                RowStyle-CssClass="light"
+                AlternatingRowStyle-CssClass="dark"
+                PageSize="10">
+                <EmptyDataTemplate>
+                    <asp:Label ID="sindatos_3" Text="sin datos" runat="server"></asp:Label>
+                </EmptyDataTemplate>
+                <Columns>
+                    <asp:TemplateField HeaderText="nombre_11">
+                        <ItemTemplate>
+                            <asp:Label ID="lblNombre" runat="server"
+                                Text='<%# Eval("Nombre")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="%">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPresentismo" runat="server"
+                                Text='<%# Eval("AlumoEstado.Presentismo")%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="nota_169">
+                        <ItemTemplate>
+                            <asp:Label ID="lblNota" runat="server"
+                                Text='<%# NotaCurso(Eval("CodigoAcademico"))%>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
+        <br />
     </div>
 </asp:Content>

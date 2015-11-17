@@ -21,8 +21,11 @@ Public Class MiCursada
     End Sub
 
     Private Sub CargarCursada()
-        Me.GridView1_.DataSource = usuario.ElementosAcademicos
+        Me.GridView1_.DataSource = Helper.ElementosAcademicosEnCurso(usuario.ElementosAcademicos)
         Me.GridView1_.DataBind()
+
+        Me.GridView2_.DataSource = Helper.ElementosAcademicosFinalizados(usuario.ElementosAcademicos)
+        Me.GridView2_.DataBind()
     End Sub
 
     Protected Sub OnPaging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)

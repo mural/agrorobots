@@ -1,6 +1,8 @@
 ﻿Public Class ElementoAcademico
     Implements IEquatable(Of ElementoAcademico)
 
+    Public Property PrecioPorHora As Integer = 50
+
     Public Property EstadoActual = ElementoAcademicoEnum.NoIniciada
     Enum ElementoAcademicoEnum
         NoIniciada

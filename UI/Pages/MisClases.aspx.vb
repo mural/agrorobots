@@ -16,7 +16,7 @@ Public Class MisClases
     End Sub
 
     Private Sub CargarClases()
-        Me.GridView1_.DataSource = usuario.ElementosAcademicos
+        Me.GridView1_.DataSource = Helper.ElementosAcademicosEnCurso(usuario.ElementosAcademicos)
         Me.GridView1_.DataBind()
     End Sub
 

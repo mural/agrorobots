@@ -39,4 +39,22 @@ Partial Public Class MiCursada
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents GridView1_ As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''fin_194 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fin_194 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''GridView2_ control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents GridView2_ As Global.System.Web.UI.WebControls.GridView
 End Class

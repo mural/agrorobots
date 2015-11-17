@@ -25,7 +25,7 @@
     <br />
     <asp:Label ID="nombre_11" runat="server" Text="nombre"></asp:Label>
     <br />
-    <asp:TextBox ID="txtNombre" runat="server" Enabled="false">
+    <asp:TextBox ID="txtNombre" runat="server" Enabled="false" CssClass="entradaTexto">
     </asp:TextBox>
     <br />
     <br />
@@ -52,18 +52,12 @@
     </asp:DropDownList>
     <br />
     <br />
-    <asp:Button ID="btnEnviar_135" runat="server" EnableTheming="True" Text="enviar" />
+    <asp:Button ID="btnEnviar_135" runat="server" EnableTheming="True" Text="enviar" CssClass="w3-btn w3-khaki"/>
     <br />
     <br />
     <asp:Label ID="lblMensajes" runat="server" Text="" CssClass="formError"></asp:Label>
     <br />
     <br />
-    <asp:TextBox ID="txtBusqueda" runat="server"
-        onkeypress="return alfanumerico1(event)"
-        onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false"
-        onkeydown="alfanumerico2(this)" onkeyup="alfanumerico2(this)"> </asp:TextBox>
-    <asp:Button ID="buscar_31" runat="server" Text="buscar" />
-    <asp:Button ID="limpiar_36" runat="server" Text="limpiar" />
     <br />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>

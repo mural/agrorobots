@@ -62,6 +62,24 @@ Namespace My
                 Return CType(Me("FechaStreaming"),Date)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("2015-06-19")> _
+        Public ReadOnly Property FinPrimerPeriodo() As Date
+            Get
+                Return CType(Me("FinPrimerPeriodo"), Date)
+            End Get
+        End Property
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("2015-12-18")> _
+        Public ReadOnly Property FinSegundoPeriodo() As Date
+            Get
+                Return CType(Me("FinSegundoPeriodo"), Date)
+            End Get
+        End Property
     End Class
 End Namespace
 

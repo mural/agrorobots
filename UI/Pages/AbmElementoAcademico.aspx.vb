@@ -11,6 +11,11 @@ Public Class AbmElementoAcademico
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         elementoAcademico = Session("elementoSeleccionado")
+        If elementoAcademico Is Nothing Then
+            Me.comboProfesores.Enabled = False
+        Else
+            Me.comboProfesores.Enabled = True
+        End If
         If Not (Page.IsPostBack) Then
             CargarElementosAcademicos()
             CargarEstados()
@@ -73,6 +78,7 @@ Public Class AbmElementoAcademico
                     elementoAcademico.FechaInicio = FechaInicio
                     elementoAcademico.Estado = comboEstados.SelectedValue
                     elementoAcademico.Profesor = usuarioBusiness.obtenerUsuarioPorID(comboProfesores.SelectedValue)
+                    elementoAcademico.Precio = elementoAcademico.Duracion * elementoAcademico.PrecioPorHora
 
                     If elementoAcademicoBusiness.ActualizarConProfesor(elementoAcademico) Then
                         MensajeOk(lblMensajes)
@@ -148,8 +154,11 @@ Public Class AbmElementoAcademico
                 elementoAcademico.FechaInicio = FechaInicio
                 elementoAcademico.Estado = "SIN_CONTENIDO" 'enum?
                 elementoAcademico.Profesor = usuarioBusiness.obtenerUsuarioPorID(comboProfesores.SelectedValue)
+                elementoAcademico.Cupo = 20
+                elementoAcademico.Clases = 10
+                elementoAcademico.Comentario = "Comentario del director"
 
-                If elementoAcademicoBusiness.CrearConProfesor(elementoAcademico) Then
+                If elementoAcademicoBusiness.Crear(elementoAcademico) Then
                     MensajeOk(lblMensajes)
 
                     Limpiar()
@@ -173,6 +182,7 @@ Public Class AbmElementoAcademico
         Me.txtNombre.Text = elementoAcademico.Nombre
         Me.areaContenido.InnerText = elementoAcademico.Contenido
         Me.comboEstados.SelectedValue = elementoAcademico.Estado
+        Me.comboProfesores.Enabled = True
         If elementoAcademico.Profesor Is Nothing Then
             Me.comboProfesores.SelectedValue = 0
         Else

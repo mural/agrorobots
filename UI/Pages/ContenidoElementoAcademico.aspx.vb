@@ -80,7 +80,7 @@ Public Class ContenidoElementoAcademico
 
     Protected Sub GridView1_SelectedIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewSelectEventArgs) Handles GridView1_.SelectedIndexChanging
         Dim pageFactor = GridView1_.PageIndex * GridView1_.PageSize
-        Session("elementoSeleccionado") = elementoAcademicoBusiness.Listar.ElementAt(pageFactor + e.NewSelectedIndex)
+        Session("elementoSeleccionado") = elementoAcademicoBusiness.ListarPorEstadoAsignadosProfesor(usuario.ID).ElementAt(pageFactor + e.NewSelectedIndex)
         elementoAcademico = Session("elementoSeleccionado")
 
         Me.txtNombre.Text = elementoAcademico.Nombre
