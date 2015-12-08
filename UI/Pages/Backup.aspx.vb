@@ -62,10 +62,10 @@ Public Class Backup
         Try
             Response.ContentType = "application/octet-stream"
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + filename)
-            Response.TransmitFile(Server.MapPath(virtualPath))
+            Response.TransmitFile(virtualPath)
             Response.End()
-        Catch
-
+        Catch ex As Exception
+            ex.ToString()
         End Try
     End Sub
 End Class

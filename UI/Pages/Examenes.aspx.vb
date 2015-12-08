@@ -1,5 +1,6 @@
 ﻿Imports EE
 Imports Business
+Imports System.IO
 
 
 Public Class Examenes
@@ -12,7 +13,11 @@ Public Class Examenes
     Dim examenBaseBusiness As New Business.ExamenBase_Business
     Dim examenBusiness As New Business.Examen_Business
 
+    Dim virtualPath As String
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        virtualPath = PaginasConocidas.DIR_ESCRITURA_APP & "audioExamen.wma"
+
         idElementoAcademico = Request.QueryString("id")
         Dim idElementoAcademicoInt As Integer
         If Not String.IsNullOrEmpty(idElementoAcademico) And Integer.TryParse(idElementoAcademico, idElementoAcademicoInt) And Not elementoAcademicoBusiness.Obtener(idElementoAcademicoInt) Is Nothing Then
@@ -66,5 +71,28 @@ Public Class Examenes
         Response.Redirect(PaginasConocidas.RESULTADO_EXAMEN + "?id=" + link.CommandArgument)
     End Sub
 
+    Protected Sub ExamenAudio(ByVal sender As Object, ByVal e As EventArgs)
+        Try
+            Dim link As ImageButton = DirectCast(sender, ImageButton)
+            Dim examen = examenBusiness.Obtener(link.CommandArgument)
+
+            If Not examen.Audio Is Nothing Then
+                Dim documentBinary As Byte() = DirectCast(examen.Audio, Byte())
+                Dim fStream As New FileStream(virtualPath, FileMode.Create)
+                fStream.Write(documentBinary, 0, documentBinary.Length)
+                fStream.Close()
+                fStream.Dispose()
+
+                Response.ContentType = "application/octet-stream"
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + "audioExamen.wma")
+                Response.TransmitFile(virtualPath)
+                Response.End()
+            Else
+                Interaction.MsgBox("No audio", MsgBoxStyle.Information)
+            End If
+        Catch ex As Exception
+            ex.ToString()
+        End Try
+    End Sub
 
 End Class

@@ -23,6 +23,7 @@ Public Class EdicionMaterial
         materialDeEstudio = Session("materialDeEstudio")
         If Not (Page.IsPostBack) Then
             CargarTipos()
+            comboTipos_SelectedIndexChanged(sender, e)
         End If
     End Sub
 

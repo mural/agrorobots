@@ -85,6 +85,14 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:ImageButton ID="lnkExamenAudio" runat="server"
+                            OnClick="ExamenAudio" CommandArgument='<%# Eval("ID")%>'
+                            CssClass="tablaDatosAction" ImageUrl="/Imagenes/audio.png"></asp:ImageButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <%--                <asp:TemplateField HeaderText="examen_147">
                     <ItemTemplate>
                         <asp:ImageButton ID="lnkExamenRendido" runat="server"

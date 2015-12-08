@@ -15,7 +15,8 @@ Public Class ExamenCorreccion
 
     Dim nota As New DropDownList
     Dim comentario As New TextBox
-
+    Dim audio As New FileUpload
+    Dim audioValidator As New RegularExpressionValidator
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         idExamen = Request.QueryString("id")
@@ -73,6 +74,25 @@ Public Class ExamenCorreccion
         comentario.MaxLength = 100
         examenCierre.Controls.Add(comentario)
 
+        Dim audioCierre = New LiteralControl()
+        audioCierre.Text += "<br/>WMA "
+        examenCierre.Controls.Add(audioCierre)
+        audio.ID = "audioExamen"
+        examenCierre.Controls.Add(audio)
+
+        audioValidator.ID = "validarAudio"
+        audioValidator.ErrorMessage = "*"
+        audioValidator.ControlToValidate = "audioExamen"
+        audioValidator.ValidationExpression = "(.*).(.wma|.WMA)$"
+        audioValidator.EnableClientScript = False
+        audioValidator.Display = ValidatorDisplay.Dynamic
+        audioValidator.CssClass = "formError"
+        examenCierre.Controls.Add(audioValidator)
+
+        Dim espacio1 = New LiteralControl()
+        espacio1.Text += "<br/><br/>"
+        examenCierre.Controls.Add(espacio1)
+
         Dim submit As New Button()
         submit.Text = idiomas.GetTranslationById(135) 'enviar
         submit.CssClass = "w3-btn w3-khaki"
@@ -88,19 +108,38 @@ Public Class ExamenCorreccion
     End Sub
 
     Private Sub Finalizar(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Try
-            examen.Nota = CInt(nota.SelectedValue)
-            examen.Comentario = comentario.Text
-            If examenBusiness.Actualizar(examen) Then
-                MensajeOk(lblMensajes)
-            Else
-                MensajeError(lblMensajes)
-            End If
-        Catch ex As Exception
-            MensajeError(lblMensajes)
-        End Try
+        If Page.IsValid Then
 
-        Response.Redirect(PaginasConocidas.MIS_CLASES)
+            Try
+                examen.Nota = CInt(nota.SelectedValue)
+                examen.Comentario = comentario.Text
+
+                Try
+                    Dim archivo As FileUpload = CType(audio, FileUpload)
+                    Dim archivoByte As Byte() = Nothing
+                    If archivo.HasFile AndAlso Not archivo.PostedFile Is Nothing Then
+                        Dim File As HttpPostedFile = audio.PostedFile
+                        archivoByte = New Byte(File.ContentLength - 1) {}
+                        'force the control to load data in array
+                        File.InputStream.Read(archivoByte, 0, File.ContentLength)
+                    End If
+                    examen.Audio = archivoByte
+                Catch ex As Exception
+
+                End Try
+
+                If examenBusiness.Actualizar(examen) Then
+                    MensajeOk(lblMensajes)
+                Else
+                    MensajeError(lblMensajes)
+                End If
+            Catch ex As Exception
+                MensajeError(lblMensajes)
+            End Try
+
+            Response.Redirect(PaginasConocidas.MIS_CLASES)
+
+        End If
     End Sub
 
 End Class

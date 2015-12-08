@@ -48,6 +48,8 @@ Public Class Examen_Mapper
         obj.Nota = CDec(Item("Nota"))
         obj.Comentario = DbStringOrNull(Item("Comentario"))
         obj.Finalizado = DbBooleanOrNull(Item("Finalizado"))
+        obj.Audio = DbByteOrNull(Item("Audio"))
+
     End Sub
 
     Public Overloads Overrides Function Listar() As List(Of Examen)
@@ -62,6 +64,7 @@ Public Class Examen_Mapper
         hdatos.Add("@Nota", obj.Nota)
         hdatos.Add("@Comentario", obj.Comentario)
         hdatos.Add("@Finalizado", obj.Finalizado)
+        hdatos.Add("@Audio", obj.Audio)
     End Sub
 
     Public Overloads Overrides Function Obtener(id As Integer) As Examen

@@ -6,6 +6,7 @@
     Public Property Nota As Decimal '(decimal(2,0), null)
     Public Property Comentario As String
     Public Property Finalizado As Boolean
+    Public Property Audio As Byte()
 
     Public Property Respuestas As List(Of ExamenRespuesta)
 

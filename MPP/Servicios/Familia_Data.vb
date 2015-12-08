@@ -92,7 +92,7 @@ Public Class Familia_Data
         Dim params As New Parameters
         params.SetIntParameter("@ID", obj.ID)
         params.SetStringParameter("@name", obj.Name)
-        params.SetStringParameter("@desc", obj.Name)
+        params.SetStringParameter("@desc", obj.Descripcion)
         Dim cmd As SqlCommand = Data.GetCommand("UpdateFamilia", con, params, trx)
 
         Dim params2 As New Parameters
